@@ -5,7 +5,7 @@
     <div v-show="num == 10" class="link">
       <ul>
         <li>
-          <a href="../src/files/vue.global.js" download>VueJS 3.2.41 Dev</a>
+          <a href="../src/files/vue.global.zip" download>VueJS 3.2.41 Dev</a>
         </li>
       </ul>
     </div>
