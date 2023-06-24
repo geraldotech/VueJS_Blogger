@@ -26,6 +26,7 @@ This project uses:
 <summary>25.06.2023</summary>
 
 - New blogger_card
+
 </details>
 
 <details>
