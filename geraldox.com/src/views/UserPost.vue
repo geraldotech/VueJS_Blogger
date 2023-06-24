@@ -112,15 +112,18 @@ div.blogger_card {
   margin: 4px 0;
   padding: 2px 5px;
   border-radius: 5px 5px;
+  font-weight: bold;
 }
 .blogger_card .categories {
   /*  color: rgb(212, 86, 251); */
   /*  text-transform: uppercase; */
   text-decoration: none;
-  font-weight: bold;
   font-size: 0.9rem;
   text-align: left;
   text-transform: capitalize; /* first-letter maiusculo */
+}
+.blogger_card a {
+  text-decoration: none;
 }
 
 div img {
