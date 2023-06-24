@@ -10,17 +10,24 @@
         Revanced Manager
       </option>
       <option value="https://revancedextended.com/">Revancedextended</option>
+      <option value="https://f-droid.org/en/packages/com.termux/">
+        Termux
+      </option>
+      <option value="gdrive">Google Drive [Archive]</option>
     </select>
     <p>
       <a :href="root" target="blank">{{ root }}</a>
     </p>
-    <input type="checkbox" id="gdrive" v-model="gdrive" />
-    <label for="gdrive">Google Drive Archive</label>
-    <input type="checkbox" id="gplay" v-model="gplay" />
-    <label for="gplay">Google Play</label>
+
+    <form>
+      <input type="checkbox" id="gdrive" v-model="gdrive" />
+      <label for="gdrive">Google Drive Archive</label>
+      <input type="checkbox" id="gplay" v-model="gplay" />
+      <label for="gplay">Google Play</label>
+    </form>
     <div class="content">
       <iframe
-        v-show="gdrive"
+        v-show="root == `gdrive`"
         src="https://drive.google.com/embeddedfolderview?id=1x2aVUcPVMkRW5GFLn9tlO3tHovjLX7wv#list"
         width="100%"
         height="500"
@@ -66,5 +73,8 @@ label,
 input,
 select {
   cursor: pointer;
+}
+form {
+  margin-top: 20px;
 }
 </style>
