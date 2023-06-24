@@ -23,6 +23,12 @@ This project uses:
 ### Changes and Features
 
 <details>
+<summary>25.06.2023</summary>
+
+- New blogger_card
+</details>
+
+<details>
 <summary>01.06.2023 a 02.06.2023</summary>
 
 - rotas.js improved o title das rotas

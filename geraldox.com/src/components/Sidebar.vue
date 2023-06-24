@@ -8,8 +8,8 @@
         deleniti?
       </p>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Page</a></li>
+        <li><a href="http://geraldox.com">Home</a></li>
+        <li><a href="http://geraldox.com/#/projects">Projects</a></li>
       </ul>
       <div>
         <img
@@ -33,7 +33,7 @@ module.exports = {
 <style scoped>
 .sidebar {
   text-align: justify;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 .sidebar .content {
   padding: 2px;
@@ -54,10 +54,10 @@ module.exports = {
   width: 100%;
   border-radius: 10px 10px;
 }
+
 ul li {
   padding: 0;
-  margin: 0;
-
+  margin-left: 10%;
   line-height: 1.5rem;
   text-align: left;
 }

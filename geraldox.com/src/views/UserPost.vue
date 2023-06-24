@@ -4,15 +4,20 @@
       <div><Busca v2 /></div>
       <article v-if="blog">
         <h1>{{ blog.title }}</h1>
-        <p class="author">
-          By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
-          <router-link
-            class="categories"
-            :to="`/categories/${blog.category}`"
-            >{{ blog.category }}</router-link
-          >
-          | <button data="print" onclick="print()">Print</button>
-        </p>
+        <div class="blogger_card">
+          <p>
+            Home > <a href="#/blog">Blog</a> >
+            <router-link
+              class="categories"
+              :to="`/categories/${blog.category}`"
+              >{{ blog.category }}</router-link
+            >
+          </p>
+          <p>
+            By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
+            <button data="print" onclick="print()">Print</button>
+          </p>
+        </div>
 
         <hr />
         <!-- render html from json -->
@@ -88,33 +93,36 @@ module.exports = {
 }
 article h1 {
   text-align: left;
-  font-size: 2em;
+  font-size: 1.5rem;
   font-weight: bolder;
   color: rgb(147, 200, 245);
 }
 article p {
   text-align: justify;
   line-height: 1.5rem;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .blogger {
   margin: 5px 0;
 }
 
-p.author {
+div.blogger_card {
   font-size: 14px;
   background: black;
-  margin: 10px 0;
-  padding: 10px 5px;
+  margin: 4px 0;
+  padding: 2px 5px;
   border-radius: 5px 5px;
 }
-.author .categories {
-  color: rgb(212, 86, 251);
-  text-transform: uppercase;
+.blogger_card .categories {
+  /*  color: rgb(212, 86, 251); */
+  /*  text-transform: uppercase; */
   text-decoration: none;
   font-weight: bold;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+  text-align: left;
+  text-transform: capitalize; /* first-letter maiusculo */
 }
+
 div img {
   display: block;
   margin: 0 auto;
@@ -150,7 +158,7 @@ button[data*="print"] {
 }
 
 /* for desktop */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 992px) {
   .blogger {
     display: flex;
     padding: 25px;
@@ -161,6 +169,9 @@ button[data*="print"] {
   .img-flex {
     width: 100%;
     margin: 0 auto;
+  }
+  article h1 {
+    font-size: 2rem !important;
   }
 }
 </style>
