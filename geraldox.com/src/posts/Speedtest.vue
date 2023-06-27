@@ -9,7 +9,13 @@
       <li>
         <a
           href="http://download.adobe.com/pub/adobe/photoshop/win/cs2/Photoshop_CS2_tryout.zip"
-          >PhotoshopCS2</a
+          >PhotoshopCS2 - 329MB</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://gmapdev.s3.amazonaws.com/assets/youtube-revanced-v18.15.40-all.apk"
+          >gmapdev.amazonaws.youtube-revanced - 97MB</a
         >
       </li>
     </ul>
@@ -20,5 +26,8 @@
 module.exports = {};
 </script>
 
-<style>
+<style scoped>
+ul li {
+  margin: 15px 0;
+}
 </style>
