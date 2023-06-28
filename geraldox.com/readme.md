@@ -22,6 +22,8 @@ This project uses:
 
 ### Changes and Features
 
+28/06 - Add table media queries
+
 <details>
 <summary>25.06.2023</summary>
 

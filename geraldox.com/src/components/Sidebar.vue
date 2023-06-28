@@ -81,4 +81,13 @@ ul {
     text-align: center;
   }
 }
+/* table */
+@media (max-width: 990px) {
+  .sidebar div img {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    margin: auto;
+  }
+}
 </style>
