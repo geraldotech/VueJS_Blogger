@@ -6,7 +6,7 @@
 Vue.component("Logitech", {
   template: `<p>Hello LogiTech Options here</p>`,
 });
-Vue.component("acer", {
+Vue.component("Acer", {
   template: `<p>Hello Acer Options here</p>`,
 });
 

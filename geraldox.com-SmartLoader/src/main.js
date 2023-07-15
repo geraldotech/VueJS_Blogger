@@ -1,7 +1,6 @@
 import router from "../src/rotas.js";
 import SmartLoader from "./smartLoader.js";
-SmartLoader("./src/components/BlogPostsVue.js");
-//SmartLoader("https://unpkg.com/vue-router@3.0.2/dist/vue-router.js");
+SmartLoader("./src/components/ContainerVue.js");
 
 Vue.prototype.$appName = "geraldoX";
 

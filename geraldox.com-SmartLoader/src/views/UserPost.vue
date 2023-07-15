@@ -22,8 +22,11 @@
         <hr />
         <!-- render html from json -->
         <p v-html="blog.article"></p>
+
         <!--   render components -->
         <component :is="blog.component"></component>
+
+        <!-- render containerComponents -->
         <Container></Container>
       </article>
       <div v-else>
@@ -40,7 +43,7 @@
   </div>
 </template>
 <script>
-/* String components templates*/
+/*start String components templates*/
 const word = "<p>Hello from String template</p>";
 Vue.component("cardy", {
   template: word,
@@ -86,7 +89,6 @@ module.exports = {
       );
       // console.log(`getBlogPost`, getBlogPost);
       this.blog = getBlogPost;
-      console.log(getBlogPost);
     },
   },
 };

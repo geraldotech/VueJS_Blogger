@@ -32,9 +32,9 @@
             >
               {{ artigos.title }}</router-link
             >
-            |
+
             <!-- categories router page -->
-            <span class="cat">
+            <div class="cat">
               Category:
               <router-link
                 class="cats"
@@ -45,7 +45,7 @@
                     : "UNCATEGORIZED"
                 }}</router-link
               >
-            </span>
+            </div>
             <time>{{ artigos.data }}</time>
             <!--    <p v-html="artigos.article ? artigos.article.substr(0, 35) : ''"></p> -->
             <div></div>

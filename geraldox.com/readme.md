@@ -22,6 +22,11 @@ This project uses:
 
 ### Changes and Features
 
+15.07.20237
+
+- Change Blog.vue `span` to `div`
+- Sidebar image fixed size
+
 28.06 - Add table media queries
 
 <details>
