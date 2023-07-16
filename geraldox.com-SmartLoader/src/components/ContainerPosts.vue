@@ -2,16 +2,8 @@
   <div></div>
 </template>
 
-
 <script>
 /* String templates */
-<<<<<<< HEAD
-Vue.component("Logitech", {
-  template: `<p>Hello LogiTech Options here ContainerPosts.vue</p>`,
-});
-Vue.component("acer", {
-  template: `<p>Hello Acer Options here  ContainerPosts.vue</p>`,
-=======
 Vue.component("Calc-tempo-download", {
   template: `
 <div>
@@ -77,7 +69,6 @@ Vue.component("Acer", {
     <p>Escolheu:  {{opt}}</p>
     </div>
   `,
->>>>>>> 8f9465c90aa86f4f57913387b8525bb7db155b15
 });
 
 const sam = `
@@ -94,5 +85,4 @@ module.exports = {
   name: "Container",
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>
