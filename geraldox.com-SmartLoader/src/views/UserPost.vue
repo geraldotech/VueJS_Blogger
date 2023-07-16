@@ -70,8 +70,8 @@ module.exports = {
     };
   },
   components: {
-    Sidebar: httpVueLoader("/src/components/Sidebar.vue"),
-    Busca: httpVueLoader("/src/components/Search.vue"),
+    Sidebar: httpVueLoader("../components/Sidebar.vue"),
+    Busca: httpVueLoader("../components/Search.vue"),
     Android: httpVueLoader("../posts/android-roo.vue"),
     Vuejs: httpVueLoader("../posts/Vuejs.vue"),
     Speedtest: httpVueLoader("../../posts/Speedtest.vue"),
@@ -80,7 +80,7 @@ module.exports = {
   },
   methods: {
     async posts() {
-      const req = await fetch("/src/db/data.json");
+      const req = await fetch("../src/db/data.json");
       const data = await req.json();
       //console.warn(data);
       this.blogPosts = data.blog.posts;
