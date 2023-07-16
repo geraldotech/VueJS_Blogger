@@ -140,6 +140,13 @@ div img {
   margin: 0 auto;
   max-width: 100%;
 }
+
+figure img {
+  width: 100%;
+  display: block;
+  max-width: 50%;
+  max-height: 400px;
+}
 figure:has(figcaption) {
   text-align: center;
   color: white;
@@ -184,6 +191,9 @@ button[data*="print"] {
   }
   article h1 {
     font-size: 2rem !important;
+  }
+  figure img {
+    max-width: 100%;
   }
 }
 </style>

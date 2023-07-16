@@ -9,7 +9,10 @@ Vue.component("Calc-tempo-download", {
   template: `
 <div>
 <p>Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:</p>
-
+<figure>
+<img src="http://via.placeholder.com/500x200" />
+<img src="./src/assets/img/kevin-canlas-cFFEeHNZEqw-unsplash.jpg" />
+</figure>
 <ul>
   <li>300 /8 = 37,8Kbps</li>
   <li>600 /8 = 75 Kbps</li>
