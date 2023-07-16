@@ -55,7 +55,7 @@ const routes = [
 
 const router = new VueRouter({
   //mode: "history",
-
+  //base: window.location.pathname,
   routes,
 });
 
