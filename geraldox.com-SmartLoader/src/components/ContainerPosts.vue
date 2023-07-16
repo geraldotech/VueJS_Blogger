@@ -4,10 +4,10 @@
 <script>
 /* String templates */
 Vue.component("Logitech", {
-  template: `<p>Hello LogiTech Options here</p>`,
+  template: `<p>Hello LogiTech Options here ContainerPosts.vue</p>`,
 });
 Vue.component("acer", {
-  template: `<p>Hello Acer Options here</p>`,
+  template: `<p>Hello Acer Options here  ContainerPosts.vue</p>`,
 });
 
 const sam = `
