@@ -109,13 +109,13 @@
       },
       {
         "id": 11,
-        "title": "Container Vue Components",
-        "slug": "container-components",
+        "title": "Calcular tempo de download",
+        "slug": "calcular-tempo-download",
         "author": "geraldox",
         "published": true,
         "data": "Jul, 15, 2023",
-        "article": "Container from Vue.json",
-        "component": "Acer",
+        "article": "",
+        "component": "Calc-tempo-download",
         "category": "network"
       }
     ]
