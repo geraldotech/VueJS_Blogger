@@ -23,7 +23,7 @@
         afim de dominar perfeitamente às habilidades necessárias para ser um
         profissional competente. Meu objetivo é ingressar na área de
         desenvolvimento a nível JR, para que eu possa aplicar meus hards skills
-        assim adquiraindo experiências. Me considero um profissional
+        assim adquirindo experiências. Me considero um profissional
         <strong>"career builder"</strong>, sempre orientado a resultados. Minha
         maior motivação é de construir aplicações do zero, transformando ideias
         em código. Com mais de 10 anos de experiência em Linux Ubuntu Server,
@@ -149,6 +149,7 @@ module.exports = {
 article p {
   text-align: justify;
   margin: 0 10px;
+  line-height: 1.5rem;
 }
 article p:first-letter {
   color: green;

@@ -22,8 +22,11 @@
         <hr />
         <!-- render html from json -->
         <p v-html="blog.article"></p>
+
         <!--   render components -->
         <component :is="blog.component"></component>
+
+        <!-- render containerComponents -->
         <Container></Container>
       </article>
       <div v-else>
@@ -40,7 +43,7 @@
   </div>
 </template>
 <script>
-/* String components templates*/
+/*start String components templates*/
 const word = "<p>Hello from String template</p>";
 Vue.component("cardy", {
   template: word,
@@ -86,7 +89,6 @@ module.exports = {
       );
       // console.log(`getBlogPost`, getBlogPost);
       this.blog = getBlogPost;
-      console.log(getBlogPost);
     },
   },
 };
@@ -138,6 +140,13 @@ div img {
   margin: 0 auto;
   max-width: 100%;
 }
+
+figure img {
+  width: 100%;
+  display: block;
+  max-width: 50%;
+  max-height: 400px;
+}
 figure:has(figcaption) {
   text-align: center;
   color: white;
@@ -182,6 +191,9 @@ button[data*="print"] {
   }
   article h1 {
     font-size: 2rem !important;
+  }
+  figure img {
+    max-width: 100%;
   }
 }
 </style>

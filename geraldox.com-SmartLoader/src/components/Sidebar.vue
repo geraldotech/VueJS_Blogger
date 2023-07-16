@@ -11,12 +11,13 @@
         <li><a href="http://geraldox.com">Home</a></li>
         <li><a href="http://geraldox.com/#/projects">Projects</a></li>
       </ul>
-      <div>
+
+      <figure>
         <img
-          src="https://images.unsplash.com/photo-1536412597336-ade7b523ecfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-          alt=""
+          src="https://1.bp.blogspot.com/-qyLZHjnUXzE/UBF2SVg6vNI/AAAAAAAABZ4/l4bm9FvHts0/s1600/395840.jpg"
+          alt="fix logo"
         />
-      </div>
+      </figure>
     </section>
   </div>
 </template>
@@ -50,9 +51,12 @@ module.exports = {
   padding-bottom: 3.5px;
 }
 
-.sidebar div img {
-  width: 100%;
+.sidebar figure img {
+  /* width: 100%;
+  max-width: 50%; */
   border-radius: 10px 10px;
+  margin: 15px auto;
+  padding: 5px;
 }
 
 ul li {
@@ -73,12 +77,19 @@ ul {
     padding: 0 20px;
   }
   .sidebar div img {
-    display: block;
-    max-width: 60%;
     margin: auto;
   }
   .sidebar ul {
     text-align: center;
+  }
+  figure img,
+  div img {
+    width: 50%;
+  }
+  figure:has(img) {
+    text-align: center;
+
+    margin: auto;
   }
 }
 /* table */
@@ -87,6 +98,10 @@ ul {
     display: block;
     max-width: 300px;
     width: 100%;
+    margin: auto;
+  }
+  .sidebar figure:has(img) {
+    text-align: center;
     margin: auto;
   }
 }

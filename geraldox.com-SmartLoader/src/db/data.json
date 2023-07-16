@@ -102,20 +102,20 @@
         "slug": "smartloader-js-components",
         "author": "geraldox",
         "published": true,
-        "data": "May, 30, 2023",
+        "data": "Jul, 15, 2023",
         "article": "SmartLoader JS Components...",
-        "component": "myrtx",
+        "component": "mydell",
         "category": "network"
       },
       {
         "id": 11,
-        "title": "Container Vue Components",
-        "slug": "container-components",
+        "title": "Calcular tempo de download",
+        "slug": "calcular-tempo-download",
         "author": "geraldox",
         "published": true,
-        "data": "May, 30, 2023",
-        "article": "Container from Vue.json",
-        "component": "acer",
+        "data": "Jul, 15, 2023",
+        "article": "",
+        "component": "Calc-tempo-download",
         "category": "network"
       }
     ]
