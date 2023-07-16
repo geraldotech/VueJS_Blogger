@@ -5,24 +5,24 @@
         <router-link to="/">Home</router-link>
       </li>
       <li>
-        <router-link :to="{name: `projects`}">Projects</router-link>
-        </li>  
+        <router-link :to="{ name: `projects` }">Projects</router-link>
+      </li>
       <li>
-        <router-link :to="{name: 'Blog Posts'}">Blog</router-link>
-      </li>    
+        <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
+      </li>
       <li>
-        <router-link :to="{name: `about`}">About</router-link>
-        </li>  
+        <router-link :to="{ name: `about` }">About</router-link>
+      </li>
     </nav>
-     <!-- <hr /> -->
+    <!-- <hr /> -->
     <!-- <div>  <Busca/></div> -->
-   <section>
+    <section>
       <router-view></router-view>
-    <!--  router named -->
-   <router-view name="yt" class="named-views"></router-view>
-   </section>
-  
-    <Foot>
+      <!--  router named -->
+      <router-view name="yt" class="named-views"></router-view>
+    </section>
+
+    <Foot />
   </div>
 </template>
 
@@ -91,17 +91,48 @@ section {
   min-height: 80vh;
   margin-top: 20px;
 }
-
 /* routes CSS */
 .router-link-active {
   color: green;
 }
 
+/* for post images */
+figure:has(figcaption) {
+  text-align: center;
+  color: white;
+}
+figure:has(img) {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+figure img {
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* for Container components use this class */
+.img-flex {
+  max-width: 50%;
+  margin: 0 auto;
+  height: auto;
+}
+
 /* for desktop */
 @media screen and (min-width: 650px) {
-  /* only desktop is upperCase menu */
   nav a {
-    text-transform: uppercase;
+    text-transform: uppercase; /* only desktop is upperCase menu */
+  }
+  figure img {
+    max-width: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
+    /*   overflow-clip-margin: content-box; */
+    margin: 0 auto;
+  }
+  figure:has(img) {
+    text-align: center;
   }
 }
 </style>

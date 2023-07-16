@@ -52,8 +52,8 @@ module.exports = {
 }
 
 .sidebar figure img {
-  /* width: 100%;
-  max-width: 50%; */
+  width: 100%;
+  max-width: 100%;
   border-radius: 10px 10px;
   margin: 15px auto;
   padding: 5px;
@@ -82,13 +82,8 @@ ul {
   .sidebar ul {
     text-align: center;
   }
-  figure img,
-  div img {
-    width: 50%;
-  }
   figure:has(img) {
     text-align: center;
-
     margin: auto;
   }
 }

@@ -1,6 +1,12 @@
 ### 🙌Duas opções para evitar a poluição do **data.json, String components** no **UserPost.vue** e demasiada criação de components para conteúdos simples no VueJS Blog CDN.
 
-### Usando '[SmartLoader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader)' in VueJS CDN Project
+### Usando '[SmartJS_Loader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader)' vai permitir a importação de arquivos JavaScript.
+
+- Alternative for this error:
+  ```js
+  [Vue warn]: Failed to resolve async component: function() {
+  Cannot use import statement outside a module
+  ```
 
 1. No `main.js` import and call:
 

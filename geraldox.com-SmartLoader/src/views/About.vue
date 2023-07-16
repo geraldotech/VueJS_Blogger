@@ -71,6 +71,7 @@
 
 <script>
 module.exports = {
+  created() {},
   mounted() {
     this.montado();
   },

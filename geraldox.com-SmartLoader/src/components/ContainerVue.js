@@ -11,7 +11,7 @@ Vue.component("mydell", {
   <div>
   <p>Hello from Imported String template.js 'mydell'
   <figure>
-    <img src="https://pbs.twimg.com/profile_images/1374017695394492418/TmjT0iyJ_400x400.jpg" style="max-width:20%;" alt="dell logo" />
+    <img class="img-flex" src="https://pbs.twimg.com/profile_images/1374017695394492418/TmjT0iyJ_400x400.jpg" style="width:100%;" alt="dell logo" />
   </figure>
   </p>
   </div>

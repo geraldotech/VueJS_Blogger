@@ -25,7 +25,7 @@
 module.exports = {
   created() {
     this.posts();
-    console.log(this.$route);
+    //console.log(this.$route);
   },
   data() {
     return {
@@ -34,7 +34,7 @@ module.exports = {
   },
   methods: {
     async posts() {
-      const req = await fetch("./src/db/data.json");
+      const req = await fetch("/src/db/data.json");
       const res = await req.json();
       //filter post published
       this.blogPosts = res.blog.posts;

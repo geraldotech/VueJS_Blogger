@@ -22,7 +22,13 @@ This project uses:
 
 ### Changes and Features
 
-28.06 - Add table media queries
+- 15/16 07/2023 - Introducing `SmartComponents` .js and .vue
+
+  - Use `class='img-flex'` for big img special in Container Components
+  - CSS Fixed bugs
+
+- 28.06
+  - Add table media queries
 
 <details>
 <summary>25.06.2023</summary>

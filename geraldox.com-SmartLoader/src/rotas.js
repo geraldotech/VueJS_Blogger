@@ -23,12 +23,14 @@ const routes = [
       {
         path: "mapa",
         name: "Categories Map",
-        component: httpVueLoader("./src/views/mapa.vue"),
+        //component: httpVueLoader("/src/views/mapa.vue"),
+        component: httpVueLoader("/src/views/mapa.vue"),
       },
     ],
   },
   {
     path: "/blog/:category/:slug",
+    //path: "/blog/:slug",
     name: "threads",
     component: httpVueLoader("./src/views/UserPost.vue"),
   },
@@ -43,7 +45,7 @@ const routes = [
   },
   {
     path: "/about",
-    component: httpVueLoader("./src/views/About.vue"),
+    component: httpVueLoader("/src/views/About.vue"),
     name: "about",
     children: [
       { path: "direct", name: "r1", component: directD },
@@ -53,12 +55,14 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes,
+  routes: routes,
+  mode: "history",
+  base: "",
 });
 
 //Pegar primeira letra da String e deixar UpperCase() by geraldoX
 const DEFAULT_TITLE = "geraldoX - ";
-router.afterEach((to, from) => {
+/* router.afterEach((to, from) => {
   Vue.nextTick(() => {
     document.title =
       DEFAULT_TITLE +
@@ -69,6 +73,6 @@ router.afterEach((to, from) => {
       document.title = `${DEFAULT_TITLE} Home Page`;
     }
   });
-});
+}); */
 
 export default router;

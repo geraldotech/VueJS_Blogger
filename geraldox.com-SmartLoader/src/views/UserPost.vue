@@ -61,7 +61,8 @@ module.exports = {
   created() {
     this.posts();
     //console.log(this.$route); //currently
-    //console.log(this.$router); //parametros e funcionalidades
+    // console.log(`this.router`, this.$router); //parametros e funcionalidades
+    console.log(`root`, this.$root);
   },
   data() {
     return {
@@ -69,17 +70,17 @@ module.exports = {
     };
   },
   components: {
-    Sidebar: httpVueLoader("../components/Sidebar.vue"),
-    Busca: httpVueLoader("../components/Search.vue"),
+    Sidebar: httpVueLoader("/src/components/Sidebar.vue"),
+    Busca: httpVueLoader("/src/components/Search.vue"),
     Android: httpVueLoader("../posts/android-roo.vue"),
     Vuejs: httpVueLoader("../posts/Vuejs.vue"),
-    Speedtest: httpVueLoader("../posts/Speedtest.vue"),
+    Speedtest: httpVueLoader("../../posts/Speedtest.vue"),
     NetworkTools: httpVueLoader("../posts/NetworkTools.vue"),
-    Container: httpVueLoader("../components/ContainerPosts.vue"),
+    Container: httpVueLoader("/src/components/ContainerPosts.vue"),
   },
   methods: {
     async posts() {
-      const req = await fetch("./src/db/data.json");
+      const req = await fetch("/src/db/data.json");
       const data = await req.json();
       //console.warn(data);
       this.blogPosts = data.blog.posts;
@@ -93,18 +94,17 @@ module.exports = {
   },
 };
 </script>
-<style scoped>
-* {
+<style>
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+} */
 article h1 {
   text-align: left;
   font-size: 1.5rem;
   font-weight: bolder;
-  color: rgb(147, 200, 245);
 }
 article p {
   text-align: justify;
@@ -112,7 +112,7 @@ article p {
   margin-top: 10px;
 }
 .blogger {
-  margin: 5px 0;
+  margin: 5px 15px; /* margin do body posts */
 }
 
 div.blogger_card {
@@ -135,31 +135,8 @@ div.blogger_card {
   text-decoration: none;
 }
 
-div img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-figure img {
-  width: 100%;
-  display: block;
-  max-width: 50%;
-  max-height: 400px;
-}
-figure:has(figcaption) {
-  text-align: center;
-  color: white;
-}
-div:has(img) {
-  margin: 0 auto;
-  padding: 10px;
-}
 h2 {
   padding: 10px 0;
-}
-h1 {
-  font-size: 1.7rem;
 }
 ul {
   margin-top: 20px;
@@ -173,27 +150,22 @@ button[data*="print"] {
   padding: 0px 15px;
   border: 1px solid dodgerblue;
   cursor: pointer;
+  border-radius: 5px;
   margin-bottom: 5px;
 }
 
 /* for desktop */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 990px) {
   .blogger {
     display: flex;
     padding: 25px;
+    gap: 20px;
   }
   .blogger main {
     flex: 1 0 77%;
   }
-  .img-flex {
-    width: 100%;
-    margin: 0 auto;
-  }
   article h1 {
-    font-size: 2rem !important;
-  }
-  figure img {
-    max-width: 100%;
+    font-size: 2em;
   }
 }
 </style>

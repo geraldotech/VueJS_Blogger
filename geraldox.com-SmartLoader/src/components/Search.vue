@@ -50,7 +50,7 @@ module.exports = {
   },
   methods: {
     async posts() {
-      const req = await fetch("./src/db/data.json");
+      const req = await fetch("/src/db/data.json");
       const res = await req.json();
       //console.log(`Search.vue`, res);
       this.blog = res.blog.posts;
@@ -156,4 +156,3 @@ input[type="text"] {
   }
 }
 </style>
-
