@@ -6,7 +6,8 @@
         <h1>{{ blog.title }}</h1>
         <div class="blogger_card">
           <p>
-            Home > <a href="#/blog">Blog</a> >
+            Home > <a href="#/blog">Blog</a>
+            >
             <router-link
               class="categories"
               :to="`/categories/${blog.category}`"
@@ -70,17 +71,17 @@ module.exports = {
     };
   },
   components: {
-    Sidebar: httpVueLoader("../components/Sidebar.vue"),
-    Busca: httpVueLoader("../components/Search.vue"),
+    Sidebar: httpVueLoader("/src/components/Sidebar.vue"),
+    Busca: httpVueLoader("/src/components/Search.vue"),
     Android: httpVueLoader("../posts/android-roo.vue"),
     Vuejs: httpVueLoader("../posts/Vuejs.vue"),
-    Speedtest: httpVueLoader("../../posts/Speedtest.vue"),
+    Speedtest: httpVueLoader("/posts/Speedtest.vue"),
     NetworkTools: httpVueLoader("../posts/NetworkTools.vue"),
     Container: httpVueLoader("/src/components/ContainerPosts.vue"),
   },
   methods: {
     async posts() {
-      const req = await fetch("../src/db/data.json");
+      const req = await fetch("/src/db/data.json");
       const data = await req.json();
       //console.warn(data);
       this.blogPosts = data.blog.posts;

@@ -9,7 +9,8 @@
       </p>
       <ul>
         <li><a href="http://geraldox.com">Home</a></li>
-        <li><a href="http://geraldox.com/#/projects">Projects</a></li>
+        <li><a href="http://geraldox.com/projects">Projects</a></li>
+        <li><a href="http://geraldox.com/about">About</a></li>
       </ul>
 
       <figure>

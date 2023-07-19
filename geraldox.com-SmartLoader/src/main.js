@@ -1,6 +1,6 @@
-import router from "../src/rotas.js";
+import router from "/src/rotas.js";
 import SmartLoader from "./smartLoader.js";
-SmartLoader("./src/components/ContainerVue.js");
+SmartLoader("/src/components/ContainerVue.js");
 
 Vue.prototype.$appName = "geraldoX";
 
@@ -9,11 +9,11 @@ window.onload = function () {
     data: {
       opt: "",
     },
-    el: "#app",
+    //el: "#app",
     template: `<App></App>`, // Parent component
     components: {
-      App: httpVueLoader("./src/App.vue"),
+      App: httpVueLoader("/src/App.vue"),
     },
     router,
-  });
+  }).$mount("#app");
 };

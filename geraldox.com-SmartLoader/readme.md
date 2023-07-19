@@ -22,7 +22,18 @@ This project uses:
 
 ### Changes and Features
 
-- 15/16 07/2023 - Introducing `SmartComponents` .js and .vue
+- 18.07.2023
+
+  - Documentar HTML 5 History modo on Netlify
+  - Nem sempre que funciona no localhost vai funcionar no Netlify
+
+  ```jss
+  - if main.js is in index.html
+  ./src/assets/img/android.png" = domain.com/blog/src/assets => error
+  /src/assets/img/android.png" = domain/src/assets => success
+  ```
+
+- 15.16/07/2023 - Introducing `SmartComponents` .js and .vue
 
   - Use `class='img-flex'` for big img special in Container Components
   - CSS Fixed bugs

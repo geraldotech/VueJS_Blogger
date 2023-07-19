@@ -4,7 +4,7 @@
       Category: {{ $route.params.category }}
       <div v-if="$route.params.category.includes('ndroid')">
         <div class="cat-banner">
-          <img src="./src/assets/img/android.png" alt="android" />
+          <img src="/src/assets/img/android.png" alt="android" />
         </div>
       </div>
       <router-link to="/blog">voltar para Blog</router-link>
@@ -34,7 +34,7 @@ module.exports = {
   },
   methods: {
     async posts() {
-      const req = await fetch("../src/db/data.json");
+      const req = await fetch("/src/db/data.json");
       const res = await req.json();
       //filter post published
       this.blogPosts = res.blog.posts;

@@ -32,8 +32,8 @@ module.exports = {
     return {};
   },
   components: {
-    Foot: httpVueLoader("./components/Footer.vue"),
-    Busca: httpVueLoader("./components/Search.vue"),
+    Foot: httpVueLoader("/src/components/Footer.vue"),
+    Busca: httpVueLoader("/src/components/Search.vue"),
   },
 };
 </script>
