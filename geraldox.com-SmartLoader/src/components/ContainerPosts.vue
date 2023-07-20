@@ -5,6 +5,7 @@
 <script>
 /* String templates */
 Vue.component("Calc-tempo-download", {
+  name: "calc-tempo",
   template: `
 <div>
 <p>Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:</p>

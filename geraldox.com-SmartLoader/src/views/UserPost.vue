@@ -63,7 +63,7 @@ module.exports = {
     this.posts();
     //console.log(this.$route); //currently
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
-    console.log(`root`, this.$root);
+    console.log(`UserPost: root`, this.$root);
   },
   data() {
     return {
@@ -75,7 +75,7 @@ module.exports = {
     Busca: httpVueLoader("/src/components/Search.vue"),
     Android: httpVueLoader("../posts/android-roo.vue"),
     Vuejs: httpVueLoader("../posts/Vuejs.vue"),
-    Speedtest: httpVueLoader("/posts/Speedtest.vue"),
+    Speedtest: httpVueLoader("../posts/Speedtest.vue"),
     NetworkTools: httpVueLoader("../posts/NetworkTools.vue"),
     Container: httpVueLoader("/src/components/ContainerPosts.vue"),
   },
