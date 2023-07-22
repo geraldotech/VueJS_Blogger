@@ -1,6 +1,11 @@
-### 🙌Duas opções para evitar a poluição do **data.json, String components** no **UserPost.vue** e demasiada criação de components para conteúdos simples no VueJS Blog CDN.
+### Evitando a poluição do **data.json, String components** no **UserPost.vue** e demasiada criação de components para conteúdos simples no VueJS Blog CDN.
 
-### Usando '[SmartJS_Loader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader)' vai permitir a importação de arquivos JavaScript.
+- [SmartJS_Loader]("#SmartJS_Loader")
+- [ContainerPosts.vue]("#ContainerPostsvue")
+
+### [SmartJS_Loader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader)
+
+vai permitir a importação de arquivos JavaScript.
 
 - Alternative for this error:
   ```js
@@ -36,18 +41,18 @@ Vue.component("mydell", {
 
 4. Done! O resto continuna igual, declarar o nome do component no `db.json`
 
-### ContainerPosts.vue de Components
+### ContainerPosts.vue
 
 > Um Component que armazena vários components filhos para pequenos artigos
 
-1. Create file like `ContainerPosts.vue` e fazer os components da forma usual.
+1. Create a component `ContainerPosts.vue` e register Childrens Globally
 
 ```javascript
 <template>
   <div></div>
 </template>
 <script>
-/* String templates */
+/* JS Objects = String templates */
 Vue.component("Logitech", {
   template: `<p>Hello LogiTech Options here</p>`,
 });

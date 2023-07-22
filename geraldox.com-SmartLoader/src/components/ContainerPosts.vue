@@ -3,9 +3,9 @@
 </template>
 
 <script>
-/* String templates */
-Vue.component("Calc-tempo-download", {
-  name: "calc-tempo",
+/* String templates*/
+Vue.component("Calctdownload", {
+  name: "CalcDownload",
   template: `
 <div>
 <p>Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:</p>
@@ -44,23 +44,13 @@ Vue.component("Calc-tempo-download", {
 Vue.component("Acer", {
   data() {
     return {
-      test: "Testando Components data()",
       opt: "",
     };
   },
-  methods: {
-    opcoes(e) {
-      console.log(`mudando`, e.target.value);
-    },
-  },
+  methods: {},
   template: `<div>
-  <style>
-  p{
-    color: coral;
-  }
-  </style>
     <p>Hello Acer Options here</p>
-    <p>{{test}}</p>
+  
     <hr>
     <select @change=opcoes($event) v-model="opt">
     <option value="1">One</option>
@@ -77,13 +67,20 @@ const sam = `
         <p class="sam">Samsung template</p>
       </main>
    `;
-
 Vue.component("sammy", {
   template: sam,
 });
 
 module.exports = {
   name: "Container",
+  data() {
+    return {};
+  },
 };
 </script>
-<style scoped></style>
+<style scoped>
+div {
+  background: coral;
+}
+</style>
+

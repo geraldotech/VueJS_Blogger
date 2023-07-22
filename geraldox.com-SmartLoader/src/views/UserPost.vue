@@ -24,10 +24,10 @@
         <!-- render html from json -->
         <p v-html="blog.article"></p>
 
-        <!--   render components -->
+        <!-- render components -->
         <component :is="blog.component"></component>
 
-        <!-- render containerComponents -->
+        <!-- render SmartComponents[ContainerPosts.vue de Components] -->
         <Container></Container>
       </article>
       <div v-else>
@@ -63,7 +63,7 @@ module.exports = {
     this.posts();
     //console.log(this.$route); //currently
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
-    console.log(`UserPost: root`, this.$root);
+    //console.log(`UserPost: root`, this.$root);
   },
   data() {
     return {

@@ -22,12 +22,16 @@ This project uses:
 
 ### Changes and Features
 
+- 19.07.2023
+
+  - HTML 5 + Netlify redirect working nice, only a error on console, but working
+
 - 18.07.2023
 
   - Documentar HTML 5 History modo on Netlify
   - Nem sempre que funciona no localhost vai funcionar no Netlify
 
-  ```jss
+  ```js
   - if main.js is in index.html
   ./src/assets/img/android.png" = domain.com/blog/src/assets => error
   /src/assets/img/android.png" = domain/src/assets => success

@@ -15,6 +15,7 @@
 
       <figure>
         <img
+          class="img-flex"
           src="https://1.bp.blogspot.com/-qyLZHjnUXzE/UBF2SVg6vNI/AAAAAAAABZ4/l4bm9FvHts0/s1600/395840.jpg"
           alt="fix logo"
         />
