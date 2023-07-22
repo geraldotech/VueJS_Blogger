@@ -1,13 +1,27 @@
 <template>
-  <div></div>
+  <div>
+    <div id="profile"></div>
+  </div>
 </template>
 
 <script>
+/* Vue.extend */
+const Perfil = Vue.extend({
+  template: `<p>Hello from extends</p>`,
+  data() {
+    return {};
+  },
+});
+
 /* String templates*/
 Vue.component("Calctdownload", {
   name: "CalcDownload",
+  data() {
+    return {};
+  },
   template: `
-<div>
+<div class="containerPost">
+  <link rel="stylesheet" href="/src/components/ContainerPosts.css">
 <p>Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:</p>
 <figure>
 <img  src="https://tm.ibxk.com.br/2023/07/12/12184831616476.jpg" />
@@ -37,9 +51,12 @@ Vue.component("Calctdownload", {
 <p>5MB (Megabits) = 5000 (KB) /8 = 625Kbps</p>
 <p>10MB (Megabits) = 10000 (KB) /8 = 1250Kbps</p>
 <p>OBS: Apartir de 1MB multiplica-se por 1000 Enlace de 5MB*1000 = 5000Kb</p>
-
+<Novo></Novo>
 </div>
 `,
+  components: {
+    Novo: Perfil,
+  },
 });
 Vue.component("Acer", {
   data() {
@@ -50,7 +67,6 @@ Vue.component("Acer", {
   methods: {},
   template: `<div>
     <p>Hello Acer Options here</p>
-  
     <hr>
     <select @change=opcoes($event) v-model="opt">
     <option value="1">One</option>
@@ -59,6 +75,7 @@ Vue.component("Acer", {
     </select>
     <p>Escolheu:  {{opt}}</p>
     </div>
+
   `,
 });
 
@@ -78,9 +95,8 @@ module.exports = {
   },
 };
 </script>
-<style scoped>
-div {
-  background: coral;
+<style>
+.containerPost {
+  background: rgb(19, 32, 46);
 }
 </style>
-

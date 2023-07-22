@@ -22,6 +22,9 @@ This project uses:
 
 ### Changes and Features
 
+- 22.07.2023
+  - Add temporally wat to styles children in SmartComponents
+  - Add Vue.extends
 - 19.07.2023
 
   - HTML 5 + Netlify redirect working nice, only a error on console, but working...

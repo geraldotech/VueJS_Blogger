@@ -20,6 +20,7 @@
               {{ ind.toUpperCase() }} - {{ itens }}
             </option>
           </select>
+          <p>All Posts:{{ opt.length }}</p>
         </div>
         <h1>Threads</h1>
         <ul>
@@ -74,37 +75,48 @@ module.exports = {
     return {
       opt: [],
       categorias: {},
-      blogPostsProp: [],
       select: "",
+      showN: {},
     };
   },
   methods: {
     async posts() {
       const req = await fetch("./src/db/data.json");
       const res = await req.json();
+
       //filter post published
       const blogPosts = res.blog.posts.filter((posts) => posts.published);
 
-      //reverse render posts mais novos on top
-      this.opt = blogPosts.reverse();
-      //👉 Limitador de posts
+      // map categoris acima dos limitadores de posts splice()
+      const getCatego = blogPosts.map((val) => val.category);
 
-      //start categorias  only
-      const getCatego = this.opt.map((val) => val.category);
+      //console.log([...getCatego].sort());
 
-      //filter remove duplicado e undefined itens
+      //filter[antigo] remove categories duplicado e undefined itens
       const filtra = getCatego.filter(
         (val, ind) => getCatego.indexOf(val) == ind && val != undefined
       );
-      //cat recebe categorias sem duplicados and ordenar sort()
-      //this.categorias = filtra.sort();
+      //console.warn(`filtra`, filtra);
 
-      //contar n de categories values + ordenar com sort()
+      //cat recebe categorias sem duplicados and ordenar sort()
+      //this.categorias = filtra;
+
+      //🔢 contar n de categories values + ordenar com sort()
       const counter = getCatego
         .sort()
         .reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {});
+
       //recebe o contador unique + contador
       this.categorias = counter;
+
+      //🔢 Limitador de posts
+      blogPosts.splice();
+
+      //reverse render posts mais novos on top
+      this.opt = blogPosts.reverse();
+
+      //🔢 ou aqui Limitador de posts
+      this.opt.splice();
     },
     changeRoute(e) {
       this.$router.push("/categories/" + e.target.value);
@@ -156,7 +168,7 @@ h1 {
 }
 
 .map p {
-  padding: 10px;
+  padding: 10px 0;
 }
 .map select {
   margin-top: 10px;

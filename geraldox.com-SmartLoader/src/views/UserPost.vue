@@ -6,7 +6,9 @@
         <h1>{{ blog.title }}</h1>
         <div class="blogger_card">
           <p>
-            Home > <a href="#/blog">Blog</a>
+            Home >
+            <!-- link difiniado manualmente substituido por router-link dynamic <a href="/blog">Blog</a> -->
+            <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
             >
             <router-link
               class="categories"
