@@ -1,7 +1,9 @@
-### Evitando a poluição do **data.json, String components** no **UserPost.vue** e demasiada criação de components para conteúdos simples no VueJS Blog CDN.
+# SmartComponents
+
+Evita a poluição do **data.json, String components** no **UserPost.vue** e demasiada criação de components para conteúdos simples no VueJS Blog CDN.
 
 - [SmartJS_Loader](#SmartJS_Loader)
-- [ContainerPosts.vue]("ContainerPostsvue)
+- [ContainerPosts.vue](#ContainerPostsvue)
 
 ### [SmartJS_Loader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader)
 
@@ -23,15 +25,21 @@ SmartLoader("./src/components/BlogPostsVue.js");
 2. O arquivo `BlogPostsVue.js` deve ser estruturado usando o `Vue.components`, por isso essa importação transparente funciona tão bem.
 
 ```js
-Vue.component("mydell", {
-  template: `<p>Hello from Imported String template.js 'mydell'</p>`,
+/*
+Container Components.js
+*/
+const postone = `<p>Hello from Imported String template.js 'myrtx'</p>`;
+Vue.component("myrtx", {
+  template: postone,
 });
 
-//db
+const test = `script loaded`;
+
+// db/data.json
  "component": "mydell",
 ```
 
-3. BlogPosts testar usando **mounted hook** com uma string chamada `test` que deixei no final do arquivo.
+3. BlogPosts testar usando **mounted() Lifecycle Hooks** com uma string chamada `test` que deixei no final do script.
 
 ```js
    mounted() {
@@ -43,7 +51,7 @@ Vue.component("mydell", {
 
 ### ContainerPosts.vue
 
-> Um Component que armazena vários components filhos para pequenos artigos
+> Um Component que comporta vários components filhos para pequenos artigos
 
 1. Create a component `ContainerPosts.vue` e register Childrens Globally
 

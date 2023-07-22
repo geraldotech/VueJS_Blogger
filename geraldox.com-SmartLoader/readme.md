@@ -24,7 +24,7 @@ This project uses:
 
 - 19.07.2023
 
-  - HTML 5 + Netlify redirect working nice, only a error on console, but working
+  - HTML 5 + Netlify redirect working nice, only a error on console, but working...
 
 - 18.07.2023
 

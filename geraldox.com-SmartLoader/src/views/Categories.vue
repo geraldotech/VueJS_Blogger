@@ -25,7 +25,7 @@
 module.exports = {
   created() {
     this.posts();
-    console.log(this.$route);
+    // console.log(this.$route);
   },
   data() {
     return {
