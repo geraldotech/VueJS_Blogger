@@ -1,7 +1,7 @@
 ### Evitando a poluição do **data.json, String components** no **UserPost.vue** e demasiada criação de components para conteúdos simples no VueJS Blog CDN.
 
-- [SmartJS_Loader]("#SmartJS_Loader")
-- [ContainerPosts.vue]("#ContainerPostsvue")
+- [SmartJS_Loader](#SmartJS_Loader)
+- [ContainerPosts.vue]("ContainerPostsvue)
 
 ### [SmartJS_Loader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader)
 
