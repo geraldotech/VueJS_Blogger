@@ -27,7 +27,7 @@ This project uses:
   - Add Vue.extends
 - 19.07.2023
 
-  - HTML 5 + Netlify redirect working nice, only a error on console, but working...
+  - HTML 5 + Netlify redirect working nice, only a error on console, but working... [history-pushstate-and-single-page-apps](https://docs.netlify.com/routing/redirects/rewrites-proxies/#history-pushstate-and-single-page-apps)
 
 - 18.07.2023
 
