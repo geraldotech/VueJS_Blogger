@@ -55,7 +55,7 @@ module.exports = {
 
 .sidebar figure img {
   width: 100%;
-  max-width: 100%;
+  max-width: 80%;
   border-radius: 10px 10px;
   margin: 15px auto;
   padding: 5px;
@@ -93,7 +93,7 @@ ul {
 @media (max-width: 990px) {
   .sidebar div img {
     display: block;
-    max-width: 300px;
+    max-width: 100px;
     width: 100%;
     margin: auto;
   }

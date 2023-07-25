@@ -7,13 +7,17 @@
           <img src="/src/assets/img/android.png" alt="android" />
         </div>
       </div>
-      <router-link to="/blog">voltar para Blog</router-link>
+      <router-link :to="{ name: 'Blog Posts' }">voltar para Blog</router-link>
     </h1>
     <ul v-for="artigos in opt" :key="artigos.slug">
       <li>
-        <router-link :to="`/blog/${artigos.category}/${artigos.slug}`">{{
+        <router-link
+          :to="{ name: 'threads', params: { slug: artigos.slug } }"
+          >{{ artigos.slug }}</router-link
+        >
+        <!--   <router-link :to="`/blog/${artigos.category}/${artigos.slug}`">{{
           artigos.slug
-        }}</router-link>
+        }}</router-link> -->
         <div></div>
       </li>
     </ul>
