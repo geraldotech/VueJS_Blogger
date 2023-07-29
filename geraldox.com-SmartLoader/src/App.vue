@@ -63,11 +63,12 @@ nav {
   padding: 15px 5px;
   position: sticky;
   top: 0;
-  background: rebeccapurple;
+  background: #131516;
   border-bottom: 2px solid #fff;
 }
 nav li {
   list-style: none;
+  margin: 5px 0;
 }
 
 nav a {
@@ -75,6 +76,11 @@ nav a {
   background: rgb(29, 27, 27);
   padding: 5px 20px;
   border-radius: 5px;
+  color: rgb(219, 216, 211);
+  font-weight: bold;
+}
+nav a:hover {
+  color: rgb(68, 186, 246);
 }
 section {
   max-width: var(--maxw);
@@ -97,13 +103,14 @@ section {
 }
 
 /* for post images */
+
 figure:has(figcaption) {
   text-align: center;
   color: white;
 }
 figure:has(img) {
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 100%;
 }
 figure img {

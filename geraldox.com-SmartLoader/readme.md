@@ -1,26 +1,49 @@
 # Blog JSON
 
-This project uses:
+### This project uses:
 
 - VueJS 2.7.13
 - http-vue-loader
+  - No node.js environment, no build step, thanks [FranckFreiburger](https://github.com/FranckFreiburger/http-vue-loader)
 - vue-router 3.0.2
+- Components
 
-### Writing in JSON using single quotes
+  - `article obj` in data.json is opcional, but you still can use this
 
-- `<div id='speed'>Test</div>`
-- `<div class='abc'>Test</div>`
-- img betweeen div `<div><img src='https://adaway.org/assets/img/adaway.png' alt='adway logo' /></div>`
+    - e.g: writing in JSON using single quotes:
 
-### Make components
+    ```php
 
-- article is opcional, but you still can use this
-- define component in JSON create it and import
-- CSS is Mobile First
+    <div id='speed'>Test</div>
+    <div class='abc'>Test</div>
 
-> Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
+    <figure>
+      <img src='https://adaway.org/assets/img/adaway.png' alt='adway logo' />
+    </figure>
+    ```
+
+  - define component in JSON create and import it using VueJS{components}
+  - `SmartComponents` load a external .js and .vue [read more](https://github.com/geraldotech/VueJS_Blogger/blob/main/SmartComponents.md)
+  - Support String Components direct in `UserPost.vue` not good practice
+
+- Styles:
+
+  - CSS Mobile First
+  - Use `class='img-flex'` for big img special in Container Components
+
+  > Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
+
+  <hr>
 
 ### Changes and Features
+
+- 29.07.2023
+
+  - CSS changes:
+    - blogger_card to breadcrumbs
+    - text-transform uppercase
+    - header background
+    - figure margin
 
 - 22.07.2023
   - Add temporally wat to styles children in SmartComponents
@@ -40,9 +63,10 @@ This project uses:
   /src/assets/img/android.png" = domain/src/assets => success
   ```
 
+````
+
 - 15.16/07/2023 - Introducing `SmartComponents` .js and .vue
 
-  - Use `class='img-flex'` for big img special in Container Components
   - CSS Fixed bugs
 
 - 28.06
@@ -313,3 +337,4 @@ const getBlogPost = this.blogPosts.find(
           post.slug == this.$route.params.slug
       );
 ```
+````

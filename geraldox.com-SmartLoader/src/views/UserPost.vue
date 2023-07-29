@@ -4,10 +4,11 @@
       <div><Busca v2 /></div>
       <article v-if="blog">
         <h1>{{ blog.title }}</h1>
-        <div class="blogger_card">
+        <div class="breadcrumbs">
           <p>
             Home >
-            <!-- link difiniado manualmente substituido por router-link dynamic <a href="/blog">Blog</a> -->
+            <!-- 
+              link definido manualmente substituido por router-link dynamic <a href="/blog">Blog</a> -->
             <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
             >
             <router-link
@@ -18,7 +19,7 @@
           </p>
           <p>
             By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
-            <button data="print" onclick="print()">Print</button>
+            <button data="print" onclick="print()">PRINT</button>
           </p>
         </div>
 
@@ -118,15 +119,16 @@ article p {
   margin: 5px 15px; /* margin do body posts */
 }
 
-div.blogger_card {
+div.breadcrumbs {
   font-size: 14px;
   background: black;
   margin: 4px 0;
   padding: 2px 5px;
   border-radius: 5px 5px;
   font-weight: bold;
+  text-transform: uppercase;
 }
-.blogger_card .categories {
+.breadcrumbs .categories {
   /*  color: rgb(212, 86, 251); */
   /*  text-transform: uppercase; */
   text-decoration: none;
@@ -134,7 +136,7 @@ div.blogger_card {
   text-align: left;
   text-transform: capitalize; /* first-letter maiusculo */
 }
-.blogger_card a {
+.breadcrumbs a {
   text-decoration: none;
 }
 

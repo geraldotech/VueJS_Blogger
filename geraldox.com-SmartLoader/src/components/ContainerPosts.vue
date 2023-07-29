@@ -13,18 +13,24 @@ const Perfil = Vue.extend({
   },
 });
 
-/* String templates*/
+/* /Calctdownload Component*/
 Vue.component("Calctdownload", {
   name: "CalcDownload",
   data() {
-    return {};
+    return {
+      title: `Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:`,
+    };
   },
-  template: `
+  template: `  
 <div class="containerPost">
-  <link rel="stylesheet" href="/src/components/ContainerPosts.css">
-<p>Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:</p>
+ <link rel="stylesheet" href="/src/styles/ContainerPosts.css">
+<article>
+  
+<p>{{title}}</p>
 <figure>
 <img  src="https://tm.ibxk.com.br/2023/07/12/12184831616476.jpg" />
+</figure>
+<figure>
 <img class="img-flex" src="https://img.ibxk.com.br/2023/07/14/kaspersky-14151807453341.jpg" />
 </figure>
 <ul>
@@ -51,13 +57,19 @@ Vue.component("Calctdownload", {
 <p>5MB (Megabits) = 5000 (KB) /8 = 625Kbps</p>
 <p>10MB (Megabits) = 10000 (KB) /8 = 1250Kbps</p>
 <p>OBS: Apartir de 1MB multiplica-se por 1000 Enlace de 5MB*1000 = 5000Kb</p>
+<!-- 
+Vue extends Components 
+-->
 <Novo></Novo>
+</article>
 </div>
 `,
   components: {
     Novo: Perfil,
   },
 });
+
+//Acer Component
 Vue.component("Acer", {
   data() {
     return {
@@ -65,8 +77,11 @@ Vue.component("Acer", {
     };
   },
   methods: {},
-  template: `<div>
-    <p>Hello Acer Options here</p>
+  template: `
+  <div class="containerPost">
+   <link rel="stylesheet" href="src/styles/ContainerPosts.css">
+    <article class="acer">
+<p>Hello Acer Options here:</p>
     <hr>
     <select @change=opcoes($event) v-model="opt">
     <option value="1">One</option>
@@ -74,6 +89,7 @@ Vue.component("Acer", {
     <option value="3">Three</option>
     </select>
     <p>Escolheu:  {{opt}}</p>
+    </article>
     </div>
 
   `,
@@ -95,8 +111,14 @@ module.exports = {
   },
 };
 </script>
+
 <style>
+/* parent class */
 .containerPost {
-  background: rgb(19, 32, 46);
+  padding: 10px;
+  border: 3px solid coral;
+}
+.containerPost .acer {
+  color: blue;
 }
 </style>
