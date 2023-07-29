@@ -22,7 +22,7 @@
           </select>
           <p>All Posts:{{ opt.length }}</p>
         </div>
-        <h1>Threads</h1>
+        <h1>Threads:</h1>
         <ul>
           <li v-for="artigos in opt" :key="artigos.slug">
             <router-link
@@ -36,7 +36,7 @@
 
             <!-- categories router page -->
             <div class="cat">
-              Category:
+              CATEGORY:
               <router-link
                 class="cats"
                 :to="`/categories/${artigos.category}`"
@@ -142,9 +142,13 @@ h1 {
 
 .threads a {
   text-decoration: none;
-  color: #3aa4ff;
+  color: rgb(52, 71, 99);
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.threads a:hover {
+  color: rgb(68, 186, 246);
 }
 
 .threads li {
@@ -183,7 +187,7 @@ time {
   font-size: 12px;
 }
 time::before {
-  content: "Date: ";
+  content: "DATE: ";
 }
 select {
   cursor: pointer;
