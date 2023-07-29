@@ -40,7 +40,7 @@
 - 29.07.2023
 
   - CSS changes:
-    - <del>blogger_card</del> to **breadcrumbs**
+    - <del>blogger_card</del> to **<ins>breadcrumbs</ins>**
     - text-transform uppercase
     - header background
     - figure margin
