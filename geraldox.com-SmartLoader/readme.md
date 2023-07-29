@@ -40,13 +40,13 @@
 - 29.07.2023
 
   - CSS changes:
-    - blogger_card to breadcrumbs
+    - <del>blogger_card</del> to **breadcrumbs**
     - text-transform uppercase
     - header background
     - figure margin
 
 - 22.07.2023
-  - Add temporally wat to styles children in SmartComponents
+  - Add temporally wat to styles children in **SmartComponents**
   - Add Vue.extends
 - 19.07.2023
 
@@ -80,7 +80,7 @@
 <details>
 <summary>01.06.2023 a 02.06.2023</summary>
 
-- rotas.js improved o title das rotas
+- `rotas.js` improved o title das rotas
 - Added Menu background, position sticky and top:0
 - Improved several CSS rules in About, App and Projects
 
@@ -137,8 +137,8 @@
 
 - UserPost.vue main removed `padding: 5px; min-height: 50vh; and .blogger changed to margin: 5px 0;`
 - Created About.vue added Git Avatar from fetch, Social Icons, typerWriter
-- Add favicon in index.html
-- Projects Name from list now is sort()
+- Add favicon in `index.html`
+- Projects Name from list now is `sort()`
 </details>
 
 <details>
@@ -235,7 +235,7 @@ this.$router.go({
 
 #### v12 01.03.2023
 
-- Adicionado props em Search to v-show..., now has two types of Search links
+- Adicionado props em Search to `v-show...`, now has two types of Search links
 
 #### v13 02.03.2023
 
@@ -258,7 +258,7 @@ this.$router.go({
 
 - fixed some const names
 - blog.vue commented .sidebar flex: 1
-- sidebar.vue removed
+- `sidebar.vue` removed
   .sidebar div img {
   padding: 10px;
   }
@@ -334,8 +334,4 @@ const getBlogPost = this.blogPosts.find(
           post.published &&
           post.slug == this.$route.params.slug
       );
-```
-
-```
-
 ```
