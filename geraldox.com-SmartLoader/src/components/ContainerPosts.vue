@@ -83,7 +83,7 @@ Vue.component("Acer", {
     <article class="acer">
 <p>Hello Acer Options here:</p>
     <hr>
-    <select @change=opcoes($event) v-model="opt">
+    <select v-model="opt">
     <option value="1">One</option>
     <option value="2">Two</option>
     <option value="3">Three</option>
@@ -91,7 +91,6 @@ Vue.component("Acer", {
     <p>Escolheu:  {{opt}}</p>
     </article>
     </div>
-
   `,
 });
 

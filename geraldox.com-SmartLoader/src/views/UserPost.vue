@@ -134,7 +134,7 @@ div.breadcrumbs {
   text-decoration: none;
   font-size: 0.9rem;
   text-align: left;
-  text-transform: capitalize; /* first-letter maiusculo */
+  text-transform: uppercase; /* first-letter maiusculo */
 }
 .breadcrumbs a {
   text-decoration: none;
