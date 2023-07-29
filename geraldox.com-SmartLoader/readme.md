@@ -63,8 +63,6 @@
   /src/assets/img/android.png" = domain/src/assets => success
   ```
 
-````
-
 - 15.16/07/2023 - Introducing `SmartComponents` .js and .vue
 
   - CSS Fixed bugs
@@ -272,7 +270,7 @@ this.$router.go({
 
 </details>
 
-# Snippes:
+# Snippets:
 
 ### filter() requer v-for:
 
@@ -337,4 +335,7 @@ const getBlogPost = this.blogPosts.find(
           post.slug == this.$route.params.slug
       );
 ```
-````
+
+```
+
+```
