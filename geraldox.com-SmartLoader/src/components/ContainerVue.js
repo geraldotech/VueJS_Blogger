@@ -1,9 +1,41 @@
-/*
-Container Components.js
-*/
-const postone = `<p>Hello from Imported String template.js 'myrtx'</p>`;
-Vue.component("myrtx", {
-  template: postone,
+/* Container Components.js */
+const superNintendo = `
+<div class="containerPost">
+<article>
+<ul>
+<li>Alien 3</li>
+<li>Alien vs Predator</li>
+<li>Bike Make From Mars</li>
+<li>Choplifter 3</li>
+<li>Cold Shadow</li>
+<li>Contra 3 The Alien Wars</li>
+<li>Donkey Kong Country 2</li>
+<li>Donkey Kong Country 3</li>
+<li>Kyle Petty's No Fear Racing</li>
+<li>Mario All Stars</li>
+<li>Mario World</li>
+<li>Mega Man X</li>
+<li>Megaman X 3</li>
+<li>Metal Warriors</li>
+<li>Mortal Kombat 3 (E) (Beta)</li>
+<li>Phantom 2040</li>
+<li>Radical Rex</li>
+<li>Rockn Roll Racing</li>
+<li>Sonic Wings</li>
+<li>Spark World (Japan)</li>
+<li>Street Fighter Alpha 2 (E) [!]</li>
+<li>Sunset Riders</li>
+<li>Super Borberman 5</li>
+<li>Top Gear</li>
+<li>Top Gear 3000 (E)</li>
+<li>Wolverine</li>
+<li>Yoshi Island</li>
+</ul>
+</article>
+</div>
+`;
+Vue.component("supergames", {
+  template: superNintendo,
 });
 
 Vue.component("mydell", {
@@ -19,3 +51,75 @@ Vue.component("mydell", {
 });
 
 const test = `script loaded`;
+
+// Web Components
+const template1 = document.createElement("template");
+template1.innerHTML = `
+<style>
+label{
+  color: red;
+  display: block;
+  padding: 10px 0;
+}
+.des{
+  color: green;
+}
+
+</style>
+<label>
+<input type="checkbox" />
+checkbox
+</label>
+`;
+class TodoItem extends HTMLElement {
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.append(template1.content.cloneNode(true));
+  }
+}
+customElements.define("todo-item", TodoItem);
+
+// Vanilla Web Components [Beta]
+
+class TodoComp2 extends HTMLElement {
+  constructor() {
+    const template2 = document.createElement("template");
+    template2.innerHTML = `
+<style>
+  h1{
+    color: coral;
+  }
+</style>
+<h1>component 2</h1>
+`;
+    super();
+    this.attachShadow({ mode: "open" }).append(
+      template2.content.cloneNode(true)
+    );
+  }
+}
+customElements.define("compot-2", TodoComp2);
+class Maceio extends HTMLElement {
+  constructor() {
+    const template = document.createElement("template");
+    template.innerHTML = `
+<style>
+main{
+  padding: 5px;
+}
+  h1{
+    color: blue;
+  }
+</style>
+<main>
+<h1>Maceió</h1>
+</main>
+`;
+    super();
+    this.attachShadow({ mode: "open" }).append(
+      template.content.cloneNode(true)
+    );
+  }
+}
+customElements.define("maceio-2", Maceio);

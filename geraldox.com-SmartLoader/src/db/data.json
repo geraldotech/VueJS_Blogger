@@ -128,6 +128,17 @@
         "article": "",
         "component": "Acer",
         "category": "notebook"
+      },
+      {
+        "id": 13,
+        "title": "Super Nintendo Favorites Games",
+        "slug": "super-nintendo-fav-games",
+        "author": "geraldox",
+        "published": true,
+        "data": "Jul, 29, 2023",
+        "article": "",
+        "component": "maceio-2",
+        "category": "games"
       }
     ]
   }

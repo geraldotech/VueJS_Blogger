@@ -25,6 +25,7 @@
   - define component in JSON create and import it using VueJS{components}
   - `SmartComponents` load a external .js and .vue [read more](https://github.com/geraldotech/VueJS_Blogger/blob/main/SmartComponents.md)
   - Support String Components direct in `UserPost.vue` not good practice
+  - Vanilla Web Components[Beta] coming soon!
 
 - Styles:
 

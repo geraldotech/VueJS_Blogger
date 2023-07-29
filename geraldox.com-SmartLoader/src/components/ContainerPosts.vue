@@ -115,7 +115,6 @@ module.exports = {
 /* parent class */
 .containerPost {
   padding: 10px;
-  border: 3px solid coral;
 }
 .containerPost .acer {
   color: blue;
