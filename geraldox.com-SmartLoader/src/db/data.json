@@ -137,8 +137,19 @@
         "published": true,
         "data": "Jul, 29, 2023",
         "article": "",
-        "component": "maceio-2",
+        "component": "supergames",
         "category": "games"
+      },
+      {
+        "id": 14,
+        "title": "Vanilla Web Components",
+        "slug": "vanilla-web-components",
+        "author": "geraldox",
+        "published": true,
+        "data": "Jul, 30, 2023",
+        "article": "",
+        "component": "maceio-al",
+        "category": "uncategorized"
       }
     ]
   }

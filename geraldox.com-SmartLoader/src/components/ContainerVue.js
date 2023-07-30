@@ -82,32 +82,14 @@ customElements.define("todo-item", TodoItem);
 
 // Vanilla Web Components [Beta]
 
-class TodoComp2 extends HTMLElement {
-  constructor() {
-    const template2 = document.createElement("template");
-    template2.innerHTML = `
-<style>
-  h1{
-    color: coral;
-  }
-</style>
-<h1>component 2</h1>
-`;
-    super();
-    this.attachShadow({ mode: "open" }).append(
-      template2.content.cloneNode(true)
-    );
-  }
-}
-customElements.define("compot-2", TodoComp2);
 class Maceio extends HTMLElement {
   constructor() {
     const template = document.createElement("template");
     template.innerHTML = `
 <style>
-main{
+  main{
   padding: 5px;
-}
+  }
   h1{
     color: blue;
   }
@@ -121,5 +103,8 @@ main{
       template.content.cloneNode(true)
     );
   }
+  test() {
+    console.log(`click here`);
+  }
 }
-customElements.define("maceio-2", Maceio);
+customElements.define("maceio-al", Maceio);
