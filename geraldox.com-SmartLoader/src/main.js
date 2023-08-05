@@ -1,6 +1,7 @@
 import router from "../src/router/index.js";
 import SmartLoader from "./smartLoader.js";
 SmartLoader("/src/components/ContainerVue.js");
+SmartLoader("/src/components/WebComponents.js");
 
 Vue.prototype.$appName = "geraldoX";
 

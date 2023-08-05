@@ -150,6 +150,17 @@
         "article": "",
         "component": "maceio-al",
         "category": "uncategorized"
+      },
+      {
+        "id": 15,
+        "title": "Install Linux Mint / Ubuntu Mate / Desktop",
+        "slug": "install-linux-2023",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug, 05, 2023",
+        "article": "",
+        "component": "linux-install",
+        "category": "linux"
       }
     ]
   }

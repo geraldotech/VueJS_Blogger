@@ -40,6 +40,7 @@
 
 - 05.08.2023
 
+  - created `WebComponents.js` [Vanilla] e importando usando `SmartLoader`
   - delete files folder, files moved to CDN
   - `routas.js` now is `router> index.js`
 
