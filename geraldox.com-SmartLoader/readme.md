@@ -38,6 +38,11 @@
 
 ### Changes and Features
 
+- 05.08.2023
+
+  - delete files folder, files moved to CDN
+  - `routas.js` now is `router> index.js`
+
 - 29.07.2023
 
   - CSS changes:

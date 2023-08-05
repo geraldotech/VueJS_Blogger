@@ -6,7 +6,7 @@ const gdrive = {
   template: `<p>Content Google DRive </p>`,
 };
 const directD = {
-  template: `<p>{{$route.name}} <a href="../src/files/docs/resume-2023_compressed.pdf" download>Baixar</a> </p>`,
+  template: `<p>{{$route.name}} <a href="https://gpnotes.droppages.com/geraldox.proxyfiles.com/resume-2023_compressed.pdf" download>Baixar</a> </p>`,
 };
 
 const NotFound = {
@@ -59,7 +59,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  //mode: "history",
+  mode: "history",
   routes,
 });
 

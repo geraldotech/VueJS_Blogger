@@ -3,7 +3,9 @@
     <p>How check Vue Version ?</p>
     <code> console.log(Vue.version);</code>
     <p>
-      <a href="../src/files/vue.global_3.2.41_dev.zip" download
+      <a
+        href="https://gpnotes.droppages.com/geraldox.proxyfiles.com/vue.global_3.2.41_dev.zip"
+        target="_blank"
         >VueJS 3.2.41 Dev</a
       >
     </p>
