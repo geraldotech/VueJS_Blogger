@@ -1,4 +1,4 @@
-import router from "/src/rotas.js";
+import router from "../src/router/index.js";
 import SmartLoader from "./smartLoader.js";
 SmartLoader("/src/components/ContainerVue.js");
 
