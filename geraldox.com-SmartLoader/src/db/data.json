@@ -161,6 +161,17 @@
         "article": "",
         "component": "linux-install",
         "category": "linux"
+      },
+      {
+        "id": 16,
+        "title": "Desativar Modo Turbo Intel",
+        "slug": "disable-intel-turbo",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug, 06, 2023",
+        "article": "",
+        "component": "intel-boost",
+        "category": "intel"
       }
     ]
   }

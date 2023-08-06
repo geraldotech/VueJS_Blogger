@@ -93,3 +93,43 @@ class LinuxInstall extends HTMLElement {
   }
 }
 customElements.define("linux-install", LinuxInstall);
+class IntelBoost extends HTMLElement {
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.append(this.template(), this.styles());
+  }
+
+  connectedCallback() {
+    //call functions here - void duplicate console.logs in this blogger
+  }
+  styles() {
+    const style = document.createElement("style");
+    style.textContent = `
+   figure:has(img) {
+    text-align: center;    
+   }
+   img {
+    width: 100%;
+   }
+
+   @media screen and (min-width: 650px){
+    img {
+      width: 50%;
+    }
+   }
+    `;
+    return style;
+  }
+  template() {
+    const template = document.createElement("template");
+    template.innerHTML = `
+     <p>Desabilitando Intel Boost</p>
+     <figure>
+      <img src="https://gpnotes.droppages.com/geraldox.proxyfiles.com/2023/img/desativando-modo-turbo.jpg" alt="drop" />
+     </figure>
+    `;
+    return template.content;
+  }
+}
+customElements.define("intel-boost", IntelBoost);
