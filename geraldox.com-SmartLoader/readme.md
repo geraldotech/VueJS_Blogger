@@ -36,7 +36,7 @@
 
   <hr>
 
-### Changes and Features
+### Changes and Features:
 
 - 06.08.2023
   - CDN IMG Links import object `import img from "/src/cdn.js";`
