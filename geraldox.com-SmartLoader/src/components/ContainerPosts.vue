@@ -70,7 +70,7 @@ Vue extends Components
 });
 
 //Acer Component
-Vue.component("Acer", {
+Vue.component("acer", {
   data() {
     return {
       opt: "",

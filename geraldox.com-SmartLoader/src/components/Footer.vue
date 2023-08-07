@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>geraldoX.com - &copy; 2023</p>
+    <p>geraldoX.com - &copy; 2023</p> 
   </footer>
 </template>
 

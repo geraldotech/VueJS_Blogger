@@ -1,3 +1,6 @@
+import img from "/src/cdn.js";
+console.log(img,"CDN importado ContainerVue.js")
+
 /* Container Components.js */
 const superNintendo = `
 <div class="containerPost">
@@ -31,6 +34,8 @@ const superNintendo = `
 <li>Wolverine</li>
 <li>Yoshi Island</li>
 </ul>
+
+<img src="${img.s3.b}apple.png" alt="" />
 </article>
 </div>
 `;

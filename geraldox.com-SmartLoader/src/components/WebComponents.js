@@ -1,5 +1,8 @@
-// Vanilla Web Components [Beta]
+//Global CDN IMG
+import img from "/src/cdn.js";
+console.log(img,"CDN importado WebComponents.js")
 
+// Vanilla Web Components [Beta]
 class IntroducingWebCompo extends HTMLElement {
   constructor() {
     super();
@@ -47,8 +50,6 @@ class IntroducingWebCompo extends HTMLElement {
 }
 customElements.define("maceio-al", IntroducingWebCompo);
 
-// Vanilla Web Components [Beta]
-
 class LinuxInstall extends HTMLElement {
   constructor() {
     super();
@@ -93,6 +94,7 @@ class LinuxInstall extends HTMLElement {
   }
 }
 customElements.define("linux-install", LinuxInstall);
+
 class IntelBoost extends HTMLElement {
   constructor() {
     super();
@@ -126,8 +128,10 @@ class IntelBoost extends HTMLElement {
     template.innerHTML = `
      <p>Desabilitando Intel Boost</p>
      <figure>
-      <img src="https://gpnotes.droppages.com/geraldox.proxyfiles.com/2023/img/desativando-modo-turbo.jpg" alt="drop" />
+      <img src="${img.a}desativando-modo-turbo.jpg" alt="drop" />
      </figure>
+     
+
     `;
     return template.content;
   }

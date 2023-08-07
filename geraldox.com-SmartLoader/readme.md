@@ -38,9 +38,15 @@
 
 ### Changes and Features
 
+- 06.08.2023
+  - CDN IMG Links import object `import img from "/src/cdn.js";`
+    - ContainerVue.js 
+    - WebComponents.js
+  - <ins>SmartLoader now support  `type: module`</inst>
+
 - 05.08.2023
 
-  - created `WebComponents.js` [Vanilla] e importando usando `SmartLoader`
+  - created `WebComponents.js` [Vanilla] e import it using `SmartLoader`
   - delete files folder, files moved to CDN
   - `routas.js` now is `router> index.js`
 
