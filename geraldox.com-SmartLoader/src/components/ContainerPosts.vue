@@ -5,6 +5,7 @@
 </template>
 
 <script>
+//import img from "/src/cdn.js";
 /* Vue.extend */
 const Perfil = Vue.extend({
   template: `<p>Hello from extends</p>`,
@@ -13,7 +14,7 @@ const Perfil = Vue.extend({
   },
 });
 
-/* /Calctdownload Component*/
+/* Calctdownload Component */
 Vue.component("Calctdownload", {
   name: "CalcDownload",
   data() {
@@ -57,9 +58,8 @@ Vue.component("Calctdownload", {
 <p>5MB (Megabits) = 5000 (KB) /8 = 625Kbps</p>
 <p>10MB (Megabits) = 10000 (KB) /8 = 1250Kbps</p>
 <p>OBS: Apartir de 1MB multiplica-se por 1000 Enlace de 5MB*1000 = 5000Kb</p>
-<!-- 
-Vue extends Components 
--->
+<!-- Vue extends Components -->
+
 <Novo></Novo>
 </article>
 </div>

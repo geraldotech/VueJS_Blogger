@@ -1,6 +1,6 @@
 //Global CDN IMG
-import img from "/src/cdn.js";
-console.log(img,"CDN importado WebComponents.js")
+import cdn from "/src/cdn.js";
+//console.log(img,"CDN importado WebComponents.js")
 
 // Vanilla Web Components [Beta]
 class IntroducingWebCompo extends HTMLElement {
@@ -128,10 +128,8 @@ class IntelBoost extends HTMLElement {
     template.innerHTML = `
      <p>Desabilitando Intel Boost</p>
      <figure>
-      <img src="${img.a}desativando-modo-turbo.jpg" alt="drop" />
+      <img src="${cdn.img.a}desativando-modo-turbo.jpg" alt="drop" />
      </figure>
-     
-
     `;
     return template.content;
   }

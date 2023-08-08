@@ -132,7 +132,6 @@ div.breadcrumbs {
   /*  color: rgb(212, 86, 251); */
   /*  text-transform: uppercase; */
   text-decoration: none;
-  font-size: 0.9rem;
   text-align: left;
   text-transform: uppercase; /* first-letter maiusculo */
 }

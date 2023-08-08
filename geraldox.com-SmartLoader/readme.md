@@ -1,6 +1,6 @@
 # Blog JSON
 
-### This project uses:
+### This project:
 
 - VueJS 2.7.13
 - http-vue-loader
@@ -8,7 +8,7 @@
 - vue-router 3.0.2
 - Components
 
-  - `article obj` in data.json is opcional, but you still can use this
+  - `article obj` `in data.json` is opcional, but you still can use this
 
     - e.g: writing in JSON using single quotes:
 
@@ -25,7 +25,8 @@
   - define component in JSON create and import it using VueJS{components}
   - `SmartComponents` load a external .js and .vue [read more](https://github.com/geraldotech/VueJS_Blogger/blob/main/SmartComponents.md)
   - Support String Components direct in `UserPost.vue` not good practice
-  - Vanilla Web Components[Beta] coming soon!
+  - Vanilla Web Components [Read more](https://github.com/geraldotech/DevMap/tree/main/JavaScript/assets/thread/Web-Components)
+    - support CSS scoped
 
 - Styles:
 
@@ -39,10 +40,34 @@
 ### Changes and Features:
 
 - 06.08.2023
-  - CDN IMG Links import object `import img from "/src/cdn.js";`
-    - ContainerVue.js 
-    - WebComponents.js
-  - <ins>SmartLoader now support  `type: module`</inst>
+
+  - CDN IMG Links before: import object `import img from "/src/cdn.js";`
+    - `ContainerVue.js` and `WebComponents.js`: 
+    
+      > how use in this js templates: 
+      ```js
+        //auto fullpath
+        <img src="${cdn.img.a}desativando-modo-turbo.jpg" alt="drop" />
+
+        //manual path 
+        <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop" />
+      
+        //s3
+         <img src="${cdn.img.s3.a}/apple.png" alt="" />
+      ```
+    - `ContainerPost.vue`
+      - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:
+        `created() { this.img = cdn.img;}` onde `this.cdn` é o novo object que recebe o valor do obj `cdn.img` importada.
+        `this.cdnfiles = cdn.files` onde cnd.files agora tem o valor de cdn.files
+        > How use in ContainerPost.vue {template literal}:
+        ```js
+        editorTextFocus
+
+        //s3
+        <img :src="img.s3.a +'apple.png'" alt="apple fruit" />
+        
+        ``` 
+  - <ins>SmartLoader now support: `type: module`</inst>
 
 - 05.08.2023
 

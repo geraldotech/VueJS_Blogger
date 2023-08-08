@@ -3,16 +3,17 @@ import SmartLoader from "./smartLoader.js";
 SmartLoader("/src/components/ContainerVue.js", "module");
 SmartLoader("/src/components/WebComponents.js", "module");
 
-
+//import CDN to Vuemixin
+import cdn from "/src/cdn.js"
 Vue.prototype.$appName = "geraldoX";
 
 Vue.mixin({
-  
+  created(){
+    this.img = cdn.img;
+    this.cdnfiles = cdn.files
+  },
   data: function() {
-    const pathcdn = "https://gpnotes.droppages.com/geraldox.proxyfiles.com";
-    return {
-      imgmix:'https://gpnotes.droppages.com/geraldox.proxyfiles.com/2022/img',
-      imgx: "https://gmapdev.s3.amazonaws.com" + "/assets/img/"      
+    return {         
     }
   }
 })

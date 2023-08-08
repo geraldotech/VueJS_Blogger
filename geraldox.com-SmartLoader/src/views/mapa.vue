@@ -52,6 +52,10 @@ module.exports = {
 };
 </script>
 <style scoped>
+div{
+  max-width: 800px;
+  margin: 0 auto;
+}
 div,
 ul {
   margin-top: 10px;
