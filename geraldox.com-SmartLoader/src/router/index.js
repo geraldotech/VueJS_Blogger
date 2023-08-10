@@ -1,4 +1,4 @@
-import cdn from "../cdn.js"
+import cdn from "../cdn.js";
 
 const home2 = {
   template: `<p>VueJS Named Views from String </p>`,
@@ -61,7 +61,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
- //mode: "history",
+  mode: "history",
   routes,
 });
 
