@@ -171,7 +171,18 @@
         "data": "Aug, 06, 2023",
         "article": "",
         "component": "intel-boost",
-        "category": "intel"
+        "category": "windows"
+      },
+      {
+        "id": 17,
+        "title": "Set Wallpaper per Monitor [Windows 11]",
+        "slug": "set-wallpaper-per-monitor-windows-11",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug, 12, 2023",
+        "article": "",
+        "component": "win-wallmonitor",
+        "category": "windows"
       }
     ]
   }

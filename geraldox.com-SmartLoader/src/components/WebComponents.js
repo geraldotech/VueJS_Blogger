@@ -135,3 +135,44 @@ class IntelBoost extends HTMLElement {
   }
 }
 customElements.define("intel-boost", IntelBoost);
+class Winmonitorwall extends HTMLElement {
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.append(this.template(), this.styles());
+  }
+
+  connectedCallback() {
+    //call functions here - void duplicate console.logs in this blogger
+  }
+  styles() {
+    const style = document.createElement("style");
+    style.textContent = `
+   code{
+    color: seagreen;
+   }
+   nav{
+    margin-top: 50px;
+   }
+
+   @media screen and (min-width: 650px){
+    img {
+      width: 50%;
+    }
+   }
+    `;
+    return style;
+  }
+  template() {
+    const template = document.createElement("template");
+    template.innerHTML = `
+     <p>Set wallpaper per monitor</p>
+     <code>shell:::{ED834ED6-4B5A-4bfe-8F11-A626DCB6A921} -Microsoft.Personalization\pageWallpaper</code>
+     <nav>
+     <a href="https://winaero.com/how-to-set-wallpaper-per-monitor-in-windows-11/" target="_blank">Ref</a>
+     </nav>
+    `;
+    return template.content;
+  }
+}
+customElements.define("win-wallmonitor", Winmonitorwall);
