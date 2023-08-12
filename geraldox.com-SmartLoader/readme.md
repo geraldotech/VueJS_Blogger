@@ -39,34 +39,45 @@
 
 ### Changes and Features:
 
+- 12.08.2023
+
+  - Load more posts @click in `Blog.vue`
+
 - 06.08.2023
 
   - CDN IMG Links before: import object `import img from "/src/cdn.js";`
-    - `ContainerVue.js` and `WebComponents.js`: 
-    
-      > how use in this js templates: 
+
+    - `ContainerVue.js` and `WebComponents.js`:
+
+      > how use in this js templates:
+
       ```js
         //auto fullpath
         <img src="${cdn.img.a}desativando-modo-turbo.jpg" alt="drop" />
 
-        //manual path 
+        //manual path
         <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop" />
-      
+
         //s3
          <img src="${cdn.img.s3.a}/apple.png" alt="" />
       ```
+
     - `ContainerPost.vue`
+
       - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:
         `created() { this.img = cdn.img;}` onde `this.cdn` é o novo object que recebe o valor do obj `cdn.img` importada.
         `this.cdnfiles = cdn.files` onde cnd.files agora tem o valor de cdn.files
+
         > How use in ContainerPost.vue {template literal}:
+
         ```js
         editorTextFocus
 
         //s3
         <img :src="img.s3.a +'apple.png'" alt="apple fruit" />
-        
-        ``` 
+
+        ```
+
   - <ins>SmartLoader now support: `type: module`</inst>
 
 - 05.08.2023

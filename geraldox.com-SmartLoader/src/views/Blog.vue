@@ -20,7 +20,6 @@
               {{ ind.toUpperCase() }} - {{ itens }}
             </option>
           </select>
-          <p>All Posts:{{ opt.length }}</p>
         </div>
         <h1>Threads:</h1>
         <ul>
@@ -33,7 +32,6 @@
             >
               {{ artigos.title }}</router-link
             >
-
             <!-- categories router page -->
             <div class="cat">
               CATEGORY:
@@ -52,7 +50,17 @@
             <div></div>
           </li>
         </ul>
+        <nav class="limiter">
+          <p v-show="opt.length >= 10">
+            <button @click="ShowLessPosts()">Show Less</button>
+          </p>
+          <p>Showing:{{ opt.length }} of {{ AllPosts.length }} Posts.</p>
+          <button @click="ShowAllPosts(5)">
+            {{ AllPosts.length == opt.length ? "Nothing more" : "Show more" }}
+          </button>
+        </nav>
       </section>
+
       <p><Sidebar /></p>
     </div>
     <div v-if="$route.name == `Categories Map`">
@@ -65,6 +73,7 @@
 module.exports = {
   created() {
     this.posts();
+    // this.showDom();
   },
   components: {
     Sidebar: httpVueLoader("../components/Sidebar.vue"),
@@ -76,7 +85,8 @@ module.exports = {
       opt: [],
       categorias: {},
       select: "",
-      showN: {},
+      AllPosts: {},
+      numero: 10,
     };
   },
   methods: {
@@ -86,20 +96,12 @@ module.exports = {
 
       //filter post published
       const blogPosts = res.blog.posts.filter((posts) => posts.published);
+      // console.log(blogPosts);
 
       // map categoris acima dos limitadores de posts splice()
       const getCatego = blogPosts.map((val) => val.category);
 
       //console.log([...getCatego].sort());
-
-      //filter[antigo] remove categories duplicado e undefined itens
-      const filtra = getCatego.filter(
-        (val, ind) => getCatego.indexOf(val) == ind && val != undefined
-      );
-      //console.warn(`filtra`, filtra);
-
-      //cat recebe categorias sem duplicados and ordenar sort()
-      //this.categorias = filtra;
 
       //🔢 contar n de categories values + ordenar com sort()
       const counter = getCatego
@@ -109,17 +111,31 @@ module.exports = {
       //recebe o contador unique + contador
       this.categorias = counter;
 
-      //🔢 Limitador de posts
+      //🔢 Limitador de posts, lembrando this methods changes the original array
       blogPosts.splice();
 
-      //reverse render posts mais novos on top
-      this.opt = blogPosts.reverse();
+      //thos AllPosts a ser usado no length and pelo @click show all posts
+      this.AllPosts = blogPosts;
 
-      //🔢 ou aqui Limitador de posts
-      this.opt.splice();
+      //recebe os posts com limitador opcional
+      this.opt = this.GetBlogPosts(this.numero);
     },
     changeRoute(e) {
       this.$router.push("/categories/" + e.target.value);
+    },
+    GetBlogPosts(n) {
+      return this.AllPosts.filter((posts) => posts.published)
+        .reverse() //reverse depois limiter
+        .slice(0, n);
+    },
+    ShowAllPosts(e) {
+      //onclick shoow +1 posts
+      this.numero = this.numero + 5;
+      return (this.opt = this.GetBlogPosts(this.numero));
+    },
+    ShowLessPosts() {
+      //number = 5 minimo posts
+      return (this.opt = this.GetBlogPosts((this.numero = 5)));
     },
   },
 };
@@ -166,6 +182,12 @@ h1 {
 }
 .threads .cat {
   font-size: 0.7rem;
+}
+
+.limiter button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
 }
 .sidebar img {
   width: 100%;
