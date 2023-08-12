@@ -5,7 +5,15 @@ Evita a poluição do **data.json, String components** no **UserPost.vue** e dem
 - [SmartJS_Loader](#SmartJS_Loader)
   - Suporte a importação de arquivos JavaScript
 - [ContainerPosts.vue](#ContainerPostsvue)
-  - Um Component que comporta vários components filhos para pequenos artigos
+- [WebComponents(Vanilla)](https://github.com/geraldotech/DevMap/tree/main/JavaScript/assets/thread/Web-Components)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+- Um Component que comporta vários components filhos para pequenos artigos
 
 # [SmartJS_Loader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader)
 
