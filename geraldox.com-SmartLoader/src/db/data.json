@@ -183,6 +183,17 @@
         "article": "",
         "component": "win-wallmonitor",
         "category": "windows"
+      },
+      {
+        "id": 18,
+        "title": "Download Drives Nitro AN515-58",
+        "slug": "nitro-an515-58",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug, 06, 2023",
+        "article": "<figure><img src='https://global-download.acer.com/Image/ModelPictures/Notebook/Nitro%20AN515-58.png' alt='nitro pc' class='img-flex' /></figure> <nav><a href='https://www.acer.com/us-en/support/product-support/AN515-58/downloads?suggest=AN515-58-58;0'>Downloads</a></nav>",
+        "component": "",
+        "category": "drivers"
       }
     ]
   }
