@@ -12,6 +12,7 @@
     </form>
 
     <p>{{ res }}</p>
+
     <ul v-for="items in results" :key="items.id" class="results_links">
       <li v-show="v1">
         <router-link
@@ -123,12 +124,22 @@ button.btn,
   outline: none;
   border: none;
   margin: 10px 0;
-  font-size: 1.2rem;
+  font-size: 14px;
   font-weight: bold;
   color: var(--links-color);
 }
 .search .btnv2:hover {
   color: rgb(68, 186, 246);
+}
+
+.search input[type="submit"] {
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  background: #0044b3;
+  padding: 5px 10px;
+  border: none;
+  opacity: 0.8;
 }
 
 .results_links {
@@ -151,7 +162,6 @@ button.btn,
 
 form input {
   padding: 5px;
-  font-size: 1rem;
 }
 input[type="submit"] {
   cursor: pointer;

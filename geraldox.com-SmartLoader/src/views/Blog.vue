@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!--  <section class="ads">
-      <p>Adsense here</p>
-    </section> -->
     <Adsense></Adsense>
     <div v-if="$route.name == `Blog Posts`" class="list-all">
       <section class="threads">
@@ -192,7 +189,15 @@ h1 {
 .limiter button {
   cursor: pointer;
   text-align: center;
-  font-size: 1rem;
+  font-size: 16px;
+  background: #0044b3;
+  padding: 5px 10px;
+  border: none;
+  opacity: 0.8;
+}
+
+.limiter button:hover {
+  opacity: 1;
 }
 .sidebar img {
   width: 100%;
