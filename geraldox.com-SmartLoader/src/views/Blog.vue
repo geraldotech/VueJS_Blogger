@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!--  <section class="ads">
+      <p>Adsense here</p>
+    </section> -->
+    <Adsense></Adsense>
     <div v-if="$route.name == `Blog Posts`" class="list-all">
       <section class="threads">
         <p><Search v1 /></p>
@@ -79,6 +83,7 @@ module.exports = {
     Sidebar: httpVueLoader("../components/Sidebar.vue"),
     Search: httpVueLoader("../components/Search.vue"),
     Mapas: httpVueLoader("../views/mapa.vue"),
+    Adsense: httpVueLoader("../views/Adsense.vue"),
   },
   data() {
     return {
@@ -144,10 +149,10 @@ module.exports = {
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-div,
+/* div,
 ul {
-  margin-top: 10px;
-}
+  margin-top: 5px;
+} */
 h1 {
   margin-top: 20px;
   font-size: 1.7rem;
@@ -215,11 +220,12 @@ select {
   cursor: pointer;
 }
 
+/* desktop */
 @media screen and (min-width: 650px) {
   .list-all {
     display: flex;
     width: 80%;
-    padding: 50px 0;
+    padding: 10px 0;
     margin: 0 auto;
   }
   .list-all .threads {
@@ -228,8 +234,5 @@ select {
   .sidebar {
     margin: 0 10px;
   }
-  /* .sidebar {
-    flex: 1;
-  } */
 }
 </style>

@@ -41,6 +41,7 @@ module.exports = {
 :root {
   --maxw: 75rem;
   color-scheme: dark;
+  --links-color: rgb(229, 246, 178);
 }
 * {
   margin: 0;
@@ -63,8 +64,8 @@ nav {
   padding: 15px 5px;
   position: sticky;
   top: 0;
-  background: #131516;
   border-bottom: 2px solid #fff;
+  backdrop-filter: blur(10px);
 }
 nav li {
   list-style: none;
@@ -73,11 +74,12 @@ nav li {
 
 nav a {
   text-decoration: none;
-  background: rgb(29, 27, 27);
+  /*  background: rgb(29, 27, 27); */
   padding: 5px 20px;
   border-radius: 5px;
   color: rgb(219, 216, 211);
   font-weight: bold;
+  font-size: 14px;
 }
 nav a:hover {
   color: rgb(68, 186, 246);
@@ -125,7 +127,7 @@ figure img {
   height: auto;
 }
 
-/* for desktop */
+/* Desktop */
 @media screen and (min-width: 650px) {
   nav a {
     text-transform: uppercase; /* only desktop is upperCase menu */

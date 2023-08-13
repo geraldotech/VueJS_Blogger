@@ -39,6 +39,11 @@
 
 ### Changes and Features:
 
+- 13.08.2023
+
+  - CSS Enhanced
+  - new component `Adsense`
+
 - 12.08.2023
 
   - Load more posts @click in `Blog.vue`

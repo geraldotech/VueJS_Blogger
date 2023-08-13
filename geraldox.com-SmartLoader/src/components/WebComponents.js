@@ -144,15 +144,45 @@ class Winmonitorwall extends HTMLElement {
 
   connectedCallback() {
     //call functions here - void duplicate console.logs in this blogger
+    this.copy();
+    console.log(``);
+  }
+  copy() {
+    const inputVal = this.shadowRoot.querySelector("input").value;
+    const imgIcon = this.shadowRoot.querySelector("img");
+    const spancopiado = this.shadowRoot.querySelector("#copiado");
+
+    imgIcon.onclick = function () {
+      navigator.clipboard.writeText(inputVal).then(() => {
+        spancopiado.textContent = "Copied!";
+        texto();
+      });
+
+      //function clean text
+      const texto = () => {
+        setTimeout(function () {
+          spancopiado.textContent = "";
+        }, 1000);
+      };
+    };
   }
   styles() {
     const style = document.createElement("style");
-    style.textContent = `
-   code{
+    style.textContent = `  
+  
+   .clipboard img{
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+   }
+  
+   .clipboard input{
+    width: 80%;
     color: seagreen;
    }
+
    nav{
-    margin-top: 50px;
+    margin-top: 100px;
    }
 
    @media screen and (min-width: 650px){
@@ -166,8 +196,13 @@ class Winmonitorwall extends HTMLElement {
   template() {
     const template = document.createElement("template");
     template.innerHTML = `
-     <p>Set wallpaper per monitor</p>
-     <code>shell:::{ED834ED6-4B5A-4bfe-8F11-A626DCB6A921} -Microsoft.Personalization\pageWallpaper</code>
+     <p>Set wallpaper per monitor: </p> 
+
+    <form class="clipboard">
+      <input disabled type="text" value="shell:::{ED834ED6-4B5A-4bfe-8F11-A626DCB6A921} -Microsoft.     Personalization\pageWallpaper">
+      <img src="${cdn.img.path}/src/icons/icons8-copy-24.png" />
+      <span id="copiado"></span>
+    </form>
      <nav>
      <a href="https://winaero.com/how-to-set-wallpaper-per-monitor-in-windows-11/" target="_blank">Ref</a>
      </nav>

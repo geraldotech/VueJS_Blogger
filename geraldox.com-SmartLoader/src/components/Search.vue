@@ -24,7 +24,7 @@
         >
       </li>
       <li v-show="v2">
-        <button class="btn" @click="clica(items.category, items.slug)">
+        <button class="btnv2" @click="clica(items.category, items.slug)">
           {{ items.title }} - {{ items.data }}
         </button>
       </li>
@@ -89,14 +89,14 @@ module.exports = {
   },
 };
 </script>
-/* global styles for this component */
+/* Global styles for this component */
 <style scoped>
 .search {
   border-bottom: 2px solid red;
   border-bottom-width: 10%;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serifs;
-  margin: 30px 0;
+  margin: 10px 0;
 }
 
 .search p {
@@ -108,8 +108,9 @@ module.exports = {
   list-style-type: square;
 }
 
+button.btn,
 .search li a {
-  color: rgb(207, 40, 199);
+  color: var(--links-color); /* var in App.vue */
   font-size: 1.2rem;
 }
 .search li {
@@ -119,36 +120,46 @@ module.exports = {
   text-align: left;
   cursor: pointer;
   background: none;
-  color: rgb(207, 40, 199);
   outline: none;
   border: none;
   margin: 10px 0;
   font-size: 1.2rem;
   font-weight: bold;
+  color: var(--links-color);
 }
-.search button:hover {
-  text-decoration: underline coral;
+.search .btnv2:hover {
+  color: rgb(68, 186, 246);
 }
+
 .results_links {
   margin-top: 5px;
-  max-width: 400px;
+  max-width: 500px;
   min-width: 320px;
   margin: 0 auto;
+  text-align: center;
 }
 .results_links li {
   text-align: left;
   list-style: none;
+  padding: 0;
+  color: var(--links-color);
 }
-input {
-  font-size: 1.2rem;
+
+.results_links li a {
+  color: var(--links-color);
+}
+
+form input {
+  padding: 5px;
+  font-size: 1rem;
 }
 input[type="submit"] {
   cursor: pointer;
-  padding: 0 15px;
 }
 input[type="text"] {
   width: 50%;
 }
+
 /* for mobile */
 @media screen and (max-width: 550px) {
   input[type="text"] {

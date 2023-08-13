@@ -1,49 +1,49 @@
 <template>
-  <div class="blogger">
-    <main>
-      <div><Busca v2 /></div>
-      <article v-if="blog">
-        <h1>{{ blog.title }}</h1>
-        <div class="breadcrumbs">
-          <p>
-            Home >
-            <!-- 
-              link definido manualmente substituido por router-link dynamic <a href="/blog">Blog</a> -->
-            <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
-            >
-            <router-link
-              class="categories"
-              :to="`/categories/${blog.category}`"
-              >{{ blog.category }}</router-link
-            >
-          </p>
-          <p>
-            By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
-            <button data="print" onclick="print()">PRINT</button>
-          </p>
+  <div>
+    <Adsense></Adsense>
+    <div class="blogger">
+      <main>
+        <div><Busca v2 /></div>
+        <article v-if="blog">
+          <h1>{{ blog.title }}</h1>
+          <div class="breadcrumbs">
+            <p>
+              Home >
+              <!--
+                link definido manualmente substituido por router-link dynamic <a href="/blog">Blog</a> -->
+              <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
+              >
+              <router-link
+                class="categories"
+                :to="`/categories/${blog.category}`"
+                >{{ blog.category }}</router-link
+              >
+            </p>
+            <p>
+              By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
+              <button data="print" onclick="print()">PRINT</button>
+            </p>
+          </div>
+          <hr />
+          <!-- render html from json -->
+          <p v-html="blog.article"></p>
+          <!-- render components -->
+          <component :is="blog.component"></component>
+          <!-- render SmartComponents[ContainerPosts.vue de Components] -->
+          <Container></Container>
+        </article>
+        <div v-else>
+          <h4 class="notFound">
+            Sorry! 404 error Post Not Found, or was removed!
+          </h4>
         </div>
-
-        <hr />
-        <!-- render html from json -->
-        <p v-html="blog.article"></p>
-
-        <!-- render components -->
-        <component :is="blog.component"></component>
-
-        <!-- render SmartComponents[ContainerPosts.vue de Components] -->
-        <Container></Container>
-      </article>
-      <div v-else>
-        <h4 class="notFound">
-          Sorry! 404 error Post Not Found, or was removed!
-        </h4>
-      </div>
-      <!-- custom html to specific slug posts -->
-      <div v-if="$route.params.slug == 'speed-test'">
-        <p>Hello post about speedTest</p>
-      </div>
-    </main>
-    <Sidebar />
+        <!-- custom html to specific slug posts -->
+        <div v-if="$route.params.slug == 'speed-test'">
+          <p>Hello post about speedTest</p>
+        </div>
+      </main>
+      <Sidebar />
+    </div>
   </div>
 </template>
 <script>
@@ -81,6 +81,7 @@ module.exports = {
     Speedtest: httpVueLoader("../posts/Speedtest.vue"),
     NetworkTools: httpVueLoader("../posts/NetworkTools.vue"),
     Container: httpVueLoader("/src/components/ContainerPosts.vue"),
+    Adsense: httpVueLoader("../views/Adsense.vue"),
   },
   methods: {
     async posts() {
@@ -99,12 +100,6 @@ module.exports = {
 };
 </script>
 <style>
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-} */
 article h1 {
   text-align: left;
   font-size: 1.5rem;
