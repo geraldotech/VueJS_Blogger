@@ -168,12 +168,15 @@ class Winmonitorwall extends HTMLElement {
   }
   styles() {
     const style = document.createElement("style");
-    style.textContent = `  
+    style.textContent = ` 
+    .clipboard{
+      display: flex;
+    } 
   
    .clipboard img{
     cursor: pointer;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
    }
   
    .clipboard input{
@@ -199,7 +202,7 @@ class Winmonitorwall extends HTMLElement {
      <p>Set wallpaper per monitor: </p> 
 
     <form class="clipboard">
-      <input disabled type="text" value="shell:::{ED834ED6-4B5A-4bfe-8F11-A626DCB6A921} -Microsoft.     Personalization\pageWallpaper">
+      <input disabled type="text" value="shell:::{ED834ED6-4B5A-4bfe-8F11-A626DCB6A921} -Microsoft. Personalization\pageWallpaper">
       <img src="${cdn.img.path}/src/icons/icons8-copy-24.png" />
       <span id="copiado"></span>
     </form>
