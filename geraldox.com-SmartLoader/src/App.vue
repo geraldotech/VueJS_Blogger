@@ -127,6 +127,16 @@ figure img {
   height: auto;
 }
 
+.btnDownload {
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  background: #0044b3;
+  padding: 5px 10px;
+  border: none;
+  opacity: 0.8;
+}
+
 /* Desktop */
 @media screen and (min-width: 650px) {
   nav a {

@@ -32,6 +32,7 @@
 
   - CSS Mobile First
   - Use `class='img-flex'` for big img special in Container Components
+  - CSS Global `class='btnDownload'` for `<nav><a href="#">button downloads</a></nav>`
 
   > Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
 

@@ -191,9 +191,31 @@
         "author": "geraldox",
         "published": true,
         "data": "Aug, 06, 2023",
-        "article": "<figure><img src='https://global-download.acer.com/Image/ModelPictures/Notebook/Nitro%20AN515-58.png' alt='nitro pc' class='img-flex' /></figure> <nav><a href='https://www.acer.com/us-en/support/product-support/AN515-58/downloads?suggest=AN515-58-58;0'>Downloads</a></nav>",
+        "article": "<figure><img src='https://global-download.acer.com/Image/ModelPictures/Notebook/Nitro%20AN515-58.png' alt='nitro pc' class='img-flex' /></figure> <nav><a class='btnDownload' href='https://www.acer.com/us-en/support/product-support/AN515-58/downloads?suggest=AN515-58-58;0'>Download</a></nav>",
         "component": "",
         "category": "drivers"
+      },
+      {
+        "id": 19,
+        "title": "Download GibHub Directory",
+        "slug": "download-github-directory",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug, 18, 2023",
+        "article": "<p>With this tool you can directly download or create download link to any GitHub public directory or file.</p><nav><a class='btnDownload' href='https://minhaskamal.github.io/DownGit/#/home'>Download</a></nav>",
+        "component": "",
+        "category": "developer"
+      },
+      {
+        "id": 20,
+        "title": "WhatsApp Api Call",
+        "slug": "whatsapp-api-call",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug, 18, 2023",
+        "article": "<p>With this link you can start a conversation directly</p><nav><a class='btnDownload' href='https://api.whatsapp.com/send?phone=55'>https://api.whatsapp.com/send?phone=55</a></nav>",
+        "component": "",
+        "category": "developer"
       }
     ]
   }
