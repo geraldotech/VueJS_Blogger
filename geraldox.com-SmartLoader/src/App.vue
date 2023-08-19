@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav>
+    <nav class="menu">
       <li>
         <router-link to="/">Home</router-link>
       </li>
@@ -56,7 +56,7 @@ body {
   min-height: 100vh;
 }
 
-nav {
+.menu {
   display: flex;
   max-width: var(--maxw);
   justify-content: space-evenly;
@@ -67,12 +67,12 @@ nav {
   border-bottom: 2px solid #fff;
   backdrop-filter: blur(10px);
 }
-nav li {
+.menu li {
   list-style: none;
   margin: 5px 0;
 }
 
-nav a {
+.menu a {
   text-decoration: none;
   /*  background: rgb(29, 27, 27); */
   padding: 5px 20px;
@@ -81,7 +81,7 @@ nav a {
   font-weight: bold;
   font-size: 14px;
 }
-nav a:hover {
+.menu a:hover {
   color: rgb(68, 186, 246);
 }
 section {
@@ -128,6 +128,7 @@ figure img {
 }
 
 .btnDownload {
+  display: block;
   cursor: pointer;
   text-align: center;
   font-size: 16px;
@@ -135,6 +136,14 @@ figure img {
   padding: 5px 10px;
   border: none;
   opacity: 0.8;
+  border-radius: 10px;
+  margin: 15px auto;
+  width: 50%;
+  text-decoration: none;
+}
+.btnDownload:hover {
+  box-shadow: 0 0 15px red;
+  color: white;
 }
 
 /* Desktop */
