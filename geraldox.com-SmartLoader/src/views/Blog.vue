@@ -24,7 +24,7 @@
         </div>
         <h1>Threads:</h1>
         <ul>
-          <li v-for="artigos in opt" :key="artigos.slug">
+          <li v-for="artigos in opt" :key="artigos.slug" class="threads_list">
             <router-link
               :to="{
                 name: 'threads',
@@ -48,15 +48,18 @@
             </div>
             <time>{{ artigos.data }}</time>
             <!--    <p v-html="artigos.article ? artigos.article.substr(0, 35) : ''"></p> -->
-            <div></div>
           </li>
         </ul>
         <nav class="limiter">
           <p v-show="opt.length >= 10">
-            <button @click="ShowLessPosts()">Show Less</button>
+            <button class="limiter_btn" @click="ShowLessPosts()">
+              Show Less
+            </button>
           </p>
-          <p>Showing:{{ opt.length }} of {{ AllPosts.length }} Posts.</p>
-          <button @click="ShowAllPosts(5)">
+          <p class="limiter_btn">
+            Showing:{{ opt.length }} of {{ AllPosts.length }} Posts.
+          </p>
+          <button class="limiter_btn" @click="ShowAllPosts(5)">
             {{ AllPosts.length == opt.length ? "Nothing more" : "Show more" }}
           </button>
         </nav>
@@ -158,6 +161,10 @@ h1 {
   padding: 10px;
 }
 
+.threads_list {
+  line-height: 1.5rem;
+}
+
 .threads a {
   text-decoration: none;
   color: rgb(52, 71, 99);
@@ -186,14 +193,27 @@ h1 {
   font-size: 0.7rem;
 }
 
+.limiter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.limiter p:nth-child(2) {
+  text-align: center;
+}
+
 .limiter button {
   cursor: pointer;
   text-align: center;
-  font-size: 16px;
   background: #0044b3;
-  padding: 5px 10px;
+  padding: 5px 8px;
   border: none;
   opacity: 0.8;
+  border-radius: 5px;
+}
+/* set font-size for all childrens */
+.limiter_btn {
+  font-size: 14px;
 }
 
 .limiter button:hover {
@@ -238,6 +258,9 @@ select {
   }
   .sidebar {
     margin: 0 10px;
+  }
+  .limiter {
+    font-size: 20px;
   }
 }
 </style>

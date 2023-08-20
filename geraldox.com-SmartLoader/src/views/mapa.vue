@@ -52,18 +52,20 @@ module.exports = {
 };
 </script>
 <style scoped>
-div{
+div {
   max-width: 800px;
   margin: 0 auto;
 }
 div,
 ul {
   margin-top: 10px;
-  padding-left: 20px;
+  padding: 10px;
 }
-h1 {
-  margin-top: 20px;
+
+li {
+  border-bottom: 2px solid green;
 }
+
 a {
   text-decoration: none;
   color: #3aa4ff;
@@ -72,9 +74,6 @@ a {
 }
 h1 {
   font-size: 1.7rem;
-}
-li {
-  border-bottom: 2px solid green;
-  margin: 20px 0;
+  margin-top: 15px;
 }
 </style>

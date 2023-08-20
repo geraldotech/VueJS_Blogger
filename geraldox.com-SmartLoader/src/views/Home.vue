@@ -8,5 +8,11 @@
 module.exports = {};
 </script>
 
-<style>
+<style scoped>
+.block {
+  font-size: 1.2rem;
+  text-align: center;
+  min-height: 80vh;
+  margin-top: 20px;
+}
 </style>

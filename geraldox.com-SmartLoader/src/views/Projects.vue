@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <main class="projects">
+  <div class="projects">
+    <main>
       <h1>Projects</h1>
       <p>
         <code>
@@ -23,6 +23,7 @@
         <p class="link">
           <a :href="selected.url" target="_blank">{{ selected.name }}</a>
         </p>
+        <p class="promobile">You are in mobile version</p>
         <!--container article-->
       </section>
     </main>
@@ -158,13 +159,6 @@ module.exports = {
 </script>
 
 <style scoped>
-/* body {
-  min-width: 320px;
-  max-width: 80rem;
-  margin: auto;
-  position: relative;
-  top: 0;
-} */
 main {
   height: 100vh;
   text-align: center;
@@ -186,6 +180,7 @@ section.projects_menu {
 .link {
   font-size: 1.5rem;
 }
+
 .projects h1 {
   margin: 15px 0;
   font-size: 2em;
@@ -201,12 +196,27 @@ ol {
   padding: 0 20px;
 }
 
+.promobile {
+  display: none;
+}
+
 /*for desktop*/
 @media screen and (min-width: 800px) {
   .projects_menu {
     text-align: center;
     width: 50%;
     margin: 0 auto;
+  }
+}
+/* force mobile style */
+@media screen and (max-width: 700px) {
+  .projects {
+    padding: 20px;
+  }
+  /* deep selector para funcionar */
+  .projects .promobile {
+    display: block;
+    color: rgb(4, 188, 126);
   }
 }
 </style>

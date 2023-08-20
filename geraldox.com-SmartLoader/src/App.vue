@@ -14,7 +14,7 @@
         <router-link :to="{ name: `about` }">About</router-link>
       </li>
     </nav>
-    <!-- <hr /> -->
+    <hr />
     <!-- <div>  <Busca/></div> -->
     <section>
       <router-view></router-view>
@@ -56,6 +56,12 @@ body {
   min-height: 100vh;
 }
 
+.block {
+  max-width: 800px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
 .menu {
   display: flex;
   max-width: var(--maxw);
@@ -66,6 +72,7 @@ body {
   top: 0;
   border-bottom: 2px solid #fff;
   backdrop-filter: blur(10px);
+  z-index: 1;
 }
 .menu li {
   list-style: none;
@@ -93,12 +100,7 @@ section {
   padding: 10px 0;
   border-bottom: 1px solid red;
 }
-.block {
-  font-size: 1.2rem;
-  text-align: center;
-  min-height: 80vh;
-  margin-top: 20px;
-}
+
 /* routes CSS */
 .router-link-active {
   color: green;
@@ -148,7 +150,7 @@ figure img {
 
 /* Desktop */
 @media screen and (min-width: 650px) {
-  nav a {
+  .menu a {
     text-transform: uppercase; /* only desktop is upperCase menu */
   }
   figure img {
