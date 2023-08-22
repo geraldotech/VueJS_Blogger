@@ -82,6 +82,7 @@ module.exports = {
     NetworkTools: httpVueLoader("../posts/NetworkTools.vue"),
     Container: httpVueLoader("/src/components/ContainerPosts.vue"),
     Adsense: httpVueLoader("../views/Adsense.vue"),
+    whatsappapi: httpVueLoader("../posts/whatsappapi.vue"),
   },
   methods: {
     async posts() {
