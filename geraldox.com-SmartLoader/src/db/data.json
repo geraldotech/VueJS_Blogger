@@ -213,8 +213,8 @@
         "author": "geraldox",
         "published": true,
         "data": "Aug, 18, 2023",
-        "article": "<p>With this link you can start a conversation directly</p><nav><a class='btnDownload' href='https://api.whatsapp.com/send?phone=55'>https://api.whatsapp.com/send?phone=55</a></nav>",
-        "component": "",
+        "article": "",
+        "component": "whatsappapi",
         "category": "developer"
       }
     ]
