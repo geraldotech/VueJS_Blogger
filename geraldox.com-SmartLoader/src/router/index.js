@@ -35,7 +35,7 @@ const routes = [
   },
   {
     path: "/blog/:category/:slug",
-    path: "/blog/:slug",
+    //path: "/blog/:slug",
     name: "threads",
     component: httpVueLoader("/src/views/UserPost.vue"),
   },
@@ -61,7 +61,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  //  mode: "history",
+  mode: "history",
   routes,
 });
 
