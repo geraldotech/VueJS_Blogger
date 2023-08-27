@@ -1,4 +1,4 @@
-import cdn from "../cdn.js";
+import cdn from "../cdn.js"; //this import to use cdn links
 
 const home2 = {
   template: `<p>VueJS Named Views from String </p>`,
@@ -8,7 +8,7 @@ const gdrive = {
   template: `<p>Content Google DRive </p>`,
 };
 const directD = {
-  template: `<p>{{$route.name}} <a href="${cdn.files}/resume-2023_compressed.pdf" download>Baixar</a> </p>`,
+  template: `<p>{{$route.name}} <a href="${cdn.dropfiles}/resume-2023_compressed.pdf" download>Baixar</a> </p>`,
 };
 
 const NotFound = {
@@ -35,7 +35,7 @@ const routes = [
   },
   {
     path: "/blog/:category/:slug",
-    //path: "/blog/:slug",
+    path: "/blog/:slug",
     name: "threads",
     component: httpVueLoader("/src/views/UserPost.vue"),
   },
@@ -61,7 +61,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  //  mode: "history",
   routes,
 });
 
