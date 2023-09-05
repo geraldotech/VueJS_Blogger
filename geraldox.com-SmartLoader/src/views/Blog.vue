@@ -65,8 +65,9 @@
         </nav>
       </section>
 
-      <p><Sidebar /></p>
+      <Sidebar />
     </div>
+    <!--  if a rota for === entao show -->
     <div v-if="$route.name == `Categories Map`">
       <Mapas />
     </div>
