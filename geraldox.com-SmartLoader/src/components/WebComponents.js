@@ -128,7 +128,7 @@ class IntelBoost extends HTMLElement {
     template.innerHTML = `
      <p>Desabilitando Intel Boost</p>
      <figure>
-      <img src="${cdn.img.a}desativando-modo-turbo.jpg" alt="drop" />
+      <img src="${cdn.img[2023]}desativando-modo-turbo.jpg" alt="drop" />
      </figure>
     `;
     return template.content;

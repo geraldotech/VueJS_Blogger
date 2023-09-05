@@ -4,20 +4,20 @@ SmartLoader("/src/components/ContainerVue.js", "module");
 SmartLoader("/src/components/WebComponents.js", "module");
 
 //import CDN to Vuemixin
-import cdn from "/src/cdn.js"
-Vue.prototype.$appName = "geraldoX";
+import cdn from "/src/cdn.js";
 
+// Assim todos os Components.vue podem usar a CDN diretamente das variaveis Globais:
 Vue.mixin({
-  created(){
-    this.img = cdn.img;
-    this.cdnfiles = cdn.files
+  created() {
+    this.img = cdn.img; // optei usar o same str
+    this.cdnfiles = cdn.dropfiles; // poderia ser diferente
   },
-  data: function() {
-    return {         
-    }
-  }
-})
+  data: function () {
+    return {};
+  },
+});
 
+Vue.prototype.$appName = "geraldoX";
 
 window.onload = function () {
   const vm = new Vue({
