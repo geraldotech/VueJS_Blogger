@@ -98,7 +98,7 @@ section {
 .named-views {
   text-align: center;
   padding: 10px 0;
-  border-bottom: 1px solid red;
+  color: #0044b3;
 }
 
 /* routes CSS */

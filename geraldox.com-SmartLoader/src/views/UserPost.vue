@@ -116,7 +116,7 @@ article p {
 }
 
 div.breadcrumbs {
-  font-size: 14px;
+  font-size: 12px;
   background: black;
   margin: 4px 0;
   padding: 2px 5px;

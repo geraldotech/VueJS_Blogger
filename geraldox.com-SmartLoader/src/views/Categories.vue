@@ -1,24 +1,26 @@
 <template>
   <div class="category">
+    <div>
+      <Adsense />
+    </div>
     <h1>
-      Category: {{ $route.params.category }}
+      Category: <code>`{{ $route.params.category }}`</code>
       <div v-if="$route.params.category.includes('ndroid')">
         <div class="cat-banner">
           <img src="/src/assets/img/android.png" alt="android" />
         </div>
       </div>
-      <router-link :to="{ name: 'Blog Posts' }">voltar para Blog</router-link>
     </h1>
-    <ul v-for="artigos in opt" :key="artigos.slug">
-      <li>
-        <router-link
-          :to="{ name: 'threads', params: { slug: artigos.slug } }"
-          >{{ artigos.slug }}</router-link
+    <router-link :to="{ name: 'Blog Posts' }">voltar para Blog</router-link>
+    <ul class="listPosts">
+      <li v-for="(artigos, index) in opt" :key="artigos.id">
+        <router-link :to="{ name: 'threads', params: { slug: artigos.slug } }"
+          >{{ index + 1 }} - {{ artigos.title }}</router-link
         >
         <!--   <router-link :to="`/blog/${artigos.category}/${artigos.slug}`">{{
           artigos.slug
         }}</router-link> -->
-        <div></div>
+        <!--  <div></div> -->
       </li>
     </ul>
     <router-view></router-view>
@@ -36,6 +38,9 @@ module.exports = {
       opt: "",
     };
   },
+  components: {
+    Adsense: httpVueLoader("../views/Adsense.vue"),
+  },
   methods: {
     async posts() {
       const req = await fetch("/src/db/data.json");
@@ -48,6 +53,9 @@ module.exports = {
       //console.log(publicados);
       //reverse render posts mais novos on top
       this.opt = getBlogPost;
+      getBlogPost.forEach((val, ind) => {
+        console.log(ind);
+      });
       //limitador
       //this.opt.splice(0, 2);
     },
@@ -57,6 +65,24 @@ module.exports = {
 <style scoped>
 .category {
   text-align: center;
+  min-height: 100vh;
+}
+.category .listPosts {
+  margin-top: 15px;
+  width: 600px;
+  text-align: left;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.category .listPosts {
+  /*  line-height: 3rem; */
+}
+.category .listPosts a {
+  display: block;
+  padding: 10px 0;
+}
+.category code {
+  color: seagreen;
 }
 div,
 ul {
@@ -76,7 +102,7 @@ h1 {
   margin: 20px 0;
 }
 li {
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid rgb(0, 54, 143);
   padding: 0;
   list-style: none;
 }

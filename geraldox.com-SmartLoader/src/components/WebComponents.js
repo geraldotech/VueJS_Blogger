@@ -185,7 +185,7 @@ class Winmonitorwall extends HTMLElement {
    }
 
    nav{
-    margin-top: 100px;
+    margin-top: 50px;
    }
 
    @media screen and (min-width: 650px){

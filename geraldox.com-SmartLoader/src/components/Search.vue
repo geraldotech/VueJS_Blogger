@@ -4,12 +4,16 @@
       <input
         name=""
         type="text"
-        v-model="info"
-        placeholder="Search box"
+        v-model="userInput"
+        placeholder="search for posts"
         required
       />
       <input type="submit" value="Search" />
     </form>
+    <!--  usar v-if with computed -->
+    <p class="resultsok" v-if="findedResults">
+      Encontrei {{ results.length }} para: `{{ userInput }}`
+    </p>
 
     <p>{{ res }}</p>
 
@@ -25,7 +29,7 @@
         >
       </li>
       <li v-show="v2">
-        <button class="btnv2" @click="clica(items.category, items.slug)">
+        <button class="btnv2" @click="ClickSearch(items.category, items.slug)">
           {{ items.title }} - {{ items.data }}
         </button>
       </li>
@@ -39,7 +43,7 @@ module.exports = {
   },
   data() {
     return {
-      info: "",
+      userInput: "",
       blog: [],
       results: "",
       res: "",
@@ -53,13 +57,12 @@ module.exports = {
     async posts() {
       const req = await fetch("/src/db/data.json");
       const res = await req.json();
-      //console.log(`Search.vue`, res);
       this.blog = res.blog.posts;
     },
     search: function () {
       //faz a busca, compara os valores em maiusculas
       const busca = this.blog.filter((val) =>
-        val.title.toUpperCase().includes(this.info.toUpperCase())
+        val.title.toUpperCase().includes(this.userInput.toUpperCase())
       );
       //console.warn(busca.length ? busca : "404");
 
@@ -68,10 +71,10 @@ module.exports = {
       if (!this.results.length) {
         this.res = "We are sorry, 404";
       } else {
-        this.res = `Showing ${this.results.length} results for "${this.info}"`;
+        this.res = `Showing ${this.results.length} results for "${this.userInput}"`;
       }
     },
-    clica(ca, sl) {
+    ClickSearch(ca, sl) {
       this.$router.push({
         name: "threads",
         params: { category: ca, slug: sl },
@@ -88,6 +91,11 @@ module.exports = {
       });
     },
   },
+  computed: {
+    findedResults() {
+      return this.results.length > 0;
+    },
+  },
 };
 </script>
 /* Global styles for this component */
@@ -97,12 +105,14 @@ module.exports = {
   border-bottom-width: 10%;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serifs;
-  margin: 10px 0;
 }
 
 .search p {
   color: rgb(129, 247, 148);
   margin: 15px 0;
+}
+.search .resultsok {
+  color: #0044b3;
 }
 .search li {
   text-align: left;

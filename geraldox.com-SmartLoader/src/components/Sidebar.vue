@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
+    <h2>Sidebar</h2>
     <section class="content">
-      <h2>Sidebar</h2>
       <!--   <p class="search"><Search /></p> -->
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid,
@@ -39,7 +39,7 @@ module.exports = {
   margin-top: 15px;
 }
 .sidebar .content {
-  padding: 2px;
+  padding: 5px;
 }
 
 .sidebar .content p {
@@ -50,7 +50,7 @@ module.exports = {
 .sidebar h2 {
   text-align: center;
   border-bottom: 2px solid red;
-  padding-bottom: 3.5px;
+  padding-bottom: 10px;
 }
 
 .sidebar figure img {

@@ -1,6 +1,7 @@
 <template>
   <div class="block">
-    <h2>Home Page</h2>
+    <h2>gmapdev blog</h2>
+    <p>I write articles about Web Development</p>
   </div>
 </template>
 
@@ -14,5 +15,9 @@ module.exports = {};
   text-align: center;
   min-height: 80vh;
   margin-top: 20px;
+  color: rgb(158, 149, 137);
+}
+.block p {
+  font-size: 14px;
 }
 </style>
