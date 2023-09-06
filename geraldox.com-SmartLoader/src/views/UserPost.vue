@@ -135,7 +135,7 @@ div.breadcrumbs {
   text-decoration: none;
 }
 
-h2 {
+.blogger h2 {
   padding: 10px 0;
 }
 ul {
