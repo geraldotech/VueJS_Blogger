@@ -69,7 +69,7 @@ module.exports = {
 }
 .category .listPosts {
   margin-top: 15px;
-  width: 600px;
+  max-width: 600px;
   text-align: left;
   margin: 0 auto;
   padding: 15px 0;
