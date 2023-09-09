@@ -40,6 +40,13 @@
 
 ### Changes and Features:
 
+- 9.9.2023
+
+  - CSS Enhanced
+    - container `flex-direction` column keeps footer bottom
+    - `list-all: width: 100%`
+    - `min-height: 100dvh`
+
 - 13.08.2023
 
   - CSS Enhanced
