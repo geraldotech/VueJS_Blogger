@@ -6,7 +6,28 @@
 </template>
 
 <script>
-module.exports = {};
+module.exports = {
+  head: {
+    title: {
+      inner: "Home Page",
+      separator: "-",
+      complement: "gmapdev",
+      meta: [
+        {
+          name: "description",
+          content: "I write articles about Web Development, checkout",
+        },
+      ],
+    },
+    link: [
+      {
+        rel: "canonical",
+        href: "https://geraldox.com/",
+        id: "canonical",
+      },
+    ],
+  },
+};
 </script>
 
 <style scoped>
