@@ -71,6 +71,29 @@
 
 <script>
 module.exports = {
+  head: {
+    title: {
+      inner: "Sobre Geraldo Filho - About - Sobre",
+      separator: "-",
+      complement: "GMAPDEV",
+    },
+    //omited
+    meta: [
+      {
+        name: "description",
+        content:
+          "Atualmente cursando Sistemas de Informação pela Estácio, com previsão de conclusão em Dez/2025. ",
+        id: "desc",
+      },
+    ],
+  },
+  link: [
+    {
+      rel: "canonical",
+      href: "http://geraldox.com/blog",
+      id: "canonical",
+    },
+  ],
   mounted() {
     this.montado();
   },
