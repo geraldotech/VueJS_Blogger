@@ -149,10 +149,6 @@ module.exports = {
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* div,
-ul {
-  margin-top: 5px;
-} */
 h1 {
   margin-top: 20px;
   font-size: 1.7rem;
@@ -249,7 +245,7 @@ select {
 @media screen and (min-width: 650px) {
   .list-all {
     display: flex;
-    width: 80%;
+    width: 100%;
     padding: 10px 0;
     margin: 0 auto;
   }

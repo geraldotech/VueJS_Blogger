@@ -172,7 +172,7 @@ input[type="text"] {
 
 /* for mobile */
 @media screen and (max-width: 550px) {
-  input[type="text"] {
+  .search input[type="text"] {
     width: 70% !important;
   }
 }

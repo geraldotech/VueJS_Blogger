@@ -159,21 +159,21 @@ module.exports = {
 </script>
 
 <style scoped>
-main {
+.projects main {
   height: 100vh;
   text-align: center;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
-select {
+.projects select {
   cursor: pointer;
   margin: 20px 0;
 }
-select option {
+.projects select option {
   font-weight: bold;
   font-size: 1rem;
 }
-section.projects_menu {
+.projects section.projects_menu {
   display: block;
   text-align: center;
 }
@@ -187,9 +187,6 @@ section.projects_menu {
 }
 .projects_menu {
   margin-top: 20px;
-}
-nav p {
-  margin-top: 25px;
 }
 
 ol {

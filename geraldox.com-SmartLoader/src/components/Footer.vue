@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>geraldoX.com - &copy; 2023</p> 
+    <p>geraldoX - &copy; 2023</p>
   </footer>
 </template>
 
@@ -14,8 +14,9 @@ footer {
   min-width: 200px;
   margin: auto;
   background: rgb(20, 19, 19);
-  padding: 10px;
+  padding: 15px 5px;
   text-align: center;
+  width: 100%;
 }
 
 /* for mobile */

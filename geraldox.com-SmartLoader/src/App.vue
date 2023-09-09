@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main class="main">
     <nav class="menu">
       <li>
         <router-link to="/">Home</router-link>
@@ -15,15 +15,14 @@
       </li>
     </nav>
     <hr />
-    <!-- <div>  <Busca/></div> -->
-    <section>
+    <!--  <div><Busca v1 /></div> -->
+    <section class="container">
       <router-view></router-view>
-      <!--  router named -->
-      <router-view name="yt" class="named-views"></router-view>
     </section>
-
+    <!--  router named -->
+    <router-view name="yt" class="named-views"></router-view>
     <Foot />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -53,14 +52,24 @@ body {
   min-width: 320px;
   max-width: var(--maxw);
   margin: 0 auto;
+}
+/* trick to keep footer on bottom and container get max-space */
+.main {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
+}
+.container {
+  flex: 1;
+  /* max-width: var(--maxw); */
 }
 
-.block {
+/* .block {
   max-width: 800px;
   min-width: 320px;
   margin: 0 auto;
-}
+} */
 
 .menu {
   display: flex;
@@ -90,9 +99,6 @@ body {
 }
 .menu a:hover {
   color: rgb(68, 186, 246);
-}
-section {
-  max-width: var(--maxw);
 }
 /* class named views */
 .named-views {

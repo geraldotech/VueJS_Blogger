@@ -127,6 +127,7 @@ module.exports = {
 }
 .about .about_links {
   padding-top: 40px;
+  margin-bottom: 20px;
 }
 
 .about_links a {
