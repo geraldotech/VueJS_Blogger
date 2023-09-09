@@ -1,6 +1,6 @@
 <template>
   <div class="projects">
-    <main>
+    <section>
       <h1>Projects</h1>
       <p>
         <code>
@@ -26,7 +26,7 @@
         <p class="promobile">You are in mobile version</p>
         <!--container article-->
       </section>
-    </main>
+    </section>
   </div>
 </template>
 
@@ -159,8 +159,7 @@ module.exports = {
 </script>
 
 <style scoped>
-.projects main {
-  height: 100vh;
+.projects {
   text-align: center;
   margin: 20px auto;
 }

@@ -62,8 +62,9 @@ label {
   margin: 10px 0;
   height: 40px;
   width: 80%;
-  padding: 10px;
+  padding: 8px;
   outline: none;
+  border: 2px solid black;
   border-radius: 10px;
 }
 .whatsappApi input:focus {

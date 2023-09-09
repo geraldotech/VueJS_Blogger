@@ -3,7 +3,7 @@
     <Adsense></Adsense>
     <div v-if="$route.name == `Blog Posts`" class="list-all">
       <section class="threads">
-        <p><Search v1 /></p>
+        <div><Search v1 /></div>
         <div class="map">
           <h1>Map:</h1>
           <div>
@@ -60,13 +60,14 @@
             Showing:{{ opt.length }} of {{ AllPosts.length }} Posts.
           </p>
           <button class="limiter_btn" @click="ShowAllPosts(5)">
-            {{ AllPosts.length == opt.length ? "Nothing more" : "Show more" }}
+            {{ AllPosts.length == opt.length ? "❌Nothing more" : "Show more" }}
           </button>
         </nav>
       </section>
 
-      <p><Sidebar /></p>
+      <Sidebar />
     </div>
+    <!--  if a rota for === entao show -->
     <div v-if="$route.name == `Categories Map`">
       <Mapas />
     </div>
@@ -140,7 +141,7 @@ module.exports = {
     },
     ShowLessPosts() {
       //number = 5 minimo posts
-      return (this.opt = this.GetBlogPosts((this.numero = 5)));
+      return (this.opt = this.GetBlogPosts((this.numero = 10)));
     },
   },
 };
@@ -173,7 +174,7 @@ h1 {
 }
 
 .threads li {
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid rgb(0, 54, 143);
   margin: 20px 0;
 }
 

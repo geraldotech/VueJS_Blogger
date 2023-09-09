@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>geraldoX - &copy; 2023</p>
+    <p>Copyright &copy; 2023 GMAPDEV</p>
   </footer>
 </template>
 
@@ -14,8 +14,10 @@ footer {
   min-width: 200px;
   margin: auto;
   background: rgb(20, 19, 19);
-  padding: 15px 5px;
+  padding: 20px;
   text-align: center;
+  color: rgb(158, 149, 137);
+  font-size: 13px;
   width: 100%;
 }
 

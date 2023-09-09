@@ -116,7 +116,7 @@ article p {
 }
 
 div.breadcrumbs {
-  font-size: 14px;
+  font-size: 12px;
   background: black;
   margin: 4px 0;
   padding: 2px 5px;
@@ -135,10 +135,10 @@ div.breadcrumbs {
   text-decoration: none;
 }
 
-h2 {
+.blogger h2 {
   padding: 10px 0;
 }
-ul {
+.blogger ul {
   margin-top: 20px;
   padding-left: 15px;
 }

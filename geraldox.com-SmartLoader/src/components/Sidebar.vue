@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
+    <h2>Sidebar</h2>
     <section class="content">
-      <h2>Sidebar</h2>
       <!--   <p class="search"><Search /></p> -->
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid,
@@ -39,18 +39,24 @@ module.exports = {
   margin-top: 15px;
 }
 .sidebar .content {
-  padding: 2px;
+  padding: 5px;
 }
 
 .sidebar .content p {
   margin-top: 5px;
   font-size: 14px;
 }
+.content ul {
+  margin-top: 15px;
+}
+.content ul a {
+  line-height: 2rem;
+}
 
 .sidebar h2 {
   text-align: center;
   border-bottom: 2px solid red;
-  padding-bottom: 3.5px;
+  padding-bottom: 10px;
 }
 
 .sidebar figure img {
@@ -61,14 +67,14 @@ module.exports = {
   padding: 5px;
 }
 
-ul li {
+.sidebar ul li {
   padding: 0;
   margin-left: 10%;
   line-height: 1.5rem;
   text-align: left;
 }
 
-ul {
+.sidebar ul {
   text-align: center;
   /*  padding-left: 0;  */ /*  remove all padding left */
 }

@@ -7,6 +7,7 @@
 module.exports = {};
 </script>
 <style>
+/* mobile first */
 .ads {
   background: rgb(24, 83, 171);
   max-width: 100%;
@@ -17,10 +18,11 @@ module.exports = {};
   justify-content: center;
   align-items: center;
 }
-
+/* desktop */
 @media screen and (min-width: 650px) {
   .ads {
-    max-width: 100%;
+    max-width: 80%;
+    margin: 5px auto;
     background: rgb(20, 19, 19);
   }
 }
