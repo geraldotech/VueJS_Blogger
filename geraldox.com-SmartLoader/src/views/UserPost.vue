@@ -118,7 +118,6 @@ article p {
 div.breadcrumbs {
   font-size: 12px;
   margin: 4px 0;
-  padding: 2px 5px;
   border-radius: 5px 5px;
   font-weight: bold;
   text-transform: uppercase;
