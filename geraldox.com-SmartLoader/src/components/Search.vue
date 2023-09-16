@@ -39,15 +39,15 @@
 <script>
 module.exports = {
   created() {
-    this.posts();
+    this.posts()
   },
   data() {
     return {
-      userInput: "",
+      userInput: '',
       blog: [],
-      results: "",
-      res: "",
-    };
+      results: '',
+      res: '',
+    }
   },
   props: {
     v1: Boolean, //for blog-list_posts
@@ -55,30 +55,30 @@ module.exports = {
   },
   methods: {
     async posts() {
-      const req = await fetch("/src/db/data.json");
-      const res = await req.json();
-      this.blog = res.blog.posts;
+      const req = await fetch('/src/db/data.json')
+      const res = await req.json()
+      this.blog = res.blog.posts
     },
     search: function () {
       //faz a busca, compara os valores em maiusculas
       const busca = this.blog.filter((val) =>
         val.title.toUpperCase().includes(this.userInput.toUpperCase())
-      );
+      )
       //console.warn(busca.length ? busca : "404");
 
-      this.results = busca;
+      this.results = busca
       //busca.length ? (this.results = busca) : this.not == true;
       if (!this.results.length) {
-        this.res = "We are sorry, 404";
+        this.res = 'We are sorry, 404'
       } else {
-        this.res = `Showing ${this.results.length} results for "${this.userInput}"`;
+        this.res = `Showing ${this.results.length} results for "${this.userInput}"`
       }
     },
     ClickSearch(ca, sl) {
       this.$router.push({
-        name: "threads",
+        name: 'threads',
         params: { category: ca, slug: sl },
-      });
+      })
       /*  this.$router.go({
         name: "threads",
         params: { category: "android", slug: "post-one" },
@@ -86,22 +86,21 @@ module.exports = {
       // this.$router.go({ path: "/blog/android/post-one" });
 
       this.$router.go({
-        name: "threads",
+        name: 'threads',
         params: { category: ca, slug: sl },
-      });
+      })
     },
   },
   computed: {
     findedResults() {
-      return this.results.length > 0;
+      return this.results.length > 0
     },
   },
-};
+}
 </script>
 /* Global styles for this component */
 <style scoped>
 .search {
-  border-bottom: 2px solid red;
   border-bottom-width: 10%;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serifs;
@@ -142,7 +141,7 @@ button.btn,
   color: rgb(68, 186, 246);
 }
 
-.search input[type="submit"] {
+.search input[type='submit'] {
   cursor: pointer;
   text-align: center;
   font-size: 16px;
@@ -173,16 +172,16 @@ button.btn,
 form input {
   padding: 5px;
 }
-input[type="submit"] {
+input[type='submit'] {
   cursor: pointer;
 }
-input[type="text"] {
+input[type='text'] {
   width: 50%;
 }
 
 /* for mobile */
 @media screen and (max-width: 550px) {
-  .search input[type="text"] {
+  .search input[type='text'] {
     width: 70% !important;
   }
 }

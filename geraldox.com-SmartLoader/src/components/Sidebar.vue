@@ -26,12 +26,12 @@
 <script>
 module.exports = {
   data() {
-    return {};
+    return {}
   },
   components: {
-    Search: httpVueLoader("../components/Search.vue"),
+    Search: httpVueLoader('../components/Search.vue'),
   },
-};
+}
 </script>
 <style scoped>
 .sidebar {
@@ -55,7 +55,6 @@ module.exports = {
 
 .sidebar h2 {
   text-align: center;
-  border-bottom: 2px solid red;
   padding-bottom: 10px;
 }
 

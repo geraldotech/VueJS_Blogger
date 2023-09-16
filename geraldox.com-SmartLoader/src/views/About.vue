@@ -5,7 +5,7 @@
         <img src="" id="gitavatar" alt="giv avatar" />
       </div>
 
-      <h1>Curriculum</h1>
+      <h1>Resume</h1>
       <h4 id="write">Bem vindo ao meu site!</h4>
 
       <div class="about_links">
@@ -71,65 +71,42 @@
 
 <script>
 module.exports = {
-  head: {
-    title: {
-      inner: "Sobre Geraldo Filho - About - Sobre",
-      separator: "-",
-      complement: "GMAPDEV",
-    },
-    //omited
-    meta: [
-      {
-        name: "description",
-        content:
-          "Atualmente cursando Sistemas de Informação pela Estácio, com previsão de conclusão em Dez/2025. ",
-        id: "desc",
-      },
-    ],
-  },
-  link: [
-    {
-      rel: "canonical",
-      href: "http://geraldox.com/blog",
-      id: "canonical",
-    },
-  ],
   mounted() {
-    this.montado();
+    this.montado()
   },
   methods: {
     montado() {
       function typerWriter(el) {
-        const txtarr = el.innerHTML.split("");
-        el.innerHTML = ``;
+        const txtarr = el.innerHTML.split('')
+        el.innerHTML = ``
         txtarr.forEach((letra, i) => {
-          setTimeout(() => (el.innerHTML += letra), 90 * i);
-        });
+          setTimeout(() => (el.innerHTML += letra), 90 * i)
+        })
       }
-      const write = document.querySelector("#write");
-      typerWriter(write);
+      const write = document.querySelector('#write')
+      typerWriter(write)
 
       //gitavatar
-      const api = "https://api.github.com/users/geraldotech";
+      const api = 'https://api.github.com/users/geraldotech'
       async function getGibData(url) {
-        const res = await fetch(url);
-        const data = await res.json();
+        const res = await fetch(url)
+        const data = await res.json()
         //console.log(data.avatar_url);
-        showimg(data);
+        showimg(data)
       }
-      getGibData(api);
+      getGibData(api)
 
       function showimg(img) {
         //select img tag
-        const TagAvatar = document.getElementById("gitavatar");
+        const TagAvatar = document.getElementById('gitavatar')
         if (TagAvatar) {
           //evita erros caso esteja em pagina que não tem a tag
-          TagAvatar.src = img.avatar_url;
+          TagAvatar.src = img.avatar_url
         }
       }
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -187,7 +164,7 @@ article p:first-letter {
 
 .social_icons {
   display: flex;
-  margin-top: 50px;
+  margin-top: 200px;
   justify-content: center;
 }
 .social_icons a {
@@ -199,7 +176,7 @@ article p:first-letter {
 
 /* typerWriter */
 h4::after {
-  content: "|";
+  content: '|';
   opacity: 1;
   margin-left: 5px;
   display: inline-block;
@@ -220,7 +197,6 @@ h4 {
   }
 }
 #write {
-  color: coral;
   text-align: center;
 }
 

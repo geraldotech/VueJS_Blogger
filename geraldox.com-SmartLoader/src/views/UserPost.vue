@@ -48,14 +48,14 @@
 </template>
 <script>
 /*start String components templates*/
-const word = "<p>Hello from String template</p>";
-Vue.component("cardy", {
+const word = '<p>Hello from String template</p>'
+Vue.component('cardy', {
   template: word,
-});
+})
 
 //ends String Components
 module.exports = {
-  name: "BlogPosts",
+  name: 'BlogPosts',
   mounted() {
     //console.log(test);
   },
@@ -63,7 +63,7 @@ module.exports = {
     // console.log(`UserPost.vue`, this.$appName);
   },
   created() {
-    this.posts();
+    this.posts()
     //console.log(this.$route); //currently
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
     //console.log(`UserPost: root`, this.$root);
@@ -71,34 +71,34 @@ module.exports = {
   data() {
     return {
       blog: {},
-    };
+    }
   },
   components: {
-    Sidebar: httpVueLoader("/src/components/Sidebar.vue"),
-    Busca: httpVueLoader("/src/components/Search.vue"),
-    Android: httpVueLoader("../posts/android-roo.vue"),
-    Vuejs: httpVueLoader("../posts/Vuejs.vue"),
-    Speedtest: httpVueLoader("../posts/Speedtest.vue"),
-    NetworkTools: httpVueLoader("../posts/NetworkTools.vue"),
-    Container: httpVueLoader("/src/components/ContainerPosts.vue"),
-    Adsense: httpVueLoader("../views/Adsense.vue"),
-    whatsappapi: httpVueLoader("../posts/whatsappapi.vue"),
+    Sidebar: httpVueLoader('/src/components/Sidebar.vue'),
+    Busca: httpVueLoader('/src/components/Search.vue'),
+    Android: httpVueLoader('../posts/android-roo.vue'),
+    Vuejs: httpVueLoader('../posts/Vuejs.vue'),
+    Speedtest: httpVueLoader('../posts/Speedtest.vue'),
+    NetworkTools: httpVueLoader('../posts/NetworkTools.vue'),
+    Container: httpVueLoader('/src/components/ContainerPosts.vue'),
+    Adsense: httpVueLoader('../views/Adsense.vue'),
+    whatsappapi: httpVueLoader('../posts/whatsappapi.vue'),
   },
   methods: {
     async posts() {
-      const req = await fetch("/src/db/data.json");
-      const data = await req.json();
+      const req = await fetch('/src/db/data.json')
+      const data = await req.json()
       //console.warn(data);
-      this.blogPosts = data.blog.posts;
+      this.blogPosts = data.blog.posts
       //encontra a slug atual e verifica se esta plublicada
       const getBlogPost = this.blogPosts.find(
         (post) => post.slug == this.$route.params.slug && post.published
-      );
+      )
       // console.log(`getBlogPost`, getBlogPost);
-      this.blog = getBlogPost;
+      this.blog = getBlogPost
     },
   },
-};
+}
 </script>
 <style>
 article h1 {
@@ -117,7 +117,6 @@ article p {
 
 div.breadcrumbs {
   font-size: 12px;
-  background: black;
   margin: 4px 0;
   padding: 2px 5px;
   border-radius: 5px 5px;
@@ -145,7 +144,7 @@ div.breadcrumbs {
 h4.notFound {
   text-align: center;
 }
-button[data*="print"] {
+button[data*='print'] {
   background: none;
   padding: 0px 15px;
   border: 1px solid dodgerblue;

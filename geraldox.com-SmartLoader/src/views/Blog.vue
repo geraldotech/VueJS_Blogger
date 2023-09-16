@@ -76,28 +76,6 @@
 
 <script>
 module.exports = {
-  head: {
-    title: {
-      inner: "GMAPDEV - Blog Posts",
-      separator: "-",
-      complement: "Articles gmapdev",
-    },
-    //omited
-    meta: [
-      {
-        name: "description",
-        content: "Todos os Posts de geraldox.com gmapdev",
-        id: "desc",
-      },
-    ],
-  },
-  link: [
-    {
-      rel: "canonical",
-      href: "http://geraldox.com/about",
-      id: "canonical",
-    },
-  ],
   created() {
     this.posts();
     // this.showDom();

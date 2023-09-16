@@ -1,12 +1,6 @@
 <template>
   <div>
     <h2>Best App for Android</h2>
-    <p>
-      Hoje vamos listar os melhores aplicativos[Apps] para Android de todos os
-      tempos, muitos requer roots embora não seja algo obrigátorio e menos que
-      pense em compartilhar uma VPN. Elaborado com muito criterio muitos podem
-      ajudar a melhorar a sua produtividade.
-    </p>
     <label for="root">Root Apps:</label>
     <select name="" id="root" v-model="root">
       <option value=""></option>
@@ -49,27 +43,6 @@
 </template>
 <script>
 module.exports = {
-  head: {
-    title: {
-      inner: "Melhores Apps Android para Desenvolvedores em 2023",
-      separator: "-",
-      complement: "gmapdev",
-      meta: [
-        {
-          name: "description",
-          content:
-            "Hoje vamos listar os melhores aplicativos[Apps] para Android de todos os tempos",
-        },
-      ],
-    },
-    link: [
-      {
-        rel: "canonical",
-        href: "https://geraldox.com/blog/android/android-apps",
-        id: "canonical",
-      },
-    ],
-  },
   mounted() {},
   data() {
     return {
