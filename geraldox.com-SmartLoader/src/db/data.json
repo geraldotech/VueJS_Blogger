@@ -216,6 +216,17 @@
         "article": "",
         "component": "whatsappapi",
         "category": "developer"
+      },
+      {
+        "id": 21,
+        "title": "Windows update Blocker",
+        "slug": "windows-update-blocker",
+        "author": "geraldox",
+        "published": true,
+        "data": "Sep, 16, 2023",
+        "article": "<p style='text-align:center'>Block the Windows Updates fastly with this app <a class='btnDownload' href='https://www.sordum.org/9470/windows-update-blocker-v1-8/' target='_blank'>Download Now</a></p>",
+        "component": "",
+        "category": "windows"
       }
     ]
   }

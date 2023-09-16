@@ -6,11 +6,19 @@
 - http-vue-loader
   - No node.js environment, no build step, thanks [FranckFreiburger](https://github.com/FranckFreiburger/http-vue-loader)
 - vue-router 3.0.2
+- Styles:
+
+  - CSS Mobile First
+  - Use `class='img-flex'` for big img special in Container Components
+  - CSS Global `class='btnDownload'` for button downloads e.g: `<nav><a href="#">button downloads</a></nav>`
+
+  > Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
+
 - Components
 
-  - `article obj` `in data.json` is opcional, but you still can use this
+  - ➡️`db.json` Tiny posts? You can use `article obj in db.json` in is opcional, but you still can use this
 
-    - e.g: writing in JSON using single quotes:
+    > e.g: writing html in JSON using single quotes using CSS class:
 
     ```php
 
@@ -22,19 +30,19 @@
     </figure>
     ```
 
-  - define component in JSON create and import it using VueJS{components}
-  - `SmartComponents` load a external .js and .vue [read more](https://github.com/geraldotech/VueJS_Blogger/blob/main/SmartComponents.md)
-  - Support String Components direct in `UserPost.vue` not good practice
-  - Vanilla Web Components [Read more](https://github.com/geraldotech/DevMap/tree/main/JavaScript/assets/thread/Web-Components)
-    - support CSS scoped
+  - ➡️`VueJS{Native components}` define component in `db.json` so create and import it in `UserPost.vue`
 
-- Styles:
+    - Also supports String Components direct in `UserPost.vue` [not good practice]
 
-  - CSS Mobile First
-  - Use `class='img-flex'` for big img special in Container Components
-  - CSS Global `class='btnDownload'` for `<nav><a href="#">button downloads</a></nav>`
+  - ➡️`ContainerPosts.vue`
 
-  > Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
+    - register childrens components Globally, imported by UserPost.vue [read more](https://github.com/geraldotech/VueJS_Blogger/blob/main/ContainerPosts.md)
+
+  - ➡️`SmartComponents: plugin`
+
+    - imports a **ContainerPosts.js** with your Vue childComponents
+      [read more](https://github.com/geraldotech/VueJS_Blogger/blob/main/SmartComponents.md)
+    - imports a **Vanilla Web Components** support CSS scoped [read more](https://github.com/geraldotech/DevMap/tree/main/JavaScript/assets/thread/Web-Components)
 
   <hr>
 
@@ -232,14 +240,14 @@
 
 ```js
 //start categorias categorias only
-const getCatego = this.opt.map((val) => val.category);
+const getCatego = this.opt.map((val) => val.category)
 
 //filter remove duplicado e undefined itens
 const filtra = getCatego.filter(
   (val, ind) => getCatego.indexOf(val) == ind && val != undefined
-);
+)
 //catategories by sort()
-this.categorias = filtra.sort();
+this.categorias = filtra.sort()
 ```
 
 - ### slug/blog/cat/
@@ -283,13 +291,13 @@ const getBlogPost = this.blogPosts.find(
 
 ```js
 this.$router.push({
-  name: "threads",
+  name: 'threads',
   params: { category: ca, slug: sl },
-});
+})
 this.$router.go({
-  name: "threads",
+  name: 'threads',
   params: { category: ca, slug: sl },
-});
+})
 ```
 
 - Alterado padding mobile first UserPost and User

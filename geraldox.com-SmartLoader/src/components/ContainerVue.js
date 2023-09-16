@@ -1,4 +1,8 @@
-import cdn from "/src/cdn.js";
+/* Use SmartLoader to import this file in VueJS CDN projects 
+ Container JavaScript with VueComponents  
+ */
+
+import cdn from '/src/cdn.js'
 
 /* Container Components.js */
 const superNintendo = `
@@ -35,12 +39,12 @@ const superNintendo = `
 </ul>
 </article>
 </div>
-`;
-Vue.component("supergames", {
+`
+Vue.component('supergames', {
   template: superNintendo,
-});
+})
 
-Vue.component("mydell", {
+Vue.component('mydell', {
   template: `
   <div>
   <p>Hello from Imported String template.js 'mydell'
@@ -50,6 +54,6 @@ Vue.component("mydell", {
   </p>
   </div>
   `,
-});
+})
 
-const test = `script loaded`;
+const test = `script loaded`
