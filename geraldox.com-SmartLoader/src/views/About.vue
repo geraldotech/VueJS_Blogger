@@ -151,7 +151,20 @@ article p {
   text-align: justify;
   margin: 0 10px;
   line-height: 1.5rem;
+  animation: animacao ease 5s;
 }
+
+@keyframes animacao {
+  0% {
+    opacity: 0;
+    /* font-size: 3rem; */
+  }
+  100% {
+    opacity: 1;
+    font-size: 1rem;
+  }
+}
+
 article p:first-letter {
   color: green;
   font-size: 2.6rem;

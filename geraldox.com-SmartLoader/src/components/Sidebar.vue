@@ -55,7 +55,7 @@ module.exports = {
 
 .sidebar h2 {
   text-align: center;
-  padding-bottom: 10px;
+  padding: 0;
 }
 
 .sidebar figure img {

@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-module.exports = {};
+module.exports = {}
 </script>
 <style scoped>
 code {

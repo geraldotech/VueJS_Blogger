@@ -5,7 +5,6 @@
       <section class="threads">
         <div><Search v1 /></div>
         <div class="map">
-          <h1>Map:</h1>
           <div>
             <router-link :to="{ name: `Categories Map` }"
               >Mapa de categorias</router-link
@@ -42,7 +41,7 @@
                 >{{
                   artigos.category
                     ? artigos.category.toUpperCase()
-                    : "UNCATEGORIZED"
+                    : 'UNCATEGORIZED'
                 }}</router-link
               >
             </div>
@@ -60,7 +59,7 @@
             Showing:{{ opt.length }} of {{ AllPosts.length }} Posts.
           </p>
           <button class="limiter_btn" @click="ShowAllPosts(5)">
-            {{ AllPosts.length == opt.length ? "❌Nothing more" : "Show more" }}
+            {{ AllPosts.length == opt.length ? '❌Nothing more' : 'Show more' }}
           </button>
         </nav>
       </section>
@@ -77,74 +76,74 @@
 <script>
 module.exports = {
   created() {
-    this.posts();
+    this.posts()
     // this.showDom();
   },
   components: {
-    Sidebar: httpVueLoader("../components/Sidebar.vue"),
-    Search: httpVueLoader("../components/Search.vue"),
-    Mapas: httpVueLoader("../views/mapa.vue"),
-    Adsense: httpVueLoader("../views/Adsense.vue"),
+    Sidebar: httpVueLoader('../components/Sidebar.vue'),
+    Search: httpVueLoader('../components/Search.vue'),
+    Mapas: httpVueLoader('../views/mapa.vue'),
+    Adsense: httpVueLoader('../views/Adsense.vue'),
   },
   data() {
     return {
       opt: [],
       categorias: {},
-      select: "",
+      select: '',
       AllPosts: {},
       numero: 10,
-    };
+    }
   },
   methods: {
     async posts() {
-      const req = await fetch("./src/db/data.json");
-      const res = await req.json();
+      const req = await fetch('./src/db/data.json')
+      const res = await req.json()
 
       //filter post published
-      const blogPosts = res.blog.posts.filter((posts) => posts.published);
+      const blogPosts = res.blog.posts.filter((posts) => posts.published)
       // console.log(blogPosts);
 
       // map categoris acima dos limitadores de posts splice()
-      const getCatego = blogPosts.map((val) => val.category);
+      const getCatego = blogPosts.map((val) => val.category)
 
       //console.log([...getCatego].sort());
 
       //🔢 contar n de categories values + ordenar com sort()
       const counter = getCatego
         .sort()
-        .reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {});
+        .reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
 
       //recebe o contador unique + contador
-      this.categorias = counter;
+      this.categorias = counter
 
       //🔢 Limitador de posts, lembrando this methods changes the original array
-      blogPosts.splice();
+      blogPosts.splice()
 
       //thos AllPosts a ser usado no length and pelo @click show all posts
-      this.AllPosts = blogPosts;
+      this.AllPosts = blogPosts
 
       //recebe os posts com limitador opcional
-      this.opt = this.GetBlogPosts(this.numero);
+      this.opt = this.GetBlogPosts(this.numero)
     },
     changeRoute(e) {
-      this.$router.push("/categories/" + e.target.value);
+      this.$router.push('/categories/' + e.target.value)
     },
     GetBlogPosts(n) {
       return this.AllPosts.filter((posts) => posts.published)
         .reverse() //reverse depois limiter
-        .slice(0, n);
+        .slice(0, n)
     },
     ShowAllPosts(e) {
       //onclick shoow +1 posts
-      this.numero = this.numero + 5;
-      return (this.opt = this.GetBlogPosts(this.numero));
+      this.numero = this.numero + 5
+      return (this.opt = this.GetBlogPosts(this.numero))
     },
     ShowLessPosts() {
       //number = 5 minimo posts
-      return (this.opt = this.GetBlogPosts((this.numero = 10)));
+      return (this.opt = this.GetBlogPosts((this.numero = 10)))
     },
   },
-};
+}
 </script>
 <style scoped>
 * {
@@ -160,6 +159,18 @@ h1 {
 
 .threads_list {
   line-height: 1.5rem;
+  background: #222;
+  padding: 3px;
+  animation: PostIntro ease 3s;
+}
+
+@keyframes PostIntro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .threads a {
@@ -236,7 +247,7 @@ time {
   font-size: 12px;
 }
 time::before {
-  content: "DATE: ";
+  content: 'DATE: ';
 }
 select {
   cursor: pointer;

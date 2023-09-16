@@ -14,7 +14,7 @@
         <router-link :to="{ name: `about` }">About</router-link>
       </li>
     </nav>
-    <hr />
+
     <!--  <div><Busca v1 /></div> -->
     <section class="container">
       <router-view></router-view>
@@ -28,13 +28,13 @@
 <script>
 module.exports = {
   data() {
-    return {};
+    return {}
   },
   components: {
-    Foot: httpVueLoader("/src/components/Footer.vue"),
-    Busca: httpVueLoader("/src/components/Search.vue"),
+    Foot: httpVueLoader('/src/components/Footer.vue'),
+    Busca: httpVueLoader('/src/components/Search.vue'),
   },
-};
+}
 </script>
 <style>
 :root {
@@ -52,6 +52,7 @@ body {
   min-width: 320px;
   max-width: var(--maxw);
   margin: 0 auto;
+  scroll-behavior: smooth;
 }
 /* trick to keep footer on bottom and container get max-space */
 .main {

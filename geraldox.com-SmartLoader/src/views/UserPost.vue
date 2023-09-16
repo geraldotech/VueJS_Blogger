@@ -5,7 +5,7 @@
       <main>
         <div><Busca v2 /></div>
         <article v-if="blog">
-          <h1>{{ blog.title }}</h1>
+          <!-- card starts -->
           <div class="breadcrumbs">
             <p>
               Home >
@@ -19,11 +19,14 @@
                 >{{ blog.category }}</router-link
               >
             </p>
+            <h1>{{ blog.title }}</h1>
             <p>
               By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
               <button data="print" onclick="print()">PRINT</button>
             </p>
           </div>
+          <!-- card ends -->
+
           <hr />
           <!-- render html from json -->
           <p v-html="blog.article"></p>
@@ -115,6 +118,12 @@ article p {
   margin: 5px 15px; /* margin do body posts */
 }
 
+.breadcrumbs p {
+  margin: 0;
+}
+.breadcrumbs h1 {
+  margin: 7px 0;
+}
 div.breadcrumbs {
   font-size: 12px;
   margin: 4px 0;
@@ -156,7 +165,7 @@ button[data*='print'] {
 @media screen and (min-width: 990px) {
   .blogger {
     display: flex;
-    padding: 25px;
+    margin-top: 10px;
     gap: 20px;
   }
   .blogger main {
@@ -164,6 +173,9 @@ button[data*='print'] {
   }
   article h1 {
     font-size: 2em;
+  }
+  .blogger {
+    margin: 0; /* margin do body posts */
   }
 }
 </style>
