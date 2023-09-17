@@ -43,16 +43,28 @@
 </template>
 <script>
 module.exports = {
+  metaInfo: {
+    title: 'Os melhores apps para Android de 2023',
+    titleTemplate: '%s - gmapdev',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: 'Best App for Android can be encontrado aqui no gmapdev',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    ],
+  },
   mounted() {},
   data() {
     return {
-      root: "",
-      gdrive: "",
-      gplay: "",
-    };
+      root: '',
+      gdrive: '',
+      gplay: '',
+    }
   },
   methods: {},
-};
+}
 </script>
 <style scoped>
 h2 {

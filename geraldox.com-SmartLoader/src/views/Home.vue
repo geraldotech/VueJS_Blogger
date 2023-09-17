@@ -6,7 +6,22 @@
 </template>
 
 <script>
-module.exports = {};
+module.exports = {
+  metaInfo: {
+    title: 'Home Page',
+    titleTemplate: '%s - gmapdev',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content:
+          'I write articles about Web Development, checkout my GitHub #gmapdev',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'vuejs, windows, android, linux' },
+    ],
+  },
+}
 </script>
 
 <style scoped>

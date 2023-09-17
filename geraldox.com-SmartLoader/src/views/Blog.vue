@@ -75,6 +75,18 @@
 
 <script>
 module.exports = {
+  metaInfo: {
+    title: 'Blogs Posts',
+    titleTemplate: '%s - gmapdev',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: 'Artigos variados, escolha uma categoria',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    ],
+  },
   created() {
     this.posts()
     // this.showDom();
