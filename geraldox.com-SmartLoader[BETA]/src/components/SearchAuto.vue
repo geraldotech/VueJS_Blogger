@@ -10,7 +10,7 @@
       />
     </form>
 
-    <!-- autosearch v1 -->
+    <!-- autosearch v1 for blog.vue -->
 
     <p v-if="autoResults">
       About: {{ autoResults.length }} results for `{{ userInput }}`
@@ -31,7 +31,7 @@
           {{ autoposts.title }} - {{ autoposts.data }}</router-link
         >
       </li>
-      <!-- v2 starts -->
+      <!-- autosearch v2 for UserPost.vue starts -->
       <li v-show="v2">
         <p>showing v2</p>
         <button

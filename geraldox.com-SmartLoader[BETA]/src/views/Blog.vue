@@ -25,8 +25,6 @@
         <!--  fixedpost -->
 
         <section class="pinned">
-          <p>{{ pinned.slug }}</p>
-          <p>{{ pinned.category }}</p>
           <p>
             <svg
               viewBox="0 0 24 24"
