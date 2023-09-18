@@ -4,7 +4,7 @@
     <ul>
       <li>N Progress</li>
       <li>TESTING ALONE WEBCOMPONENTS</li>
-      <li>Testing Router</li>
+      <li>Testing new Router params</li>
     </ul>
   </div>
 </template>
@@ -20,5 +20,8 @@ div {
   min-height: 80vh;
   margin-top: 20px;
   line-height: 4rem;
+}
+ul li {
+  list-style-type: none;
 }
 </style>

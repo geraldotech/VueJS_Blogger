@@ -196,7 +196,7 @@ h4::after {
   animation: blink 0.7s infinite;
 }
 h4 {
-  text-decoration: underline blue dashed 1px;
+  text-decoration: underline blue 1px;
   font-size: 1.5em;
 }
 

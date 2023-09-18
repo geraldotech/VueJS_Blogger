@@ -8,57 +8,49 @@
         placeholder="search for posts"
         required
       />
-      <input type="submit" value="Search" />
     </form>
-    <!--  usar v-if with computed -->
-    <p class="resultsok" v-if="findedResults">
-      Encontrei {{ results.length }} para: `{{ userInput }}`
+
+    <!-- autosearch v1 -->
+
+    <p v-if="autoResults">
+      About: {{ autoResults.length }} results for `{{ userInput }}`
     </p>
-
-    <p>{{ res }}</p>
-
-    <ul v-for="items in results" :key="items.id" class="results_links">
-      <li v-show="v1">
-        <router-link
-          :to="{
-            name: 'threads',
-            params: { category: items.category, slug: items.slug },
-          }"
-        >
-          {{ items.title }} - {{ items.data }}</router-link
-        >
-      </li>
-      <li v-show="v2">
-        <button class="btnv2" @click="ClickSearch(items.category, items.slug)">
-          {{ items.title }} - {{ items.data }}
-        </button>
-      </li>
-    </ul>
-
-    <!-- autosearch -->
-
     <ul
       v-for="autoposts in autoResults"
       :key="autoposts.id"
       class="results_links"
     >
-      <li>
-        <!--  <router-link
+      <li v-show="v1">
+        <p>showing v1</p>
+        <router-link
           :to="{
             name: 'threads',
             params: { category: autoposts.category, slug: autoposts.slug },
           }"
         >
           {{ autoposts.title }} - {{ autoposts.data }}</router-link
-        > -->
-        <!--  <p>{{ autoposts.category }}{{ autoposts.slug }}</p> -->
+        >
+      </li>
+      <!-- v2 starts -->
+      <li v-show="v2">
+        <p>showing v2</p>
+        <button
+          class="btnv2"
+          @click="ClicktoRouterPush(autoposts.category, autoposts.slug)"
+        >
+          {{ autoposts.title }} - {{ autoposts.data }}
+        </button>
       </li>
     </ul>
-    <a href="" @click.prevent="NewWay">TEST ROUTER</a>
+
+    <!--  autosearch ends -->
+
+    <!-- <testing push> -->
+    <!--  <a href="" @click.prevent="NewWay">TEST ROUTER</a>
     <router-link to="/blog/windows/test-alove-webcomponents"
       >Router About</router-link
     >
-    <a @click="$router.back()">Back now</a>
+    <a @click="$router.back()">Back now</a> -->
   </div>
 </template>
 <script>
@@ -85,22 +77,7 @@ module.exports = {
       const res = await req.json()
       this.blog = res.blog.posts
     },
-    search: function () {
-      //faz a busca, compara os valores em maiusculas
-      const busca = this.blog.filter((val) =>
-        val.title.toUpperCase().includes(this.userInput.toUpperCase())
-      )
-      //console.warn(busca.length ? busca : "404");
-
-      this.results = busca
-      //busca.length ? (this.results = busca) : this.not == true;
-      if (!this.results.length) {
-        this.res = 'We are sorry, 404'
-      } else {
-        this.res = `Showing ${this.results.length} results for "${this.userInput}"`
-      }
-    },
-    ClickSearch(ca, sl) {
+    ClicktoRouterPush(ca, sl) {
       this.$router.push({
         name: 'threads',
         params: { category: ca, slug: sl },
@@ -110,19 +87,21 @@ module.exports = {
         params: { category: "android", slug: "post-one" },
       }); */
       // this.$router.go({ path: "/blog/android/post-one" });
-
       this.$router.go({
         name: 'threads',
         params: { category: ca, slug: sl },
       })
     },
     AutoSeach() {
-      const Criteria = this.userInput
-      console.log(Criteria)
       const Search = this.blog.filter((val) =>
         val.title.toUpperCase().includes(this.userInput.toUpperCase())
       )
-      this.autoResults = Search
+
+      if (this.userInput.length) {
+        Search != '' ? (this.autoResults = Search) : Search
+        return
+      }
+      this.autoResults = ''
     },
     NewWay() {
       console.log(`ss`)
@@ -134,11 +113,6 @@ module.exports = {
         //path: '/blog/windows/test-alove-webcomponents',
         to: '/blog/windows/test-alove-webcomponents',
       }) */
-    },
-  },
-  computed: {
-    findedResults() {
-      return this.results.length > 0
     },
   },
 }
