@@ -180,12 +180,18 @@ button.btn,
   color: var(--links-color);
 }
 
+/* .search ul li:last-child a {
+  border-bottom: 2px solid;
+} */
+
 .results_links li a {
   color: var(--links-color);
 }
 
 form input {
-  padding: 5px;
+  padding: 8px 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
 }
 input[type='submit'] {
   cursor: pointer;
@@ -196,8 +202,8 @@ input[type='text'] {
 
 .search .containerResults {
   max-width: 400px;
-  margin: 0 auto;
-  padding: 0 10px;
+  margin: 0 auto 30px;
+  padding: 0 8gpx;
 }
 
 /* for mobile */

@@ -71,19 +71,6 @@
 
 <script>
 module.exports = {
-  metaInfo: {
-    title: 'About me',
-    titleTemplate: '%s - gmapdev',
-    meta: [
-      { charset: 'utf-8' },
-      {
-        name: 'description',
-        content:
-          'Atualmente cursando Sistemas de Informação pela Estácio, com previsão de conclusão em Dez/',
-      },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    ],
-  },
   mounted() {
     this.montado()
   },
@@ -179,7 +166,7 @@ article p {
 }
 
 article p:first-letter {
-  color: green;
+  /* color: green; */
   font-size: 2.6rem;
 }
 
@@ -209,7 +196,7 @@ h4::after {
   animation: blink 0.7s infinite;
 }
 h4 {
-  text-decoration: underline blue dashed 1px;
+  text-decoration: underline rgb(0, 54, 143) 2px;
   font-size: 1.5em;
 }
 

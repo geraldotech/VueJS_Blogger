@@ -3,7 +3,8 @@
     <Adsense></Adsense>
     <div class="blogger">
       <main>
-        <div><Busca v2 /></div>
+        <!-- <div><Busca v2 /></div> -->
+        <div><Searchauto v2 /></div>
         <article v-if="blog">
           <!-- card starts -->
           <div class="breadcrumbs">
@@ -86,6 +87,7 @@ module.exports = {
     Container: httpVueLoader('/src/components/ContainerPosts.vue'),
     Adsense: httpVueLoader('../views/Adsense.vue'),
     whatsappapi: httpVueLoader('../posts/whatsappapi.vue'),
+    Searchauto: httpVueLoader('../components/SearchAuto.vue'),
   },
   methods: {
     async posts() {

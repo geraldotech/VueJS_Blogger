@@ -143,16 +143,16 @@ figure img {
   text-align: center;
   font-size: 16px;
   background: #0044b3;
-  padding: 5px 10px;
+  padding: 7px 10px;
   border: none;
   opacity: 0.8;
   border-radius: 10px;
-  margin: 15px auto;
-  width: 50%;
+  margin: 100px auto 50px;
+  width: 30%;
   text-decoration: none;
 }
 .btnDownload:hover {
-  box-shadow: 0 0 15px red;
+  box-shadow: 0 0 15px black;
   color: white;
 }
 

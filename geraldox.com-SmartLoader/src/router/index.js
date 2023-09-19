@@ -65,6 +65,21 @@ const router = new VueRouter({
   routes,
 })
 
+router.beforeResolve((to, from, next) => {
+  if (to) {
+    NProgress.start()
+    // showPinner ?
+    NProgress.configure({ showSpinner: true })
+  }
+  next()
+})
+
+router.afterEach((to, from) => {
+  // Complete the animation of the route progress bar.
+  NProgress.configure({ easing: 'ease', speed: 1000 })
+  NProgress.done()
+})
+
 //Pegar primeira letra da String e deixar UpperCase() by geraldoX
 const DEFAULT_TITLE = 'geraldoX - '
 router.afterEach((to, from) => {

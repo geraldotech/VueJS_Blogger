@@ -15,7 +15,8 @@
     <ul class="listPosts">
       <li v-for="(artigos, index) in opt" :key="artigos.id">
         <router-link :to="{ name: 'threads', params: { slug: artigos.slug } }"
-          >{{ index + 1 }} - {{ artigos.title }}</router-link
+          >{{ index + 1 }} - {{ artigos.title }} -
+          {{ artigos.data }}</router-link
         >
         <!--   <router-link :to="`/blog/${artigos.category}/${artigos.slug}`">{{
           artigos.slug
@@ -30,37 +31,37 @@
 <script>
 module.exports = {
   created() {
-    this.posts();
+    this.posts()
     // console.log(this.$route);
   },
   data() {
     return {
-      opt: "",
-    };
+      opt: '',
+    }
   },
   components: {
-    Adsense: httpVueLoader("../views/Adsense.vue"),
+    Adsense: httpVueLoader('../views/Adsense.vue'),
   },
   methods: {
     async posts() {
-      const req = await fetch("/src/db/data.json");
-      const res = await req.json();
+      const req = await fetch('/src/db/data.json')
+      const res = await req.json()
       //filter post published
-      this.blogPosts = res.blog.posts;
-      const getBlogPost = this.blogPosts.filter(
-        (post) => this.$route.params.category == post.category
-      );
+      this.blogPosts = res.blog.posts
+      const getBlogPost = this.blogPosts
+        .filter((post) => this.$route.params.category == post.category)
+        .reverse()
       //console.log(publicados);
       //reverse render posts mais novos on top
-      this.opt = getBlogPost;
+      this.opt = getBlogPost
       getBlogPost.forEach((val, ind) => {
-        console.log(ind);
-      });
+        // console.log(ind)
+      })
       //limitador
       //this.opt.splice(0, 2);
     },
   },
-};
+}
 </script>
 <style scoped>
 .category {

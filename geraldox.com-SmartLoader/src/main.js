@@ -2,6 +2,8 @@ import router from '../src/router/index.js'
 import SmartLoader from './smartLoader.js'
 SmartLoader('/src/components/ContainerVue.js', 'module')
 SmartLoader('/src/components/WebComponents.js', 'module')
+// Standalone WebComponents
+SmartLoader('/src/components/externo.js', 'module')
 
 //import CDN to Vuemixin
 import cdn from '/src/cdn.js'
@@ -18,7 +20,6 @@ Vue.mixin({
 })
 
 Vue.prototype.$appName = 'geraldoX'
-
 window.onload = function () {
   const vm = new Vue({
     data: {

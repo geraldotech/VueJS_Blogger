@@ -1,13 +1,14 @@
 <template>
   <div>
     <Adsense></Adsense>
+
     <div v-if="$route.name == `Blog Posts`" class="list-all">
       <section class="threads">
-        <div><Search v1 /></div>
+        <div><Searchauto v1 /></div>
         <div class="map">
           <div>
             <router-link :to="{ name: `Categories Map` }"
-              >Mapa de categorias</router-link
+              >Website Map:</router-link
             >
           </div>
           <label>Selecionar:</label>
@@ -22,6 +23,54 @@
           </select>
         </div>
         <h1>Threads:</h1>
+        <!--  pinnedPost -->
+        <section
+          class="threads_list pinned"
+          v-show="Object.hasOwn(pinned, 'id')"
+        >
+          <p>
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="r-1bwzh9t r-4qtqp9 r-yyyyoo r-10ptun7 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1janqcz"
+            >
+              <g>
+                <path
+                  d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"
+                ></path>
+              </g>
+            </svg>
+            <span>Pinned:</span>
+          </p>
+          <p>
+            <router-link
+              :to="{
+                name: 'threads',
+                params: { category: pinned.category, slug: pinned.slug },
+              }"
+              >{{ pinned.title }}</router-link
+            >
+          </p>
+          <time>{{ pinned.data }}</time>
+          <p>
+            <span class="cat">
+              CATEGORY:
+              <router-link
+                class="cats"
+                :to="`/categories/${pinned.category}`"
+                >{{
+                  pinned.category
+                    ? pinned.category.toUpperCase()
+                    : 'UNCATEGORIZED'
+                }}</router-link
+              >
+            </span>
+          </p>
+        </section>
+        <!--  pinnedPost -->
+        <!--  <h1>Threads:</h1> -->
+
+        <!--  RenderPosts -->
         <ul>
           <li v-for="artigos in opt" :key="artigos.slug" class="threads_list">
             <router-link
@@ -32,6 +81,8 @@
             >
               {{ artigos.title }}</router-link
             >
+
+            <time>{{ artigos.data }}</time>
             <!-- categories router page -->
             <div class="cat">
               CATEGORY:
@@ -45,10 +96,13 @@
                 }}</router-link
               >
             </div>
-            <time>{{ artigos.data }}</time>
+            <!-- categories router page -->
+            <!--    <time>{{ artigos.data }}</time> -->
+
             <!--    <p v-html="artigos.article ? artigos.article.substr(0, 35) : ''"></p> -->
           </li>
         </ul>
+        <!--  RenderPosts -->
         <nav class="limiter">
           <p v-show="opt.length >= 10">
             <button class="limiter_btn" @click="ShowLessPosts()">
@@ -75,25 +129,14 @@
 
 <script>
 module.exports = {
-  metaInfo: {
-    title: 'Blogs Posts',
-    titleTemplate: '%s - gmapdev',
-    meta: [
-      { charset: 'utf-8' },
-      {
-        name: 'description',
-        content: 'Artigos variados, escolha uma categoria',
-      },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    ],
-  },
   created() {
     this.posts()
-    // this.showDom();
   },
+  mounted() {},
   components: {
     Sidebar: httpVueLoader('../components/Sidebar.vue'),
     Search: httpVueLoader('../components/Search.vue'),
+    Searchauto: httpVueLoader('../components/SearchAuto.vue'),
     Mapas: httpVueLoader('../views/mapa.vue'),
     Adsense: httpVueLoader('../views/Adsense.vue'),
   },
@@ -104,6 +147,7 @@ module.exports = {
       select: '',
       AllPosts: {},
       numero: 10,
+      pinned: {},
     }
   },
   methods: {
@@ -111,8 +155,13 @@ module.exports = {
       const req = await fetch('./src/db/data.json')
       const res = await req.json()
 
-      //filter post published
-      const blogPosts = res.blog.posts.filter((posts) => posts.published)
+      // Pinned receive all posts
+      this.FindPinned(res.blog.posts)
+
+      //filter post published && exclude pinned posts from the main list
+      const blogPosts = res.blog.posts.filter(
+        (posts) => posts.published && !Object.keys(posts).includes('pinned')
+      )
       // console.log(blogPosts);
 
       // map categoris acima dos limitadores de posts splice()
@@ -154,6 +203,15 @@ module.exports = {
       //number = 5 minimo posts
       return (this.opt = this.GetBlogPosts((this.numero = 10)))
     },
+    FindPinned(arr) {
+      // find obj has pinned property
+      const findPinned = arr.find(
+        (post) => post.published && post.hasOwnProperty('pinned')
+      )
+
+      // check if Pinned  exists
+      !findPinned ? false : (this.pinned = findPinned)
+    },
   },
 }
 </script>
@@ -172,8 +230,11 @@ h1 {
 .threads_list {
   line-height: 1.5rem;
   background: #222;
-  padding: 3px;
+  padding: 10px;
   animation: PostIntro ease 3s;
+  border: 2px solid rgb(0, 54, 143);
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  border-radius: 10px;
 }
 
 @keyframes PostIntro {
@@ -197,7 +258,6 @@ h1 {
 }
 
 .threads li {
-  border-bottom: 2px solid rgb(0, 54, 143);
   margin: 20px 0;
 }
 
@@ -263,6 +323,15 @@ time::before {
 }
 select {
   cursor: pointer;
+}
+
+svg {
+  width: 16px;
+}
+
+.pinned {
+  margin-top: 15px;
+  line-height: 1.5rem;
 }
 
 /* desktop */

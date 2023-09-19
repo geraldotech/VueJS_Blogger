@@ -3,7 +3,7 @@
     <!-- <p>Adsense here</p> -->
     <figure>
       <img
-        src="https://placehold.jp/30/000c15/ffffff/500x90.png?text=ads+here"
+        src="https://placehold.jp/30/2c528b/ffffff/500x90.png?text=ads+here"
         alt="ads"
       />
     </figure>
@@ -16,14 +16,17 @@ module.exports = {}
 /* mobile first */
 
 .ads {
-  background: rgb(24, 83, 171);
+  /* background: #072757; */
+  opacity: 1;
   max-width: 100%;
   height: 90px;
-  margin: 8px;
+  margin: 8px auto;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(to right, #072757, dodgerblue);
+  /* background: #2c528b; */
 }
 .ads figure {
   display: inline-block;
@@ -31,12 +34,25 @@ module.exports = {}
 }
 .ads img {
   width: 100%;
+  animation: lead 4s ease;
+}
+
+@keyframes lead {
+  10% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /* desktop */
 @media screen and (min-width: 650px) {
   .ads {
     margin: 15px;
-    background: rgb(20, 19, 19); */
+    max-width: 80%;
   }
 }
 </style>

@@ -48,6 +48,19 @@
 
 ### Changes and Features:
 
+- 19.9.2023 **Major Update**
+
+  - Standalone WebComponents[Test]
+    - Create a .js file with WebComponents, and import in main.js
+  - N Progress
+  - Pin and unpin a featured blog post
+    - Make it Featured Post Set to db.json: `"pinned": ""`
+  - Categories.vue
+    - fix post by `reverse()`
+    - add `{{artigos.data}}`
+  - New Components: **SearchAuto.vue**
+  - improved `.btndownload`
+
 - 9.9.2023
 
   - CSS Enhanced
