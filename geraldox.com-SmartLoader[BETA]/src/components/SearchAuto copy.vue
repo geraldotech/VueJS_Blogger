@@ -5,7 +5,7 @@
         name=""
         type="text"
         v-model="userInput"
-        placeholder="Search"
+        placeholder="search for posts"
         required
       />
     </form>
@@ -14,33 +14,32 @@
     <p v-if="autoResults">
       About: {{ autoResults.length }} results for `{{ userInput }}`
     </p>
-    <ul v-show="v1" class="containerResults">
-      <li v-for="autosearch in autoResults" :key="autosearch.id">
+    <ul
+      v-for="autoposts in autoResults"
+      :key="autoposts.id"
+      class="results_links"
+    >
+      <li v-show="v1">
         <router-link
-          class="results_links"
           :to="{
             name: 'threads',
-            params: { category: autosearch.category, slug: autosearch.slug },
+            params: { category: autoposts.category, slug: autoposts.slug },
           }"
         >
-          {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
-        </router-link>
-      </li>
-    </ul>
-
-    <ul v-show="v2" class="containerResults">
-      <!-- autosearch v2 for UserPost.vue starts -->
-      <li v-for="autosearch in autoResults" :key="autosearch.id">
-        <button
-          class="btn results_links"
-          @click="ClicktoRouterPush(autosearch.category, autosearch.slug)"
+          {{ autoposts.title }} - {{ autoposts.data }}</router-link
         >
-          {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
+      </li>
+      <!-- autosearch v2 for UserPost.vue starts -->
+      <li v-show="v2">
+        <button
+          class="btnv2"
+          @click="ClicktoRouterPush(autoposts.category, autoposts.slug)"
+        >
+          {{ autoposts.title }} - {{ autoposts.data }}
         </button>
       </li>
     </ul>
     <!--  autosearch ends -->
-    <h1>{{ Message }}</h1>
   </div>
 </template>
 <script>
@@ -54,7 +53,7 @@ module.exports = {
       blog: [],
       results: '',
       autoResults: '',
-      Message: '',
+      res: '',
     }
   },
   props: {
@@ -78,31 +77,16 @@ module.exports = {
       })
     },
     AutoSeach() {
-      // check input has values
+      const Search = this.blog.filter((val) =>
+        val.title.toUpperCase().includes(this.userInput.toUpperCase())
+      )
       if (this.userInput.length) {
-        const Search = this.blog.filter((val) =>
-          val.title.toUpperCase().includes(this.userInput.toUpperCase())
-        )
-        this.autoResults = Search
-
-        if (!this.autoResults.length) {
-          this.Message = 'Not Found'
-          this.autoResults = []
-        } else {
-          this.Message = ''
-        }
+        Search != '' ? (this.autoResults = Search) : Search
+        return
       }
-      // !this.userInput.length
-      if (!this.userInput.length) {
-        this.Message = '' // clean
-        this.autoResults = [] //  clean
-      }
-      /*  console.warn('input vazia?', !this.userInput.length) //true
-      console.warn('input igual a 0?', this.userInput.length == 0) //true
-      console.warn('input has  length a 0?', this.userInput.length) //true */
+      this.autoResults = ''
     },
   },
-  computed: {},
 }
 </script>
 <style scoped>
@@ -121,7 +105,7 @@ module.exports = {
 }
 .search li {
   text-align: left;
-  list-style-type: none;
+  list-style-type: square;
 }
 
 button.btn,
@@ -141,14 +125,10 @@ button.btn,
   margin: 10px 0;
   font-size: 14px;
   font-weight: bold;
-  color: var(--links-color); /* var in App.vue */
+  color: var(--links-color);
 }
-.search .btn:hover {
+.search .btnv2:hover {
   color: rgb(68, 186, 246);
-}
-
-.search .btn {
-  font-size: 1.2rem;
 }
 
 .search input[type='submit'] {
@@ -162,20 +142,19 @@ button.btn,
 }
 
 .search form {
-  margin: 25px 0 25px;
+  margin-bottom: 25px;
 }
 
 .results_links {
-  display: block;
   margin-top: 5px;
   max-width: 500px;
   min-width: 320px;
-  margin: 5px auto;
-  text-align: left;
+  margin: 0 auto;
+  text-align: center;
 }
 .results_links li {
   text-align: left;
-  list-style: square;
+  list-style: none;
   padding: 0;
   color: var(--links-color);
 }
@@ -192,12 +171,6 @@ input[type='submit'] {
 }
 input[type='text'] {
   width: 50%;
-}
-
-.search .containerResults {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 0 10px;
 }
 
 /* for mobile */
