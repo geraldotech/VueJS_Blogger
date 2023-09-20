@@ -37,6 +37,8 @@ module.exports = {
 }
 </script>
 <style>
+
+
 :root {
   --maxw: 75rem;
   color-scheme: dark;
@@ -143,14 +145,18 @@ figure img {
   text-align: center;
   font-size: 16px;
   background: #0044b3;
-  padding: 7px 10px;
+  padding: 10px 10px;
   border: none;
   opacity: 0.8;
   border-radius: 10px;
-  margin: 100px auto 50px;
-  width: 30%;
+  width: 80%;
   text-decoration: none;
 }
+
+nav:has(.btnDownload) a{
+  margin: 20px auto;
+}
+
 .btnDownload:hover {
   box-shadow: 0 0 15px black;
   color: white;
@@ -171,6 +177,9 @@ figure img {
   }
   figure:has(img) {
     text-align: center;
+  }
+  .btnDownload{
+    width: 50%;
   }
 }
 </style>

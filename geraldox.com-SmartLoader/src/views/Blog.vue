@@ -252,7 +252,7 @@ h1 {
 
 .threads a {
   text-decoration: none;
-  color: rgb(52, 71, 99);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 1.2rem;
 }
