@@ -110,7 +110,7 @@
             </button>
           </p>
           <p class="limiter_btn">
-            Showing:{{ opt.length }} of {{ AllPosts.length }} Posts.
+            {{ opt.length }} of {{ AllPosts.length }} Posts
           </p>
           <button class="limiter_btn" @click="ShowAllPosts(5)">
             {{ AllPosts.length == opt.length ? '❌Nothing more' : 'Show more' }}
@@ -235,6 +235,10 @@ h1 {
   border: 2px solid rgb(0, 54, 143);
   box-shadow: 0 0 10px rgb(0, 0, 0);
   border-radius: 10px;
+}
+
+.threads_list:hover {
+  background: rgb(26, 28, 29, 0.7);
 }
 
 @keyframes PostIntro {
