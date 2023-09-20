@@ -72,7 +72,8 @@
         "data": "Mach, 5, 2023",
         "article": "",
         "component": "Vuejs",
-        "category": "developer"
+        "category": "developer",
+        "pinned": ""
       },
       {
         "id": 8,
@@ -237,8 +238,7 @@
         "data": "Sep, 16, 2023",
         "article": "",
         "component": "externo-compo",
-        "category": "windows",
-        "pinned": ""
+        "category": "windows"
       }
     ]
   }
