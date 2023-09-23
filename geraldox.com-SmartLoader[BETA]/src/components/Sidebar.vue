@@ -68,7 +68,6 @@ module.exports = {
 
 .sidebar figure img {
   width: 100%;
-  max-width: 80%;
   border-radius: 10px 10px;
   margin: 15px auto;
   padding: 5px;

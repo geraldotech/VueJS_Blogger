@@ -45,6 +45,7 @@
         <div v-if="$route.params.slug == 'speed-test'">
           <p>Hello post about speedTest</p>
         </div>
+        <Sidebarbottom :currentcategory="blog" :allposts="GetallPosts" />
       </main>
       <Sidebar />
     </div>
@@ -75,6 +76,7 @@ module.exports = {
   data() {
     return {
       blog: {},
+      GetallPosts: [],
     }
   },
   components: {
@@ -88,15 +90,16 @@ module.exports = {
     Adsense: httpVueLoader('../views/Adsense.vue'),
     whatsappapi: httpVueLoader('../posts/whatsappapi.vue'),
     Searchauto: httpVueLoader('../components/SearchAuto.vue'),
+    Sidebarbottom: httpVueLoader('../components/SidebarBottom.vue'),
   },
   methods: {
     async posts() {
       const req = await fetch('/src/db/data.json')
       const data = await req.json()
       //console.warn(data);
-      this.blogPosts = data.blog.posts
+      this.GetallPosts = data.blog.posts
       //encontra a slug atual e verifica se esta plublicada
-      const getBlogPost = this.blogPosts.find(
+      const getBlogPost = this.GetallPosts.find(
         (post) => post.slug == this.$route.params.slug && post.published
       )
       // console.log(`getBlogPost`, getBlogPost);
