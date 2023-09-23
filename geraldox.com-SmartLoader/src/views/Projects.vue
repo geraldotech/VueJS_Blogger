@@ -35,127 +35,127 @@ module.exports = {
   created() {
     //sort.name working thanks Peter Mortensen from  https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
     this.prolink.sort((a, b) => {
-      if (a.name < b.name) return -1;
-      return a.name > b.name ? 1 : 0;
-    });
+      if (a.name < b.name) return -1
+      return a.name > b.name ? 1 : 0
+    })
   },
   data() {
-    const baseURL = "https://dev.geraldox.com/projects/";
+    const baseURL = 'https://dev.geraldox.com/projects/'
     return {
       prolink: [
         {
           id: 1,
-          name: "Array indexOf preventDefault",
-          url: baseURL + "Array_indexOf-preventdefault.html",
+          name: 'Array indexOf preventDefault',
+          url: baseURL + 'Array_indexOf-preventdefault.html',
         },
         {
           id: 2,
-          name: "Array indexOf and Splice",
-          url: baseURL + "Array_indexOf_and_Splice.html",
+          name: 'Array indexOf and Splice',
+          url: baseURL + 'Array_indexOf_and_Splice.html',
         },
-        { id: 3, name: "Add Ferias", url: baseURL + "add-ferias.html" },
+        { id: 3, name: 'Add Ferias', url: baseURL + 'add-ferias.html' },
         {
           id: 4,
-          name: "Array input Radio Search",
-          url: baseURL + "array_input_radio_search",
+          name: 'Array input Radio Search',
+          url: baseURL + 'array_input_radio_search',
         },
         {
           id: 5,
-          name: "Calcular Maioridade",
-          url: baseURL + "calcular-idade-maior-idade.html",
+          name: 'Calcular Maioridade',
+          url: baseURL + 'calcular-idade-maior-idade.html',
         },
         {
           id: 6,
-          name: "Consulta Bancos",
-          url: baseURL + "consulta-bancos.html",
+          name: 'Consulta Bancos',
+          url: baseURL + 'consulta-bancos.html',
         },
         {
           id: 7,
-          name: "Consulta Cartoes SearchBox",
-          url: baseURL + "consulta-cartoes-searchbox.html",
+          name: 'Consulta Cartoes SearchBox',
+          url: baseURL + 'consulta-cartoes-searchbox.html',
         },
         {
           id: 8,
-          name: "Consulta Limites",
-          url: baseURL + "consulta-limites/index.html",
+          name: 'Consulta Limites',
+          url: baseURL + 'consulta-limites/index.html',
         },
-        { id: 9, name: "CRUD Set Limit", url: baseURL + "CRUD_Set-Limit.html" },
+        { id: 9, name: 'CRUD Set Limit', url: baseURL + 'CRUD_Set-Limit.html' },
         {
           id: 10,
-          name: "CSS hide Box Click to Show",
-          url: baseURL + "CSS-hide-box-click-reveal.html",
+          name: 'CSS hide Box Click to Show',
+          url: baseURL + 'CSS-hide-box-click-reveal.html',
         },
         {
           id: 11,
-          name: "Fetch Local Seach",
-          url: baseURL + "fetch_local_search/index.html",
+          name: 'Fetch Local Seach',
+          url: baseURL + 'fetch_local_search/index.html',
         },
-        { id: 12, name: "ip Address", url: baseURL + "ipADDRESS.html" },
+        { id: 12, name: 'Check VPN', url: baseURL + 'CheckVPN/' },
         {
           id: 13,
-          name: "Array Input Mult Checkbox Advanced Search",
-          url: baseURL + "isInGit/array_input_mult_checkbox_search/",
+          name: 'Array Input Mult Checkbox Advanced Search',
+          url: baseURL + 'isInGit/array_input_mult_checkbox_search/',
         },
         {
           id: 14,
-          name: "Aumentar Limite Cartão",
-          url: baseURL + "limite-cartao-aumentar/limite-cartao-aumentar5.html",
+          name: 'Aumentar Limite Cartão',
+          url: baseURL + 'limite-cartao-aumentar/limite-cartao-aumentar5.html',
         },
-        { id: 15, name: "Marsha Urso Game", url: baseURL + "Marsha_Urso" },
-        { id: 16, name: "Mytimer", url: baseURL + "mytimer.html" },
-        { id: 17, name: "PSW Manager", url: baseURL + "psw-manager2v1.html" },
-        { id: 18, name: "quizJS", url: baseURL + "quiz_js/index.html" },
+        { id: 15, name: 'Marsha Urso Game', url: baseURL + 'Marsha_Urso' },
+        { id: 16, name: 'Mytimer', url: baseURL + 'mytimer.html' },
+        { id: 17, name: 'PSW Manager', url: baseURL + 'psw-manager2v1.html' },
+        { id: 18, name: 'quizJS', url: baseURL + 'quiz_js/index.html' },
         {
           id: 19,
-          name: "return Max/Min Value",
-          url: baseURL + "return_max_min_value/index.html",
+          name: 'return Max/Min Value',
+          url: baseURL + 'return_max_min_value/index.html',
         },
         {
           id: 20,
-          name: "To Do List Append Child",
-          url: baseURL + "To-do-list-append-child.html",
+          name: 'To Do List Append Child',
+          url: baseURL + 'To-do-list-append-child.html',
         },
         {
           id: 21,
-          name: "Base64 converter",
-          url: baseURL + "Base64-converter/Base64-converter.html",
+          name: 'Base64 converter',
+          url: baseURL + 'Base64-converter/Base64-converter.html',
         },
         {
           id: 22,
-          name: "Base64 converter 2",
-          url: baseURL + "Base64-converter/Base64-converter-2.html",
+          name: 'Base64 converter 2',
+          url: baseURL + 'Base64-converter/Base64-converter-2.html',
         },
         {
           id: 23,
-          name: "Mouse Clicks Test",
-          url: baseURL + "Mouse-click-test/index.html",
+          name: 'Mouse Clicks Test',
+          url: baseURL + 'Mouse-click-test/index.html',
         },
         {
           id: 24,
-          name: "not Includes",
-          url: baseURL + "notIncludesA/index.html",
+          name: 'not Includes',
+          url: baseURL + 'notIncludesA/index.html',
         },
         {
           id: 25,
-          name: "Loja Interativa CRUD",
-          url: "https://geraldotech.github.io/server-guide/LojaInterativa_CRUD",
+          name: 'Loja Interativa CRUD',
+          url: 'https://geraldotech.github.io/server-guide/LojaInterativa_CRUD',
         },
         {
           id: 26,
-          name: "VueJS Blogger",
-          url: "https://blogger-router.netlify.app/#/",
+          name: 'VueJS Blogger',
+          url: 'https://blogger-router.netlify.app/#/',
         },
         {
           id: 27,
-          name: "Express Login Way - NodeJS com Express",
-          url: "https://expressloginway.onrender.com/",
+          name: 'Express Login Way - NodeJS com Express',
+          url: 'https://expressloginway.onrender.com/',
         },
       ],
-      selected: "",
-    };
+      selected: '',
+    }
   },
   methods: {},
-};
+}
 </script>
 
 <style scoped>
