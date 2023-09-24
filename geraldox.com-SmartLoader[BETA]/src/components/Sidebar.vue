@@ -100,7 +100,7 @@ module.exports = {
 @media screen and (max-width: 600px) {
   .sidebar {
     border-top: 2px solid;
-    margin-top: 100px !important;
+    margin-top: 50px !important;
     padding: 0 20px;
   }
   .sidebar div img {

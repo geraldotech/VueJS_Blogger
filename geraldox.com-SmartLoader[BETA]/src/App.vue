@@ -15,11 +15,10 @@
       </li>
     </nav>
 
-    <!--  <div><Busca v1 /></div> -->
     <section class="container">
-      <router-view></router-view>
+      <router-view :key="$route.path"></router-view>
     </section>
-    <!--  router named -->
+    <!--  named  router-->
     <router-view name="yt" class="named-views"></router-view>
     <Foot />
   </main>

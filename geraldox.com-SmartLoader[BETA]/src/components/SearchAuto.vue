@@ -28,17 +28,6 @@
       </li>
     </ul>
 
-    <ul v-show="v2" class="containerResults">
-      <!-- autosearch v2 for UserPost.vue starts -->
-      <li v-for="autosearch in autoResults" :key="autosearch.id">
-        <button
-          class="btn results_links"
-          @click="ClicktoRouterPush(autosearch.category, autosearch.slug)"
-        >
-          {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
-        </button>
-      </li>
-    </ul>
     <!--  autosearch ends -->
     <h1>{{ Message }}</h1>
   </div>
@@ -59,23 +48,12 @@ module.exports = {
   },
   props: {
     v1: Boolean, // v1 for blog.vue
-    v2: Boolean, // v2 for UserPost.vue
   },
   methods: {
     async posts() {
       const req = await fetch('/src/db/data.json')
       const res = await req.json()
       this.blog = res.blog.posts
-    },
-    ClicktoRouterPush(ca, sl) {
-      this.$router.push({
-        name: 'threads',
-        params: { category: ca, slug: sl },
-      })
-      this.$router.go({
-        name: 'threads',
-        params: { category: ca, slug: sl },
-      })
     },
     AutoSeach() {
       // check input has values

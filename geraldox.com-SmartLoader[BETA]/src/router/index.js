@@ -34,8 +34,7 @@ const routes = [
     ],
   },
   {
-    path: '/blog/:category/:slug',
-    //path: "/blog/:slug",
+    path: '/blog/:category/:slug+',
     name: 'threads',
     component: httpVueLoader('/src/views/UserPost.vue'),
   },
@@ -63,13 +62,17 @@ const routes = [
 const router = new VueRouter({
   // mode: 'history',
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
+    return { x: 0, y: 0, behavior: 'smooth' }
+  },
 })
 
 router.beforeResolve((to, from, next) => {
   if (to) {
     NProgress.start()
     // showPinner ?
-    NProgress.configure({ showSpinner: true })
+    NProgress.configure({ showSpinner: false })
   }
   next()
 })

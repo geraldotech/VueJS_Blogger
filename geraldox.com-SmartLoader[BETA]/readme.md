@@ -1,5 +1,24 @@
 # Blog JSON
 
+## This Beta changes
+
+- Add SidebarBottom.vue - Alimentado por props:
+
+  - Related Posts Block
+
+- `router/index.js`
+
+  - add scroll behavior, always go to top
+
+  ```js
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { x: 0, y: 0, behavior: 'smooth' }
+  },
+  ```
+
+- Fixed Vue Router bug with Search with v2, now using only v1 [more here](https://github.com/geraldotech/DevMap/blob/main/Vue/VueRouter.md#vue-change-url-but-not-change-router-views)
+
 ### This project:
 
 - VueJS 2.7.13

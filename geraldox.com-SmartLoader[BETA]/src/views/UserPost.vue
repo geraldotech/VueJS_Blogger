@@ -4,7 +4,7 @@
     <div class="blogger">
       <main>
         <!-- <div><Busca v2 /></div> -->
-        <div><Searchauto v2 /></div>
+        <div><Searchauto v1 /></div>
         <article v-if="blog">
           <!-- card starts -->
           <div class="breadcrumbs">
@@ -45,7 +45,7 @@
         <div v-if="$route.params.slug == 'speed-test'">
           <p>Hello post about speedTest</p>
         </div>
-        <Sidebarbottom :currentcategory="blog" :allposts="GetallPosts" />
+        <Sidebarbottom :allposts="GetallPosts" />
       </main>
       <Sidebar />
     </div>
