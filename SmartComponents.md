@@ -1,6 +1,6 @@
 <h1 align="center">Smart Components</h1>
 
-# SmartJS Loader
+# SmartJS Loader Library
 
 O plugin [SmartJS_Loader](https://github.com/geraldotech/DevMap/tree/main/Vue/SmartJS_Loader) adiciona suporte a importação de _.js_ podendo comportar vários components filhos com isso você pode usar:
 
