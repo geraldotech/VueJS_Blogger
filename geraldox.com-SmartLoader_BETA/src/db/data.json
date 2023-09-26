@@ -1,0 +1,245 @@
+{
+  "blog": {
+    "posts": [
+      {
+        "id": 1,
+        "title": "Speed Test",
+        "slug": "speed-test",
+        "author": "geraldox",
+        "published": true,
+        "data": "22 Fev, 2023",
+        "article": "File to test your Network Speed",
+        "category": "network",
+        "component": "Speedtest"
+      },
+      {
+        "id": 2,
+        "title": "Burnout Revenge is Alive after 17 years",
+        "slug": "burnout-revenge-is-alive",
+        "author": "geraldox",
+        "published": true,
+        "data": "23 Fev, 2023",
+        "article": "JavaScript VueJS Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, rerum <div><figure><img class='img-flex' src='https://upload.wikimedia.org/wikipedia/en/c/cb/Revenge_boxart.jpg' alt='game' /><figcaption>Burnout 2005</figcaption></figure></div> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta eligendi, facere voluptatum non id atque temporibus hic fuga? Voluptas laudantium quisquam adipisci iure sint quam reprehenderit fugit animi ipsam ipsa qui saepe, perspiciatis voluptatibus aliquam vel assumenda earum accusantium laboriosam. Labore, et ipsa! Ratione vero delectus voluptatem exercitationem voluptatibus repellat dicta eos magni dolore placeat quos accusamus odio veritatis sed dolores assumenda, aut, hic esse, facere eius. Ipsam recusandae at laboriosam in ea dolore cum consequuntur facere dolores voluptatem, quisquam laudantium! Dicta quas ea dolorem minima, labore, beatae, consequuntur porro sed quia sapiente debitis aperiam esse doloremque voluptate assumenda rem.</p>",
+        "category": "games"
+      },
+      {
+        "id": 3,
+        "title": "Vue The Progressive JavaScript Framework ",
+        "slug": "vue-js",
+        "author": "geraldox",
+        "published": true,
+        "data": "23 Fev, 2023",
+        "article": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptate, quos, veniam, voluptates voluptatibus eaque ipsum animi necessitatibus exercitationem deserunt repudiandae. Incidunt similique nihil eum nam saepe non, quis ullam! <figure><img src='https://via.placeholder.com/340x50'/></figure> ",
+        "category": "uncategorized"
+      },
+      {
+        "id": 4,
+        "title": "Android Apps",
+        "slug": "android-apps",
+        "author": "geraldox",
+        "published": true,
+        "data": "May 31, 2021",
+        "article": "<h1 style='text-align:center; margin: 10px 0;'>Listando Android Apps</h1>",
+        "component": "Android",
+        "category": "android"
+      },
+      {
+        "id": 5,
+        "title": "Youtube Downloader",
+        "slug": "yt-downloader",
+        "author": "geraldox",
+        "published": true,
+        "data": "Dez 11, 2020",
+        "article": "<p>Y2 Mate (Guru)<a href='https://y2mate.guru/en8/' target='_blank'> Y2 Mate (Guru)</a>        <p>Y2 Mate (old) Somethimes bug in VPN <a href='https://www.y2mate.com/' target='_blank'> Y2 Mate (old)</a>           <p>Convert and download Youtube videos in MP3, MP4, 3GP for free<a href='https://yt1s.com/en3' target='_blank'> YT1s.com/en3</a>   <p>Download video audio MP3 file<a href='https://www.clickmp3.com/en' target='_blank'> clickmp3.com/en</a>            <p>Locoloader Download Videos, Music & Photos<a href='https://www.locoloader.com/' target='_blank'> Locoloader</a></p>",
+        "category": "youtube"
+      },
+      {
+        "id": 6,
+        "title": "Free upload image",
+        "slug": "free-upload-image",
+        "author": "geraldox",
+        "published": true,
+        "data": "Nov 29, 2020",
+        "article": "</p><ul><li><a href='http://imgur.com/' target='_blank'>IMGur</a> </li><li><a href='http://postimage.org/' target='_blank'>Post Image</a></li> <li><a href='https://imgbox.com/' target='_blank'>imgbox</a></li><li><a href='http://www.imagebam.com/' target='_blank'>imagebam</a></li> <li><a href='https://www.imagevenue.com/' target='_blank'>imagevenue</a></li><li><a href='https://imagensbrasil.org/' target='_blank'>imagensBrasil</a></li> <li><a href='https://screenshot.net/' target='_blank'>scheenshot.net</a> </li><li><a href='https://imgbb.com/' target='_blank'>imgbb</a></li> <li><a href='https://anonfiles.com/' target='_blank'>Anonfiles</a> </li> </ul>",
+        "category": "upload"
+      },
+      {
+        "id": 7,
+        "title": "VueJS Offline",
+        "slug": "download-vuejs-offline",
+        "author": "geraldox",
+        "published": true,
+        "data": "Mach 5, 2023",
+        "article": "",
+        "component": "Vuejs",
+        "category": "developer",
+        "pinned": ""
+      },
+      {
+        "id": 8,
+        "title": "Support String Components",
+        "slug": "string-components",
+        "author": "geraldox",
+        "published": true,
+        "data": "Mach 5, 2023",
+        "article": "",
+        "component": "cardy",
+        "category": "developer"
+      },
+      {
+        "id": 9,
+        "title": "Network Tools",
+        "slug": "network-tools",
+        "author": "geraldox",
+        "published": true,
+        "data": "May 30, 2023",
+        "article": "",
+        "component": "NetworkTools",
+        "category": "network"
+      },
+      {
+        "id": 10,
+        "title": "SmartLoader JS Components",
+        "slug": "smartloader-js-components",
+        "author": "geraldox",
+        "published": true,
+        "data": "Jul 15, 2023",
+        "article": "SmartLoader JS Components...",
+        "component": "mydell",
+        "category": "network"
+      },
+      {
+        "id": 11,
+        "title": "Calcular tempo de download",
+        "slug": "calcular-tempo-download",
+        "author": "geraldox",
+        "published": true,
+        "data": "Jul 15, 2023",
+        "article": "",
+        "component": "Calctdownload",
+        "category": "network"
+      },
+      {
+        "id": 12,
+        "title": "Acer",
+        "slug": "acer",
+        "author": "geraldox",
+        "published": true,
+        "data": "Jul 29, 2023",
+        "article": "",
+        "component": "acer",
+        "category": "notebook"
+      },
+      {
+        "id": 13,
+        "title": "Super Nintendo Favorites Games",
+        "slug": "super-nintendo-fav-games",
+        "author": "geraldox",
+        "published": true,
+        "data": "Jul 29, 2023",
+        "article": "",
+        "component": "supergames",
+        "category": "games"
+      },
+      {
+        "id": 14,
+        "title": "Vanilla Web Components",
+        "slug": "vanilla-web-components",
+        "author": "geraldox",
+        "published": true,
+        "data": "Jul 30, 2023",
+        "article": "",
+        "component": "maceio-al",
+        "category": "uncategorized"
+      },
+      {
+        "id": 15,
+        "title": "Install Linux Mint / Ubuntu Mate / Desktop",
+        "slug": "install-linux-2023",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug 05, 2023",
+        "article": "",
+        "component": "linux-install",
+        "category": "linux"
+      },
+      {
+        "id": 16,
+        "title": "Desativar Modo Turbo Intel",
+        "slug": "disable-intel-turbo",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug 06, 2023",
+        "article": "",
+        "component": "intel-boost",
+        "category": "windows"
+      },
+      {
+        "id": 17,
+        "title": "Set Wallpaper per Monitor [Windows 11]",
+        "slug": "set-wallpaper-per-monitor-windows-11",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug 12, 2023",
+        "article": "",
+        "component": "win-wallmonitor",
+        "category": "windows"
+      },
+      {
+        "id": 18,
+        "title": "Download Drives Nitro AN515-58",
+        "slug": "nitro-an515-58",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug 06, 2023",
+        "article": "<figure><img src='https://global-download.acer.com/Image/ModelPictures/Notebook/Nitro%20AN515-58.png' alt='nitro pc' class='img-flex' /></figure> <nav><a class='btnDownload' href='https://www.acer.com/us-en/support/product-support/AN515-58/downloads?suggest=AN515-58-58;0'>Download</a> <a class='btnDownload' href='https://gpnotes.droppages.com/geraldox.proxyfiles.com/2023/files/AN515-58-58W3.pdf'>Manual</a></nav>",
+        "component": "",
+        "category": "drivers"
+      },
+      {
+        "id": 19,
+        "title": "Download GitHub Directory",
+        "slug": "download-github-directory",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug 18, 2023",
+        "article": "<p>With this tool you can directly download or create download link to any GitHub public directory or file.</p><nav><a class='btnDownload' href='https://minhaskamal.github.io/DownGit/#/home'>Download</a></nav>",
+        "component": "",
+        "category": "developer"
+      },
+      {
+        "id": 20,
+        "title": "WhatsApp Api Call",
+        "slug": "whatsapp-api-call",
+        "author": "geraldox",
+        "published": true,
+        "data": "Aug 18, 2023",
+        "article": "",
+        "component": "whatsappapi",
+        "category": "developer"
+      },
+      {
+        "id": 21,
+        "title": "Windows update Blocker",
+        "slug": "windows-update-blocker",
+        "author": "geraldox",
+        "published": true,
+        "data": "Sep 16, 2023",
+        "article": "<p style='text-align:center'>Block the Windows Updates fastly with this app <nav><a class='btnDownload' href='https://www.sordum.org/9470/windows-update-blocker-v1-8/' target='_blank'>Download Now</a></nav></p>",
+        "component": "",
+        "category": "windows"
+      },
+      {
+        "id": 22,
+        "title": "Testing Alone WebComponents",
+        "slug": "test-alove-webcomponents",
+        "author": "geraldox",
+        "published": true,
+        "data": "Sep 16, 2023",
+        "article": "",
+        "component": "externo-compo",
+        "category": "windows"
+      }
+    ]
+  }
+}
