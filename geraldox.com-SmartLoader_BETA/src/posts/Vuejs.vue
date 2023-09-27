@@ -13,9 +13,7 @@
     <hr />
     <h1>Introduction to primitive wrapper types</h1>
 
-    <button>scroll</button>
-
-    <a href="#add">TESTE</a>
+    <a href="#add">Scroll TESTE</a>
 
     <p>Testing importacao de webcomponents alone</p>
     <p>

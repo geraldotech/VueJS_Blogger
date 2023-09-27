@@ -3,14 +3,15 @@
     <div>
       <Adsense />
     </div>
+    <div v-if="$route.params.category.includes('ndroid')">
+      <div class="cat-banner">
+        <img src="/src/assets/img/android.png" alt="android" />
+      </div>
+    </div>
     <h1>
       Category: <code>`{{ $route.params.category }}`</code>
-      <div v-if="$route.params.category.includes('ndroid')">
-        <div class="cat-banner">
-          <img src="/src/assets/img/android.png" alt="android" />
-        </div>
-      </div>
     </h1>
+
     <router-link :to="{ name: 'Blog Posts' }">voltar para Blog</router-link>
     <ul class="listPosts">
       <li v-for="(artigos, index) in opt" :key="artigos.id">

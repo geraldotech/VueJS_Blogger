@@ -9,7 +9,7 @@
 module.exports = {
   metaInfo: {
     title: 'Home Page',
-    titleTemplate: '%s - gmapdev',
+    titleTemplate: '%s - geraldoX',
     meta: [
       { charset: 'utf-8' },
       {

@@ -89,7 +89,7 @@ router.afterEach((to, from) => {
 })
 
 //Pegar primeira letra da String e deixar UpperCase() by geraldoX
-const DEFAULT_TITLE = 'geraldoX - '
+/* const DEFAULT_TITLE = 'geraldoX - '
 router.afterEach((to, from) => {
   Vue.nextTick(() => {
     document.title =
@@ -101,6 +101,6 @@ router.afterEach((to, from) => {
       document.title = `${DEFAULT_TITLE} Home Page`
     }
   })
-})
+}) */
 
 export default router
