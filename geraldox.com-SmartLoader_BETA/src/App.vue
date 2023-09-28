@@ -66,6 +66,12 @@ body {
   flex: 1;
   /* max-width: var(--maxw); */
 }
+a {
+  color: #05bdba;
+}
+a:hover {
+  text-decoration: none;
+}
 
 /* .block {
   max-width: 800px;
@@ -107,12 +113,12 @@ body {
 .named-views {
   text-align: center;
   padding: 10px 0;
-  color: #0044b3;
+  color: #b9b3aa;
 }
 
 /* routes CSS */
 .router-link-active {
-  color: green;
+  color: rgb(68, 186, 246);
 }
 
 /* for post images */

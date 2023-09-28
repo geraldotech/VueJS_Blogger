@@ -3,7 +3,7 @@
     <!-- <p>Adsense here</p> -->
     <figure>
       <img
-        src="https://placehold.jp/30/2c528b/ffffff/500x90.png?text=ads+here"
+        src="https://placehold.jp/30/2f363d/ffffff/500x90.png?text=ads+here"
         alt="ads"
       />
     </figure>
@@ -25,7 +25,7 @@ module.exports = {}
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to right, #072757, dodgerblue);
+  background-image: linear-gradient(to right, #072757, #0e1319);
   /* background: #2c528b; */
 }
 .ads figure {

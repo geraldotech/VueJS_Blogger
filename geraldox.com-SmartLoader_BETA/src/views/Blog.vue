@@ -242,10 +242,12 @@ h1 {
 
 .threads_list {
   line-height: 1.5rem;
-  background: #222;
+  /* background: #222; */
+  background: #0e1319;
   padding: 10px;
   animation: PostIntro ease 3s;
-  border: 2px solid rgb(0, 54, 143);
+  /*   border: 2px solid rgb(0, 54, 143); */
+  border-top: 2px solid #05bdba;
   box-shadow: 0 0 10px rgb(0, 0, 0);
   border-radius: 10px;
 }
@@ -280,7 +282,7 @@ h1 {
 
 .threads .cats {
   font-size: 0.7rem;
-  color: rgb(131, 4, 170);
+  color: #05bdba;
 }
 
 .threads ul li {

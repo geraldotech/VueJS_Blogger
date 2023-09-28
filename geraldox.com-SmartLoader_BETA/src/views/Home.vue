@@ -32,4 +32,10 @@ div {
   margin-top: 20px;
   line-height: 4rem;
 }
+h2 {
+  color: #05bdba;
+}
+p {
+  color: #b9b3aa;
+}
 </style>
