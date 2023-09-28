@@ -125,7 +125,7 @@ module.exports = {
   .sidebar figure:has(img) {
     text-align: center;
     margin: auto;
-    width: 400px;
+    max-width: 400px;
   }
 }
 </style>

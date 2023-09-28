@@ -73,6 +73,11 @@ a:hover {
   text-decoration: none;
 }
 
+#nprogress {
+  position: relative;
+  z-index: 9999999;
+}
+
 /* .block {
   max-width: 800px;
   min-width: 320px;
@@ -89,7 +94,7 @@ a:hover {
   top: 0;
   border-bottom: 2px solid #fff;
   backdrop-filter: blur(10px);
-  z-index: 0; /* changed to 0 because nprogress */
+  z-index: 1; /* changed to 0 because nprogress */
   height: 55px;
 }
 .menu li {
