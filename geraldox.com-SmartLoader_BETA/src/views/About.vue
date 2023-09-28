@@ -130,7 +130,7 @@ module.exports = {
 
 .about .about_avatar img {
   border-radius: 50%;
-  border: 2px solid green;
+  border: 2px solid dodgerblue;
   width: 100%;
   width: 150px;
   margin-top: 10px;

@@ -20,7 +20,7 @@
               name: 'threads',
               params: { category: postrela.category, slug: postrela.slug },
             }"
-            >{{ postrela.title.substring(0, 25) }}
+            >{{ postrela.title.substring(0, 40) }}
           </router-link>
         </li>
       </ul>
@@ -60,7 +60,7 @@ module.exports = {
 
 <style scoped>
 div {
-  height: 250px;
+  height: 320px;
   border-top: 1px solid;
   margin-top: 50px;
 }

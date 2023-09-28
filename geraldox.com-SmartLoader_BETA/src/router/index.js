@@ -60,13 +60,13 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  //mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return {
         el: to.hash,
-        // , offset: { x: 0, y: 10 }
+        // offset: { x: 0, y: 10 },
       }
     }
     return { x: 0, y: 0, behavior: 'smooth' } // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
@@ -75,9 +75,9 @@ const router = new VueRouter({
 
 router.beforeResolve((to, from, next) => {
   if (to) {
-    NProgress.start()
     // showPinner ?
-    //NProgress.configure({ showSpinner: false })
+    NProgress.configure({ showSpinner: false })
+    NProgress.start()
   }
   next()
 })
