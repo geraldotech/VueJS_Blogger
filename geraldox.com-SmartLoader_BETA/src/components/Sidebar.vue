@@ -22,11 +22,12 @@
 
       <h2>Archives</h2>
       <div class="archive">
-        <select>
+        <select v-model="select">
           <option value="1">2008</option>
-          <option value="1">2009</option>
-          <option value="1">2010</option>
+          <option value="2">2009</option>
+          <option value="3">2010</option>
         </select>
+        <p>{{ select }}</p>
       </div>
     </section>
   </div>
@@ -38,6 +39,11 @@ module.exports = {
   },
   components: {
     Search: httpVueLoader('../components/Search.vue'),
+  },
+  data() {
+    return {
+      select: '',
+    }
   },
 }
 </script>
@@ -53,6 +59,7 @@ module.exports = {
 .sidebar .content p {
   margin-top: 5px;
   font-size: 14px;
+  color: #e8e6e3;
 }
 .content ul {
   margin-top: 15px;

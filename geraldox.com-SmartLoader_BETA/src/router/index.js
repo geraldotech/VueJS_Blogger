@@ -64,8 +64,9 @@ const router = new VueRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
+      console.log(`tohash`, to.hash)
       return {
-        el: to.hash,
+        selector: to.hash,
         // offset: { x: 0, y: 10 },
       }
     }

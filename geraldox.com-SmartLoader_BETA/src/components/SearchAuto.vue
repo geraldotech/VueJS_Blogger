@@ -94,49 +94,19 @@ module.exports = {
   color: rgb(129, 247, 148);
   margin: 15px 0;
 }
-.search .resultsok {
-  color: #0044b3;
-}
+
 .search li {
   text-align: left;
   list-style-type: none;
 }
 
-button.btn,
 .search li a {
-  color: var(--links-color); /* var in App.vue */
+  color: var(--search-links-color); /* var in App.vue */
   font-size: 1.2rem;
 }
 .search li {
   border-bottom: none;
-}
-.search button {
-  text-align: left;
-  cursor: pointer;
-  background: none;
-  outline: none;
-  border: none;
   margin: 10px 0;
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--links-color); /* var in App.vue */
-}
-.search .btn:hover {
-  color: rgb(68, 186, 246);
-}
-
-.search .btn {
-  font-size: 1.2rem;
-}
-
-.search input[type='submit'] {
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  background: #0044b3;
-  padding: 5px 10px;
-  border: none;
-  opacity: 0.8;
 }
 
 .search form {
@@ -158,10 +128,6 @@ button.btn,
   color: var(--links-color);
 }
 
-/* .search ul li:last-child a {
-  border-bottom: 2px solid;
-} */
-
 .results_links li a {
   color: var(--links-color);
 }
@@ -169,19 +135,21 @@ button.btn,
 form input {
   padding: 8px 10px;
   border: 1px solid #eee;
-  border-radius: 8px;
+  border-radius: 6px;
 }
-input[type='submit'] {
-  cursor: pointer;
+
+form input:focus {
+  outline: 2px solid #05bdba;
 }
+
 input[type='text'] {
   width: 50%;
 }
 
 .search .containerResults {
   max-width: 400px;
-  margin: 0 auto 30px;
-  padding: 0 8gpx;
+  margin: 20px auto 30px;
+  padding: 0;
 }
 
 /* for mobile */

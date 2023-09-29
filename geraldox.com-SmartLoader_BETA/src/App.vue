@@ -39,7 +39,7 @@ module.exports = {
 :root {
   --maxw: 75rem;
   color-scheme: dark;
-  --links-color: rgb(229, 246, 178);
+  --search-links-color: rgb(58, 164, 255);
 }
 * {
   margin: 0;
@@ -154,12 +154,12 @@ figure img {
   cursor: pointer;
   text-align: center;
   font-size: 16px;
-  background: #0044b3;
+  background: #1a2b81;
   padding: 10px 10px;
   border: none;
   opacity: 0.8;
   border-radius: 10px;
-  width: 80%;
+  max-width: 50%;
   text-decoration: none;
 }
 
@@ -170,6 +170,7 @@ nav:has(.btnDownload) a {
 .btnDownload:hover {
   box-shadow: 0 0 15px black;
   color: white;
+  background: #0747a6;
 }
 
 /* Desktop */
@@ -189,7 +190,7 @@ nav:has(.btnDownload) a {
     text-align: center;
   }
   .btnDownload {
-    width: 50%;
+    max-width: 30%;
   }
 }
 </style>

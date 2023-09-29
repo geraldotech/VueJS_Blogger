@@ -2,7 +2,7 @@
 
 ## Beta News:
 
-- Add SidebarBottom.vue - Alimentado por props:
+- New Component `SidebarBottom.vue` by props:
 
   - Related Posts Block
 
@@ -29,7 +29,7 @@
   }
   ```
 
-- Fixed Vue Router bug with Search with v2, now using only v1 [more here](https://github.com/geraldotech/DevMap/blob/main/Vue/VueRouter.md#vue-change-url-but-not-change-router-views)
+- Fixed Vue Router bug with Search with v2, now using only v1 [more here](https://github.com/geraldotech/DevMap/blob/main/Vue/VueRouter.md#vue-change-url-but-not-change-router-view)
 
 ### This project:
 
@@ -37,6 +37,7 @@
 - http-vue-loader
   - No node.js environment, no build step, thanks [FranckFreiburger](https://github.com/FranckFreiburger/http-vue-loader)
 - vue-router 3.0.2
+- Fake {API}
 - Styles:
 
   - CSS Mobile First
@@ -47,7 +48,7 @@
 
 - Components
 
-  - ➡️`db.json` Tiny posts? You can use `article obj in db.json` in is opcional, but you still can use this
+  - ➡️`db.json` Tiny posts? You can use `article obj` in Fake {API}
 
     > e.g: writing html in JSON using single quotes using CSS class:
 
