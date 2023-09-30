@@ -23,11 +23,15 @@
       <h2>Archives</h2>
       <div class="archive">
         <select v-model="select">
+          <option value=""></option>
           <option value="1">2008</option>
           <option value="2">2009</option>
           <option value="3">2010</option>
         </select>
-        <p>{{ select }}</p>
+        <p></p>
+        <nav v-show="select">
+          <a href="" class="btnDownload">{{ select }}</a>
+        </nav>
       </div>
     </section>
   </div>
