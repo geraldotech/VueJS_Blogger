@@ -71,6 +71,20 @@
 
 <script>
 module.exports = {
+  metaInfo: {
+    title: 'About',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content:
+          'Atualmente cursando Sistemas de Informação pela Estácio, com previsão de conclusão em Dez/2025. Meus estudos autodidatas me levaram a aprender',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'vuejs, windows, android, gmapdev' },
+    ],
+  },
   mounted() {
     this.montado()
   },
