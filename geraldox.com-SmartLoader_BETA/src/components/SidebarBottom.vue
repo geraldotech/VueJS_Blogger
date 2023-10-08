@@ -3,14 +3,14 @@
   <div class="sidebottom">
     <p>By: <router-link to="/about">Geraldo Filho</router-link></p>
     <p>A Frontend Developer with more than half a decade of experience.</p>
-    <h1>
+    <h3>
       More from
       <router-link
         class="category"
         :to="`/categories/${$route.params.category}`"
         >{{ $route.params.category }}</router-link
       >:
-    </h1>
+    </h3>
 
     <section v-if="RelatedPosts.length">
       <ul>
