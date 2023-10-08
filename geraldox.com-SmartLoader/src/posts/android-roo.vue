@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Best App for Android</h2>
+    <p>Selecionando os melhores aplicativos para Android</p>
     <label for="root">Root Apps:</label>
     <select name="" id="root" v-model="root">
       <option value=""></option>
@@ -43,16 +44,29 @@
 </template>
 <script>
 module.exports = {
+  metaInfo: {
+    title: 'Android Apps',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: 'Selecionando os melhores aplicativos para Android',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'android apps' },
+    ],
+  },
   mounted() {},
   data() {
     return {
-      root: "",
-      gdrive: "",
-      gplay: "",
-    };
+      root: '',
+      gdrive: '',
+      gplay: '',
+    }
   },
   methods: {},
-};
+}
 </script>
 <style scoped>
 h2 {

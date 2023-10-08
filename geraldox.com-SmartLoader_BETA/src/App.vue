@@ -150,27 +150,32 @@ figure img {
 }
 
 .btnDownload {
-  display: block;
   cursor: pointer;
   text-align: center;
   font-size: 16px;
   background: #1a2b81;
-  padding: 10px 10px;
+  padding: 0.5em 3em;
   border: none;
   opacity: 0.8;
   border-radius: 10px;
-  max-width: 50%;
   text-decoration: none;
 }
 
+nav:has(.btnDownload) {
+  margin: 3em auto;
+  max-width: fit-content;
+}
+
 nav:has(.btnDownload) a {
-  margin: 20px auto;
+  display: block;
+  margin: 15px 0;
 }
 
 .btnDownload:hover {
   box-shadow: 0 0 15px black;
   color: white;
   background: #0747a6;
+  transition: 2s;
 }
 
 /* Desktop */
@@ -188,9 +193,6 @@ nav:has(.btnDownload) a {
   }
   figure:has(img) {
     text-align: center;
-  }
-  .btnDownload {
-    max-width: 30%;
   }
 }
 </style>

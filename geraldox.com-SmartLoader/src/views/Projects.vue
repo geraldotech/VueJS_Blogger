@@ -32,6 +32,19 @@
 
 <script>
 module.exports = {
+  metaInfo: {
+    title: 'Projects',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: 'Todos os meus projetos',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'vuejs, windows, android, linux' },
+    ],
+  },
   created() {
     //sort.name working thanks Peter Mortensen from  https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
     this.prolink.sort((a, b) => {
