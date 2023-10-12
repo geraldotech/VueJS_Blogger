@@ -9,7 +9,7 @@
 module.exports = {
   metaInfo: {
     title: 'Home Page',
-    titleTemplate: '%s - gmapdev',
+    titleTemplate: '%s - geraldoX',
     meta: [
       { charset: 'utf-8' },
       {
@@ -31,5 +31,11 @@ div {
   min-height: 80vh;
   margin-top: 20px;
   line-height: 4rem;
+}
+h2 {
+  color: #05bdba;
+}
+p {
+  color: #b9b3aa;
 }
 </style>

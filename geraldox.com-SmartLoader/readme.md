@@ -6,6 +6,7 @@
 - http-vue-loader
   - No node.js environment, no build step, thanks [FranckFreiburger](https://github.com/FranckFreiburger/http-vue-loader)
 - vue-router 3.0.2
+- Fake {API}
 - Styles:
 
   - CSS Mobile First
@@ -16,7 +17,7 @@
 
 - Components
 
-  - ➡️`db.json` Tiny posts? You can use `article obj in db.json` in is opcional, but you still can use this
+  - ➡️`db.json` Tiny posts? You can use `article obj` in Fake {API}
 
     > e.g: writing html in JSON using single quotes using CSS class:
 
@@ -48,13 +49,43 @@
 
 ### Changes and Features:
 
+- Beta News **12/10/2023**:
+
+- New Component `SidebarBottom.vue` by props:
+
+  - Related Posts Block
+
+- `router/index.js`
+
+  - add scroll behavior, always go to top when click ocorre prox footer
+
+  ```js
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { x: 0, y: 0, behavior: 'smooth' }
+  },
+  ```
+
+  - scrollBehavior simulate the "scroll to anchor" behavior working nice on .vue components when click, but when page loaded with hash still don't work.
+
+  ```js
+  if (to.hash) {
+    return {
+      el: to.hash,
+      // , offset: { x: 0, y: 10 }
+    }
+  }
+  ```
+
+- Fixed Vue Router bug with Search with v2, now using only v1 [more here](https://github.com/geraldotech/DevMap/blob/main/Vue/VueRouter.md#vue-change-url-but-not-change-router-view)
+
 - 19.9.2023 **Major Update**
 
   - Standalone WebComponents[Test]
-    - Create a .js file with WebComponents, and import in main.js
+    - Create a `.js` file with WebComponents, and import in `main.js`
   - N Progress
   - Pin and unpin a featured blog post
-    - Make it Featured Post Set to db.json: `"pinned": ""`
+    - Make one post Featured Post Set `"pinned": ""` in fake API.
   - Categories.vue
     - fix post by `reverse()`
     - add `{{artigos.data}}`

@@ -79,7 +79,7 @@ module.exports = {
       {
         name: 'description',
         content:
-          'Atualmente cursando Sistemas de Informação pela Estácio, com previsão de conclusão em Dez/2025. Meus estudos autodidatas me levaram a aprender',
+          ' Atualmente cursando Sistemas de Informação pela Estácio, com previsão de conclusão em Dez/2025. Meus estudos autodidatas me levaram a aprender',
       },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'keywords', content: 'vuejs, windows, android, gmapdev' },
@@ -130,7 +130,7 @@ module.exports = {
 
 .about .about_avatar img {
   border-radius: 50%;
-  border: 2px solid green;
+  border: 2px solid dodgerblue;
   width: 100%;
   width: 150px;
   margin-top: 10px;

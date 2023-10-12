@@ -15,11 +15,10 @@
       </li>
     </nav>
 
-    <!--  <div><Busca v1 /></div> -->
     <section class="container">
-      <router-view></router-view>
+      <router-view :key="$route.path"></router-view>
     </section>
-    <!--  router named -->
+    <!--  named  router-->
     <router-view name="yt" class="named-views"></router-view>
     <Foot />
   </main>
@@ -40,7 +39,7 @@ module.exports = {
 :root {
   --maxw: 75rem;
   color-scheme: dark;
-  --links-color: rgb(229, 246, 178);
+  --search-links-color: rgb(58, 164, 255);
 }
 * {
   margin: 0;
@@ -67,6 +66,17 @@ body {
   flex: 1;
   /* max-width: var(--maxw); */
 }
+a {
+  color: #05bdba;
+}
+a:hover {
+  text-decoration: none;
+}
+
+#nprogress {
+  position: relative;
+  z-index: 9999999;
+}
 
 /* .block {
   max-width: 800px;
@@ -84,7 +94,7 @@ body {
   top: 0;
   border-bottom: 2px solid #fff;
   backdrop-filter: blur(10px);
-  z-index: 1;
+  z-index: 1; /* changed to 0 because nprogress */
   height: 55px;
 }
 .menu li {
@@ -108,12 +118,12 @@ body {
 .named-views {
   text-align: center;
   padding: 10px 0;
-  color: #0044b3;
+  color: #b9b3aa;
 }
 
 /* routes CSS */
 .router-link-active {
-  color: green;
+  color: rgb(68, 186, 246);
 }
 
 /* for post images */
@@ -140,26 +150,32 @@ figure img {
 }
 
 .btnDownload {
-  display: block;
   cursor: pointer;
   text-align: center;
   font-size: 16px;
-  background: #0044b3;
-  padding: 10px 10px;
+  background: #1a2b81;
+  padding: 0.5em 3em;
   border: none;
   opacity: 0.8;
   border-radius: 10px;
-  width: 80%;
   text-decoration: none;
 }
 
+nav:has(.btnDownload) {
+  margin: 3em auto;
+  max-width: fit-content;
+}
+
 nav:has(.btnDownload) a {
-  margin: 20px auto;
+  display: block;
+  margin: 15px 0;
 }
 
 .btnDownload:hover {
   box-shadow: 0 0 15px black;
   color: white;
+  background: #0747a6;
+  transition: 2s;
 }
 
 /* Desktop */
@@ -177,9 +193,6 @@ nav:has(.btnDownload) a {
   }
   figure:has(img) {
     text-align: center;
-  }
-  .btnDownload {
-    width: 50%;
   }
 }
 </style>

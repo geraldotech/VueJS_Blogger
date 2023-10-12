@@ -22,11 +22,16 @@
 
       <h2>Archives</h2>
       <div class="archive">
-        <select>
+        <select v-model="select">
+          <option value=""></option>
           <option value="1">2008</option>
-          <option value="1">2009</option>
-          <option value="1">2010</option>
+          <option value="2">2009</option>
+          <option value="3">2010</option>
         </select>
+        <p></p>
+        <nav v-show="select">
+          <a href="" class="btnDownload">{{ select }}</a>
+        </nav>
       </div>
     </section>
   </div>
@@ -38,6 +43,11 @@ module.exports = {
   },
   components: {
     Search: httpVueLoader('../components/Search.vue'),
+  },
+  data() {
+    return {
+      select: '',
+    }
   },
 }
 </script>
@@ -53,6 +63,7 @@ module.exports = {
 .sidebar .content p {
   margin-top: 5px;
   font-size: 14px;
+  color: #e8e6e3;
 }
 .content ul {
   margin-top: 15px;
@@ -68,7 +79,6 @@ module.exports = {
 
 .sidebar figure img {
   width: 100%;
-  max-width: 80%;
   border-radius: 10px 10px;
   margin: 15px auto;
   padding: 5px;
@@ -101,7 +111,7 @@ module.exports = {
 @media screen and (max-width: 600px) {
   .sidebar {
     border-top: 2px solid;
-    margin-top: 100px !important;
+    margin-top: 50px !important;
     padding: 0 20px;
   }
   .sidebar div img {
@@ -126,6 +136,7 @@ module.exports = {
   .sidebar figure:has(img) {
     text-align: center;
     margin: auto;
+    max-width: 400px;
   }
 }
 </style>
