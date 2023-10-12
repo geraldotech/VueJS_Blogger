@@ -28,15 +28,16 @@
 module.exports = {
   data() {
     return {
-      userNumber: "",
-      userText: "",
-    };
+      userNumber: '',
+      userText: '',
+    }
   },
-};
+}
 </script>
 
 <style scoped>
 .whatsappApi p {
+  text-align: center;
   margin-top: 30px;
 }
 .whatsappApi input,
@@ -56,12 +57,13 @@ label {
   text-align: left;
   display: block;
   padding: 10px 5px;
+  max-width: 400px;
 }
 .whatsappApi input {
   display: block;
   margin: 10px 0;
   height: 40px;
-  width: 80%;
+  width: 100%;
   padding: 8px;
   outline: none;
   border: 2px solid black;

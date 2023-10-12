@@ -51,7 +51,7 @@ module.exports = {
           cat.category == this.$route.params.category &&
           !cat.slug.includes(this.$route.params.slug)
       )
-      return OnlyPostRalated
+      return OnlyPostRalated.slice(0, 4) // set a limit posts
     },
   },
   watch: {},

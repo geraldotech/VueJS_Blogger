@@ -13,12 +13,12 @@ class externo extends HTMLElement {
   anyfunction() {
     const button = this.shadowRoot.querySelector('button')
     const add = this.shadowRoot.querySelector('#add')
-    console.log(add.id)
-    console.log(button, add)
+    /*  console.log(add.id)
+    console.log(button, add) */
 
     button.onclick = function () {
       add.scrollIntoView(true)
-      history.pushState('', '', '#' + add.id) // add# to url
+      history.pushState('', '', '#' + add.id) // add # to url
     }
     //
     if (location.hash) {
