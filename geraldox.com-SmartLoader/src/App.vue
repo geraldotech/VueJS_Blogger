@@ -54,6 +54,7 @@ body {
   min-width: 320px;
   max-width: var(--maxw);
   margin: 0 auto;
+  line-height: 1.5;
 }
 /* trick to keep footer on bottom and container get max-space */
 .main {

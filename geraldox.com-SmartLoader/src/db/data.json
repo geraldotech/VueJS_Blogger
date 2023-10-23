@@ -50,7 +50,7 @@
         "author": "geraldox",
         "published": true,
         "data": "Dez 11, 2020",
-        "article": "<p>Y2 Mate (Guru)<a href='https://y2mate.guru/en8/' target='_blank'> Y2 Mate (Guru)</a>        <p>Y2 Mate (old) Somethimes bug in VPN <a href='https://www.y2mate.com/' target='_blank'> Y2 Mate (old)</a>           <p>Convert and download Youtube videos in MP3, MP4, 3GP for free<a href='https://yt1s.com/en3' target='_blank'> YT1s.com/en3</a>   <p>Download video audio MP3 file<a href='https://www.clickmp3.com/en' target='_blank'> clickmp3.com/en</a>            <p>Locoloader Download Videos, Music & Photos<a href='https://www.locoloader.com/' target='_blank'> Locoloader</a></p>",
+        "article": "<p>Y2 Mate (Guru)<a href='https://y2mate.guru/en8/' target='_blank'> Y2 Mate (Guru)</a>        <p>Y2 Mate (old) Somethimes bug in VPN <a href='https://www.y2mate.com/' target='_blank'> Y2 Mate (old)</a>           <p>Convert and download Youtube videos in MP3, MP4, 3GP for free<a href='https://yt1s.com/en3' target='_blank'> YT1s.com/en3</a>   <p>Download video audio MP3 file<a href='https://www.clickmp3.com/en' target='_blank'> clickmp3.com/en</a>            <p>Locoloader Download Videos, Music & Photos<a href='https://www.locoloader.com/' target='_blank'> Locoloader</a></p> <p><a href='https://vinteo.app/' target='_blank'>Vinteo Best Online Video Downloader</p>",
         "category": "youtube"
       },
       {
@@ -239,6 +239,17 @@
         "article": "",
         "component": "externo-compo",
         "category": "windows"
+      },
+      {
+        "id": 23,
+        "title": "Airport Codes",
+        "slug": "airport-codes",
+        "author": "geraldox",
+        "published": true,
+        "data": "Oct 23, 2023",
+        "article": "<p>O código aeroportuário IATA é uma sigla composta por três letras, utilizada para designar os aeroportos em todo o mundo.<a href='https://airportcod.es/#airport/sdu' target='_blank'>airportcod.es</a></p>",
+        "component": "",
+        "category": "uncategorized"
       }
     ]
   }

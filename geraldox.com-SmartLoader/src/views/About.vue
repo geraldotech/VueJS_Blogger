@@ -35,34 +35,28 @@
       <a
         href="https://github.com/geraldotech"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         <img
           src="https://geraldotech.github.io/easy-portfolio/assets/img/github.svg"
-          alt=""
-        />
+          alt="" />
         <p>GitHub</p>
       </a>
       <a
         href="https://www.linkedin.com/in/geraldo-petronilo"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         <img
           src="https://geraldotech.github.io/easy-portfolio/assets/img/linkedin.svg"
-          alt=""
-        />
+          alt="" />
         <p>LinkedIn</p>
       </a>
       <a
         href="https://www.youtube.com/channel/UCbJcYWtA3rdogh9X3K2dPEg"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         <img
           src="https://geraldotech.github.io/easy-portfolio/assets/img/youtube.svg"
-          alt=""
-        />
+          alt="" />
         <p>Youtube</p>
       </a>
     </section>

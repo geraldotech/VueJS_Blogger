@@ -2,10 +2,13 @@
   <div class="sidebar">
     <section class="content">
       <!--   <p class="search"><Search /></p> -->
+      <h2>About this Site:</h2>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid,
-        deleniti?
+        In this space I will be sharing tech related content in the subjects of
+        software development, Linux, containers, and also FrontEnd, which is one
+        of my favorite hobbies.
       </p>
+      <h2>Table of Contents</h2>
       <ul>
         <li><a href="http://geraldox.com">Home</a></li>
         <li><a href="http://geraldox.com/projects">Projects</a></li>
@@ -16,8 +19,7 @@
         <img
           class="img-flex"
           src="https://1.bp.blogspot.com/-qyLZHjnUXzE/UBF2SVg6vNI/AAAAAAAABZ4/l4bm9FvHts0/s1600/395840.jpg"
-          alt="fix logo"
-        />
+          alt="fix logo" />
       </figure>
 
       <h2>Archives</h2>
@@ -52,6 +54,10 @@ module.exports = {
 }
 </script>
 <style scoped>
+h2 {
+  text-decoration: underline;
+  margin-block: 10px;
+}
 .sidebar {
   text-align: justify;
   margin-top: 15px;
@@ -89,6 +95,7 @@ module.exports = {
   margin-left: 10%;
   line-height: 1.5rem;
   text-align: left;
+  list-style: none;
 }
 
 .sidebar ul {

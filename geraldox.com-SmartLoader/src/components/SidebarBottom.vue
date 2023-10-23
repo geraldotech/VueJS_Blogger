@@ -2,7 +2,11 @@
   <!-- avoid show if not has related posts -->
   <div class="sidebottom">
     <p>By: <router-link to="/about">Geraldo Filho</router-link></p>
-    <p>A Frontend Developer with more than half a decade of experience.</p>
+    <p>
+      A Frontend Developer with more than half a decade of experience, I write
+      about the things I like. Coding, tech writing, Linux, Android, Windows and
+      other tech stuff...
+    </p>
     <h3>
       More from
       <router-link
@@ -59,6 +63,9 @@ module.exports = {
 </script>
 
 <style scoped>
+h3 {
+  margin-block: 15px;
+}
 div {
   height: 320px;
   border-top: 1px solid;
