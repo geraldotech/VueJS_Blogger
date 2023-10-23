@@ -43,7 +43,7 @@
         />
         <p>GitHub</p>
       </a>
-      <a
+      <a 
         href="https://www.linkedin.com/in/geraldo-petronilo"
         target="_blank"
         rel="noopener noreferrer"

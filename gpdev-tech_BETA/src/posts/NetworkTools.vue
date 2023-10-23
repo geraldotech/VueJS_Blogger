@@ -48,8 +48,24 @@
 </template>
 
 <script>
-module.exports = {};
+module.exports = {
+  metaInfo: {
+    title: 'Network Tools',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: '  As melhores ferramentas para network',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'whatsapp, api, android, gmapdev' },
+    ],
+  },
+  data() {
+    return {}
+  },
+}
 </script>
 
-<style>
-</style>
+<style></style>

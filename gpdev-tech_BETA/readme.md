@@ -49,7 +49,17 @@
 
 ### Changes and Features:
 
-- Beta News **12/10/2023**:
+- vue-meta pages:
+  - Home ok
+  - Projects ok
+  - About ok
+  - Blog ok
+- Posts:
+
+  - whatsappapi.vue
+  - NetworkTools.vue
+
+- Beta News **12/10/2023** + vue-meta:
 
 - New Component `SidebarBottom.vue` by props:
 

@@ -26,6 +26,20 @@
 
 <script>
 module.exports = {
+  metaInfo: {
+    title: 'WhatsApp API',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content:
+          '  Você sabia que o WhatsApp permite que você inicie conversas sem criar um contato?',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'whatsapp, api, android, gmapdev' },
+    ],
+  },
   data() {
     return {
       userNumber: '',
