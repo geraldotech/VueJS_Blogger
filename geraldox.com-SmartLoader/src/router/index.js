@@ -48,6 +48,11 @@ const routes = [
     name: 'projects',
   },
   {
+    path: '/portfolio',
+    component: httpVueLoader('/src/views/Portfolio.vue'),
+    name: 'portfolio',
+  },
+  {
     path: '/about',
     component: httpVueLoader('/src/views/About.vue'),
     name: 'about',
@@ -60,7 +65,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {

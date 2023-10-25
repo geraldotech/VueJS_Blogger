@@ -128,7 +128,6 @@ a:hover {
 }
 
 /* for post images */
-
 figure:has(figcaption) {
   text-align: center;
   color: white;

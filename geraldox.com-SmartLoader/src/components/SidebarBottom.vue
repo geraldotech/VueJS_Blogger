@@ -82,7 +82,7 @@ div h1 {
 div p {
   background: rgb(34, 34, 34);
   padding: 5px;
-  height: 50px;
+
   display: flex;
   gap: 5px;
   width: 100%;
