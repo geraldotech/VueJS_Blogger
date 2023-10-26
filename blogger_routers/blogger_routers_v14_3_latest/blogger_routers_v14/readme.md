@@ -1,0 +1,194 @@
+# Blog JSON
+
+### Writing in JSON using single quotes
+
+- `<div id='speed'>Test</div>`
+- `<div class='abc'>Test</div>`
+- img betweeen div `<div><img src='https://adaway.org/assets/img/adaway.png' alt='adway logo' /></div>`
+
+### Make components
+
+- article is opcional, but you still can use this
+- define component in JSON create it and import
+
+> Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
+
+### Features
+
+- 23.02.2023
+  - v-html para renderizar html diretamente do .json file
+  - v-if/v-else caso tenha conteúdo
+- Nested Routers
+- Named Routers
+- Named Views
+- 25.02.2023
+
+  - Load Router from Strings, Components
+  - ### select router-link
+
+  - [https://stackoverflow.com/questions/70846740/how-to-use-router-link-inside-of-select-option-dropdown-in-vuejs](https://stackoverflow.com/questions/70846740/how-to-use-router-link-inside-of-select-option-dropdown-in-vuejs)
+  - [https://codesandbox.io/s/vue-select-dropdown-route-forked-3dld4?file=/src/components/HelloWorld.vue](https://codesandbox.io/s/vue-select-dropdown-route-forked-3dld4?file=/src/components/HelloWorld.vue)
+
+- 26.02.2023
+
+  - ### Adicionado categorias e uma page de map
+
+  > > mapear todas as categories, remover itens duplicados e descartar os undefined
+
+  ```js
+  //start categorias categorias only
+  const getCatego = this.opt.map((val) => val.category);
+
+  //filter remove duplicado e undefined itens
+  const filtra = getCatego.filter(
+    (val, ind) => getCatego.indexOf(val) == ind && val != undefined
+  );
+  //catategories by sort()
+  this.categorias = filtra.sort();
+  ```
+
+  - ### slug/blog/cat/
+
+  ### show slug + id url
+
+  ```js
+    {
+      path: "/blog/:slug/:id",
+      component: httpVueLoader("./src/views/UserPost.vue"),
+
+    },
+  const getBlogPost = this.blogPosts.find(
+          (post) => this.$route.params.slug == post.slug
+        );
+
+
+  //blogger list all posts
+    <router-link :to="`/blog/${artigos.slug}/${artigos.id}`">{{
+            artigos.title
+          }}</router-link>
+  ```
+
+- Custom Page tags
+
+  - ### Custom Categories Pages
+
+  ```js
+  <div v-if="$route.params.category.includes('ndroid')">
+    <img src="./src/assets/img/android.png" alt="android" />
+  </div>
+  ```
+
+- 27.02.2023
+
+  - Adicionado `resumo` em Blog.vue, torna o texto do `article` uma description
+
+- v11 28.02.2023
+
+  - Reviewd Search component by router.push and router.go
+
+  ```js
+  this.$router.push({
+    name: "threads",
+    params: { category: ca, slug: sl },
+  });
+  this.$router.go({
+    name: "threads",
+    params: { category: ca, slug: sl },
+  });
+  ```
+
+  - Alterado padding mobile first UserPost and User
+
+- v12 01.03.2023
+
+  - Adicionado props em Search to v-show..., now has two types of Search links
+
+- v13 02.03.2023
+
+  - CSS changed
+  - form required
+
+- v14 09.03.2023 [now is geraldoX blogger]
+
+  - Moved components for posts to /posts/mycomponent.vue
+  - Enhanced CSS for Desktop
+  - Support String Components, checkout example
+  - New Search Component in Blog Page
+  - Search a post by Title, show numbers results
+
+- v14.3 22.04.2023
+  - fixed some const names
+  - blog.vue commented .sidebar flex: 1
+  - sidebar.vue removed
+    .sidebar div img {
+    padding: 10px;
+    }
+  - better CSS sidebar width
+
+```js
+<p v-html="artigos.article ? artigos.article.substr(0, 35) : ''"></p>
+```
+
+### filter() requer v-for:
+
+```js
+
+ <div v-for="todos in results" :key="todos.id">
+        <h1>{{ todos.title }}</h1>
+        <p class="author">
+          By:<span>{{ todos.author }}</span> | Posted on: {{ todos.data }}
+        </p>
+
+        <article>
+          <p v-html="todos.article"></p>
+        </article>
+  </div>
+```
+
+### find() não requer v-for, para renderizar chamar por `obj.item`, v-if serve para evitar erros ao renderizar o que não foi encontrado, pelo contrário chama o v-else
+
+```js
+  <article v-if="blog">
+          <h1>{{ blog.title }}</h1>
+          <p class="author">
+            By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }}
+          </p>
+          <hr />
+          <p v-html="blog.article"></p>
+          <div>Post {{ $route.params }}</div>
+          <div>Post.id {{ $route.params.slug }}</div>
+    </article>
+  <div v-else>Not Found!</div>
+```
+
+### support v-if route-params
+
+```js
+<div v-if="$route.params.slug == 'post-one'">
+  <p>Hello post:one</p>
+</div>
+```
+
+### Get route.params
+
+```js
+<div>Post {{ $route.params }}</div>
+<div>Post.slug {{ $route.params.slug }}</div>
+```
+
+### find must comparar o post.id post.published ? e post.slug
+
+```js
+ {
+    path: "/blog/:id/:slug",
+    component: httpVueLoader("./src/views/UserPost.vue"),
+  },
+
+
+const getBlogPost = this.blogPosts.find(
+        (post) =>
+          post.id == this.$route.params.id &&
+          post.published &&
+          post.slug == this.$route.params.slug
+      );
+```
