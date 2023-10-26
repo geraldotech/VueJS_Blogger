@@ -61,6 +61,11 @@ const routes = [
       { path: 'google-drive', name: 'r2', component: gdrive },
     ],
   },
+  {
+    path: '/politica-privacidade',
+    component: httpVueLoader('./src/views/Politicaprivacidade.vue'),
+    name: '',
+  },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 

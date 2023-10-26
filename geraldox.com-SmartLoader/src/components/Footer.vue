@@ -1,7 +1,10 @@
 <template>
   <footer>
     <p>Copyright &copy; 2023 GMAPDEV</p>
-    <a href="#top">Back to top</a>
+    <a href="#top">Back to top</a> |
+    <router-link to="/politica-privacidade"
+      >Politica de Privacidade
+    </router-link>
   </footer>
 </template>
 

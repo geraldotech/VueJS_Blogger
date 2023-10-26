@@ -4,8 +4,7 @@
     <figure>
       <img
         src="https://placehold.jp/30/161a49/ffffff/500x90.png?text=ads+here"
-        alt="ads"
-      />
+        alt="ads" />
     </figure>
   </section>
 </template>
