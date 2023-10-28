@@ -114,10 +114,6 @@ module.exports = {
   margin: 10px 0;
 }
 
-.search form {
-  margin: 5px 0 25px;
-}
-
 .results_links {
   display: block;
   margin-top: 10px;
@@ -137,15 +133,18 @@ module.exports = {
   color: var(--search-links-color); /* var in App */
 }
 
-form {
+.search form {
   position: fixed;
-  top: 62px;
-  max-width: 50%; /* same modal */
+  top: 60px;
+  max-width: 40%; /* same modal */
   width: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
   min-height: 90px;
+  background: #181818;
+  margin: 5px 0 25px;
+  border-radius: 10px;
 }
 
 form input {
@@ -165,7 +164,7 @@ form input[type='text'] {
   background-image: url('../assets/icons/searchsvg.svg');
   background-size: 25px;
   background-repeat: no-repeat;
-  background-position-y: 0;
+  background-position-y: 2.5px;
   border: none;
 }
 
@@ -198,7 +197,7 @@ form input[type='text'] {
     width: 100% !important;
   }
   form {
-    max-width: 80% !important;
+    max-width: 95% !important;
   }
 }
 </style>

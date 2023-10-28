@@ -1,23 +1,25 @@
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
-      <header class="modal-header">
-        <slot name="header"> </slot>
-        <button type="button" class="btn-close" @click="close">X</button>
-      </header>
+  <transition name="modal-fade">
+    <div class="modal-backdrop">
+      <div class="modal">
+        <header class="modal-header">
+          <slot name="header"> </slot>
+          <button type="button" class="btn-close" @click="close">X</button>
+        </header>
 
-      <section class="modal-body">
-        <slot name="body"> </slot>
-      </section>
+        <section class="modal-body">
+          <slot name="body"> </slot>
+        </section>
 
-      <footer class="modal-footer">
-        <!--  <slot name="footer"> This is the default footer2! </slot> -->
-        <!--  <button type="button" class="btn-green" @click="close">
+        <footer class="modal-footer">
+          <!--  <slot name="footer"> This is the default footer2! </slot> -->
+          <!--  <button type="button" class="btn-green" @click="close">
           Close Modal
         </button> -->
-      </footer>
+        </footer>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -36,7 +38,7 @@ module.exports = {
   top: 20px;
   left: 0;
   right: 0;
-  /*  background-color: rgba(0, 0, 0, 0.3); */
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,9 +50,9 @@ module.exports = {
   overflow-x: auto;
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+  max-width: 40%;
   width: 100%;
-  min-height: 70vh;
+  min-height: 50vh;
   border-radius: 10px;
   z-index: 99;
 }
@@ -101,6 +103,16 @@ module.exports = {
   background: #4aae9b;
   border: 1px solid #4aae9b;
   border-radius: 2px;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 
 @media (max-width: 650px) {

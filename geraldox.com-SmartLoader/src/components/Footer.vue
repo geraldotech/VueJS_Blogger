@@ -14,7 +14,7 @@ module.exports = {}
 
 <style scoped>
 footer {
-  max-width: 75rem;
+  max-width: 90rem;
   min-width: 200px;
   margin: auto;
   background: rgb(20, 19, 19);

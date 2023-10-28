@@ -41,11 +41,13 @@ module.exports = {
 </script>
 
 <style>
-div.home {
+.home {
   font-size: 1.2rem;
   text-align: center;
-  min-height: 100vh;
+  /*  min-height: 100vh; */
+  /* min-height: fit-content; */
   padding: 2rem;
+  min-height: 120vh;
   background: hsl(204, 100%, 5%);
 }
 .home h2 {
@@ -53,7 +55,7 @@ div.home {
 }
 /* this stlyes only work on global mode, !important dont work */
 .home section {
-  clear: both;
+  clear: bothx;
   font-family: system-ui;
   font-size: 2.6em;
   background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
