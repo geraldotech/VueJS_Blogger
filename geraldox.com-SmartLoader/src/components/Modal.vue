@@ -47,7 +47,7 @@ module.exports = {
 
 .modal {
   background: #181818;
-  box-shadow: 2px 2px 20px 1px;
+  box-shadow: 2px 2px 20px #05bdba;
   overflow-x: auto;
   display: flex;
   flex-direction: column;
