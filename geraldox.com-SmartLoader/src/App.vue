@@ -102,6 +102,7 @@ body {
 }
 .container {
   flex: 1;
+
   /* max-width: var(--maxw); */
 }
 a {

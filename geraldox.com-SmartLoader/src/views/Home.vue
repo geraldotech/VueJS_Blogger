@@ -97,7 +97,7 @@ module.exports = {
 
 @media (max-width: 650px) {
   .home {
-    padding: 4px !important;
+    padding: 10px !important;
     margin: 0;
   }
 }
