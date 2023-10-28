@@ -1,27 +1,33 @@
 <template>
-  <main class="main">
-    <nav class="menu">
-      <li>
-        <router-link to="/">Home</router-link>
-      </li>
-      <li>
-        <router-link :to="{ name: `projects` }">Projects</router-link>
-      </li>
-      <li>
-        <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
-      </li>
-      <li>
-        <router-link :to="{ name: `about` }">About</router-link>
-      </li>
+  <div>
+    <nav class="top-nav">
+      <section class="menu">
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: `projects` }">Projects</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: `about` }">About</router-link>
+        </li>
+      </section>
+      <section class="logo">
+        <Searchauto v1 />
+      </section>
     </nav>
-
-    <section class="container">
-      <router-view :key="$route.path"></router-view>
-    </section>
-    <!--  named  router-->
-    <router-view name="yt" class="named-views"></router-view>
-    <Foot />
-  </main>
+    <main class="main">
+      <section class="container">
+        <router-view :key="$route.path"></router-view>
+      </section>
+      <!--  named  router-->
+      <router-view name="yt" class="named-views"></router-view>
+      <Foot />
+    </main>
+  </div>
 </template>
 
 <script>
@@ -32,13 +38,14 @@ module.exports = {
   components: {
     Foot: httpVueLoader('/src/components/Footer.vue'),
     Busca: httpVueLoader('/src/components/Search.vue'),
+    Searchauto: httpVueLoader('../src/components/SearchAuto.vue'),
   },
 }
 </script>
 <style>
 :root {
   --maxw: 75rem;
-  color-scheme: dark;
+  color-scheme: darkx;
   --search-links-color: rgb(58, 164, 255);
 }
 * {
@@ -52,12 +59,13 @@ html {
 }
 body {
   min-width: 320px;
-  max-width: var(--maxw);
-  margin: 0 auto;
   line-height: 1.5;
+  /*  background: rgb(0, 12, 21); */
 }
 /* trick to keep footer on bottom and container get max-space */
 .main {
+  max-width: var(--maxw); /* before is body */
+  margin: 0 auto; /* before is body */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -85,28 +93,37 @@ a:hover {
   margin: 0 auto;
 } */
 
-.menu {
+.top-nav {
   display: flex;
-  max-width: var(--maxw);
-  justify-content: space-evenly;
-  width: 100%;
-  padding: 15px 5px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90rem;
   position: sticky;
   top: 0;
-  border-bottom: 2px solid #fff;
+  margin: 0 auto;
   backdrop-filter: blur(10px);
+  width: 100%;
+  border-bottom: 2px solid #fff;
   z-index: 1; /* changed to 0 because nprogress */
+}
+
+.menu {
+  display: flex;
+  max-width: 550px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   height: 55px;
+  margin-right: 50px;
 }
 .menu li {
   list-style: none;
-  margin: 5px 0;
 }
 
 .menu a {
   text-decoration: none;
   /*  background: rgb(29, 27, 27); */
-  padding: 5px 20px;
+
   border-radius: 5px;
   color: rgb(219, 216, 211);
   font-weight: bold;
