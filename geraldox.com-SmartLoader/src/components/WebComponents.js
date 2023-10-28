@@ -216,3 +216,40 @@ class Winmonitorwall extends HTMLElement {
   }
 }
 customElements.define('win-wallmonitor', Winmonitorwall)
+class Updatechromemint extends HTMLElement {
+  constructor() {
+    super()
+    const shadow = this.attachShadow({ mode: 'open' })
+    shadow.append(this.template(), this.styles())
+  }
+
+  connectedCallback() {
+    //call functions here - void duplicate console.logs in this blogger
+  }
+
+  styles() {
+    const style = document.createElement('style')
+    style.textContent = ` 
+      code {
+        color: dodgerblue;
+      }
+    `
+    return style
+  }
+  template() {
+    const template = document.createElement('template')
+    template.innerHTML = `
+    <div>
+    <ul>
+    <li>sudo apt update</li><li>sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</li>
+    <li>sudo apt-get install libu2f-udev</li>
+    <li>sudo dpkg -i google-chrome-stable_current_amd64.deb</li>
+    </ul>
+    <h3>One Line</h3>
+    <code>sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt-get install libu2f-udev && sudo dpkg -i google-chrome-stable_current_amd64.deb</code>
+    </div>
+    `
+    return template.content
+  }
+}
+customElements.define('update-chromelinux', Updatechromemint)

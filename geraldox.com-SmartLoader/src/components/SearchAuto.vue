@@ -6,8 +6,7 @@
         type="text"
         v-model="userInput"
         placeholder="Search"
-        required
-      />
+        required />
     </form>
 
     <!-- autosearch v1 for blog.vue -->
@@ -21,8 +20,7 @@
           :to="{
             name: 'threads',
             params: { category: autosearch.category, slug: autosearch.slug },
-          }"
-        >
+          }">
           {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
         </router-link>
       </li>
@@ -134,6 +132,7 @@ module.exports = {
 
 form input {
   padding: 8px 10px;
+  padding-inline: 25px;
   border: 1px solid #eee;
   border-radius: 6px;
 }
@@ -144,6 +143,10 @@ form input:focus {
 
 input[type='text'] {
   width: 50%;
+  background: url('./src/assets/img/searchbox.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-y: 0;
 }
 
 .search .containerResults {

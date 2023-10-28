@@ -250,6 +250,17 @@
         "article": "<p>O código aeroportuário IATA é uma sigla composta por três letras, utilizada para designar os aeroportos em todo o mundo.<a href='https://airportcod.es/#airport/sdu' target='_blank'>airportcod.es</a></p>",
         "component": "",
         "category": "uncategorized"
+      },
+      {
+        "id": 24,
+        "title": "Update Chrome on Mint Una 20.3",
+        "slug": "update-google-chrome-linux-mint",
+        "author": "geraldox",
+        "published": true,
+        "data": "Oct 27, 2023",
+        "article": "",
+        "component": "update-chromelinux",
+        "category": "linux"
       }
     ]
   }
