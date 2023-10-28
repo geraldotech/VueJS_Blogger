@@ -42,6 +42,7 @@ module.exports = {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 
 .modal {
@@ -54,7 +55,6 @@ module.exports = {
   width: 100%;
   min-height: 50vh;
   border-radius: 10px;
-  z-index: 99;
 }
 
 .modal-header,
