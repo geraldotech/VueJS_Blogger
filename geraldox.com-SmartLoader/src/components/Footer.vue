@@ -5,7 +5,7 @@
     </router-link>
     |
     <router-link to="/about">About </router-link>
-    |
+
     <a href="#top" class="backtop"
       ><svg
         class="with-icon_icon__MHUeb"

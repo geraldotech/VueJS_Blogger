@@ -175,6 +175,7 @@ module.exports = {
 .projects {
   text-align: center;
   margin: 20px auto;
+  z-index: -1;
 }
 
 .projects select {
