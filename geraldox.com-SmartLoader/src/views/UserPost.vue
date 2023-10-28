@@ -4,7 +4,7 @@
     <div class="blogger">
       <main>
         <!-- <div><Busca v2 /></div> -->
-        <div><Searchauto v1 /></div>
+        <!--   <div><Searchauto v1 /></div> -->
         <article v-if="blog">
           <!-- card starts -->
           <div class="breadcrumbs">

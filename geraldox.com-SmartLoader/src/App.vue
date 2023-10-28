@@ -15,14 +15,29 @@
           <router-link :to="{ name: `about` }">About</router-link>
         </li>
       </section>
-      <section class="logo">
-        <Searchauto v1 />
+      <section class="top-search">
+        <img
+          @click="isModalVisible = !isModalVisible"
+          src="../src/assets/icons/searchsvg.svg"
+          alt="Make Search"
+        />
       </section>
     </nav>
     <main class="main">
       <section class="container">
         <router-view :key="$route.path"></router-view>
       </section>
+
+      <Modal v-show="isModalVisible" @close="closeModal">
+        <template v-slot:header> </template>
+
+        <template v-slot:body>
+          <!-- receive a click event and call fun to close modal -->
+          <Searchauto v1 @cancloseafterclick="closeModal" />
+        </template>
+
+        <template v-slot:footer> This is a new modal footer. </template>
+      </Modal>
       <!--  named  router-->
       <router-view name="yt" class="named-views"></router-view>
       <Foot />
@@ -33,20 +48,34 @@
 <script>
 module.exports = {
   data() {
-    return {}
+    return {
+      isModalVisible: false,
+    }
   },
   components: {
     Foot: httpVueLoader('/src/components/Footer.vue'),
     Busca: httpVueLoader('/src/components/Search.vue'),
     Searchauto: httpVueLoader('../src/components/SearchAuto.vue'),
+    Modal: httpVueLoader('../src/components/Modal.vue'),
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true
+    },
+    closeModal() {
+      this.isModalVisible = false
+    },
+    CloseModal() {
+      console.log(`pai here`)
+    },
   },
 }
 </script>
 <style>
 :root {
-  --maxw: 75rem;
-  color-scheme: darkx;
-  --search-links-color: rgb(58, 164, 255);
+  --maxw: 90rem;
+  color-scheme: dark;
+  --search-links-color: #05bdba;
 }
 * {
   margin: 0;
@@ -104,7 +133,7 @@ a:hover {
   backdrop-filter: blur(10px);
   width: 100%;
   border-bottom: 2px solid #fff;
-  z-index: 1; /* changed to 0 because nprogress */
+  z-index: ; /* changed to 0 because nprogress */
 }
 
 .menu {
@@ -115,6 +144,7 @@ a:hover {
   width: 100%;
   height: 55px;
   margin-right: 50px;
+  margin-left: 10px;
 }
 .menu li {
   list-style: none;
@@ -193,6 +223,10 @@ nav:has(.btnDownload) a {
   color: white;
   background: #0747a6;
   transition: 2s;
+}
+
+.top-search img {
+  cursor: pointer;
 }
 
 /* Desktop */

@@ -55,7 +55,7 @@ div.home {
 .home section {
   clear: both;
   font-family: system-ui;
-  font-size: 3em;
+  font-size: 2.6em;
   background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -88,7 +88,7 @@ div.home {
 }
 
 .home .block::first-letter {
-  font-size: 2.6rem;
+  font-size: 2.3rem;
   initial-letter: 2;
   margin-right: 0.75rem;
 }

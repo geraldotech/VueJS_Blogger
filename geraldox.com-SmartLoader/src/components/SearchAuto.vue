@@ -1,18 +1,22 @@
 <template>
   <div class="search">
-    <form @submit.prevent="search" @input="AutoSeach">
-      <input
-        name=""
-        type="text"
-        v-model="userInput"
-        placeholder="Search"
-        required />
-    </form>
+    <div class="formparent">
+      <form @submit.prevent="search" @input="AutoSeach">
+        <input
+          name=""
+          type="text"
+          v-model="userInput"
+          placeholder="What do you need?"
+          required
+        />
+        <span class="btn-close" @click="$emit('cancloseafterclick')">X</span>
+        <!-- autosearch v1 for blog.vue -->
+        <p v-if="autoResults">
+          About: {{ autoResults.length }} results for `{{ userInput }}`
+        </p>
+      </form>
+    </div>
 
-    <!-- autosearch v1 for blog.vue -->
-    <p v-if="autoResults">
-      About: {{ autoResults.length }} results for `{{ userInput }}`
-    </p>
     <ul v-show="v1" class="containerResults">
       <li v-for="autosearch in autoResults" :key="autosearch.id">
         <router-link
@@ -20,7 +24,10 @@
           :to="{
             name: 'threads',
             params: { category: autosearch.category, slug: autosearch.slug },
-          }">
+          }"
+          @click.native="$emit('cancloseafterclick')"
+        >
+          <!-- in routerLink emit a event function to parent -->
           {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
         </router-link>
       </li>
@@ -108,12 +115,12 @@ module.exports = {
 }
 
 .search form {
-  margin: 25px 0 25px;
+  margin: 5px 0 25px;
 }
 
 .results_links {
   display: block;
-  margin-top: 5px;
+  margin-top: 10px;
   max-width: 500px;
   min-width: 320px;
   margin: 5px auto;
@@ -123,11 +130,22 @@ module.exports = {
   text-align: left;
   list-style: square;
   padding: 0;
-  color: var(--links-color);
+  color: var(--search-links-color);
 }
 
 .results_links li a {
-  color: var(--links-color);
+  color: var(--search-links-color); /* var in App */
+}
+
+form {
+  position: fixed;
+  top: 62px;
+  max-width: 50%; /* same modal */
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  min-height: 90px;
 }
 
 form input {
@@ -141,24 +159,46 @@ form input:focus {
   outline: 2px solid #05bdba;
 }
 
-input[type='text'] {
-  width: 50%;
-  background: url('./src/assets/img/searchbox.png');
-  background-size: 20px;
+form input[type='text'] {
+  max-width: 100%;
+  width: 100%;
+  background-image: url('../assets/icons/searchsvg.svg');
+  background-size: 25px;
   background-repeat: no-repeat;
   background-position-y: 0;
+  border: none;
 }
 
 .search .containerResults {
-  max-width: 400px;
-  margin: 20px auto 30px;
-  padding: 0;
+  margin: 50px auto 30px;
+  padding: 10px;
+  position: absolute;
+  overscroll-behavior: smooth;
+  width: 100%;
+}
+
+.btn-close {
+  cursor: pointer;
+  font-weight: bold;
+  color: #4aae9b;
+  margin-right: 15px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* for mobile */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
   .search input[type='text'] {
-    width: 80%;
+    width: 90%;
+    height: 40px;
+  }
+
+  form input[type='text'] {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  form {
+    max-width: 80% !important;
   }
 }
 </style>

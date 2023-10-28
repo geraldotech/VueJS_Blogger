@@ -16,19 +16,23 @@
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[0]"></span>
+            v-html="card.techsvg[0]"
+          ></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[1]"></span>
+            v-html="card.techsvg[1]"
+          ></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[2]"></span>
+            v-html="card.techsvg[2]"
+          ></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[3]"></span>
+            v-html="card.techsvg[3]"
+          ></span>
         </section>
       </div>
     </section>
@@ -88,8 +92,8 @@ module.exports = {
           id: 5,
           title: 'VueJS Blogger',
           description: 'Consumindo uma API Fake, filter, find, render posts',
-         /*  img: base + 'vuejs-blogger.jpg', */
-           img: 'https://img.icons8.com/external-wanicon-flat-wanicon/256/external-blogger-influencer-marketing-wanicon-flat-wanicon.png', 
+          /*  img: base + 'vuejs-blogger.jpg', */
+          img: 'https://img.icons8.com/external-wanicon-flat-wanicon/256/external-blogger-influencer-marketing-wanicon-flat-wanicon.png',
           link: 'https://blogger-router.netlify.app',
           tech: 'VueJS',
           techsvg: [vuejss],
