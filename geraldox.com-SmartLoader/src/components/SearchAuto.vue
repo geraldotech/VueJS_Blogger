@@ -179,8 +179,9 @@ form input[type='text'] {
 .btn-close {
   cursor: pointer;
   font-weight: bold;
-  color: #4aae9b;
-  margin-right: 15px;
+  color: red;
+  padding-inline: 10px;
+  margin-block: 2.5px;
   display: flex;
   justify-content: flex-end;
 }
