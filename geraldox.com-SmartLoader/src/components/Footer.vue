@@ -1,10 +1,31 @@
 <template>
   <footer>
-    <p>Copyright &copy; 2023 GMAPDEV</p>
-    <a href="#top">Back to top</a> |
     <router-link to="/politica-privacidade"
       >Politica de Privacidade
     </router-link>
+    |
+    <router-link to="/about">About </router-link>
+    |
+    <a href="#top" class="backtop"
+      ><svg
+        class="with-icon_icon__MHUeb"
+        data-testid="geist-icon"
+        fill="none"
+        height="24"
+        width="24"
+        shape-rendering="geometricPrecision"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        style="color: currentcolor; width: 30px; height: 30px"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M16 12l-4-4-4 4"></path>
+        <path d="M12 16V8"></path></svg
+    ></a>
+    <p>Created By Geraldo Costa | Copyright &copy; 2023 GMAPDEV</p>
   </footer>
 </template>
 
@@ -27,7 +48,17 @@ footer {
 }
 
 footer p {
-  margin-bottom: 10px;
+  margin-block: 20px;
+}
+
+.backtop {
+  position: fixed;
+  bottom: 40px;
+  right: 250px;
+}
+
+.backtop::after {
+  content: '';
 }
 
 /* for mobile */
@@ -36,6 +67,9 @@ footer p {
     background: rgb(29, 27, 27);
     text-align: center;
     color: dodgerblue;
+  }
+  .backtop {
+    right: 0 !important;
   }
 }
 </style>
