@@ -134,7 +134,7 @@ a:hover {
   backdrop-filter: blur(10px);
   width: 100%;
   border-bottom: 2px solid #fff;
-  z-index: ; /* changed to 0 because nprogress */
+  z-index: 2;
 }
 
 .menu {
