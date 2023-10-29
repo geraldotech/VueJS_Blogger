@@ -1,8 +1,15 @@
 <template>
   <div>
     <section class="about">
-      <div class="about_avatar">
-        <img src="" id="gitavatar" alt="giv avatar" />
+      <!--  <div class="about_avatar">
+        <figure>
+          <img src="" id="gitavatar" alt="git avatar" />
+        </figure>
+      </div> -->
+      <div class="about_avatar is-loading">
+        <figure>
+          <img src="" id="gitavatar2" alt="git avatar" />
+        </figure>
       </div>
 
       <h1>Resume</h1>
@@ -35,28 +42,34 @@
       <a
         href="https://github.com/geraldotech"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <img
           src="https://geraldotech.github.io/easy-portfolio/assets/img/github.svg"
-          alt="" />
+          alt=""
+        />
         <p>GitHub</p>
       </a>
       <a
         href="https://www.linkedin.com/in/geraldo-petronilo"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <img
           src="https://geraldotech.github.io/easy-portfolio/assets/img/linkedin.svg"
-          alt="" />
+          alt=""
+        />
         <p>LinkedIn</p>
       </a>
       <a
         href="https://www.youtube.com/channel/UCbJcYWtA3rdogh9X3K2dPEg"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <img
           src="https://geraldotech.github.io/easy-portfolio/assets/img/youtube.svg"
-          alt="" />
+          alt=""
+        />
         <p>Youtube</p>
       </a>
     </section>
@@ -106,9 +119,9 @@ module.exports = {
 
       function showimg(img) {
         //select img tag
-        const TagAvatar = document.getElementById('gitavatar')
+        const TagAvatar = document.getElementById('gitavatar2')
         if (TagAvatar) {
-          //evita erros caso esteja em pagina que não tem a tag
+          //evita erros no console caso esteja em pagina que não tem a tag
           TagAvatar.src = img.avatar_url
         }
       }
@@ -123,12 +136,43 @@ module.exports = {
 }
 
 .about .about_avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.about_avatar figure {
   border-radius: 50%;
   border: 2px solid dodgerblue;
-  width: 100%;
+  clip-path: circle();
   width: 150px;
+  height: 150px;
   margin-top: 10px;
 }
+
+/* skeleton */
+.is-loading figure {
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  border-radius: 5px;
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  border-radius: 50%;
+  border: 2px solid dodgerblue;
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+}
+@keyframes shine {
+  to {
+    background-position-x: -250%;
+  }
+}
+.is-loading p {
+  padding: 20px;
+  width: 250px;
+  height: 250px;
+}
+
 .about h1 {
   font-size: 2em;
   margin: 20px 0;

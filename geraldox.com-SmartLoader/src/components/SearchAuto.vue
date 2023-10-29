@@ -142,7 +142,7 @@ module.exports = {
   transform: translate(-50%, -50%);
   z-index: 1;
   min-height: 90px;
-  background: #181818;
+  background: rgba(0, 0, 0, 0.8);
   margin: 5px 0 25px;
   border-radius: 10px;
 }

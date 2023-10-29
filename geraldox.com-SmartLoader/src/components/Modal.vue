@@ -46,8 +46,8 @@ module.exports = {
 }
 
 .modal {
-  background: #181818;
-  box-shadow: 2px 2px 20px #05bdba;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 2px 10px #05bdba;
   overflow-x: auto;
   display: flex;
   flex-direction: column;
@@ -61,6 +61,10 @@ module.exports = {
 .modal-footer {
   padding: 15px;
   display: flex;
+}
+
+.modal-footer {
+  display: none;
 }
 
 .modal-header {
@@ -78,7 +82,6 @@ module.exports = {
 .modal-body {
   position: relative;
   top: 0;
-
   flex: 1;
 }
 
