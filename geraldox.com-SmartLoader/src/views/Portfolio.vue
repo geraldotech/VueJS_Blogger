@@ -16,23 +16,19 @@
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[0]"
-          ></span>
+            v-html="card.techsvg[0]"></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[1]"
-          ></span>
+            v-html="card.techsvg[1]"></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[2]"
-          ></span>
+            v-html="card.techsvg[2]"></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[3]"
-          ></span>
+            v-html="card.techsvg[3]"></span>
         </section>
       </div>
     </section>
@@ -167,7 +163,6 @@ figure:has(img) img {
 
 .portfolio {
   text-align: center;
-  margin-block: 20px;
   font-size: 2em;
 }
 .cards:has(.card:hover) .card:not(:hover) {
@@ -179,9 +174,8 @@ figure:has(img) img {
   /* auto responsive */
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 1rem;
-  padding: 10px;
   justify-items: center;
-  max-width: 65rem;
+  max-width: 75rem;
   margin: 0 auto;
 }
 .card h1 {
@@ -213,7 +207,7 @@ figure:has(img) img {
 .card .description {
   font-size: 0.8rem;
   text-wrap: balance;
-  margin-left: 5%;
+  text-align: center;
 }
 
 .techs {

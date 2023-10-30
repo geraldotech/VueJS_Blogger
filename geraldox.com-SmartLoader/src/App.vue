@@ -19,14 +19,11 @@
         <img
           @click="isModalVisible = !isModalVisible"
           src="../src/assets/icons/searchsvg.svg"
-          alt="Make Search"
-        />
+          alt="Make Search" />
       </section>
     </nav>
     <main class="main">
-      <section class="container">
-        <router-view :key="$route.path"></router-view>
-      </section>
+      <router-view :key="$route.path" class="router-view"></router-view>
 
       <Modal v-show="isModalVisible" @close="closeModal">
         <template v-slot:header> </template>
@@ -100,11 +97,22 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
 }
+
 .container {
   flex: 1;
-
   /* max-width: var(--maxw); */
 }
+/* class for router-view */
+.router-view {
+  padding-inline: 10px;
+  flex: 1;
+  padding-block: 20px;
+}
+/* before existia .container thath wrapper the router-view o que será rederizado tbm pode ser selecionado com :first-child */
+.container > :first-child {
+  /*  border: 1px solid red; */ /* uncomment for test purpose */
+}
+
 a {
   color: #05bdba;
 }
@@ -245,6 +253,9 @@ nav:has(.btnDownload) a {
   }
   figure:has(img) {
     text-align: center;
+  }
+  .main {
+    margin: 0 auto;
   }
 }
 </style>

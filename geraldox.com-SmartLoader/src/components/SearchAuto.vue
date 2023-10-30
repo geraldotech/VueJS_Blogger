@@ -7,12 +7,11 @@
           type="text"
           v-model="userInput"
           placeholder="What do you need?"
-          required
-        />
+          required />
         <span class="btn-close" @click="$emit('cancloseafterclick')">X</span>
         <!-- autosearch v1 for blog.vue -->
         <p v-if="autoResults">
-          About: {{ autoResults.length }} results for `{{ userInput }}`
+          About: {{ autoResults.length }} results for: `{{ userInput }}`
         </p>
       </form>
     </div>
@@ -25,16 +24,16 @@
             name: 'threads',
             params: { category: autosearch.category, slug: autosearch.slug },
           }"
-          @click.native="$emit('cancloseafterclick')"
-        >
+          @click.native="
+            $emit('cancloseafterclick')
+            cleanInput()
+          ">
           <!-- in routerLink emit a event function to parent -->
           {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
         </router-link>
       </li>
+      <h1>{{ Message }}</h1>
     </ul>
-
-    <!--  autosearch ends -->
-    <h1>{{ Message }}</h1>
   </div>
 </template>
 <script>
@@ -60,9 +59,14 @@ module.exports = {
       const res = await req.json()
       this.blog = res.blog.posts
     },
+    /* clean current last input and old results */
+    cleanInput() {
+      this.userInput = ''
+      this.autoResults = [] //  clean
+    },
     AutoSeach() {
-      // check input has values
-      if (this.userInput.length) {
+      // check input has values >1
+      if (this.userInput.length > 1) {
         const Search = this.blog.filter((val) =>
           val.title.toUpperCase().includes(this.userInput.toUpperCase())
         )

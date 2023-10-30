@@ -120,7 +120,7 @@ article p {
   margin-top: 10px;
 }
 .blogger {
-  margin: 5px 15px; /* margin do body posts */
+  /* margin: 5px 15px; */ /* margin do body posts, now get margin from .main parent */
 }
 
 .breadcrumbs p {

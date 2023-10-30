@@ -19,8 +19,7 @@
         stroke-linejoin="round"
         stroke-width="1.5"
         viewBox="0 0 24 24"
-        style="color: currentcolor; width: 30px; height: 30px"
-      >
+        style="color: currentcolor; width: 30px; height: 30px">
         <circle cx="12" cy="12" r="10"></circle>
         <path d="M16 12l-4-4-4 4"></path>
         <path d="M12 16V8"></path></svg
@@ -54,11 +53,24 @@ footer p {
 .backtop {
   position: fixed;
   bottom: 40px;
-  right: 250px;
+  right: 50px;
+  animation: appear 1ms ease-in-out both;
+  animation-timeline: scroll();
 }
 
 .backtop::after {
   content: '';
+}
+
+@keyframes appear {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 /* for mobile */

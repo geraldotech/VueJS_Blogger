@@ -174,7 +174,7 @@ module.exports = {
 <style scoped>
 .projects {
   text-align: center;
-  margin: 20px auto;
+
   z-index: -1;
 }
 

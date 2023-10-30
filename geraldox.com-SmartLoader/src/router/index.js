@@ -49,8 +49,8 @@ const routes = [
   },
   {
     path: '/portfolio',
-    component: httpVueLoader('/src/views/Portfolio.vue'),
-    name: 'portfolio',
+    component: httpVueLoader('/src/views/Projects.vue'),
+    name: '',
   },
   {
     path: '/about',
