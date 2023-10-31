@@ -354,6 +354,7 @@ svg {
     display: flex;
     width: 100%;
     padding: 10px 0;
+    gap: 20px;
   }
   .list-all .threads {
     flex: 1 0 75%;
