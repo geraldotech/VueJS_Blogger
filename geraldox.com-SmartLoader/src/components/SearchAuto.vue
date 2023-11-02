@@ -1,6 +1,7 @@
 <template>
   <div class="search">
-    <div class="formparent">
+    <!-- v1 starts -->
+    <div v-show="v1" class="formparent">
       <form @submit.prevent="search" @input="AutoSeach">
         <input
           name=""
@@ -34,6 +35,44 @@
       </li>
       <h1>{{ Message }}</h1>
     </ul>
+    <!-- v1 ends -->
+
+    <!-- v2 starts -->
+    <div v-show="v2" class="v2">
+      <form @submit.prevent="search" @input="AutoSeach">
+        <input
+          name=""
+          type="text"
+          v-model="userInput"
+          placeholder="What do you need?"
+          required />
+
+        <!-- autosearch v1 for blog.vue -->
+        <p v-if="autoResults">
+          About: {{ autoResults.length }} results for: `{{ userInput }}`
+        </p>
+      </form>
+
+      <ul>
+        <li v-for="autosearch in autoResults" :key="autosearch.id">
+          <router-link
+            class="results_links"
+            :to="{
+              name: 'threads',
+              params: { category: autosearch.category, slug: autosearch.slug },
+            }"
+            @click.native="
+              $emit('cancloseafterclick')
+              cleanInput()
+            ">
+            <!-- in routerLink emit a event function to parent -->
+            {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
+          </router-link>
+        </li>
+        <h1>{{ Message }}</h1>
+      </ul>
+    </div>
+    <!-- v2 ends -->
   </div>
 </template>
 <script>
@@ -51,7 +90,8 @@ module.exports = {
     }
   },
   props: {
-    v1: Boolean, // v1 for blog.vue
+    v1: Boolean, // v1 for @click show modal search, contains CSS class
+    v2: Boolean, // v2 for autosearch always show input, few CSS class
   },
   methods: {
     async posts() {
@@ -137,7 +177,7 @@ module.exports = {
   color: var(--search-links-color); /* var in App */
 }
 
-.search form {
+.search .formparent form {
   position: fixed;
   top: 60px;
   max-width: 40%; /* same modal */
@@ -151,25 +191,22 @@ module.exports = {
   border-radius: 10px;
 }
 
-form input {
-  padding: 8px 10px;
-  padding-inline: 25px;
-  border: 1px solid #eee;
-  border-radius: 6px;
-}
-
 form input:focus {
   outline: 2px solid #05bdba;
 }
 
-form input[type='text'] {
+.search form input[type='text'] {
+  background-image: url('../src/assets/icons/searchsvg.svg');
   max-width: 100%;
   width: 100%;
-  background-image: url('../assets/icons/searchsvg.svg');
   background-size: 25px;
   background-repeat: no-repeat;
   background-position-y: 2.5px;
   border: none;
+  padding: 8px 10px;
+  padding-inline: 25px;
+  border: 1px solid #eee;
+  border-radius: 6px;
 }
 
 .search .containerResults {
@@ -191,7 +228,7 @@ form input[type='text'] {
 }
 
 /* for mobile */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
   .search input[type='text'] {
     width: 90%;
     height: 40px;

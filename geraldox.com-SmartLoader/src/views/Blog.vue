@@ -1,10 +1,22 @@
 <template>
   <div>
     <!--  <Adsense></Adsense> -->
-
     <div v-if="$route.name == `Blog Posts`" class="list-all">
       <section class="threads">
-        <!--  <div><Searchauto v1 /></div> -->
+        <nav class="legacy_searchs">
+          <input type="checkbox" id="showlegacy" v-model="showlegacy" />
+          <label for="showlegacy">Search Legacy</label>
+          <input type="checkbox" id="showautoseach" v-model="showautoseach" />
+          <label for="showautoseach">Search Auto</label>
+        </nav>
+        <div v-show="showlegacy">
+          <Searchlegacy v1 />
+        </div>
+        <div v-show="showautoseach">
+          <Searchauto v2 />
+        </div>
+
+        <!--  -->
         <div class="map">
           <div>
             <router-link :to="{ name: `Categories Map` }"
@@ -143,7 +155,7 @@ module.exports = {
   mounted() {},
   components: {
     Sidebar: httpVueLoader('../components/Sidebar.vue'),
-    Search: httpVueLoader('../components/Search.vue'),
+    Searchlegacy: httpVueLoader('../components/Search.vue'),
     Searchauto: httpVueLoader('../components/SearchAuto.vue'),
     Mapas: httpVueLoader('../views/mapa.vue'),
     Adsense: httpVueLoader('../views/Adsense.vue'),
@@ -156,6 +168,8 @@ module.exports = {
       AllPosts: {},
       numero: 10,
       pinned: {},
+      showlegacy: '',
+      showautoseach: '',
     }
   },
   methods: {
@@ -346,6 +360,14 @@ svg {
 .pinned {
   margin-top: 15px;
   line-height: 1.5rem;
+}
+
+.legacy_searchs {
+  margin-block: 15px;
+  margin-bottom: 20px;
+}
+.legacy_searchs label {
+  cursor: pointer;
 }
 
 /* desktop */

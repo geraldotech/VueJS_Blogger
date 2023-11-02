@@ -80,7 +80,7 @@ module.exports = {
   color: #b9b3aa;
 }
 .home .block::first-line {
-  line-height: 70px;
+  line-height: 40px;
   color: #05bdba;
 }
 

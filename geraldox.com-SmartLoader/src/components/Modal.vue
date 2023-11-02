@@ -118,7 +118,7 @@ module.exports = {
   transition: opacity 0.5s ease;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
   .modal {
     max-width: 95%;
   }

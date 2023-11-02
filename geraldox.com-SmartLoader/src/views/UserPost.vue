@@ -3,8 +3,8 @@
     <!--  <Adsense></Adsense> -->
     <div class="blogger">
       <main>
-        <!-- <div><Busca v2 /></div> -->
-        <!--   <div><Searchauto v1 /></div> -->
+        <!--  <div><Searchlegacy v1 /></div> -->
+        <!--   <div><Searchauto v2 /></div> -->
         <article v-if="blog">
           <!-- card starts -->
           <div class="breadcrumbs">
@@ -81,7 +81,7 @@ module.exports = {
   },
   components: {
     Sidebar: httpVueLoader('/src/components/Sidebar.vue'),
-    Busca: httpVueLoader('/src/components/Search.vue'),
+    Searchlegacy: httpVueLoader('/src/components/Search.vue'),
     Android: httpVueLoader('../posts/android-roo.vue'),
     Vuejs: httpVueLoader('../posts/Vuejs.vue'),
     Speedtest: httpVueLoader('../posts/Speedtest.vue'),

@@ -6,8 +6,7 @@
         type="text"
         v-model="userInput"
         placeholder="search for posts"
-        required
-      />
+        required />
       <input type="submit" value="Search" />
     </form>
     <!--  usar v-if with computed -->
@@ -23,8 +22,7 @@
           :to="{
             name: 'threads',
             params: { category: items.category, slug: items.slug },
-          }"
-        >
+          }">
           {{ items.title }} - {{ items.data }}</router-link
         >
       </li>
@@ -157,6 +155,8 @@ button.btn,
   min-width: 320px;
   margin: 0 auto;
   text-align: center;
+  background: rgb(0, 54, 143);
+  border: 1px solid;
 }
 .results_links li {
   text-align: left;
