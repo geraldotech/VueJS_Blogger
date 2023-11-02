@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="portfolio">Portfolio</h1>
+    <h1>Portfolio</h1>
     <section class="cards">
       <div class="card" v-for="card in cards" :key="card.id">
         <!-- link inside img -->
@@ -161,10 +161,12 @@ figure:has(img) img {
   max-width: 80%;
 }
 
-.portfolio {
+h1:nth-child(1) {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
+  margin-block: 20px;
 }
+
 .cards:has(.card:hover) .card:not(:hover) {
   opacity: 0.6;
   scale: 0.98;
@@ -193,11 +195,12 @@ figure:has(img) img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 5px;
 }
 
 .card a {
-  flex: 1;
+  /*   flex: 1; */
   align-self: center;
 }
 
@@ -214,7 +217,7 @@ figure:has(img) img {
   /* font-size: 0.7rem;
   font-weight: bold;
   color: #05bdba; */
-  margin-block: 8px;
+  margin-top: 8px;
   display: flex;
 }
 

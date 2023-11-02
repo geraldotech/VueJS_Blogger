@@ -186,7 +186,7 @@ module.exports = {
 }
 
 .about_links p {
-  background: purple;
+  background: hsl(204, 100%, 5%);
   margin-top: 50px;
   padding: 15px;
   margin: 20px auto;

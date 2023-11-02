@@ -106,7 +106,7 @@ body {
 .router-view {
   padding-inline: 10px;
   flex: 1;
-  padding-block: 20px;
+  padding-block: 15px;
 }
 /* before existia .container thath wrapper the router-view o que será rederizado tbm pode ser selecionado com :first-child */
 .container > :first-child {
@@ -179,7 +179,7 @@ a:hover {
 }
 
 /* routes CSS */
-.router-link-active {
+.menu .router-link-exact-active {
   color: rgb(68, 186, 246);
 }
 
