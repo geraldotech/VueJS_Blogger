@@ -242,6 +242,11 @@ nav:has(.btnDownload) a {
 @media screen and (min-width: 650px) {
   .menu a {
     text-transform: uppercase; /* only desktop is upperCase menu */
+    padding: 5px 10px; /* increase area click */
+  }
+  .menu a:hover {
+    background: #333;
+    transition: 500ms ease-in;
   }
   figure img {
     max-width: 100%;
