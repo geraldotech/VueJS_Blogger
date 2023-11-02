@@ -213,6 +213,11 @@ h1:nth-child(1) {
   text-align: center;
 }
 
+.card img:hover {
+  transform: scale(1.1);
+  transition: all 800ms ease-in-out;
+}
+
 .techs {
   /* font-size: 0.7rem;
   font-weight: bold;
