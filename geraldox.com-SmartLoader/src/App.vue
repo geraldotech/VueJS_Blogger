@@ -70,7 +70,7 @@ module.exports = {
 </script>
 <style>
 :root {
-  --maxw: 90rem;
+  --maxw: 100rem;
   color-scheme: dark;
   --search-links-color: #05bdba;
 }
@@ -135,7 +135,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 90rem;
+  max-width: 100rem;
   position: sticky;
   top: 0;
   margin: 0 auto;
