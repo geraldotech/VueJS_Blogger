@@ -104,7 +104,7 @@ body {
 }
 /* class for router-view */
 .router-view {
-  padding-inline: 10px;
+  padding-inline: 0.5rem;
   flex: 1;
   padding-block: 15px;
 }
@@ -261,6 +261,9 @@ nav:has(.btnDownload) a {
   }
   .main {
     margin: 0 auto;
+  }
+  .router-view {
+    padding-inline: 2rem;
   }
 }
 </style>
