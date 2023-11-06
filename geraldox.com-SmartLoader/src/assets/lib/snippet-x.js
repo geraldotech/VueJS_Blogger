@@ -35,7 +35,7 @@ class snipped extends HTMLElement {
     section {
       background: rgb(68, 71, 77);
       font-family: sans-serif;
-      margin-top: 20px;
+      margin-top: 5px;
       border-radius: 10px;      
     }
     button {
