@@ -32,9 +32,9 @@
 module.exports = {}
 </script>
 
-<style scoped>
+<style>
 footer {
-  max-width: 90rem;
+  max-width: var(--maxw);
   min-width: 200px;
   margin: auto;
   background: rgb(20, 19, 19);

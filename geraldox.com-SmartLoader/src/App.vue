@@ -70,7 +70,7 @@ module.exports = {
 </script>
 <style>
 :root {
-  --maxw: 100rem;
+  --maxw: 100rem; /* set max in footer either */
   color-scheme: dark;
   --search-links-color: #05bdba;
 }
@@ -236,6 +236,7 @@ nav:has(.btnDownload) a {
 
 .top-search img {
   cursor: pointer;
+  margin-right: 10px;
 }
 
 /* Desktop */
