@@ -49,6 +49,10 @@
 
 ### Changes and Features:
 
+- 06.11.2023
+
+  - Snippet-x library by #gmap
+
 - 27.10.2023
 
   - disabled Adsense Component for get Google Approved

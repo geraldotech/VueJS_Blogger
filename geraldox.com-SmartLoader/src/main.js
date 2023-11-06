@@ -4,6 +4,8 @@ SmartLoader('/src/components/ContainerVue.js', 'module')
 SmartLoader('/src/components/WebComponents.js', 'module')
 // Standalone WebComponents
 SmartLoader('/src/components/externo.js', 'module')
+/* snippet-x library */
+SmartLoader('/src/assets/lib/snippet-x.js')
 
 //import CDN to Vuemixin
 import cdn from '/src/cdn.js'

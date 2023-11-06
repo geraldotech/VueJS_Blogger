@@ -233,6 +233,9 @@ class Updatechromemint extends HTMLElement {
       code {
         color: dodgerblue;
       }
+      p{
+        margin: 0;
+      }
     `
     return style
   }
@@ -240,13 +243,22 @@ class Updatechromemint extends HTMLElement {
     const template = document.createElement('template')
     template.innerHTML = `
     <div>
-    <ul>
-    <li>sudo apt update</li><li>sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</li>
-    <li>sudo apt-get install libu2f-udev</li>
-    <li>sudo dpkg -i google-chrome-stable_current_amd64.deb</li>
-    </ul>
-    <h3>One Line</h3>
-    <code>sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt-get install libu2f-udev && sudo dpkg -i google-chrome-stable_current_amd64.deb</code>
+    <p>Comandos para atualizar o Google Chrome no Linux Mint / Ubuntu</p>
+    <snippet-x>
+    <pre>$ sudo apt update</pre>
+    </snippet-x>
+    <snippet-x>
+    <pre>$ sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</pre>
+    </snippet-x>
+    <snippet-x>
+    <pre>$ sudo apt-get install libu2f-udev </pre>
+    </snippet-x>   
+    <snippet-x>
+    <pre>$ sudo dpkg -i google-chrome-stable_current_amd64.deb</pre>
+    </snippet-x>
+    <snippet-x name="One Line">
+    <pre>$ sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt-get install libu2f-udev && sudo dpkg -i google-chrome-stable_current_amd64.deb</pre>
+    </snippet-x>
     </div>
     `
     return template.content
