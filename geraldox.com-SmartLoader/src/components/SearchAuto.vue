@@ -196,7 +196,7 @@ form input:focus {
 }
 
 .search form input[type='text'] {
-  background-image: url('../src/assets/icons/searchsvg.svg');
+  background-image: url('https://geraldox.com/src/assets/icons/searchsvg.svg');
   max-width: 100%;
   width: 100%;
   background-size: 25px;
