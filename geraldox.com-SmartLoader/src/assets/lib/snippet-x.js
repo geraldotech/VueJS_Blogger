@@ -50,6 +50,7 @@ class snipped extends HTMLElement {
         padding-block: 15px;
         padding-left: 8px;
        overflow: scroll;
+       white-space: wrap;
       }
   
   pre[block] {
@@ -59,7 +60,7 @@ class snipped extends HTMLElement {
     margin-inline: 5px; 
     margin-block: 5px;
     'Lucida Sans', Arial, sans-serif;
-   white-space: wrap;
+ 
     overflow-inline: scroll; 
   }
   
