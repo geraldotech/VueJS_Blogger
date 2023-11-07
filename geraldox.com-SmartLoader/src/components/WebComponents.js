@@ -260,7 +260,7 @@ class Updatechromemint extends HTMLElement {
     </snippet-x>
     <p>Or you can install with a single command:</p>
     <snippet-x name="one command">
-    <pre>$ sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt-get install libu2f-udev && sudo dpkg -i google-chrome-stable_current_amd64.deb</pre>
+    <pre block>$ sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt-get install libu2f-udev && sudo dpkg -i google-chrome-stable_current_amd64.deb</pre>
     </snippet-x>
     </div>
     `
@@ -268,3 +268,39 @@ class Updatechromemint extends HTMLElement {
   }
 }
 customElements.define('update-chromelinux', Updatechromemint)
+class Backupwindowsdrivers extends HTMLElement {
+  constructor() {
+    super()
+    const shadow = this.attachShadow({ mode: 'open' })
+    shadow.append(this.template(), this.styles())
+  }
+
+  connectedCallback() {
+    //call functions here - void duplicate console.logs in this blogger
+  }
+
+  styles() {
+    const style = document.createElement('style')
+    style.textContent = ` 
+      code {
+        color: dodgerblue;
+      }
+
+    `
+    return style
+  }
+  template() {
+    const template = document.createElement('template')
+    template.innerHTML = `
+    <div>
+   <h1>Como fazer o backup de todos os drivers do Windows rápidamente</h1>
+   <p>Simplesmente copie a segue pasta:</p>
+   <snippet-x> 
+   <pre cora>C:&#92;Windows&#92;System32&#92;DriverStore</pre>
+   </snippet-x> 
+    </div>
+    `
+    return template.content
+  }
+}
+customElements.define('backup-windowsdrivers', Backupwindowsdrivers)

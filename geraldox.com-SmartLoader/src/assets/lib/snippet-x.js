@@ -19,18 +19,15 @@ class snipped extends HTMLElement {
   styles() {
     const style = document.createElement('style')
     style.textContent = `
-    xmp {
-      margin: 0;
-    }
+
     .clipboard {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #0e1425;
-      position: relative;  
       border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    
+      border-bottom-right-radius: 10px;      
+      position: relative;  
     }
     section {
       background: rgb(68, 71, 77);
@@ -46,27 +43,26 @@ class snipped extends HTMLElement {
       padding: 5px 0;
       text-align: center;
     }
-   pre {
-      overflow: auto;
-      margin: 0;     
-    }
-
-   pre[block] {
-      white-space: break-spaces;
-      line-height: 1.5;
-      color: #2c70ff;
-      padding: 0; 
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
-    }
 
     pre{
-      overflow: auto;
-      color: hsl(204 100% 59%);
-      padding-block: 15px;
-      white-space: no-wrap;
-      padding-left: 8px;
-    }
+        margin: 0;     
+        color: hsl(204 100% 59%);
+        padding-block: 15px;
+        padding-left: 8px;
+       overflow: scroll;
+      }
+  
+  pre[block] {
+    line-height: 1.5;
+    color: #2c70ff;
+    padding: 0;
+    margin-inline: 5px; 
+    margin-block: 5px;
+    'Lucida Sans', Arial, sans-serif;
+   white-space: wrap;
+    overflow-inline: scroll; 
+  }
+  
     button {
       outline: none;
       border: none;
@@ -79,12 +75,15 @@ class snipped extends HTMLElement {
       top: 5px;
       right: 5px;
     }
-
     @media (min-width: 650px){
-      section{
-         max-width: 75%;
-        margin-left: right;
+      section {
+        max-width: 75%;
       }
+      pre{
+        overflow:visible;
+      }
+     
+     
     }
     `
     return style

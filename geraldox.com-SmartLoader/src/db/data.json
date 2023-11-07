@@ -261,6 +261,17 @@
         "article": "",
         "component": "update-chromelinux",
         "category": "linux"
+      },
+      {
+        "id": 25,
+        "title": "Backup Windows Drivers",
+        "slug": "backup-windows-drivers",
+        "author": "geraldox",
+        "published": true,
+        "data": "Nov 07, 2023",
+        "article": "",
+        "component": "backup-windowsdrivers",
+        "category": "windows"
       }
     ]
   }
