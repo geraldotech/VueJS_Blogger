@@ -16,19 +16,23 @@
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[0]"></span>
+            v-html="card.techsvg[0]"
+          ></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[1]"></span>
+            v-html="card.techsvg[1]"
+          ></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[2]"></span>
+            v-html="card.techsvg[2]"
+          ></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[3]"></span>
+            v-html="card.techsvg[3]"
+          ></span>
         </section>
       </div>
     </section>
@@ -58,8 +62,8 @@ module.exports = {
       cards: [
         {
           id: 1,
-          title: 'Somando com maças',
-          description: 'Somando maças ajudar crianças na fase de alfabetização',
+          title: 'Somando maças',
+          description: 'Ajuda crianças na fase de alfabetização',
           img: './src/assets/img/apple-sum.jpg',
           link: 'https://dev.geraldox.com/projects/apple-sum/',
           tech: 'VueJS',
@@ -96,7 +100,7 @@ module.exports = {
         },
         {
           id: 6,
-          title: 'React Movies API',
+          title: 'Movies API',
           description: 'Consumindo uma api do The Movies Data Base',
           img: base + 'moviedb.jpg',
           link: 'https://react-movie-apis.netlify.app',
@@ -105,7 +109,7 @@ module.exports = {
         },
         {
           id: 4,
-          title: 'Node Express session login page',
+          title: 'Express session login page',
           description:
             'Simulando um sistema de login, cada user tem um painel diferente',
           img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/885px-Node.js_logo.svg.png',
@@ -115,8 +119,8 @@ module.exports = {
         },
         {
           id: 7,
-          title: 'Filtro dados de um Array',
-          description: 'Consumindo uma api do The Movies Data Base',
+          title: 'Filtrando dados',
+          description: 'Filtrando dados de um Array',
           img: defaultimg,
           link: 'https://dev.geraldox.com/projects/array_input_radio_search/',
           tech: 'HTML, CSS, JavaScript',
@@ -144,7 +148,7 @@ module.exports = {
         {
           id: 10,
           title: 'Fazendo filtro em um Array',
-          description: 'Consumindo uma api do The Movies Data Base',
+          description: 'Filtrando dados de um Array',
           img: defaultimg,
           link: 'https://dev.geraldox.com/projects/array_input_radio_search/',
           tech: 'HTML, CSS, JavaScript',

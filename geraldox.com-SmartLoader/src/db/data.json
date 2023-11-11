@@ -272,6 +272,17 @@
         "article": "",
         "component": "backup-windowsdrivers",
         "category": "windows"
+      },
+      {
+        "id": 26,
+        "title": "Windows LTSB / LTSC",
+        "slug": "windows-ltsb",
+        "author": "geraldox",
+        "published": true,
+        "data": "Nov 11, 2023",
+        "article": "",
+        "component": "windows-ltsb",
+        "category": "windows"
       }
     ]
   }
