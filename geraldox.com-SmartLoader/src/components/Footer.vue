@@ -19,7 +19,8 @@
         stroke-linejoin="round"
         stroke-width="1.5"
         viewBox="0 0 24 24"
-        style="color: currentcolor; width: 40px; height: 40px">
+        style="color: currentcolor; width: 40px; height: 40px"
+      >
         <circle cx="12" cy="12" r="10"></circle>
         <path d="M16 12l-4-4-4 4"></path>
         <path d="M12 16V8"></path></svg
@@ -34,10 +35,10 @@ module.exports = {}
 
 <style>
 footer {
-  max-width: var(--maxw);
+  max-width: auto;
   min-width: 200px;
   margin: auto;
-  background: rgb(20, 19, 19);
+  background: rgb(34, 34, 34);
   padding: 20px;
   text-align: center;
   color: rgb(158, 149, 137);
