@@ -19,7 +19,8 @@
         <img
           @click="isModalVisible = !isModalVisible"
           src="../src/assets/icons/searchsvg.svg"
-          alt="Make Search" />
+          alt="Make Search"
+        />
       </section>
     </nav>
     <main class="main">
@@ -37,8 +38,9 @@
       </Modal>
       <!--  named  router-->
       <router-view name="yt" class="named-views"></router-view>
-      <Foot />
     </main>
+    <Foot />
+    <!-- before wrapper in main, now to get full width is outside -->
   </div>
 </template>
 
@@ -70,7 +72,8 @@ module.exports = {
 </script>
 <style>
 :root {
-  --maxw: 100rem; /* set max in footer either */
+  --maxw: auto; /* set max in footer either */
+  --maxwmain: 90rem;
   color-scheme: dark;
   --search-links-color: #05bdba;
 }
@@ -90,7 +93,6 @@ body {
 }
 /* trick to keep footer on bottom and container get max-space */
 .main {
-  max-width: var(--maxw); /* before is body */
   margin: 0 auto; /* before is body */
   display: flex;
   flex-direction: column;
@@ -139,7 +141,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 100rem;
+  max-width: var(--maxw);
   position: sticky;
   top: 0;
   margin: 0 auto;
@@ -266,9 +268,10 @@ nav:has(.btnDownload) a {
   }
   .main {
     margin: 0 auto;
+    max-width: var(--maxwmain); /* before was body */
   }
   .router-view {
-    padding-inline: 2rem;
+    padding-inline: 0.5rem;
   }
 }
 </style>

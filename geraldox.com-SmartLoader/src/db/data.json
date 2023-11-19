@@ -275,6 +275,17 @@
       },
       {
         "id": 26,
+        "title": "Windows LTSB / LTSC",
+        "slug": "windows-ltsb",
+        "author": "geraldox",
+        "published": true,
+        "data": "Nov 11, 2023",
+        "article": "",
+        "component": "windows-ltsb",
+        "category": "windows"
+      },
+      {
+        "id": 27,
         "title": "TCP Over SSL Tunnel",
         "slug": "tcp-over-ssl-tunnel",
         "author": "geraldox",
@@ -285,7 +296,7 @@
         "category": "network"
       },
       {
-        "id": 27,
+        "id": 28,
         "title": "EasyPHP Lite - como alterar a pasta padrão",
         "slug": "easy-php-lite-alterar-pasta-padrao",
         "author": "geraldox",
