@@ -98,6 +98,10 @@ body {
   min-height: 100dvh;
 }
 
+.main-post {
+  min-height: 30vh;
+}
+
 .container {
   flex: 1;
   /* max-width: var(--maxw); */

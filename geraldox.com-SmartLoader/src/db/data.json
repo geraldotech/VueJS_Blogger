@@ -272,6 +272,28 @@
         "article": "",
         "component": "backup-windowsdrivers",
         "category": "windows"
+      },
+      {
+        "id": 26,
+        "title": "TCP Over SSL Tunnel",
+        "slug": "tcp-over-ssl-tunnel",
+        "author": "geraldox",
+        "published": true,
+        "data": "Nov 19, 2023",
+        "article": "<div class='main-post'><p>is a free SSL tool with SNI Host (Spoof Host) support ( SSL Injector ).</p> <nav> <a href='https://sourceforge.net/projects/tcpoverssltunnel/' class='btnDownload' target='_blank'>Download</a> </nav></div>",
+        "component": "",
+        "category": "network"
+      },
+      {
+        "id": 27,
+        "title": "EasyPHP Lite - como alterar a pasta padrão",
+        "slug": "easy-php-lite-alterar-pasta-padrao",
+        "author": "geraldox",
+        "published": true,
+        "data": "Nov 19, 2023",
+        "article": "<head><meta http-equiv='refresh' content='0;https://technotesbr.blogspot.com/2022/01/easyphp-lite-como-alterar-pasta-padrao.html'></head><p>Redirecting...</p>",
+        "component": "",
+        "category": "network"
       }
     ]
   }

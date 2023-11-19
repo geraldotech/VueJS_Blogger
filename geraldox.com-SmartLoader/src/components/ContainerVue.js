@@ -49,11 +49,11 @@ Vue.component('mydell', {
   <div>
   <p>Hello from Imported String template.js 'mydell'
   <figure>
-    <img class="img-flex" src="https://pbs.twimg.com/profile_images/1374017695394492418/TmjT0iyJ_400x400.jpg" style="width:100%;" alt="dell logo" />
+    <img class="img-flex" src="https://pbs.twimg.com/profile_images/1374017695394492418/TmjT0iyJ_400x400.jpg"  alt="dell logo" />
   </figure>
   </p>
   </div>
   `,
 })
 
-const test = `script loaded`
+console.log('script loaded in ContainerVue.js')

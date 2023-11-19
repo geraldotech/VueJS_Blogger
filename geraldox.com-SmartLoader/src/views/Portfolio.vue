@@ -58,7 +58,7 @@ module.exports = {
       cards: [
         {
           id: 1,
-          title: 'Somando com maças',
+          title: 'Somando maças',
           description: 'Somando maças ajudar crianças na fase de alfabetização',
           img: './src/assets/img/apple-sum.jpg',
           link: 'https://dev.geraldox.com/projects/apple-sum/',
@@ -96,7 +96,7 @@ module.exports = {
         },
         {
           id: 6,
-          title: 'React Movies API',
+          title: 'Movies API',
           description: 'Consumindo uma api do The Movies Data Base',
           img: base + 'moviedb.jpg',
           link: 'https://react-movie-apis.netlify.app',
@@ -105,7 +105,7 @@ module.exports = {
         },
         {
           id: 4,
-          title: 'Node Express session login page',
+          title: 'Express session login',
           description:
             'Simulando um sistema de login, cada user tem um painel diferente',
           img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/885px-Node.js_logo.svg.png',
@@ -115,7 +115,7 @@ module.exports = {
         },
         {
           id: 7,
-          title: 'Filtro dados de um Array',
+          title: 'Filtro dados no Array',
           description: 'Consumindo uma api do The Movies Data Base',
           img: defaultimg,
           link: 'https://dev.geraldox.com/projects/array_input_radio_search/',
@@ -124,7 +124,7 @@ module.exports = {
         },
         {
           id: 8,
-          title: 'Gerador de Etiquetas PDF',
+          title: 'Gerador de Etiquetas',
           description:
             'App construido para atender uma necessidade da empresa que fiz estágio',
           img: 'https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw',

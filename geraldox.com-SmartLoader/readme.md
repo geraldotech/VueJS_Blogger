@@ -49,6 +49,10 @@
 
 ### Changes and Features:
 
+- 19.11.2023
+
+  - new class `main-post` for min-height on mini articles inside `data.json`, to keep bottom in footer
+
 - 06.11.2023
 
   - Snippet-x library by #gmap

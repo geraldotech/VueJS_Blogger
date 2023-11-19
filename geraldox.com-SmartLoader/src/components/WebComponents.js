@@ -285,7 +285,9 @@ class Backupwindowsdrivers extends HTMLElement {
       code {
         color: dodgerblue;
       }
-
+      div{
+        min-height: 35vh;
+      }
     `
     return style
   }
