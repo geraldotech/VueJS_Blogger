@@ -19,8 +19,7 @@
         <img
           @click="isModalVisible = !isModalVisible"
           src="../src/assets/icons/searchsvg.svg"
-          alt="Make Search"
-        />
+          alt="Make Search" />
       </section>
     </nav>
     <main class="main">

@@ -16,23 +16,19 @@
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[0]"
-          ></span>
+            v-html="card.techsvg[0]"></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[1]"
-          ></span>
+            v-html="card.techsvg[1]"></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[2]"
-          ></span>
+            v-html="card.techsvg[2]"></span>
           <span
             class="techs_svg"
             :title="card.tech"
-            v-html="card.techsvg[3]"
-          ></span>
+            v-html="card.techsvg[3]"></span>
         </section>
       </div>
     </section>
@@ -63,11 +59,7 @@ module.exports = {
         {
           id: 1,
           title: 'Somando maças',
-<<<<<<< HEAD
           description: 'Somando maças ajudar crianças na fase de alfabetização',
-=======
-          description: 'Ajuda crianças na fase de alfabetização',
->>>>>>> f45fbc5fcb464a2eaec05e786d56bb81e1767ca6
           img: './src/assets/img/apple-sum.jpg',
           link: 'https://dev.geraldox.com/projects/apple-sum/',
           tech: 'VueJS',
