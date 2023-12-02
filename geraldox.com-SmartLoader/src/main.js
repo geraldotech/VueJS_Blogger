@@ -7,13 +7,13 @@ SmartLoader('/src/components/externo.js', 'module')
 /* snippet-x library */
 SmartLoader('/src/assets/lib/snippet-x.js')
 
-//import CDN to Vuemixin
+//import CDN to Vue Mixin
 import cdn from '/src/cdn.js'
 
 // Assim todos os Components.vue podem usar a CDN diretamente das variaveis Globais:
 Vue.mixin({
   created() {
-    this.img = cdn.img // optei usar o same str
+    this.img = cdn.img // optei usar o same str //
     this.cdnfiles = cdn.dropfiles // poderia ser diferente
   },
   data: function () {

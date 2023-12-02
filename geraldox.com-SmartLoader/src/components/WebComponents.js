@@ -130,7 +130,7 @@ class IntelBoost extends HTMLElement {
     template.innerHTML = `
      <p>Desabilitando Intel Boost</p>
      <figure>
-      <img src="${cdn.img[2023]}desativando-modo-turbo.jpg" alt="drop" />
+      <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop" />
      </figure>
     `
     return template.content
@@ -370,3 +370,39 @@ class Windowsltsv extends HTMLElement {
   }
 }
 customElements.define('windows-ltsb', Windowsltsv)
+class Windowsperformance extends HTMLElement {
+  constructor() {
+    super()
+    const shadow = this.attachShadow({ mode: 'open' })
+    shadow.append(this.template(), this.styles())
+  }
+
+  connectedCallback() {
+    //call functions here - void duplicate console.logs in this blogger
+  }
+
+  styles() {
+    const style = document.createElement('style')
+    style.textContent = ` 
+    code{
+      color: dodgerblue;
+    }
+
+    `
+    return style
+  }
+  template() {
+    const template = document.createElement('template')
+    template.innerHTML = `
+    <div>
+   <h1>Desativar Telemetry</h1>
+  <p>Digite "Serviços": <code>services.msc</code> e "Experiências e Telemetria de Usuário Conectado" e dê um  duplo clique.</p>
+  <p>Na janela de propriedades do serviço clique em "Parar" caso ele esteja rodando e depois em "Tipo de  inicialização" coloque "Desativado". Depois dê um OK.</p>
+  <p>Ir em regedit ⇒ <code>Computador/HKEY_LOCAL_MACHINE/SOFTWARE/Policies/Microsoft/Windows/DataCollection</code>    
+  create a new value: Valor DWORD (32 bits) com o nome AllowTelemetry e set os dados do valor para 0</p>
+    </div>
+    `
+    return template.content
+  }
+}
+customElements.define('win-afterinstall', Windowsperformance)

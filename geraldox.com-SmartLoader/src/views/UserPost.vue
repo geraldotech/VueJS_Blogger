@@ -91,6 +91,7 @@ module.exports = {
     whatsappapi: httpVueLoader('../posts/whatsappapi.vue'),
     Searchauto: httpVueLoader('../components/SearchAuto.vue'),
     Sidebarbottom: httpVueLoader('../components/SidebarBottom.vue'),
+    winoffline: httpVueLoader('../posts/winoffline.vue'),
   },
   methods: {
     async posts() {

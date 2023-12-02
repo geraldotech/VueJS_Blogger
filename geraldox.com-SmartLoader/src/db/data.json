@@ -305,6 +305,39 @@
         "article": "<head><meta http-equiv='refresh' content='0;https://technotesbr.blogspot.com/2022/01/easyphp-lite-como-alterar-pasta-padrao.html'></head><p>Redirecting...</p>",
         "component": "",
         "category": "network"
+      },
+      {
+        "id": 29,
+        "title": "Office 2013 error 1920 - Font Cache Service not being set to automatic",
+        "slug": "office-2013-1920-font-cache",
+        "author": "geraldox",
+        "published": true,
+        "data": "Dec 02, 2023",
+        "article": "<p>Go to <code>services.msc</code> find 'Windows Font Cache Service' set the start type to: Automatic</p>",
+        "component": "",
+        "category": "office"
+      },
+      {
+        "id": 30,
+        "title": "Better Performance Windows 10",
+        "slug": "better-performance-windows-10",
+        "author": "geraldox",
+        "published": true,
+        "data": "Dec 02, 2023",
+        "article": "",
+        "component": "win-afterinstall",
+        "category": "windows"
+      },
+      {
+        "id": 31,
+        "title": "Windows Offline Installers",
+        "slug": "offline-installer",
+        "author": "geraldox",
+        "published": true,
+        "data": "Dec 02, 2023",
+        "article": "",
+        "component": "winoffline",
+        "category": "windows"
       }
     ]
   }

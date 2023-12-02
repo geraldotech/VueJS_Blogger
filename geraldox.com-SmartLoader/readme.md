@@ -130,38 +130,48 @@
 
 - 06.08.2023
 
-  - CDN IMG Links before: import object `import img from "/src/cdn.js";`
+  - CDN IMG Links before in `main.js` import object `import cdn from "/src/cdn.js";`
 
-    - `ContainerVue.js` and `WebComponents.js`:
+        - Support:
+        - `ContainerVue.js`
+        - `WebComponents.js`:
+        - `Components.vue` - ncessary adicionar um Vue Mixin no mainjs, veja mais em *ContainerPost.vue*
 
-      > how use in this js templates:
+          > how use in this js templates:
 
-      ```js
-        //auto fullpath
-        <img src="${cdn.img.a}desativando-modo-turbo.jpg" alt="drop" />
+          ```js
+            // path current year
+            // where cdn is a custom name of import
+            // import cdn from './cdn.js'
+            <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop" />
 
-        //manual path
-        <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop" />
+            // fullpath + manual
+            <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop" />
 
-        //s3
-         <img src="${cdn.img.s3.a}/apple.png" alt="" />
-      ```
+            //Amazon S3
+             <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
 
-    - `ContainerPost.vue`
+        - `ContainerPost.vue`
 
-      - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:
-        `created() { this.img = cdn.img;}` onde `this.cdn` é o novo object que recebe o valor do obj `cdn.img` importada.
-        `this.cdnfiles = cdn.files` onde cnd.files agora tem o valor de cdn.files
+          - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:
+          ```js
+          Vue.mixin({
+          created() {
+          this.img = cdn.img // optei usar o same str
+          this.cdnfiles = cdn.dropfiles // poderia ser diferente
+          },
+          data: function () {
+          return {}
+          },
+          })
+          ```
+          - `created() { this.img = cdn.img;}` onde `this.cdn` é o novo object que recebe o valor do obj `cdn.img` importada.
+            `this.cdnfiles = cdn.files` onde cnd.files agora tem o valor de cdn.files
 
-        > How use in ContainerPost.vue {template literal}:
-
-        ```js
-        editorTextFocus
-
-        //s3
-        <img :src="img.s3.a +'apple.png'" alt="apple fruit" />
-
-        ```
+          ```js
+           // Component.vue - ncessary bing the src
+             <img :src="`${img[2023]}/vuejs.png`" />\
+          ```
 
   - <ins>SmartLoader now support: `type: module`</inst>
 

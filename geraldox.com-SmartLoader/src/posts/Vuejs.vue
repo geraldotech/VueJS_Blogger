@@ -1,5 +1,8 @@
 <template>
   <div>
+    <figure>
+      <img :src="`${img[2023]}/vuejs.png`" />
+    </figure>
     <p>How check Vue Version ?</p>
     <code> console.log(Vue.version);</code>
     <nav>
@@ -15,7 +18,7 @@
 
     <a href="#add">Scroll TESTE</a>
 
-    <p>Testing importacao de webcomponents alone</p>
+    <p>Testing import de webcomponents alone</p>
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industry's standard dummy text ever since the

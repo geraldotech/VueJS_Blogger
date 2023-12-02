@@ -202,6 +202,10 @@ figure img {
   margin: 0 auto;
   width: 100%;
 }
+code {
+  color: dodgerblue;
+  font-weight: bold;
+}
 
 /* for Container components use this class */
 .img-flex {
