@@ -1,5 +1,5 @@
 import router from '../src/router/index.js'
-import SmartLoader from './smartLoader.js'
+import SmartLoader from './assets/lib/smartLoader.js'
 SmartLoader('/src/components/ContainerVue.js', 'module')
 SmartLoader('/src/components/WebComponents.js', 'module')
 // Standalone WebComponents
