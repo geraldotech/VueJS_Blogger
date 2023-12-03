@@ -150,7 +150,7 @@
 
             //Amazon S3
              <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
-
+          ```
         - `ContainerPost.vue`
 
           - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:

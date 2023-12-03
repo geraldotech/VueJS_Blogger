@@ -1,23 +1,25 @@
 <template>
   <div>
     <figure>
-      <img src="" />
+      <img :src="`${img[2023]}/offline.jpg`" class="img-flex" />
     </figure>
-    <select v-model="getlink">
-      <option v-for="links in offline" :key="links.name" :value="links">
-        {{ links.name }}
-      </option>
-    </select>
-    <!--     <h1>{{ getlink.links }}</h1> -->
-    <nav>
-      <a
-        v-for="lin in getlink.links"
-        :key="lin.lin"
-        :href="lin.url"
-        target="_blank"
-        >{{ lin.server }}</a
-      >
-    </nav>
+    <section class="links">
+      <select v-model="getlink">
+        <option v-for="links in offline" :key="links.name" :value="links">
+          {{ links.name }}
+        </option>
+      </select>
+      <!--     <h1>{{ getlink.links }}</h1> -->
+      <nav>
+        <a
+          v-for="lin in getlink.links"
+          :key="lin.lin"
+          :href="lin.url"
+          target="_blank"
+          >Server: {{ lin.server }}</a
+        >
+      </nav>
+    </section>
   </div>
 </template>
 
@@ -75,10 +77,28 @@ module.exports = {
           ],
         },
         {
-          name: 'Windows ISO',
+          name: 'Windows ISO [TESTE]',
           links: [
             { server: 'Amazon Server', url: 'amazon.com' },
             { server: 'Digital Ocean Server', url: 'digitalocean.com' },
+          ],
+        },
+        {
+          name: 'Microsoft Edge',
+          links: [
+            {
+              server: 'Microsoft',
+              url: 'https://www.microsoft.com/en-us/edge/business/download?form=MA13FJ',
+            },
+          ],
+        },
+        {
+          name: 'Brave Browser',
+          links: [
+            {
+              server: 'Github',
+              url: 'https://github.com/brave/brave-browser/releases',
+            },
           ],
         },
       ],
@@ -89,12 +109,13 @@ module.exports = {
 </script>
 
 <style scoped>
-div {
+section.links {
   text-align: center;
   background: #2f2546;
   min-height: 120px;
   border: 2px solid #5f4a8d;
   border-radius: 5px;
+  padding: 5px;
 }
 
 h5 {
