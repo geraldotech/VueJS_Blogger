@@ -22,7 +22,8 @@
           alt="Make Search" />
       </section>
     </nav>
-    <main class="main">
+    <!-- check if route is HomePage not apply this class name, so home page is full-width -->
+    <main :class="$route.name != 'Home Page' ? 'main' : ''">
       <router-view :key="$route.path" class="router-view"></router-view>
 
       <Modal v-show="isModalVisible" @close="closeModal">
@@ -38,6 +39,7 @@
       <!--  named  router-->
       <router-view name="yt" class="named-views"></router-view>
     </main>
+
     <Foot />
     <!-- before wrapper in main, now to get full width is outside -->
   </div>
