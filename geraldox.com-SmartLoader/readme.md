@@ -132,46 +132,49 @@
 
   - CDN IMG Links before in `main.js` import object `import cdn from "/src/cdn.js";`
 
-        - Support:
-        - `ContainerVue.js`
-        - `WebComponents.js`:
-        - `Components.vue` - ncessary adicionar um Vue Mixin no mainjs, veja mais em *ContainerPost.vue*
+    - Support:
+    - `ContainerVue.js`
+    - `WebComponents.js`:
+    - `Components.vue` - ncessary adicionar um Vue Mixin no mainjs, veja mais em _ContainerPost.vue_
 
-          > how use in this js templates:
+      > how use in this js templates:
 
-          ```js
-            // path current year
-            // where cdn is a custom name of import
-            // import cdn from './cdn.js'
-            <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop" />
+    ```js
+          // path current year
+          // where cdn is a custom name of import
+          // import cdn from './cdn.js'
+          <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop" />
 
-            // fullpath + manual
-            <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop" />
+          // fullpath + manual
+          <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop" />
 
-            //Amazon S3
-             <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
-          ```
-        - `ContainerPost.vue`
+          //Amazon S3
+           <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
+    ```
 
-          - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:
-          ```js
-          Vue.mixin({
-          created() {
-          this.img = cdn.img // optei usar o same str
-          this.cdnfiles = cdn.dropfiles // poderia ser diferente
-          },
-          data: function () {
-          return {}
-          },
-          })
-          ```
-          - `created() { this.img = cdn.img;}` onde `this.cdn` é o novo object que recebe o valor do obj `cdn.img` importada.
-            `this.cdnfiles = cdn.files` onde cnd.files agora tem o valor de cdn.files
+    - `ContainerPost.vue`
 
-          ```js
-           // Component.vue - ncessary bing the src
-             <img :src="`${img[2023]}/vuejs.png`" />\
-          ```
+      - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:
+
+    ```js
+    Vue.mixin({
+      created() {
+        this.img = cdn.img // optei usar o same str
+        this.cdnfiles = cdn.dropfiles // poderia ser diferente
+      },
+      data: function () {
+        return {}
+      },
+    })
+    ```
+
+    - `created() { this.img = cdn.img;}` onde `this.cdn` é o novo object que recebe o valor do obj `cdn.img` importada.
+      `this.cdnfiles = cdn.files` onde cnd.files agora tem o valor de cdn.files
+
+    ```js
+       // Component.vue - ncessary bing the src
+         <img :src="`${img[2023]}/vuejs.png`" />\
+    ```
 
   - <ins>SmartLoader now support: `type: module`</inst>
 
