@@ -140,16 +140,14 @@
       > how use in this js templates:
 
     ```js
-          // path current year
-          // where cdn is a custom name of import
-          // import cdn from './cdn.js'
-          <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop" />
-
-          // fullpath + manual
-          <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop" />
-
-          //Amazon S3
-           <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
+    // path current year
+    // where cdn is a custom name of import
+    // import cdn from './cdn.js'
+    <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop"
+    // fullpath + manual
+    <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop"
+    //Amazon S3
+     <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
     ```
 
     - `ContainerPost.vue`

@@ -18,7 +18,7 @@
       <section class="top-search">
         <img
           @click="isModalVisible = !isModalVisible"
-          src="../src/assets/icons/searchsvg.svg"
+          src="./src/assets/icons/searchsvg.svg"
           alt="Make Search" />
       </section>
     </nav>
