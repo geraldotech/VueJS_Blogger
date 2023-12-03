@@ -330,12 +330,12 @@
       },
       {
         "id": 31,
-        "title": "Windows Offline Installers",
-        "slug": "offline-installer",
+        "title": "Windows Standalone Installers",
+        "slug": "stantalone-offline-installer",
         "author": "geraldox",
         "published": true,
         "data": "Dec 02, 2023",
-        "article": "",
+        "article": "Updated: Dec, 03, 2023",
         "component": "winoffline",
         "category": "windows"
       }

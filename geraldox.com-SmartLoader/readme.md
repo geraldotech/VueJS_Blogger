@@ -49,6 +49,10 @@
 
 ### Changes and Features:
 
+- 03.12.2023
+
+  - When empty you can use `article` to document updated article
+
 - 19.11.2023
 
   - new class `main-post` for min-height on mini articles inside `data.json`, to keep bottom in footer
