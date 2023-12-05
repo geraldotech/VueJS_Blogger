@@ -338,6 +338,17 @@
         "article": "Updated: Dec, 03, 2023",
         "component": "winoffline",
         "category": "windows"
+      },
+      {
+        "id": 32,
+        "title": "Wireless Audio Speaker",
+        "slug": "wiriless-audio-spealer",
+        "author": "geraldox",
+        "published": true,
+        "data": "Dec 05, 2023",
+        "article": "<p>Use o smartphone como Speaker via wireless<nav><a href='https://play.google.com/store/apps/details?id=com.vnd.wifi_audio&hl=pt_BR&gl=US&pli=1' class='btnDownload' target='_blank'>Play Store Apk</a> <a href='gpnotes.droppages.com/geraldox.proxyfiles.com/files/win-apps/wifiaudio_windows.zip' class='btnDownload' target='_blank'>Windows Server.zip</a></nav></p>",
+        "component": "",
+        "category": "windows"
       }
     ]
   }
