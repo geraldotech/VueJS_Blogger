@@ -406,3 +406,74 @@ class Windowsperformance extends HTMLElement {
   }
 }
 customElements.define('win-afterinstall', Windowsperformance)
+class Winfolderuse extends HTMLElement {
+  constructor() {
+    super()
+    const shadow = this.attachShadow({ mode: 'open' })
+    shadow.append(this.template(), this.styles())
+  }
+
+  connectedCallback() {
+    //call functions here - void duplicate console.logs in this blogger
+  }
+
+  styles() {
+    const style = document.createElement('style')
+    style.textContent = ` 
+    .btnDownload {
+      cursor: pointer;
+      text-align: center;
+      font-size: 16px;
+      background: #1a2b81;
+      padding: 0.5em 3em;
+      border: none;
+      opacity: 0.8;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    
+    nav:has(.btnDownload) {
+      margin: 3em auto;
+      max-width: fit-content;
+    }
+    
+    nav:has(.btnDownload) a {
+      display: block;
+      margin: 15px 0;
+    }
+    
+    .btnDownload:hover {
+      box-shadow: 0 0 15px black;
+      color: white;
+      background: #0747a6;
+      transition: 2s;
+    }
+    .img-flex {
+      max-width: 100%;
+      margin: 0 auto;
+      height: auto;
+    }
+    `
+    return style
+  }
+  template() {
+    const template = document.createElement('template')
+    template.innerHTML = `
+    <div>
+    <p>1 - Primeiro baixe o Handle</p>
+    <nav>
+      <a href="https://learn.microsoft.com/pt-br/sysinternals/downloads/handle"  target="_blank" class="btnDownload">Download</a>
+    </nav>
+    <p>2 - Type "handle.exe <folder_path>" (without quotes) and press Enter.</p>
+
+    <figure>
+    <img src='${cdn.img[2023]}/handle-process.jpg' alt='handle process' class="img-flex">
+    </figure>
+    <p>3 - Use "taskkill /PID " (without quotes) and press Enter for each process.</p>
+
+    </div>
+    `
+    return template.content
+  }
+}
+customElements.define('win-folderuser', Winfolderuse)

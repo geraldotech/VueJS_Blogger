@@ -349,6 +349,17 @@
         "article": "<p>Use o smartphone como Speaker via wireless<nav><a href='https://play.google.com/store/apps/details?id=com.vnd.wifi_audio&hl=pt_BR&gl=US&pli=1' class='btnDownload' target='_blank'>Play Store Apk</a> <a href='gpnotes.droppages.com/geraldox.proxyfiles.com/files/win-apps/wifiaudio_windows.zip' class='btnDownload' target='_blank'>Windows Server.zip</a></nav></p>",
         "component": "",
         "category": "windows"
+      },
+      {
+        "id": 33,
+        "title": "Find out Windows Folder in use",
+        "slug": "windows-folder-in-use",
+        "author": "geraldox",
+        "published": true,
+        "data": "Dec 07, 2023",
+        "article": "",
+        "component": "win-folderuser",
+        "category": "windows"
       }
     ]
   }
