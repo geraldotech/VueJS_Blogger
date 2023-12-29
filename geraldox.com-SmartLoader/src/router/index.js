@@ -5,10 +5,11 @@ const home2 = {
 }
 
 const gdrive = {
-  template: `<p>Content Google DRive </p>`,
+  template: `<p>Content Google Drive </p>`,
 }
-const directD = {
-  template: `<p>{{$route.name}} <a href="${cdn.dropfiles}/resume-2023_compressed.pdf" download>Baixar</a> </p>`,
+const Resume = {
+  // need route name ?{{$route.name}}
+  template: `<p><a href="${cdn.dropfiles}/geraldo_resume_ptbr.pdf" target="_blank">PTBR</a> - <a href="${cdn.dropfiles}/geraldo_resume_eng.pdf"  target="_blank">English</a></p>`,
 }
 
 const NotFound = {
@@ -57,7 +58,7 @@ const routes = [
     component: httpVueLoader('/src/views/About.vue'),
     name: 'about',
     children: [
-      { path: 'direct', name: 'r1', component: directD },
+      { path: 'resume', name: 'r1', component: Resume },
       { path: 'google-drive', name: 'r2', component: gdrive },
     ],
   },

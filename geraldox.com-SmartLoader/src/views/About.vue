@@ -16,8 +16,8 @@
       <h4 id="write">Bem vindo ao meu site!</h4>
 
       <div class="about_links">
-        <router-link :to="{ name: 'r1' }">Direct Download</router-link>
-        <router-link :to="{ name: 'r2' }">Google Drive</router-link>
+        <router-link :to="{ name: 'r1' }">{Resume} - {Curriculum}</router-link>
+        <router-link :to="{ name: 'r2' }">{Google Drive}</router-link>
         <router-view></router-view>
       </div>
     </section>
