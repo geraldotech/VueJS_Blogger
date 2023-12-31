@@ -53,7 +53,9 @@
             <dt>JavaScript</dt>
             <dd>NodeJS</dd>
             <dd>
-              <a href="#" onclick="next.showPopover()" class="react">React</a>
+              <button type="button" class="react" popovertarget="next">
+                React
+              </button>
               <p id="next" popover>Next</p>
             </dd>
 
