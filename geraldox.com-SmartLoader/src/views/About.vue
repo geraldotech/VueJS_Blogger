@@ -39,45 +39,52 @@
     </article>
     <section class="skills">
       <h1>Skills</h1>
-      <h2>Front-end</h2>
-      <ul>
-        <li>HTML</li>
-        <li>
-          <dl>
-            <dt>CSS</dt>
-            <dd>Bootstrap</dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>JavaScript</dt>
-            <dd>NodeJS</dd>
-            <dd>React > Next</dd>
-            <dd>Vue</dd>
-            <dd>Typescript <code> {on going}</code></dd>
-          </dl>
-        </li>
-        <li>Git/Github</li>
-      </ul>
-      <h2>Back-end</h2>
-      <ul>
-        <li>Python</li>
-        <li>MySQL</li>
-        <li>PHP</li>
-        <li>
-          <dl>Cloud</dl>
-          <dd>Amazon AWS</dd>
-          <dd>Digital Ocean</dd>
-        </li>
-        <li>
-          <dd>Apache LAMP</dd>
-          <dd>FTP server</dd>
-          <dl>Linux Server</dl>
-          <dd>Nginx</dd>
-          <dd>Squid Proxy</dd>
-          <dd>Wordpress</dd>
-        </li>
-      </ul>
+      <main class="technologies">
+        <article>
+          <h2>Front-end</h2>
+          <ul>
+            <li>HTML</li>
+            <li>
+              <dl>
+                <dt>CSS</dt>
+                <dd>Bootstrap</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>JavaScript</dt>
+                <dd>NodeJS</dd>
+                <dd>React > Next</dd>
+                <dd>Vue</dd>
+                <dd>Typescript <code> {on going}</code></dd>
+              </dl>
+            </li>
+            <li>Git/Github</li>
+          </ul>
+        </article>
+        <span class="line"></span>
+        <article>
+          <h2>Back-end</h2>
+          <ul>
+            <li>Python</li>
+            <li>MySQL</li>
+            <li>PHP</li>
+            <li>
+              <dl>Cloud</dl>
+              <dd>Amazon AWS</dd>
+              <dd>Digital Ocean</dd>
+            </li>
+            <li>
+              <dd>Apache LAMP</dd>
+              <dd>FTP server</dd>
+              <dl>Linux Server</dl>
+              <dd>Nginx</dd>
+              <dd>Squid Proxy</dd>
+              <dd>Wordpress</dd>
+            </li>
+          </ul>
+        </article>
+      </main>
     </section>
 
     <section class="social_icons">
@@ -334,6 +341,25 @@ h4 {
 }
 #write {
   text-align: center;
+}
+
+.technologies {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
+}
+
+.line {
+  border: 0.5px solid transparent;
+  border-image: linear-gradient(
+    0.55turn,
+    rgba(255, 249, 34),
+    #05bdba,
+    rgba(56, 2, 155, 0)
+  );
+  border-image-slice: 1;
 }
 
 /* for desktop */
