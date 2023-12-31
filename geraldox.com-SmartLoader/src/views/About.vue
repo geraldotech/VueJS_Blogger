@@ -11,7 +11,6 @@
           <img src="" id="gitavatar2" alt="git avatar" />
         </figure>
       </div>
-
       <h1>Resume</h1>
       <h4 id="write">Bem vindo ao meu site!</h4>
 
@@ -38,6 +37,53 @@
         e DHCP.
       </p>
     </article>
+    <section class="skills">
+      <h1>Skills</h1>
+      <h2>Front-end</h2>
+      <ul>
+        <li>HTML</li>
+        <li>
+          <dl>
+            <dt>CSS</dt>
+            <dd>Bootstrap</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>JavaScript</dt>
+            <dd>NodeJS</dd>
+            <dd>
+              <a href="#" onclick="next.showPopover()">React</a>
+              <p id="next" popover>Next</p>
+            </dd>
+
+            <dd>Vue</dd>
+            <dd>Typescript <code> {on going}</code></dd>
+          </dl>
+        </li>
+        <li>Git/Github</li>
+      </ul>
+      <h2>Back-end</h2>
+      <ul>
+        <li>Python</li>
+        <li>MySQL</li>
+        <li>PHP</li>
+        <li>
+          <dl>Cloud</dl>
+          <dd>Amazon AWS</dd>
+          <dd>Digital Ocean</dd>
+        </li>
+        <li>
+          <dd>Apache LAMP</dd>
+          <dd>FTP server</dd>
+          <dl>Linux Server</dl>
+          <dd>Nginx</dd>
+          <dd>Squid Proxy</dd>
+          <dd>Wordpress</dd>
+        </li>
+      </ul>
+    </section>
+
     <section class="social_icons">
       <a
         href="https://github.com/geraldotech"
@@ -125,8 +171,46 @@ module.exports = {
 </script>
 
 <style scoped>
-.about {
+code {
+  font-size: 12px;
+}
+.skills dd {
+  margin-left: 10px;
+}
+.skills ul li {
+  padding: 5px;
+}
+
+h1 {
   text-align: center;
+  width: 100%;
+  margin: 20px auto;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(
+    0.25turn,
+    rgba(255, 249, 34),
+    #05bdba,
+    rgba(56, 2, 155, 0)
+  );
+  border-image-slice: 1;
+}
+
+h1:first-of-type {
+  font-size: 2em;
+}
+
+h2 {
+  /*  border-bottom: 1px solid #05bdba; */
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(
+    0.25turn,
+    rgba(255, 249, 34),
+    #05bdba,
+    rgba(56, 2, 155, 0)
+  );
+  border-image-slice: 1;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .about .about_avatar img {
@@ -167,13 +251,10 @@ module.exports = {
   height: 250px;
 }
 
-.about h1 {
-  font-size: 2em;
-  margin: 20px 0;
-}
 .about .about_links {
   padding-top: 40px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .about_links a {
@@ -223,7 +304,7 @@ article p:first-letter {
 
 .social_icons {
   display: flex;
-  margin-top: 200px;
+  margin-top: 150px;
   justify-content: center;
 }
 .social_icons a {
