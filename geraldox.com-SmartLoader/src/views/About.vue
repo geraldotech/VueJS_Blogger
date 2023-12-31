@@ -53,7 +53,7 @@
             <dt>JavaScript</dt>
             <dd>NodeJS</dd>
             <dd>
-              <a href="#" onclick="next.showPopover()">React</a>
+              <a href="#" onclick="next.showPopover()" class="react">React</a>
               <p id="next" popover>Next</p>
             </dd>
 
@@ -349,5 +349,17 @@ h4 {
   .about_links p {
     width: 50%;
   }
+}
+
+.react {
+  anchor-name: --i-btn;
+}
+
+[popover] {
+  inset: unset; /* remove default styles */
+  bottom: anchor(--i-btn top);
+  left: anchor(--i-btn center);
+  translate: -50%;
+  margin: 0.25rem 0;
 }
 </style>
