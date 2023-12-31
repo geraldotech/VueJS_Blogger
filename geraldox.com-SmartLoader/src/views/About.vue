@@ -56,7 +56,7 @@
               <button type="button" class="react" popovertarget="next">
                 React
               </button>
-              <p id="next" popover>Next</p>
+              <p id="next" popover anchor="btn">Next</p>
             </dd>
 
             <dd>Vue</dd>
