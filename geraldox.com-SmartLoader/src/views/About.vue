@@ -52,13 +52,7 @@
           <dl>
             <dt>JavaScript</dt>
             <dd>NodeJS</dd>
-            <dd>
-              <button type="button" class="react" popovertarget="next">
-                React
-              </button>
-              <p id="next" popover anchor="btn">Next</p>
-            </dd>
-
+            <dd>React > Next</dd>
             <dd>Vue</dd>
             <dd>Typescript <code> {on going}</code></dd>
           </dl>
@@ -351,17 +345,5 @@ h4 {
   .about_links p {
     width: 50%;
   }
-}
-
-.react {
-  anchor-name: --i-btn;
-}
-
-[popover] {
-  inset: unset; /* remove default styles */
-  bottom: anchor(--i-btn top);
-  left: anchor(--i-btn center);
-  translate: -50%;
-  margin: 0.25rem 0;
 }
 </style>
