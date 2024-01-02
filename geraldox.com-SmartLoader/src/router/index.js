@@ -45,12 +45,12 @@ const routes = [
   },
   {
     path: '/projects',
-    component: httpVueLoader('/src/views/Portfolio.vue'),
+    component: httpVueLoader('/src/views/Projects.vue'),
     name: 'projects',
   },
   {
-    path: '/portfolio',
-    component: httpVueLoader('/src/views/Projects.vue'),
+    path: '/projects2',
+    component: httpVueLoader('/src/views/Projects_old.vue'),
     name: '',
   },
   {
