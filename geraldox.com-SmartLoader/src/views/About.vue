@@ -25,10 +25,12 @@
       </article>
 
       <div class="about_links">
-        <h2>Download Currículo:</h2>
-        <router-link :to="{ name: 'r1' }">{Server 1}</router-link> |
-        <router-link :to="{ name: 'r2' }">{Server 2 - OneDrive}</router-link>
-        <router-view></router-view>
+        <h1>Download Currículo:</h1>
+        <nav class="about__links__nav">
+          <router-link :to="{ name: 'r1' }">{Server 1}</router-link>
+          <router-link :to="{ name: 'r2' }">{Server 2 - OneDrive}</router-link>
+          <router-view></router-view>
+        </nav>
       </div>
     </section>
 
@@ -243,6 +245,13 @@ h2 {
   height: 250px;
 }
 
+.about_links .about__links__nav {
+  display: inline-block;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
 .about .about_links {
   padding-top: 40px;
   margin-bottom: 20px;
@@ -366,10 +375,6 @@ h4 {
   border-image-slice: 1;
 }
 
-. {
-  flex-direction: column;
-}
-
 /* for DESKTOP  */
 @media screen and (min-width: 650px) {
   .about_title {
@@ -377,7 +382,7 @@ h4 {
     font-style: italic;
   }
   .about_links p {
-    width: 50%;
+    width: ;
   }
   .about_avatar.is-loading {
     align-self: flex-start;
