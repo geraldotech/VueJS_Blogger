@@ -1,46 +1,41 @@
 <template>
   <div>
     <section class="about">
-      <!--  <div class="about_avatar">
-        <figure>
-          <img src="" id="gitavatar" alt="git avatar" />
-        </figure>
-      </div> -->
-      <div class="about_avatar is-loading">
-        <figure>
-          <img src="" id="gitavatar2" alt="git avatar" />
-        </figure>
-      </div>
       <h1>Resume</h1>
       <h4 id="write">Bem vindo ao meu site!</h4>
 
+      <article class="about__content">
+        <div class="about_avatar is-loading">
+          <figure>
+            <img src="" id="gitavatar2" alt="git avatar" />
+          </figure>
+        </div>
+
+        <p>
+          Atualmente cursando Sistemas de Informação, com previsão de conclusão
+          em Jul/2025. Durante todos esses anos, desde 2009 meus estudos
+          autodidatas me levaram a aprender muita coisa sobre técnologia, deste
+          a instalação de configuração de Windows até lógica de programação.
+          Aliando toda base que tenho com o curso em andamento, sinto que estou
+          apto para entrar na área de desenvolvimento. Minha maior motivação é
+          de construir aplicações do zero, transformando ideias em código. Com
+          mais de 10 anos de experiência em Linux Ubuntu Server, instalação de
+          serviços como: Apache, Proxy, WordPress, FTP, LAMPP, MySQL e DHCP.
+        </p>
+      </article>
+
       <div class="about_links">
-        <router-link :to="{ name: 'r1' }">{Resume} - {Curriculum}</router-link>
-        <router-link :to="{ name: 'r2' }">{Google Drive}</router-link>
+        <h2>Download Currículo:</h2>
+        <router-link :to="{ name: 'r1' }">{Server 1}</router-link> |
+        <router-link :to="{ name: 'r2' }">{Server 2 - OneDrive}</router-link>
         <router-view></router-view>
       </div>
     </section>
-    <article>
-      <p>
-        Atualmente cursando Sistemas de Informação pela Estácio, com previsão de
-        conclusão em Dez/2025. Meus estudos autodidatas me levaram a aprender
-        lógica de programação, HTML, CSS e JavaScript. Aliando toda base que
-        tenho com o curso em andamento, não deixo perder o foco no hard skills
-        afim de dominar perfeitamente às habilidades necessárias para ser um
-        profissional competente. Meu objetivo é ingressar na área de
-        desenvolvimento a nível JR, para que eu possa aplicar meus hards skills
-        assim adquirindo experiências. Me considero um profissional
-        <strong>"career builder"</strong>, sempre orientado a resultados. Minha
-        maior motivação é de construir aplicações do zero, transformando ideias
-        em código. Com mais de 10 anos de experiência em Linux Ubuntu Server,
-        instalação de serviços como: Apache, Proxy, WordPress, FTP, LAMPP, MySQL
-        e DHCP.
-      </p>
-    </article>
+
     <section class="skills">
       <h1>Skills</h1>
       <main class="technologies">
-        <article>
+        <article class="skills_content">
           <h2>Front-end</h2>
           <ul>
             <li>HTML</li>
@@ -177,12 +172,6 @@ module.exports = {
 code {
   font-size: 12px;
 }
-.skills dd {
-  margin-left: 10px;
-}
-.skills ul li {
-  padding: 5px;
-}
 
 h1 {
   text-align: center;
@@ -277,10 +266,28 @@ h2 {
   border-radius: 5px;
 }
 
-article p {
-  text-align: justify;
-  line-height: 1.5rem;
-  animation: animacao ease 5s;
+.skills dd {
+  margin-left: 10px;
+}
+.skills ul li {
+  padding: 5px;
+}
+
+.skills_content {
+  align-content: center;
+  flex-direction: column;
+}
+
+.technologies {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
+}
+
+.technologies > :first-child {
+  align-self: flex-start;
 }
 
 @keyframes animacao {
@@ -294,10 +301,14 @@ article p {
   }
 }
 
-article p:first-letter {
+.about__content p:first-letter {
   /* color: green; */
   font-size: 2.6rem;
   margin-left: 15px;
+}
+
+.about__content p {
+  text-align: justify;
 }
 
 .social_icons img {
@@ -339,16 +350,9 @@ h4 {
     opacity: 0;
   }
 }
+
 #write {
   text-align: center;
-}
-
-.technologies {
-  display: flex;
-  justify-content: space-evenly;
-  max-width: 600px;
-  margin: auto;
-  width: 100%;
 }
 
 .line {
@@ -362,14 +366,34 @@ h4 {
   border-image-slice: 1;
 }
 
-/* for desktop */
-@media screen and (min-width: 550px) {
+. {
+  flex-direction: column;
+}
+
+/* for DESKTOP  */
+@media screen and (min-width: 650px) {
   .about_title {
     color: dodgerblue;
     font-style: italic;
   }
   .about_links p {
     width: 50%;
+  }
+  .about_avatar.is-loading {
+    align-self: flex-start;
+  }
+  .about__content {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 850px;
+    margin: 20px auto;
+  }
+
+  .about__content p {
+    text-align: justify;
+    line-height: 1.5rem;
+    animation: animacao ease 5s;
+    max-width: 400px;
   }
 }
 </style>

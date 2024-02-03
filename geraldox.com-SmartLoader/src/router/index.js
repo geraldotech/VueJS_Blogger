@@ -5,11 +5,11 @@ const home2 = {
 }
 
 const gdrive = {
-  template: `<p>Content Google Drive </p>`,
+  template: `<p><a href="https://1drv.ms/b/s!Aol5qLKOISMzgaAfdSoD5CJOgE5sHg?e=98NxhY" target="_blank">Português - {OneDrive}</a></p>`,
 }
 const Resume = {
   // need route name ?{{$route.name}}
-  template: `<p><a href="${cdn.dropfiles}/geraldo_resume_ptbr.pdf" target="_blank">PTBR</a> - <a href="${cdn.dropfiles}/geraldo_resume_eng.pdf"  target="_blank">English</a></p>`,
+  template: `<p><a href="${cdn.dropfiles}/geraldo_resume_ptbr.pdf" target="_blank">Português</a>  - <a href="${cdn.dropfiles}/geraldo_resume_eng.pdf"  target="_blank">English</a></p>`,
 }
 
 const NotFound = {
@@ -59,7 +59,7 @@ const routes = [
     name: 'about',
     children: [
       { path: 'resume', name: 'r1', component: Resume },
-      { path: 'google-drive', name: 'r2', component: gdrive },
+      { path: 'resume-server2', name: 'r2', component: gdrive },
     ],
   },
   {

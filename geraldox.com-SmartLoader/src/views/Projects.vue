@@ -69,7 +69,7 @@ module.exports = {
           id: 2,
           title: 'Check IP and VPN',
           description:
-            'Verifique a mudança de IP a cada 10 segundos e se consta como VPN',
+            'Verifique o IP a cada 10 segundos e saiba se está usando VPN',
           img: 'https://www.dir-tech.com/wp-content/uploads/2023/01/Generateur-adresses-IPv4-1-1024x576.jpg',
           link: 'https://dev.geraldox.com/projects/checkvpn/',
           tech: 'HTML, CSS, JAVASCRIPT',
@@ -87,7 +87,8 @@ module.exports = {
         {
           id: 5,
           title: 'VueJS Blogger',
-          description: 'Consumindo uma API Fake, filter, find, render posts',
+          description:
+            'Consumindo uma API Fake, filter, find, render posts,é o portótipo desse site',
           /*  img: base + 'vuejs-blogger.jpg', */
           img: 'https://img.icons8.com/external-wanicon-flat-wanicon/256/external-blogger-influencer-marketing-wanicon-flat-wanicon.png',
           link: 'https://blogger-router.netlify.app',
@@ -115,8 +116,8 @@ module.exports = {
         },
         {
           id: 7,
-          title: 'Filtro dados no Array',
-          description: 'Consumindo uma api do The Movies Data Base',
+          title: 'Filtro dados',
+          description: 'Filtrando dados por nome ou estado',
           img: defaultimg,
           link: 'https://dev.geraldox.com/projects/array_input_radio_search/',
           tech: 'HTML, CSS, JavaScript',
@@ -147,6 +148,15 @@ module.exports = {
           description: 'Simulando um sistemas de compras ',
           img: 'https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png',
           link: 'https://dev.geraldox.com/projects/ShoppingCart/',
+          tech: 'HTML, CSS, JavaScript',
+          techsvg: [htmls, css, javascript],
+        },
+        {
+          id: 10,
+          title: 'Vivo Easy clone',
+          description: 'Clone do aplicativo Vivo Easy',
+          img: 'https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png',
+          link: 'https://gmapdev.netlify.app/projects/vivoeasy',
           tech: 'HTML, CSS, JavaScript',
           techsvg: [htmls, css, javascript],
         },
