@@ -63,6 +63,7 @@ module.exports = {
   name: 'BlogPosts',
   mounted() {
     //console.log(test);
+    setTimeout(this.metaInfoInject(), 2000)
   },
   beforeCreate() {
     // console.log(`UserPost.vue`, this.$appName);
@@ -92,6 +93,7 @@ module.exports = {
     Searchauto: httpVueLoader('../components/SearchAuto.vue'),
     Sidebarbottom: httpVueLoader('../components/SidebarBottom.vue'),
     winoffline: httpVueLoader('../posts/winoffline.vue'),
+    hydratationssr: httpVueLoader('../posts/hydratationssr.vue'),
   },
   methods: {
     async posts() {
@@ -103,8 +105,35 @@ module.exports = {
       const getBlogPost = this.GetallPosts.find(
         (post) => post.slug == this.$route.params.slug && post.published
       )
-      // console.log(`getBlogPost`, getBlogPost);
+
       this.blog = getBlogPost
+
+      this.metaInfoInject(getBlogPost.title)
+    },
+    //by gmap function trata metaInfo and currently title eachPost
+    metaInfoInject(currentTitle) {
+      document.title = currentTitle
+        ? `${currentTitle} - geraldoX`
+        : '404 Page - geraldoX'
+      return {
+        metaInfo: {
+          title: currentTitle,
+          titleTemplate: '%s - geraldoX',
+          meta: [
+            { charset: 'utf-8' },
+            {
+              name: 'description',
+              content:
+                'I write articles about Web Development, checkout my GitHub #gmapdev',
+            },
+            {
+              name: 'viewport',
+              content: 'width=device-width, initial-scale=1',
+            },
+            { name: 'keywords', content: 'vuejs, windows, android, linux' },
+          ],
+        },
+      }
     },
   },
 }
@@ -120,6 +149,13 @@ article p {
   line-height: 1.5rem;
   margin-top: 10px;
 }
+.article:first-letter,
+.blogger article > p:first-letter {
+  /* color: green; */
+  font-size: 2.6rem;
+  margin-left: 15px;
+}
+
 .blogger {
   /* margin: 5px 15px; */ /* margin do body posts, now get margin from .main parent */
 }

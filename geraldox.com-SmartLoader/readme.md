@@ -6,16 +6,17 @@
 - http-vue-loader
   - No node.js environment, no build step, thanks [FranckFreiburger](https://github.com/FranckFreiburger/http-vue-loader)
 - vue-router 3.0.2
-- Fake {API}
-- Styles:
+- Fake {API} `./data.json`
+- ## CSS
 
-  - CSS Mobile First
+  - Mobile First
   - Use `class='img-flex'` for big img special in Container Components
+  - Use `<p class="article">` for first letter uppercase
   - CSS Global `class='btnDownload'` for button downloads e.g: `<nav><a href="#">button downloads</a></nav>`
 
-  > Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
-
 - Components
+
+  > Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
 
   - ➡️`db.json` Tiny posts? You can use `article obj` in Fake {API}
 
@@ -134,28 +135,33 @@
 
 - 06.08.2023
 
-  - CDN IMG Links before in `main.js` import object `import cdn from "/src/cdn.js";`
+  - CDN IMG Links before in `main.js`: `import cdn from "/src/cdn.js";`
 
-    - Support:
+    - **Support**:
+
     - `ContainerVue.js`
     - `WebComponents.js`:
-    - `Components.vue` - ncessary adicionar um Vue Mixin no mainjs, veja mais em _ContainerPost.vue_
 
-      > how use in this js templates:
+    > how use in this js templates:
 
     ```js
     // path current year
-    // where cdn is a custom name of import
+
+    // where CDN is a custom name of import
+
     // import cdn from './cdn.js'
+
     <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop"
+
     // fullpath + manual
     <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop"
+
     //Amazon S3
      <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
     ```
 
+    - `Components.vue` - It was necessary add Vue Mixin in `main.js`
     - `ContainerPost.vue`
-
       - Usando Vue.mixin no `main.js` import the file `/src/cdn.js`:
 
     ```js
@@ -174,8 +180,11 @@
       `this.cdnfiles = cdn.files` onde cnd.files agora tem o valor de cdn.files
 
     ```js
-       // Component.vue - ncessary bing the src
-         <img :src="`${img[2023]}/vuejs.png`" />\
+      // Component.vue - necessary bind the src
+        <img :src="`${img[2023]}/vuejs.png`" />\
+
+      // ContainerPosts.vue
+        <img :src="img[2024] + '/hydratation.png'" alt="img" />
     ```
 
   - <ins>SmartLoader now support: `type: module`</inst>

@@ -360,6 +360,17 @@
         "article": "",
         "component": "win-folderuser",
         "category": "windows"
+      },
+      {
+        "id": 34,
+        "title": "Entendendo a Hidratação no Desenvolvimento Web com SSR ",
+        "slug": "ententando-hidratacao-web-com-ssr",
+        "author": "geraldox",
+        "published": true,
+        "data": "Feb 05, 2024",
+        "article": "",
+        "component": "hydratationssr",
+        "category": "developer"
       }
     ]
   }

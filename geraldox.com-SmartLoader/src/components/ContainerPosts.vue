@@ -5,28 +5,27 @@
 </template>
 
 <script>
-//import img from "/src/cdn.js";
 /* Vue.extend */
 const Perfil = Vue.extend({
   template: `<p>Hello from extends</p>`,
   data() {
-    return {};
+    return {}
   },
-});
+})
 
 /* Calctdownload Component */
-Vue.component("Calctdownload", {
-  name: "CalcDownload",
+Vue.component('Calctdownload', {
+  name: 'CalcDownload',
   data() {
     return {
       title: `Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:`,
-    };
+    }
   },
-  template: `  
+  template: `
 <div class="containerPost">
  <link rel="stylesheet" href="/src/styles/ContainerPosts.css">
-<article>
-  
+<article>  
+
 <p>{{title}}</p>
 <figure>
 <img  src="https://tm.ibxk.com.br/2023/07/12/12184831616476.jpg" />
@@ -67,14 +66,14 @@ Vue.component("Calctdownload", {
   components: {
     Novo: Perfil,
   },
-});
+})
 
 //Acer Component
-Vue.component("acer", {
+Vue.component('acer', {
   data() {
     return {
-      opt: "",
-    };
+      opt: '',
+    }
   },
   methods: {},
   template: `
@@ -92,23 +91,23 @@ Vue.component("acer", {
     </article>
     </div>
   `,
-});
+})
 
 const sam = `
       <main>
         <p class="sam">Samsung template</p>
       </main>
-   `;
-Vue.component("sammy", {
+   `
+Vue.component('sammy', {
   template: sam,
-});
+})
 
 module.exports = {
-  name: "Container",
+  name: 'Container',
   data() {
-    return {};
+    return {}
   },
-};
+}
 </script>
 
 <style>

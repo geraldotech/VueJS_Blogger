@@ -7,6 +7,7 @@ const dropfiles = 'https://gpnotes.droppages.com/geraldox.proxyfiles.com/files'
 
 const img = {
   path: [pathdropimg],
+  2024: [pathdropimg] + '/2024/img',
   2023: [pathdropimg] + '/2023/img',
   2022: [pathdropimg] + '/2022/img',
   others: {
