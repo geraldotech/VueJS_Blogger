@@ -46,16 +46,16 @@ module.exports = {
   methods: {},
   computed: {
     RelatedPosts() {
-      // 1.pega somente os posts com a categoria da rota atual informado by props
+      // 1.pega somente os posts com a categoria da rota atual informado by props: allprops
       // 2.inves de ter duas props 1 para cat e outra para todos os posts, pode ter apenas uma com todos os posts, a categoria atual pode ser acessada por router.params.category
 
       // show show show de success!! filter somente posts cat atual && exclua o post da rota atual, isso evita exibir o mesmo link para a pagina atual
-      const OnlyPostRalated = this.allposts.filter(
+      const OnlyPostRelated = this.allposts.filter(
         (cat) =>
           cat.category == this.$route.params.category &&
           !cat.slug.includes(this.$route.params.slug)
       )
-      return OnlyPostRalated.slice(0, 4) // set a limit posts
+      return OnlyPostRelated.slice(0, 4) // set a limit posts
     },
   },
   watch: {},

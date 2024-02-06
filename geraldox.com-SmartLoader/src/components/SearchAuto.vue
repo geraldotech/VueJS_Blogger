@@ -55,6 +55,7 @@
 
       <ul>
         <li v-for="autosearch in autoResults" :key="autosearch.id">
+          <!-- emit a ser detectado no App.vue call fun close Modal -->
           <router-link
             class="results_links"
             :to="{

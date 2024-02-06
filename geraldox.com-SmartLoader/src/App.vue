@@ -15,11 +15,28 @@
           <router-link :to="{ name: `about` }">About</router-link>
         </li>
       </section>
-      <section class="top-search">
-        <img
+      <section class="top-nav_search__icon">
+        <!--   <img
           @click="isModalVisible = !isModalVisible"
           src="./src/assets/icons/searchsvg.svg"
-          alt="Make Search" />
+          alt="search icon" /> -->
+        <svg
+          @click="isModalVisible = !isModalVisible"
+          viewBox="0 0 24 24"
+          height="24"
+          width="24"
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          x="0px"
+          y="0px"
+          enable-background="new 0 0 24 24">
+          <title>search-alt</title>
+          <path
+            fill="currentColor"
+            d="M15.9,14.3H15L14.7,14c1-1.1,1.6-2.7,1.6-4.3c0-3.7-3-6.7-6.7-6.7S3,6,3,9.7 s3,6.7,6.7,6.7c1.6,0,3.2-0.6,4.3-1.6l0.3,0.3v0.8l5.1,5.1l1.5-1.5L15.9,14.3z M9.7,14.3c-2.6,0-4.6-2.1-4.6-4.6s2.1-4.6,4.6-4.6 s4.6,2.1,4.6,4.6S12.3,14.3,9.7,14.3z"
+            data-darkreader-inline-fill=""
+            style="--darkreader-inline-fill: currentColor"></path>
+        </svg>
       </section>
     </nav>
     <!-- check if route is HomePage not apply this class name, so home page is full-width -->
@@ -30,8 +47,8 @@
         <template v-slot:header> </template>
 
         <template v-slot:body>
-          <!-- receive a click event and call fun to close modal -->
-          <Searchauto v1 @cancloseafterclick="closeModal" />
+          <!-- click event and call fun to close modal -->
+          <Searchauto v1 @cancloseafterclick="toggleModal" />
         </template>
 
         <template v-slot:footer> This is a new modal footer. </template>
@@ -65,8 +82,8 @@ module.exports = {
     closeModal() {
       this.isModalVisible = false
     },
-    CloseModal() {
-      console.log(`pai here`)
+    toggleModal() {
+      this.isModalVisible = !this.isModalVisible
     },
   },
 }
@@ -150,6 +167,11 @@ a:hover {
   width: 100%;
   border-bottom: 2px solid #fff;
   z-index: 2;
+}
+.top-nav_search__icon {
+  cursor: pointer;
+  width: 50px;
+  display: flex;
 }
 
 .menu {

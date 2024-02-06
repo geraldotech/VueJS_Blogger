@@ -63,7 +63,6 @@ module.exports = {
   name: 'BlogPosts',
   mounted() {
     //console.log(test);
-    setTimeout(this.metaInfoInject(), 2000)
   },
   beforeCreate() {
     // console.log(`UserPost.vue`, this.$appName);
