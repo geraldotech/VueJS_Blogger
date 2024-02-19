@@ -13,22 +13,10 @@
         <p class="description">{{ card.description }}</p>
         <!-- <p class="techs">&lt;{{ card.tech }}/&gt;</p> -->
         <section class="techs">
-          <span
-            class="techs_svg"
-            :title="card.tech"
-            v-html="card.techsvg[0]"></span>
-          <span
-            class="techs_svg"
-            :title="card.tech"
-            v-html="card.techsvg[1]"></span>
-          <span
-            class="techs_svg"
-            :title="card.tech"
-            v-html="card.techsvg[2]"></span>
-          <span
-            class="techs_svg"
-            :title="card.tech"
-            v-html="card.techsvg[3]"></span>
+          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[0]"></span>
+          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[1]"></span>
+          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[2]"></span>
+          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[3]"></span>
         </section>
       </div>
     </section>
@@ -81,8 +69,7 @@ module.exports = {
         {
           id: 2,
           title: 'Check IP and VPN',
-          description:
-            'Verifique o IP a cada 10 segundos e saiba se está usando VPN',
+          description: 'Verifique o IP a cada 10 segundos e saiba se está usando VPN',
           img: 'https://www.dir-tech.com/wp-content/uploads/2023/01/Generateur-adresses-IPv4-1-1024x576.jpg',
           link: 'https://dev.geraldox.com/projects/checkvpn/',
           tech: 'HTML, CSS, JAVASCRIPT',
@@ -100,8 +87,7 @@ module.exports = {
         {
           id: 5,
           title: 'VueJS Blogger',
-          description:
-            'Consumindo uma API Fake, filter, find, render posts,é o portótipo desse site',
+          description: 'Consumindo uma API Fake, filter, find, render posts,é o portótipo desse site',
           /*  img: base + 'vuejs-blogger.jpg', */
           img: 'https://img.icons8.com/external-wanicon-flat-wanicon/256/external-blogger-influencer-marketing-wanicon-flat-wanicon.png',
           link: 'https://blogger-router.netlify.app',
@@ -120,8 +106,7 @@ module.exports = {
         {
           id: 4,
           title: 'Express session login',
-          description:
-            'Simulando um sistema de login, cada user tem um painel diferente',
+          description: 'Simulando um sistema de login, cada user tem um painel diferente',
           img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/885px-Node.js_logo.svg.png',
           link: 'https://expressloginway.onrender.com',
           tech: 'NodeJS',
@@ -139,8 +124,7 @@ module.exports = {
         {
           id: 8,
           title: 'Gerador de Etiquetas',
-          description:
-            'App construido para atender uma necessidade da empresa que fiz estágio',
+          description: 'App construido para atender uma necessidade da empresa que fiz estágio',
           img: 'https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw',
           link: 'https://geraldotech.github.io/Gerador-Etiquetas-Make/FrontVersion/',
           tech: 'HTML, CSS, JavaScript',
@@ -172,6 +156,15 @@ module.exports = {
           link: 'https://gmapdev.netlify.app/projects/vivoeasy',
           tech: 'HTML, CSS, JavaScript',
           techsvg: [htmls, css, javascript],
+        },
+        {
+          id: 11,
+          title: 'Life Vans',
+          description: 'Projeto usando React Advanced, consumindo dados do Firebase',
+          img: 'https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png',
+          link: 'https://gmapdev.netlify.app/projects/vivoeasy',
+          tech: 'HTML, CSS, JavaScript',
+          techsvg: [reactjs],
         },
       ],
     }

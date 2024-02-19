@@ -70,8 +70,10 @@ const routes = [
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
+const checkLocalOrRemote = window.location.hostname.includes('127.0.0.1')
+
 const router = new VueRouter({
-   mode: 'history',
+  mode: checkLocalOrRemote ? '' : 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
