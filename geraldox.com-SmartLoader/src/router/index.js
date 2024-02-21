@@ -1,5 +1,15 @@
 import cdn from '../cdn.js' //this import to use cdn links
 
+const Home = httpVueLoader('/src/views/Home.vue')
+const NewHome = httpVueLoader('/src/views/NewHome.vue')
+const About =  httpVueLoader('/src/views/About.vue')
+const Politica = httpVueLoader('./src/views/Politicaprivacidade.vue')
+const Projects = httpVueLoader('/src/views/Projects.vue')
+const Blog = httpVueLoader('/src/components/blog/Blog.vue')
+const Mapa = httpVueLoader('/src/components/blog/mapa.vue')
+const UserPost = httpVueLoader('/src/components/blog/UserPost.vue')
+const Categories = httpVueLoader('/src/components/blog/Categories.vue')
+
 const home2 = {
   template: `<p>VueJS Named Views from String </p>`,
 }
@@ -17,35 +27,40 @@ const NotFound = {
 }
 
 const routes = [
-  {
+    {
     path: '/',
-    components: { default: httpVueLoader('./src/views/Home.vue'), yt: home2 },
+    components: { default: Home, yt: home2 },
     name: 'Home Page',
+  }, 
+  {
+    path: '/novahome',
+    components: { default: NewHome },
+    
   },
   {
     path: '/blog',
     name: 'Blog Posts',
-    component: httpVueLoader('/src/views/Blog.vue'),
+    component: Blog,
     children: [
       {
         path: 'mapa',
         name: 'Categories Map',
-        component: httpVueLoader('/src/views/mapa.vue'),
+        component: Mapa,
       },
     ],
   },
   {
     path: '/blog/:category/:slug+',
     name: 'threads',
-    component: httpVueLoader('/src/views/UserPost.vue'),
+    component: UserPost,
   },
   {
     path: '/categories/:category',
-    component: httpVueLoader('/src/views/Categories.vue'),
+    component: Categories,
   },
   {
     path: '/projects',
-    component: httpVueLoader('/src/views/Projects.vue'),
+    component: Projects,
     name: 'projects',
   },
   {
@@ -55,7 +70,7 @@ const routes = [
   },
   {
     path: '/about',
-    component: httpVueLoader('/src/views/About.vue'),
+    component:About,
     name: 'about',
     children: [
       { path: 'resume', name: 'r1', component: Resume },
@@ -64,18 +79,17 @@ const routes = [
   },
   {
     path: '/politica-privacidade',
-    component: httpVueLoader('./src/views/Politicaprivacidade.vue'),
+    component: Politica,
     name: '',
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
-// auto check if is deploy or production environment - by GMAP
-const checkLocalOrRemote = location.hostname.includes('127.0.0.1')
+// CHECK is deploy or production environment - by GMAP
+const producOrDevMode = location.hostname.includes('127.0.0.1')
 
 const router = new VueRouter({
-  mode: checkLocalOrRemote ? '' : 'history',
-
+  mode: producOrDevMode ? '' : 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {

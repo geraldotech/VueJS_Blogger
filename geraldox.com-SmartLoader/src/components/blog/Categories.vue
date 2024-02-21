@@ -5,7 +5,9 @@
     </div>
     <div v-if="$route.params.category.includes('ndroid')">
       <div class="cat-banner">
-        <img src="/src/assets/img/android.png" alt="android" />
+        <img
+          src="/src/assets/img/android.png"
+          alt="android" />
       </div>
     </div>
     <h1>
@@ -14,11 +16,10 @@
 
     <router-link :to="{ name: 'Blog Posts' }">voltar para Blog</router-link>
     <ul class="listPosts">
-      <li v-for="(artigos, index) in opt" :key="artigos.id">
-        <router-link :to="{ name: 'threads', params: { slug: artigos.slug } }"
-          >{{ index + 1 }} - {{ artigos.title }} -
-          {{ artigos.data }}</router-link
-        >
+      <li
+        v-for="(artigos, index) in opt"
+        :key="artigos.id">
+        <router-link :to="{ name: 'threads', params: { slug: artigos.slug } }">{{ index + 1 }} - {{ artigos.title }} - {{ artigos.data }}</router-link>
         <!--   <router-link :to="`/blog/${artigos.category}/${artigos.slug}`">{{
           artigos.slug
         }}</router-link> -->
@@ -41,7 +42,7 @@ module.exports = {
     }
   },
   components: {
-    Adsense: httpVueLoader('../views/Adsense.vue'),
+    Adsense: httpVueLoader('/src/components/blog/Adsense.vue'),
   },
   methods: {
     async posts() {
@@ -49,9 +50,7 @@ module.exports = {
       const res = await req.json()
       //filter post published
       this.blogPosts = res.blog.posts
-      const getBlogPost = this.blogPosts
-        .filter((post) => this.$route.params.category == post.category)
-        .reverse()
+      const getBlogPost = this.blogPosts.filter((post) => this.$route.params.category == post.category).reverse()
       //console.log(publicados);
       //reverse render posts mais novos on top
       this.opt = getBlogPost

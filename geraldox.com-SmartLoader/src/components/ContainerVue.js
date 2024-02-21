@@ -56,4 +56,4 @@ Vue.component('mydell', {
   `,
 })
 
-console.log('script loaded in ContainerVue.js')
+//console.log('script loaded in ContainerVue.js')

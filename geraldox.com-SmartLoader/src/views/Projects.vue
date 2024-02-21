@@ -2,21 +2,40 @@
   <div>
     <h1>Portfolio</h1>
     <section class="cards">
-      <div class="card" v-for="card in cards" :key="card.id">
+      <div
+        class="card"
+        v-for="card in cards"
+        :key="card.id">
         <!-- link inside img -->
         <h1>{{ card.title }}</h1>
-        <a :href="card.link" target="_blank">
+        <a
+          :href="card.link"
+          target="_blank">
           <figure>
-            <img :src="card.img" alt="card.id" />
+            <img
+              :src="card.img"
+              alt="card.id" />
           </figure>
         </a>
         <p class="description">{{ card.description }}</p>
         <!-- <p class="techs">&lt;{{ card.tech }}/&gt;</p> -->
         <section class="techs">
-          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[0]"></span>
-          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[1]"></span>
-          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[2]"></span>
-          <span class="techs_svg" :title="card.tech" v-html="card.techsvg[3]"></span>
+          <span
+            class="techs_svg"
+            :title="card.tech"
+            v-html="card.techsvg[0]"></span>
+          <span
+            class="techs_svg"
+            :title="card.tech"
+            v-html="card.techsvg[1]"></span>
+          <span
+            class="techs_svg"
+            :title="card.tech"
+            v-html="card.techsvg[2]"></span>
+          <span
+            class="techs_svg"
+            :title="card.tech"
+            v-html="card.techsvg[3]"></span>
         </section>
       </div>
     </section>
@@ -162,7 +181,7 @@ module.exports = {
           title: 'Life Vans',
           description: 'Projeto usando React Advanced, consumindo dados do Firebase',
           img: 'https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png',
-          link: 'https://gmapdev.netlify.app/projects/vivoeasy',
+          link: 'https://vannlifeforfirebase.pages.dev/',
           tech: 'HTML, CSS, JavaScript',
           techsvg: [reactjs],
         },

@@ -1,12 +1,20 @@
 <template>
   <div>
     <!--  <Adsense></Adsense> -->
-    <div v-if="$route.name == `Blog Posts`" class="list-all">
+    <div
+      v-if="$route.name == `Blog Posts`"
+      class="list-all">
       <section class="threads">
         <nav class="legacy_searchs">
-          <input type="checkbox" id="showlegacy" v-model="showlegacy" />
+          <input
+            type="checkbox"
+            id="showlegacy"
+            v-model="showlegacy" />
           <label for="showlegacy">Search Legacy</label>
-          <input type="checkbox" id="showautoseach" v-model="showautoseach" />
+          <input
+            type="checkbox"
+            id="showautoseach"
+            v-model="showautoseach" />
           <label for="showautoseach">Search Auto</label>
         </nav>
         <div v-show="showlegacy">
@@ -19,12 +27,12 @@
         <!--  -->
         <div class="map">
           <div>
-            <router-link :to="{ name: `Categories Map` }"
-              >Website Map:</router-link
-            >
+            <router-link :to="{ name: `Categories Map` }">Website Map:</router-link>
           </div>
           <label>Selecionar:</label>
-          <select v-model="select" @change="changeRoute($event)">
+          <select
+            v-model="select"
+            @change="changeRoute($event)">
             <option
               v-for="(itens, ind) in categorias"
               :key="itens.id"
@@ -44,8 +52,7 @@
               aria-hidden="true"
               class="r-1bwzh9t r-4qtqp9 r-yyyyoo r-10ptun7 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1janqcz">
               <g>
-                <path
-                  d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"></path>
+                <path d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"></path>
               </g>
             </svg>
             <span>Pinned:</span>
@@ -66,11 +73,7 @@
               <router-link
                 class="cats"
                 :to="`/categories/${pinned.category}`"
-                >{{
-                  pinned.category
-                    ? pinned.category.toUpperCase()
-                    : 'UNCATEGORIZED'
-                }}</router-link
+                >{{ pinned.category ? pinned.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
               >
             </span>
           </p>
@@ -80,7 +83,10 @@
 
         <!--  RenderPosts -->
         <ul>
-          <li v-for="artigos in opt" :key="artigos.slug" class="threads_list">
+          <li
+            v-for="artigos in opt"
+            :key="artigos.slug"
+            class="threads_list">
             <router-link
               :to="{
                 name: 'threads',
@@ -96,11 +102,7 @@
               <router-link
                 class="cats"
                 :to="`/categories/${artigos.category}`"
-                >{{
-                  artigos.category
-                    ? artigos.category.toUpperCase()
-                    : 'UNCATEGORIZED'
-                }}</router-link
+                >{{ artigos.category ? artigos.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
               >
             </div>
             <!-- categories router page -->
@@ -112,14 +114,16 @@
         <!--  RenderPosts -->
         <nav class="limiter">
           <p v-show="opt.length >= 10">
-            <button class="limiter_btn" @click="ShowLessPosts()">
+            <button
+              class="limiter_btn"
+              @click="ShowLessPosts()">
               Show Less
             </button>
           </p>
-          <p class="limiter_btn">
-            {{ opt.length }} of {{ AllPosts.length }} Posts
-          </p>
-          <button class="limiter_btn" @click="ShowAllPosts(5)">
+          <p class="limiter_btn">{{ opt.length }} of {{ AllPosts.length }} Posts</p>
+          <button
+            class="limiter_btn"
+            @click="ShowAllPosts(5)">
             {{ AllPosts.length == opt.length ? '❌Nothing more' : 'Show more' }}
           </button>
         </nav>
@@ -154,11 +158,11 @@ module.exports = {
   },
   mounted() {},
   components: {
-    Sidebar: httpVueLoader('../components/Sidebar.vue'),
-    Searchlegacy: httpVueLoader('../components/Search.vue'),
-    Searchauto: httpVueLoader('../components/SearchAuto.vue'),
-    Mapas: httpVueLoader('../views/mapa.vue'),
-    Adsense: httpVueLoader('../views/Adsense.vue'),
+    Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
+    Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
+    Searchauto: httpVueLoader('/src/components/blog/SearchAuto.vue'),
+    Mapas: httpVueLoader('/src/components/blog/mapa.vue'),
+    Adsense: httpVueLoader('/src/components/blog/Adsense.vue'),
   },
   data() {
     return {
@@ -181,9 +185,7 @@ module.exports = {
       this.FindPinned(res.blog.posts)
 
       //filter post published && exclude pinned posts from the main list
-      const blogPosts = res.blog.posts.filter(
-        (posts) => posts.published && !Object.keys(posts).includes('pinned')
-      )
+      const blogPosts = res.blog.posts.filter((posts) => posts.published && !Object.keys(posts).includes('pinned'))
       // console.log(blogPosts);
 
       // map categoris acima dos limitadores de posts splice()
@@ -192,9 +194,7 @@ module.exports = {
       //console.log([...getCatego].sort());
 
       //🔢 contar n de categories values + ordenar com sort()
-      const counter = getCatego
-        .sort()
-        .reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
+      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
 
       //recebe o contador unique + contador
       this.categorias = counter
@@ -227,9 +227,7 @@ module.exports = {
     },
     FindPinned(arr) {
       // find obj has pinned property
-      const findPinned = arr.find(
-        (post) => post.published && post.hasOwnProperty('pinned')
-      )
+      const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
 
       // check if Pinned  exists
       !findPinned ? false : (this.pinned = findPinned)

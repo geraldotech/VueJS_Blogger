@@ -23,7 +23,11 @@
             <h1>{{ blog.title }}</h1>
             <p>
               By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
-              <button data="print" onclick="print()">PRINT</button>
+              <button
+                data="print"
+                onclick="print()">
+                PRINT
+              </button>
             </p>
           </div>
           <!-- card ends -->
@@ -37,9 +41,7 @@
           <Container></Container>
         </article>
         <div v-else>
-          <h4 class="notFound">
-            Sorry! 404 error Post Not Found, or was removed!
-          </h4>
+          <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
         </div>
         <!-- custom html to specific slug posts -->
         <div v-if="$route.params.slug == 'speed-test'">
@@ -80,17 +82,20 @@ module.exports = {
     }
   },
   components: {
-    Sidebar: httpVueLoader('/src/components/Sidebar.vue'),
-    Searchlegacy: httpVueLoader('/src/components/Search.vue'),
+    /* BLOG  */
+    Sidebarbottom: httpVueLoader('/src/components/blog/SidebarBottom.vue'),
+    Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
+    Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
+    Searchauto: httpVueLoader('../components/blog/SearchAuto.vue'),
+    Adsense: httpVueLoader('../components/blog//Adsense.vue'),
+
+    /* POSTS */
     Android: httpVueLoader('../posts/android-roo.vue'),
     Vuejs: httpVueLoader('../posts/Vuejs.vue'),
     Speedtest: httpVueLoader('../posts/Speedtest.vue'),
     NetworkTools: httpVueLoader('../posts/NetworkTools.vue'),
     Container: httpVueLoader('/src/components/ContainerPosts.vue'),
-    Adsense: httpVueLoader('../views/Adsense.vue'),
     whatsappapi: httpVueLoader('../posts/whatsappapi.vue'),
-    Searchauto: httpVueLoader('../components/SearchAuto.vue'),
-    Sidebarbottom: httpVueLoader('../components/SidebarBottom.vue'),
     winoffline: httpVueLoader('../posts/winoffline.vue'),
     hydratationssr: httpVueLoader('../posts/hydratationssr.vue'),
   },
@@ -101,9 +106,7 @@ module.exports = {
       //console.warn(data);
       this.GetallPosts = data.blog.posts
       //encontra a slug atual e verifica se esta plublicada
-      const getBlogPost = this.GetallPosts.find(
-        (post) => post.slug == this.$route.params.slug && post.published
-      )
+      const getBlogPost = this.GetallPosts.find((post) => post.slug == this.$route.params.slug && post.published)
 
       this.blog = getBlogPost
 
@@ -111,9 +114,7 @@ module.exports = {
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
-      document.title = currentTitle
-        ? `${currentTitle} - geraldoX`
-        : '404 Page - geraldoX'
+      document.title = currentTitle ? `${currentTitle} - geraldoX` : '404 Page - geraldoX'
       return {
         metaInfo: {
           title: currentTitle,
@@ -122,8 +123,7 @@ module.exports = {
             { charset: 'utf-8' },
             {
               name: 'description',
-              content:
-                'I write articles about Web Development, checkout my GitHub #gmapdev',
+              content: 'I write articles about Web Development, checkout my GitHub #gmapdev',
             },
             {
               name: 'viewport',

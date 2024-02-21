@@ -41,20 +41,28 @@
     </nav>
     <!-- check if route is HomePage not apply this class name, so home page is full-width -->
     <main :class="$route.name != 'Home Page' ? 'main' : ''">
-      <router-view :key="$route.path" class="router-view"></router-view>
+      <router-view
+        :key="$route.path"
+        class="router-view"></router-view>
 
-      <Modal v-show="isModalVisible" @close="closeModal">
+      <Modal
+        v-show="isModalVisible"
+        @close="closeModal">
         <template v-slot:header> </template>
 
         <template v-slot:body>
           <!-- click event and call fun to close modal -->
-          <Searchauto v1 @cancloseafterclick="toggleModal" />
+          <Searchauto
+            v1
+            @cancloseafterclick="toggleModal" />
         </template>
 
         <template v-slot:footer> This is a new modal footer. </template>
       </Modal>
       <!--  named  router-->
-      <router-view name="yt" class="named-views"></router-view>
+      <router-view
+        name="yt"
+        class="named-views"></router-view>
     </main>
 
     <Foot />
@@ -72,7 +80,7 @@ module.exports = {
   components: {
     Foot: httpVueLoader('/src/components/Footer.vue'),
     Busca: httpVueLoader('/src/components/Search.vue'),
-    Searchauto: httpVueLoader('../src/components/SearchAuto.vue'),
+    Searchauto: httpVueLoader('../src/components/blog/SearchAuto.vue'),
     Modal: httpVueLoader('../src/components/Modal.vue'),
   },
   methods: {
@@ -92,21 +100,23 @@ module.exports = {
 :root {
   --maxw: auto; /* set max in footer either */
   --maxwmain: 90rem;
-  color-scheme: dark;
+
   --search-links-color: #05bdba;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 html {
   scroll-behavior: smooth;
 }
 body {
   min-width: 320px;
+  background: #181818;
+  color: #fff;
   line-height: 1.5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   /*  background: rgb(0, 12, 21); */
 }
 /* trick to keep footer on bottom and container get max-space */
@@ -118,6 +128,13 @@ body {
   min-height: 100dvh;
 }
 
+.main a {
+  color: #05bdba;
+}
+.main a:hover {
+  text-decoration: none;
+}
+
 .main-post {
   min-height: 30vh;
 }
@@ -127,7 +144,7 @@ body {
   /* max-width: var(--maxw); */
 }
 /* class for router-view */
-.router-view {
+.main > .router-view {
   padding-inline: 0.5rem;
   flex: 1;
   padding-block: 15px;
@@ -135,13 +152,6 @@ body {
 /* before existia .container thath wrapper the router-view o que será rederizado tbm pode ser selecionado com :first-child */
 .container > :first-child {
   /*  border: 1px solid red; */ /* uncomment for test purpose */
-}
-
-a {
-  color: #05bdba;
-}
-a:hover {
-  text-decoration: none;
 }
 
 #nprogress {
@@ -297,7 +307,7 @@ nav:has(.btnDownload) a {
     margin: 0 auto;
     max-width: var(--maxwmain); /* before was body */
   }
-  .router-view {
+  .main > .router-view {
     padding-inline: 0.5rem;
   }
 }
