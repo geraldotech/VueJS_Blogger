@@ -35,6 +35,7 @@ const routes = [
   {
     path: '/novahome',
     components: { default: NewHome },
+    name: 'NovaHome',
     
   },
   {

@@ -1,12 +1,13 @@
 <template>
   <footer>
-    <router-link to="/politica-privacidade"
-      >Politica de Privacidade
-    </router-link>
+    <router-link to="/politica-privacidade">Politica de Privacidade </router-link>
     |
-    <router-link to="/about">About </router-link>
+    <router-link to="/about">About </router-link> |
+    <router-link to="/novahome">/NovaHome </router-link>
 
-    <a href="#top" class="backtop"
+    <a
+      href="#top"
+      class="backtop"
       ><svg
         class="with-icon_icon__MHUeb"
         data-testid="geist-icon"
@@ -19,9 +20,11 @@
         stroke-linejoin="round"
         stroke-width="1.5"
         viewBox="0 0 24 24"
-        style="color: currentcolor; width: 40px; height: 40px"
-      >
-        <circle cx="12" cy="12" r="10"></circle>
+        style="color: currentcolor; width: 40px; height: 40px">
+        <circle
+          cx="12"
+          cy="12"
+          r="10"></circle>
         <path d="M16 12l-4-4-4 4"></path>
         <path d="M12 16V8"></path></svg
     ></a>

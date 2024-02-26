@@ -39,8 +39,12 @@
         </svg>
       </section>
     </nav>
-    <!-- check if route is HomePage not apply this class name, so home page is full-width -->
-    <main :class="$route.name != 'Home Page' ? 'main' : ''">
+
+    <!-- if route is HomePage not apply this class name, so HomePage gets full-width -->
+
+    <!--  <main :class="($route.name = checkCurrentRouterApplyClass() ? '' : 'main')"> -->
+
+    <main :class="currentRouterToApplyClass()">
       <router-view
         :key="$route.path"
         class="router-view"></router-view>
@@ -93,6 +97,15 @@ module.exports = {
     toggleModal() {
       this.isModalVisible = !this.isModalVisible
     },
+    currentRouterToApplyClass() {
+      const RouterNames = ['Home Page', 'NovaHome']
+      const currentRouter = this.$route.name
+      const result = RouterNames.some((val) => currentRouter.includes(val))
+      if (!result) {
+        return 'main'
+      }
+      return 'full-width'
+    },
   },
 }
 </script>
@@ -143,7 +156,8 @@ body {
   flex: 1;
   /* max-width: var(--maxw); */
 }
-/* class for router-view */
+
+/* VUE ROUTER-VIEW  */
 .main > .router-view {
   padding-inline: 0.5rem;
   flex: 1;
@@ -158,12 +172,6 @@ body {
   position: relative;
   z-index: 9999999;
 }
-
-/* .block {
-  max-width: 800px;
-  min-width: 320px;
-  margin: 0 auto;
-} */
 
 .top-nav {
   display: flex;

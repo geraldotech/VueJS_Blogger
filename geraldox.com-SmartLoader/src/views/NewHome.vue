@@ -55,10 +55,69 @@
       id="projects"
       class="projects">
       <h1>Projetos Desenvolvidos</h1>
-
       <div class="slide-container swiper">
         <div class="slide-content">
           <div class="card-wrapper swiper-wrapper">
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <img
+                  src="https://placekitten.com/600/610"
+                  alt="" />
+              </div>
+
+              <div class="card-content">
+                <h3 class="name">Cat</h3>
+                <p class="description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
+                  perspiciatis illum quia maiores omnis!
+                </p>
+                <a href="#">
+                  <button class="button">Ver mais</button>
+                </a>
+              </div>
+            </div>
+            <!-- CARD-->
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <img
+                  src="https://placekitten.com/600/610"
+                  alt="" />
+              </div>
+
+              <div class="card-content">
+                <h3 class="name">Cat</h3>
+                <p class="description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
+                  perspiciatis illum quia maiores omnis!
+                </p>
+                <a href="#">
+                  <button class="button">Ver mais</button>
+                </a>
+              </div>
+            </div>
+            <!-- CARD-->
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <img
+                  src="https://placekitten.com/600/610"
+                  alt="" />
+              </div>
+
+              <div class="card-content">
+                <h3 class="name">Cat</h3>
+                <p class="description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
+                  perspiciatis illum quia maiores omnis!
+                </p>
+                <a href="#">
+                  <button class="button">Ver mais</button>
+                </a>
+              </div>
+            </div>
+            <!-- CARD-->
             <!-- CARD-->
             <div class="card swiper-slide">
               <div class="image-content">
@@ -123,15 +182,109 @@
         </div>
         <div class="swiper-button-next swiper-navBtn"></div>
         <div class="swiper-button-prev swiper-navBtn"></div>
-        <div class="swiper-pagination">xx</div>
+        <div class="swiper-pagination"></div>
       </div>
     </section>
     <!-- PROJECTS -->
+
+    <!-- EXPERIENCES -->
+    <section id="experiences">
+      <div class="experience_main">
+        <h3 class="head_experience">TIMELINE</h3>
+        <div class="experiences__container">
+          <ul class="timeline">
+            <li>
+              <h3 class="heading">Engenharia de Software</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
+                repellat quae. Est aperiam aliquid doloribus voluptas!
+              </p>
+              <span class="date">Jan 2023 / Dez 2024</span>
+              <span class="circle"></span>
+            </li>
+            <li>
+              <h3 class="heading">Engenharia de Software</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
+                repellat quae. Est aperiam aliquid doloribus voluptas!
+              </p>
+              <span class="date">Jan 2023 / Dez 2024</span>
+              <span class="circle"></span>
+            </li>
+            <li>
+              <h3 class="heading">Engenharia de Software</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
+                repellat quae. Est aperiam aliquid doloribus voluptas!
+              </p>
+              <span class="date">Jan 2023 / Dez 2024</span>
+              <span class="circle"></span>
+            </li>
+            <li>
+              <h3 class="heading">Engenharia de Software</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
+                repellat quae. Est aperiam aliquid doloribus voluptas!
+              </p>
+              <span class="date">Jan 2023 / Dez 2024</span>
+              <span class="circle"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCES -->
   </main>
 </template>
 
 <script>
-module.exports = {}
+module.exports = {
+  /* MOUNTED */
+  mounted() {
+    this.loadSwiperScript()
+  },
+  created() {},
+  beforeMount() {},
+  data() {
+    return {}
+  },
+  methods: {
+    loadSwiperScript() {
+      var swiper = new Swiper('.slide-content', {
+        slidesPerView: 5,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: true,
+        fade: true,
+        grabCursor: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          666: {
+            slidesPerView: 2,
+          },
+          1200: {
+            slidesPerView: 3,
+          },
+          1410: {
+            slidesPerView: 4,
+          },
+        },
+      })
+    },
+  },
+}
 </script>
 
 <style>
@@ -152,6 +305,7 @@ module.exports = {}
   --graylite: #828282;
   --graylite2: #393d40;
   --graylite3: #d4d4d4;
+  --degrade: radial-gradient(circle, rgba(45, 133, 243, 1) 0%, rgba(46, 113, 166, 1) 63%, rgba(45, 133, 243, 1) 100%);
 }
 
 strong {
@@ -165,7 +319,6 @@ strong {
   color: var(--whitecolor);
   padding: 0;
   margin: 0;
-  box-shadow: border-box;
   min-height: 150vh;
 }
 
@@ -262,7 +415,6 @@ strong {
 .about {
   background: var(--background1);
   padding: 3em;
-  width: 100vw;
   color: var(--softcolor);
 }
 
@@ -344,10 +496,16 @@ strong {
   border-radius: 14px;
 }
 
+.card-content .name {
+  color: var(--primary);
+  margin-top: 20px;
+  font-size: 2em;
+}
+
 .image-content {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   height: 50%;
   border-radius: 12px;
   background-color: var(--primary);
@@ -372,7 +530,7 @@ strong {
 .button {
   border: none;
   font-size: 16px;
-  color: var(--corBranco);
+  color: var(--whitecolor);
   padding: 8px 16px;
   background-image: linear-gradient(to right top, #4f08ae, #4e1699, #4b1e85, #472471, #42285e);
   border-radius: 6px;
@@ -380,6 +538,200 @@ strong {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+/* PROJECT ENDS */
+
+/* EXPERIENCES START */
+
+.experience_main {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background2);
+  display: grid;
+  place-items: center;
+  padding: 80px 0px 160px 0; /* this padding - testar no main section */
+}
+
+.experience_main .head_experience {
+  font-size: 22px;
+  color: #e1e1e6;
+  position: relative;
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+.experience_main .head_experience::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to right, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747));
+}
+
+.experiences__container {
+  width: 70%;
+  height: 100%;
+  margin: auto 0;
+  position: relative;
+  padding-top: 0px;
+}
+.experiences__container ul {
+  list-style-type: none;
+}
+
+.experiences__container .timeline::after {
+  content: '  ';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background-image: linear-gradient(to bottom, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747));
+}
+
+.experiences__container ul li {
+  width: 50%;
+  height: auto;
+  padding: 15px 20px;
+  background-color: #202024;
+  border-radius: 8px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.218);
+  position: relative;
+  margin-bottom: 30px;
+  z-index: 99;
+}
+
+.experiences__container .heading {
+  font-size: 1.3rem;
+  color: var(--primary);
+  font-family: 'Roboto', sans-serif;
+}
+
+.experiences__container ul li:nth-child(4) {
+  margin-bottom: 0;
+}
+
+.experiences__container ul li .circle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #671b857a;
+  top: 0;
+  display: grid;
+  place-items: center;
+}
+
+.circle::after {
+  content: ' ';
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+ul li:nth-child(odd) .circle {
+  transform: translate(50%, -50%);
+  right: -30px;
+}
+
+ul li:nth-child(even) .circle {
+  transform: translate(-50%, -50%);
+  left: -30px;
+}
+
+ul li .date {
+  position: absolute;
+  width: 280px;
+  height: 33px;
+  background-color: #8257e5;
+  border-radius: 6px;
+  top: -45px;
+  left: 0;
+  display: grid;
+  place-items: center;
+  color: var(--whitecolor);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: var(--degrade);
+}
+
+.experiences__container ul li:nth-child(odd) {
+  float: left;
+  clear: right;
+  text-align: right;
+  transform: translateX(-30px);
+}
+.experiences__container ul li:nth-child(even) {
+  float: right;
+  clear: left;
+  transform: translateX(30px);
+}
+
+.experiences__container ul li p {
+  margin: 10px 0;
+  color: #e1e1e6;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+ul li:nth-child(odd) .date {
+  right: 20px;
+}
+
+.experiences__container ul li {
+  transition: transform 0.9s ease, box-shadow 0.9s ease;
+}
+
+.experiences__container ul li:hover {
+  transform: scale(1.05);
+  border: 2px solid #8257e5;
+}
+
+@media only screen and (max-width: 798px) {
+  .experiences__container {
+    width: 70%;
+    height: auto;
+    transform: translateX(20px);
+  }
+
+  .experiences__container ul li {
+    width: 100%;
+    float: none;
+    clear: none;
+    margin-bottom: 80px;
+  }
+  .experiences__container .timeline::after {
+    left: -40px;
+  }
+
+  .experiences__container ul li .circle {
+    left: -40px;
+    transform: translate(-50%, -50%);
+  }
+
+  .experiences__container ul li {
+    transition: none; /* Remover a transição em dispositivos móveis */
+  }
+  .experience_main .head_experience {
+    padding-bottom: 50px;
+  }
+
+  .experiences__container ul li:nth-child(odd) {
+    transform: translateX(0px);
+    text-align: left;
+  }
+  .experiences__container ul li:nth-child(even) {
+    transform: translateX(0px);
+  }
+}
+
+/* EXPERIENCES ENDS */
 
 /* MOBILE */
 @media screen and (max-width: 1180px) {
