@@ -95,7 +95,7 @@
               {{ artigos.title }}</router-link
             >
 
-            <time>{{ artigos.data }}</time>
+            <time>{{ artigos.createdAt }}</time>
             <!-- categories router page -->
             <div class="cat">
               CATEGORY:

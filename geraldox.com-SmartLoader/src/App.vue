@@ -99,7 +99,10 @@ module.exports = {
     },
     currentRouterToApplyClass() {
       const RouterNames = ['Home Page', 'NovaHome']
-      const currentRouter = this.$route.name
+      
+      // if any router don't have a named router return ''
+      const currentRouter = this.$route?.name?? ''
+    
       const result = RouterNames.some((val) => currentRouter.includes(val))
       if (!result) {
         return 'main'

@@ -22,7 +22,7 @@
             </p>
             <h1>{{ blog.title }}</h1>
             <p>
-              By:<span>{{ blog.author }}</span> | Posted on: {{ blog.data }} |
+              By:<span>{{ blog.author }}</span> | Posted on: {{ blog.createdAt }} |
               <button
                 data="print"
                 onclick="print()">

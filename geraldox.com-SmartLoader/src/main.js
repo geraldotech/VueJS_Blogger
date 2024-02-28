@@ -22,6 +22,7 @@ Vue.mixin({
   },
 })
 
+
 Vue.prototype.$appName = 'geraldoX'
 window.onload = function () {
   const vm = new Vue({
