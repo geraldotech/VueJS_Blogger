@@ -3,22 +3,28 @@
     <section class="intro">
       <div class="intro__content">
         <div class="intro__content-img">
-          <img src="https://picsum.photos/500/500" />
+          <img src="https://avatars.githubusercontent.com/u/92253544?v=4" />
         </div>
 
         <div class="intro__content-devinfo">
           <div>
             <h1 class="name">Geraldo Costa</h1>
-            <h2 class="subtitle">Front End Developer</h2>
+            <h2 class="subtitle">Frontend Developer</h2>
           </div>
           <div class="social-icons">
-            <a href="#linkedin"> <i class="icon-link fa-brands fa-linkedin"></i> </a>
-            <a href="#"><i class="icon-link fa-brands fa-github"></i></a>
+            <a
+              href="https://www.linkedin.com/in/geraldo-petronilo"
+              target="_blank">
+              <i class="icon-link fa-brands fa-linkedin"></i
+            ></a>
+            <a href="https://github.com/geraldotech" target="_blank"><i class="icon-link fa-brands fa-github"></i></a>
             <a href="#"><i class="icon-link fa-regular fa-envelope"></i></a>
-            <a href="#"><i class="icon-link fa-brands fa-linkedin"></i></a>
             <a href="#"><i class="icon-link fa-brands fa-instagram"></i></a>
             <a href="#">
-              <button class="btn-about">Contato</button>
+              <button class="btn-about">
+                Contato
+                <!-- <a href="#contact">Contato</a> -->
+              </button>
             </a>
           </div>
         </div>
@@ -39,9 +45,8 @@
           <h1>Geraldo Costa</h1>
           <p><strong>Software Developer</strong></p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nihil fuga quisquam pariatur quis cumque laborum, qui quae, totam maxime distinctio et a animi architecto incidunt
-            voluptatibus tenetur optio. Corporis autem optio, dolores maiores, accusamus cum voluptatem qui doloremque quaerat eveniet voluptatum sequi fuga, tenetur unde deleniti sunt perspiciatis
-            fugit!
+            Paixão por criar soluçes tecnológicas e estou pronto para contribuir em qualquer uma das áreas, front-end ou bacN-end. Meu objetivo é criar produtos de alta qualidade que atendam às
+            necessidades dos usuários e impulsionem o sucesso dos negócios. $stou ansioso para contribuir e aprender mais no mundo do desenvolvimento!
           </p>
 
           <p><strong>Soft Skills: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, autem?</p>
@@ -54,7 +59,7 @@
     <section
       id="projects"
       class="projects">
-      <h1>Projetos Desenvolvidos</h1>
+      <h1 class="heading">Projetos Desenvolvidos</h1>
       <div class="slide-container swiper">
         <div class="slide-content">
           <div class="card-wrapper swiper-wrapper">
@@ -73,7 +78,7 @@
                   perspiciatis illum quia maiores omnis!
                 </p>
                 <a href="#">
-                  <button class="button">Ver mais</button>
+                  <button class="projects__button">Ver mais</button>
                 </a>
               </div>
             </div>
@@ -93,7 +98,7 @@
                   perspiciatis illum quia maiores omnis!
                 </p>
                 <a href="#">
-                  <button class="button">Ver mais</button>
+                  <button class="projects__button">Ver mais</button>
                 </a>
               </div>
             </div>
@@ -113,7 +118,7 @@
                   perspiciatis illum quia maiores omnis!
                 </p>
                 <a href="#">
-                  <button class="button">Ver mais</button>
+                  <button class="projects__button">Ver mais</button>
                 </a>
               </div>
             </div>
@@ -133,7 +138,7 @@
                   perspiciatis illum quia maiores omnis!
                 </p>
                 <a href="#">
-                  <button class="button">Ver mais</button>
+                  <button class="projects__button">Ver mais</button>
                 </a>
               </div>
             </div>
@@ -153,7 +158,7 @@
                   perspiciatis illum quia maiores omnis!
                 </p>
                 <a href="#">
-                  <button class="button">Ver mais</button>
+                  <button class="projects__button">Ver mais</button>
                 </a>
               </div>
             </div>
@@ -173,7 +178,7 @@
                   perspiciatis illum quia maiores omnis!
                 </p>
                 <a href="#">
-                  <button class="button">Ver mais</button>
+                  <button class="projects__button">Ver mais</button>
                 </a>
               </div>
             </div>
@@ -233,8 +238,108 @@
         </div>
       </div>
     </section>
-
     <!-- EXPERIENCES -->
+
+    <!--  SKILLS -->
+    <section id="skills">
+      <div class="skills_container">
+        <h1 class="heading">Habilidades e Conhecimentos</h1>
+        <div class="card--container">
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/javascript.svg"
+              alt="" />
+            <h3>Javascript</h3>
+            <p>Linguagem em foco, onde estou estudando para a base para desenvolver projetos com NodeJS.</p>
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/html.svg"
+              alt="" />
+            <img
+              src="/src/assets/icons/svg/css.svg"
+              alt="" />
+            <h3>HTLM 5 - CSS 3</h3>
+            <p>Projetos base, estruturação e estilização moderna</p>
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/firebase.svg"
+              alt="" />
+            <h3>Google Firebase</h3>
+            <p>Autenticação, banco de dados e firestore</p>
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/git.svg"
+              alt="" />
+            <img
+              src="/src/assets/icons/svg/github.svg"
+              alt="" />
+            <h3>Git Github</h3>
+            <p>Versionamento de Código, e hospedagem dos principais projetos open source</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--  SKILLS -->
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact--container">
+        <form
+          action="#"
+          @submit="handlerSubmit"
+          class="contact-form">
+          <h2 class="contact-title">Envie sua mensagem</h2>
+          <hr />
+          <input
+            type="hidden"
+            name="access_key"
+            value="bea9b49b-5b05-4e6a-ae67-d47886aa2cd1" />
+          <div class="contact-inputs-div">
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              name="name"
+              v-model="name"
+              placeholder="Seu nome"
+              class="contact-inputs"
+              required />
+          </div>
+          <div class="contact-inputs-div">
+            <i class="fa-regular fa-envelope"></i>
+            <input
+              type="email"
+              v-model="email"
+              name="name"
+              placeholder="Seu E-mail"
+              class="contact-inputs"
+              required />
+          </div>
+          <textarea
+            v-model="message"
+            name="message"
+            placeholder="Sua Mensagem"
+            class="contact-inputs-div"
+            required></textarea>
+          <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+            Enviar
+          </button>
+          <p
+            class="text-base text-center text-gray-400"
+            id="result"></p>
+        </form>
+
+        <div class="contact-image">
+          <img
+            src="https://placekitten.com/400/400"
+            alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- CONTACT -->
   </main>
 </template>
 
@@ -243,11 +348,16 @@ module.exports = {
   /* MOUNTED */
   mounted() {
     this.loadSwiperScript()
+    //this.scrollToBottom()
   },
   created() {},
   beforeMount() {},
   data() {
-    return {}
+    return {
+      name: '',
+      email: '',
+      message: '',
+    }
   },
   methods: {
     loadSwiperScript() {
@@ -283,6 +393,61 @@ module.exports = {
         },
       })
     },
+    scrollToBottom() {
+      setTimeout(() => {
+        window.scrollTo(0, document.body.scrollHeight)
+      }, 500)
+    },
+    handlerSubmit() {
+      event.preventDefault()
+
+      const result = document.getElementById('result')
+
+      const object = {
+        name: this.name,
+        email: this.email,
+        message: this.message,
+        access_key: 'bea9b49b-5b05-4e6a-ae67-d47886aa2cd1',
+      }
+      const json = JSON.stringify(object)
+
+      result.innerHTML = 'Please wait...'
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          let json = await response.json()
+          if (response.status == 200) {
+            result.innerHTML = json.message
+            result.classList.remove('text-gray-500')
+            result.classList.add('text-green-500')
+          } else {
+            console.log(response)
+            result.innerHTML = json.message
+            result.classList.remove('text-gray-500')
+            result.classList.add('text-red-500')
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+          result.innerHTML = 'Something went wrong!'
+        })
+        .then(function () {
+          // form.reset();
+          setTimeout(() => {
+            console.log(`enviado!`)
+            result.style.display = 'none'
+          }, 3000)
+        })
+      event.target.reset()
+    },
+    // https://docs.web3forms.com/getting-started/examples/ajax-contact-form-using-javascript
   },
 }
 </script>
@@ -294,6 +459,8 @@ module.exports = {
 
 :root {
   --primary: #8257e5;
+  --purple: #7650cf;
+  --purple-disabled: #41356b;
   --secondary: #9c9487;
   --blue: #3c1691;
   --background1: #181a1b;
@@ -468,8 +635,13 @@ strong {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #121214;
+  background-color: var(--background2);
   text-align: center;
+}
+
+.projects .heading {
+  font-family: 'Anta', sans-serif;
+  font-size: 2.5em;
 }
 
 .slide-container {
@@ -521,20 +693,19 @@ strong {
 .description {
   font-family: 'Poppins', sans-serif;
   margin: 10px 0;
-  color: #e1e1e6;
+  color: var(--softcolor);
   font-size: 16px;
   line-height: 1.5;
   text-align: center;
 }
 
-.button {
+.projects__button {
   border: none;
   font-size: 16px;
   color: var(--whitecolor);
   padding: 8px 16px;
   background-image: linear-gradient(to right top, #4f08ae, #4e1699, #4b1e85, #472471, #42285e);
   border-radius: 6px;
-  margin: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -554,11 +725,12 @@ strong {
 }
 
 .experience_main .head_experience {
-  font-size: 22px;
-  color: #e1e1e6;
+  font-size: 2.5em;
+  color: var(--softcolor);
   position: relative;
   margin-bottom: 50px;
   font-weight: 500;
+  font-family: 'Anta', sans-serif;
 }
 
 .experience_main .head_experience::after {
@@ -674,7 +846,7 @@ ul li .date {
 
 .experiences__container ul li p {
   margin: 10px 0;
-  color: #e1e1e6;
+  color: var(--softcolor);
   font-size: 1rem;
   line-height: 1.5;
   text-align: justify;
@@ -732,6 +904,197 @@ ul li:nth-child(odd) .date {
 }
 
 /* EXPERIENCES ENDS */
+
+/* SKILLS */
+
+.skills_container {
+  background-color: var(--blackcolor);
+  padding: 100px 9%;
+  padding-bottom: 100px;
+  height: 100%;
+}
+
+.skills_container .heading {
+  text-align: center;
+  padding-bottom: 66px;
+  color: var(--softcolor);
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-size: 2.5em;
+  font-family: 'Anta', sans-serif;
+  letter-spacing: 1px;
+}
+
+.skills_container .card--container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 15px;
+}
+
+.skills_container .card--container .card_skill {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: var(--background3);
+  text-align: center;
+  padding: 26px 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.skills_container .card--container .card_skill img {
+  height: 60px;
+  color: var(--primary);
+}
+
+.skills_container .card--container .card_skill h3 {
+  color: var(--softcolor);
+  font-size: 1.2rem;
+  padding: 10px 0;
+}
+
+.skills_container .card--container .card_skill p {
+  color: var(--softcolor);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+.skills_container .card--container .card_skill:hover {
+  background-color: var(--blackcolor);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
+  border: 1.5px solid #7401e1;
+}
+
+.skills_container .card--container .card_skill:hover h3 {
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+.skills_container .card--container .card_skill:hover p {
+  color: var(--whitecolor);
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .skills_container {
+    padding: 20px;
+  }
+}
+
+/* SKILLS ENDS */
+
+/* CONTACT */
+#contact {
+  height: auto;
+  background-color: var(--background2);
+  font-family: 'Lato', sans-serif;
+}
+
+.contact--container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-around;
+  padding: 80px;
+  gap: 2rem;
+}
+.contact-form {
+  background-color: var(--background3);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.25rem;
+  border-radius: 12px;
+  margin: 0;
+  margin-left: 0;
+}
+
+.contact--container .contact-title {
+  font-weight: 600;
+  color: var(--softcolor);
+  font-size: 2rem;
+  margin-bottom: 2px;
+}
+
+.contact-form hr {
+  border: none;
+  width: 120px;
+  height: 5px;
+  background-color: #7650cf;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-form i {
+  color: var(--primary);
+}
+
+.contact-inputs-div {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 400px;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  font-weight: 500;
+  border-radius: 8px;
+  background-color: var(--background1);
+}
+.contact-inputs-div:focus-within {
+  border: 3px solid var(--primary);
+}
+
+.contact-inputs-div::placeholder {
+  color: #5e5e5e;
+}
+
+.contact-form textarea::placeholder {
+  font-weight: 500;
+}
+
+.contact-form textarea {
+  max-width: 400px;
+  padding-top: 1rem;
+  border-radius: 8px;
+  color: var(--whitecolor);
+  font-family: inherit;
+}
+
+.contact-inputs {
+  background: transparent;
+  display: flex;
+  color: #e1e1e6;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+.contact-form button[type='submit'] {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding: 15px 30px;
+  color: var(--softcolor);
+  gap: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--purple-disabled);
+  cursor: pointer;
+}
+.contact-form button[type='submit']:hover {
+  background-color: var(--purple);
+  transition: background-color 350ms ease;
+}
+
+.contact-form:hover {
+  box-shadow: 0 0 2px 2px var(--primary);
+}
+
+/* CONTACT  ENDS*/
 
 /* MOBILE */
 @media screen and (max-width: 1180px) {
