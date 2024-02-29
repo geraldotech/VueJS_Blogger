@@ -21,9 +21,8 @@
             <a href="#"><i class="icon-link fa-regular fa-envelope"></i></a>
             <a href="#"><i class="icon-link fa-brands fa-instagram"></i></a>
             <a href="#">
-              <button class="btn-about">
-                Contato
-                <!-- <a href="#contact">Contato</a> -->
+              <button class="btn-about">               
+                <a href="#contact">Contato</a>
               </button>
             </a>
           </div>
@@ -45,8 +44,8 @@
           <h1>Geraldo Costa</h1>
           <p><strong>Software Developer</strong></p>
           <p>
-            Paixão por criar soluçes tecnológicas e estou pronto para contribuir em qualquer uma das áreas, front-end ou bacN-end. Meu objetivo é criar produtos de alta qualidade que atendam às
-            necessidades dos usuários e impulsionem o sucesso dos negócios. $stou ansioso para contribuir e aprender mais no mundo do desenvolvimento!
+            Com mais de 10 anos de experiência como técnico de informática, adquiri um profundo conhecimento e habilidades práticas que me permitem lidar com uma ampla gama de problemas e situações no campo da tecnologia da informação.
+
           </p>
 
           <p><strong>Soft Skills: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, autem?</p>
@@ -575,6 +574,10 @@ strong {
     border: 2px solid var(--primary);
     cursor: pointer;
     transition: 0.5s;
+  }
+  & a{
+    text-decoration: none;
+     color: var(--whitecolor);
   }
 }
 
