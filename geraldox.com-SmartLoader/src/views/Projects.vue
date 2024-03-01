@@ -79,7 +79,7 @@ module.exports = {
         {
           id: 1,
           title: 'Somando maças',
-          description: 'Somando maças ajudar crianças na fase de alfabetização',
+          description: 'Somando maças ajudar crianças na fase da alfabetização matemática',
           img: './src/assets/img/apple-sum.jpg',
           link: 'https://dev.geraldox.com/projects/apple-sum/',
           tech: 'VueJS',

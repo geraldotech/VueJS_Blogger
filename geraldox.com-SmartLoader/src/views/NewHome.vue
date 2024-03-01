@@ -17,11 +17,15 @@
               target="_blank">
               <i class="icon-link fa-brands fa-linkedin"></i
             ></a>
-            <a href="https://github.com/geraldotech" target="_blank"><i class="icon-link fa-brands fa-github"></i></a>
+            <a
+              href="https://github.com/geraldotech"
+              target="_blank"
+              ><i class="icon-link fa-brands fa-github"></i
+            ></a>
             <a href="#"><i class="icon-link fa-regular fa-envelope"></i></a>
-            <a href="#"><i class="icon-link fa-brands fa-instagram"></i></a>
+            <a href="#file.pdf"><i class="icon-link fa-solid fa-download"></i></a>
             <a href="#">
-              <button class="btn-about">               
+              <button class="btn-about">
                 <a href="#contact">Contato</a>
               </button>
             </a>
@@ -34,21 +38,52 @@
     <!-- about -->
     <section class="about">
       <div class="about__content">
-        <figure class="about__img">
+        <!--  <figure class="about__img">
           <img
             src="https://placekitten.com/600/610"
             alt="" />
-        </figure>
+        </figure> -->
 
         <div class="about__info">
-          <h1>Geraldo Costa</h1>
-          <p><strong>Software Developer</strong></p>
+          <h1>
+            <strong>Experiência:</strong>
+          </h1>
           <p>
-            Com mais de 10 anos de experiência como técnico de informática, adquiri um profundo conhecimento e habilidades práticas que me permitem lidar com uma ampla gama de problemas e situações no campo da tecnologia da informação.
-
+            Com mais de 10 anos de experiência como técnico de informática, adquiri um profundo conhecimento e habilidades práticas que me permitem lidar com uma ampla gama de problemas e situações no
+            campo da tecnologia da informação.
+          </p>
+          <h1><strong>Soft Skills:</strong></h1>
+          <p>
+            Além das habilidades técnicas, possuo excelentes habilidades interpessoais que me permitem comunicar de forma clara e eficaz com os clientes e colegas de trabalho. Sou capaz de entender as
+            necessidades dos usuários finais e fornecer soluções que atendam às suas expectativas.
+          </p>
+          <h1>
+            <strong>Compromisso com a excelência:</strong>
+          </h1>
+          <p>
+            Estou comprometido em fornecer um serviço excepcional e garantir a satisfação do cliente. Estou sempre disposto a aprender e me manter atualizado com as últimas tendências e tecnologias no
+            campo da informática para garantir que eu possa oferecer as melhores soluções possíveis.
+          </p>
+          <h1>
+            <strong>Solucionador de problemas:</strong>
+          </h1>
+          <p>
+            Tenho uma mentalidade analítica e sou capaz de identificar e resolver problemas de forma rápida e eficaz. Minha capacidade de pensar de forma criativa me permite encontrar soluções
+            inovadoras para desafios técnicos complexos.
           </p>
 
-          <p><strong>Soft Skills: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, autem?</p>
+          <nav class="resume">
+              <h1>
+            <span class="icon-link-download">
+              <a href="https://gpnotes.droppages.com/geraldox.proxyfiles.com/files/geraldo_resume_ptbr.pdf" target="_blank"><strong>Baixar currículo 'ptBR'</strong><i class="fa-solid fa-file-arrow-down"></i></a
+            ></span>
+          </h1>
+              <h1>
+            <span class="icon-link-download">
+              <a href="https://gpnotes.droppages.com/geraldox.proxyfiles.com/files/geraldo_resume_eng.pdf" target="_blank"><strong>Baixar currículo 'eng'</strong><i class="fa-solid fa-file-arrow-down"></i></a
+            ></span>
+          </h1>
+          </nav>
         </div>
       </div>
     </section>
@@ -58,7 +93,7 @@
     <section
       id="projects"
       class="projects">
-      <h1 class="heading">Projetos Desenvolvidos</h1>
+      <h1 class="heading after_title_section">Projetos</h1>
       <div class="slide-container swiper">
         <div class="slide-content">
           <div class="card-wrapper swiper-wrapper">
@@ -66,19 +101,25 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                  src="https://placekitten.com/600/610"
+                  src="/src/assets/img/apple-sum.jpg"
                   alt="" />
               </div>
 
               <div class="card-content">
-                <h3 class="name">Cat</h3>
-                <p class="description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
-                  perspiciatis illum quia maiores omnis!
-                </p>
-                <a href="#">
-                  <button class="projects__button">Ver mais</button>
-                </a>
+                <div class="card-header">
+                  <h3 class="name">
+                    <a href="https://dev.geraldox.com/projects/apple-sum/" target="_blank">Vamos somar</a>
+                  </h3>
+                  <p class="description">Ajuda crianças na fase da alfabetização matemática, gerando contas aleatórias e respostas com multiplca escolha.</p>
+                </div>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/vuejs.svg"
+                      title="VueJS"
+                      alt="" />
+                  </span>
+                </div>
               </div>
             </div>
             <!-- CARD-->
@@ -86,19 +127,29 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                  src="https://placekitten.com/600/610"
+                  src="/src/assets/img/moviedb.jpg"
                   alt="" />
               </div>
 
               <div class="card-content">
-                <h3 class="name">Cat</h3>
-                <p class="description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
-                  perspiciatis illum quia maiores omnis!
-                </p>
-                <a href="#">
-                  <button class="projects__button">Ver mais</button>
-                </a>
+                <div class="card-header">
+                  <h3 class="name">
+                    <a
+                      href="https://react-movie-apis.netlify.app/"
+                      target="_blank">
+                      The Movie DB</a
+                    >
+                  </h3>
+                  <p class="description">Consumindo a API do The Movies Data Base para listar os 20 filmes mais populares.</p>
+                </div>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/reactjs.svg"
+                      title="React"
+                      alt="" />
+                  </span>
+                </div>
               </div>
             </div>
             <!-- CARD-->
@@ -106,19 +157,33 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                  src="https://placekitten.com/600/610"
+                  src="https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png"
                   alt="" />
               </div>
 
               <div class="card-content">
-                <h3 class="name">Cat</h3>
-                <p class="description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
-                  perspiciatis illum quia maiores omnis!
-                </p>
-                <a href="#">
-                  <button class="projects__button">Ver mais</button>
-                </a>
+                <div class="card-header">
+                  <h3 class="name">
+                    <a href="https://dev.geraldox.com/projects/shoppingcart/" target="_blank">Shopping Cart</a>
+                  </h3>
+                  <p class="description">Simulando um sistemas de compras, adicionar e remover itens ao carrinho</p>
+                </div>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/html.svg"
+                      title="HTML"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/css.svg"
+                      title="CSS"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/javascript.svg"
+                      title="Javascript"
+                      alt="" />
+                  </span>
+                </div>
               </div>
             </div>
             <!-- CARD-->
@@ -126,19 +191,69 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                  src="https://placekitten.com/600/610"
+                  src="https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png"
                   alt="" />
               </div>
-
               <div class="card-content">
-                <h3 class="name">Cat</h3>
+                <h3 class="name">
+                  <a
+                    href="https://vannlifeforfirebase.pages.dev/"
+                    target="_blank"
+                    >Life Vans</a
+                  >
+                </h3>
                 <p class="description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
-                  perspiciatis illum quia maiores omnis!
+                  Contextualizando recursos avançados como Router, Context API, Nested Routers, Outline, link state, search Params consumindo dados do Firebase. use as credenciais configuradas no
+                  miragejs: <b>g@g.com@123</b>.
                 </p>
-                <a href="#">
-                  <button class="projects__button">Ver mais</button>
-                </a>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/reactjs.svg"
+                      title="React"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/firebasevertical.svg"
+                      title="Firebase"
+                      alt="" />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- CARD-->
+
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <img
+                  src="https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw"
+                  alt="" />
+              </div>
+              <div class="card-content">
+                <h3 class="name">
+                  <a
+                    href="https://geraldotech.github.io/Gerador-Etiquetas-Make/FrontVersion/"
+                    target="_blank"
+                    >Gerador de Etiquetas</a
+                  >
+                </h3>
+                <p class="description">App construido para atender uma necessidade da empresa que fiz estágio</p>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/html.svg"
+                      title="HTML"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/css.svg"
+                      title="CSS"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/javascript.svg"
+                      title="Javascript"
+                      alt="" />
+                  </span>
+                </div>
               </div>
             </div>
             <!-- CARD-->
@@ -146,19 +261,34 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                  src="https://placekitten.com/600/610"
+                  src="https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png"
                   alt="" />
               </div>
-
               <div class="card-content">
-                <h3 class="name">Cat</h3>
-                <p class="description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
-                  perspiciatis illum quia maiores omnis!
-                </p>
-                <a href="#">
-                  <button class="projects__button">Ver mais</button>
-                </a>
+                <h3 class="name">
+                  <a
+                    href="https://gmapdev.netlify.app/projects/vivoeasy/"
+                    target="_blank"
+                    >Vivo Easy clone</a
+                  >
+                </h3>
+                <p class="description">Um do clone simulando as funcionalidades do aplicativo Vivo Easy</p>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/html.svg"
+                      title="HTML"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/css.svg"
+                      title="CSS"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/javascript.svg"
+                      title="Javascript"
+                      alt="" />
+                  </span>
+                </div>
               </div>
             </div>
             <!-- CARD-->
@@ -166,19 +296,132 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                  src="https://placekitten.com/600/610"
+                  src="/src/assets/icons/svg/javascriptlogo.svg"
                   alt="" />
               </div>
-
               <div class="card-content">
-                <h3 class="name">Cat</h3>
-                <p class="description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla asperiores maiores, laborum autem culpa iure pariatur harum et! Expedita cumque voluptatum vero quidem quasi fugiat
-                  perspiciatis illum quia maiores omnis!
-                </p>
-                <a href="#">
-                  <button class="projects__button">Ver mais</button>
-                </a>
+                <h3 class="name">
+                  <a
+                    href="https://dev.geraldox.com/projects/array_input_radio_search/"
+                    target="_blank"
+                    >Filtro dados</a
+                  >
+                </h3>
+                <p class="description">Filtrando dados por nome ou estado</p>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/html.svg"
+                      title="HTML"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/css.svg"
+                      title="CSS"
+                      alt="" />
+                    <img
+                      src="/src/assets/icons/svg/javascript.svg"
+                      title="Javascript"
+                      alt="" />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- CARD-->
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <img
+                  src="/src/assets/icons/svg/nodejslogo.svg"
+                  alt="" />
+              </div>
+              <div class="card-content">
+                <h3 class="name">
+                  <a
+                    href="https://expressloginway.onrender.com/"
+                    target="_blank"
+                    >Express session login
+                  </a>
+                </h3>
+                <p class="description">Simulando um sistema de login, cada user tem um painel diferente</p>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/nodejs.svg"
+                      title="NodeJS"
+                      alt="" />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- CARD-->
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <img
+                  src="/src/assets/img/password-128.svg"
+                  alt="" />
+              </div>
+              <div class="card-content">
+                <h3 class="name">
+                  <a
+                    href="https://dev.geraldox.com/projects/base64-converter/base64-converter-2"
+                    target="_blank"
+                    >Password generator
+                  </a>
+                </h3>
+                <p class="description">Codificador de senhas usando a Base 64</p>
+                <span class="tech_icons">
+                  <img
+                    src="/src/assets/icons/svg/html.svg"
+                    title="HTML"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/css.svg"
+                    title="CSS"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/javascript.svg"
+                    title="Javascript"
+                    alt="" />
+                </span>
+              </div>
+            </div>
+            <!-- CARD-->
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <img
+                  src="https://firebasemood.netlify.app/assets/images/logo.svg"
+                  alt="" />
+              </div>
+              <div class="card-content">
+                <h3 class="name">
+                  <a
+                    href="https://firebasemood.netlify.app/"
+                    target="_blank"
+                    >The Moody Zone
+                  </a>
+                </h3>
+                <p>Understanding Feelings</p>
+                <p class="description">Create Posts Read Posts Update Posts Delete Posts</p>
+                <span class="tech_icons">
+                  <img
+                    src="/src/assets/icons/svg/html.svg"
+                    title="HTML"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/css.svg"
+                    title="CSS"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/javascript.svg"
+                    title="Javascript"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/firebasevertical.svg"
+                    title="firebase"
+                    alt="" />
+                </span>
               </div>
             </div>
             <!-- CARD-->
@@ -198,24 +441,33 @@
         <div class="experiences__container">
           <ul class="timeline">
             <li>
-              <h3 class="heading">Engenharia de Software</h3>
+              <h3 class="heading">
+                Tec de Informática autônomo <br />
+                <a href="https://smartupdate.netlify.app/">Smartupdate</a>
+              </h3>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
-                repellat quae. Est aperiam aliquid doloribus voluptas!
+                Suporte técnico personalizado a clientes, criando soluções sob medida. Instalação, configuração e atualização de software, OS Windows / Linux , garantindo compatibilidade e segurança.
+                Habilidades na montagem, manutenção, de hardware, incluindo seleção de componentes e conexões. upgrade de hardware/software Instalação de roteadores, cabeamento.
               </p>
-              <span class="date">Jan 2023 / Dez 2024</span>
+              <span class="date">Jan 2010 - Presente</span>
               <span class="circle"></span>
             </li>
             <li>
-              <h3 class="heading">Engenharia de Software</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
-                repellat quae. Est aperiam aliquid doloribus voluptas!
-              </p>
-              <span class="date">Jan 2023 / Dez 2024</span>
+              <h3 class="heading">Administrador de sites e Redes - autônomo</h3>
+              <p>VPS cloud computing, Apache, Nginx, FTP, Squid Proxy, DNS, CMS Wordpress Linux server</p>
+              <span class="date">Jul 2023 / Fev 2024</span>
               <span class="circle"></span>
             </li>
             <li>
+              <h3 class="heading">
+                Estágio Técnico de Suporte <br />
+                Make Solutions
+              </h3>
+              <p>Configuração de computadores, network, softwares, manutenção preventiva, Backup do banco de dados, Tratativa de ordem de serviço CFTV, câmera IP, roteadores, switche</p>
+              <span class="date">Jan 2023 / Dez 2024</span>
+              <span class="circle"></span>
+            </li>
+            <!--  <li>
               <h3 class="heading">Engenharia de Software</h3>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
@@ -223,16 +475,7 @@
               </p>
               <span class="date">Jan 2023 / Dez 2024</span>
               <span class="circle"></span>
-            </li>
-            <li>
-              <h3 class="heading">Engenharia de Software</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, aliquam autem. Quia ducimus totam sunt sint facilis perferendis sapiente neque, laudantium placeat dignissimos
-                repellat quae. Est aperiam aliquid doloribus voluptas!
-              </p>
-              <span class="date">Jan 2023 / Dez 2024</span>
-              <span class="circle"></span>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -242,14 +485,14 @@
     <!--  SKILLS -->
     <section id="skills">
       <div class="skills_container">
-        <h1 class="heading">Habilidades e Conhecimentos</h1>
+        <h1 class="heading after_title_section">Habilidades e Conhecimentos</h1>
         <div class="card--container">
           <div class="card_skill">
             <img
               src="/src/assets/icons/svg/javascript.svg"
               alt="" />
             <h3>Javascript</h3>
-            <p>Linguagem em foco, onde estou estudando para a base para desenvolver projetos com NodeJS.</p>
+            <p>Linguagem em foco, a base para desenvolver projetos com e sem bicliotecas e frameworks</p>
           </div>
           <div class="card_skill">
             <img
@@ -266,7 +509,7 @@
               src="/src/assets/icons/svg/firebase.svg"
               alt="" />
             <h3>Google Firebase</h3>
-            <p>Autenticação, banco de dados e firestore</p>
+            <p>Banco de dados firebase authentication, e banco de dados - realtime e firestore</p>
           </div>
           <div class="card_skill">
             <img
@@ -277,6 +520,20 @@
               alt="" />
             <h3>Git Github</h3>
             <p>Versionamento de Código, e hospedagem dos principais projetos open source</p>
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/reactjs.svg"
+              alt="" />
+            <h3>ReactJS</h3>
+            <p>Biblioteca front-end JavaScript de código aberto com foco em criar interfaces de usuário</p>
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/nodejs.svg"
+              alt="" />
+            <h3>NodeJS</h3>
+            <p>JavaScript runtime built on Chrome's V8 JavaScript engine</p>
           </div>
         </div>
       </div>
@@ -333,7 +590,7 @@
 
         <div class="contact-image">
           <img
-            src="https://placekitten.com/400/400"
+            src="/src/assets/img/api-amico.svg"
             alt="" />
         </div>
       </div>
@@ -363,7 +620,7 @@ module.exports = {
       var swiper = new Swiper('.slide-content', {
         slidesPerView: 5,
         spaceBetween: 25,
-        loop: true,
+        loop: false,
         centerSlide: true,
         fade: true,
         grabCursor: true,
@@ -486,6 +743,7 @@ strong {
   padding: 0;
   margin: 0;
   min-height: 150vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .fa {
@@ -541,7 +799,11 @@ strong {
   display: flex;
   justify-content: center;
   gap: 1em;
+  a {
+    text-decoration: none;
+  }
 }
+
 .social-icons .icon-link {
   font-size: 2rem;
   color: var(--primary);
@@ -555,6 +817,43 @@ strong {
     transition: 0.4s;
     cursor: pointer;
   }
+}
+
+.icon-link-download {
+  color: var(--primary);
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: border 0.3s;
+  & a {
+    text-decoration: none;
+  }
+  & i {
+    font-size: 1.5rem;
+    color: rgb(195, 13, 13);
+    padding: 2px 6px;
+    transition: border 0.3s;
+  }
+  &:hover {
+  border: 2px solid var(--primary);
+  transform: scale(1.08);
+  transition: 0.4s;
+  cursor: pointer;
+  text-decoration: none; 
+}
+ & strong:hover{
+   color: var(--whitecolor);
+}
+& strong:hover + i{
+  color: red;
+}
+}
+
+.resume{
+  padding-block: 2rem;
+  text-align: left;
+}
+.resume h1{
+  margin-block: 1rem;
 }
 
 .social-icons .btn-about {
@@ -575,9 +874,9 @@ strong {
     cursor: pointer;
     transition: 0.5s;
   }
-  & a{
+  & a {
     text-decoration: none;
-     color: var(--whitecolor);
+    color: var(--whitecolor);
   }
 }
 
@@ -586,10 +885,16 @@ strong {
   background: var(--background1);
   padding: 3em;
   color: var(--softcolor);
+  @media (max-width: 500px) {
+    padding: 0;
+    .about__content {
+      padding: 10px;
+    }
+  }
 }
 
 .about__content {
-  display: flex;
+  /*  display: flex; */
   justify-content: space-between;
   align-content: center;
   flex-wrap: wrap;
@@ -628,6 +933,10 @@ strong {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+.about__info h1 {
+  align-self: flex-start;
+}
 /* ABOUT ENDS */
 
 /* PROJECTS */
@@ -645,6 +954,7 @@ strong {
 .projects .heading {
   font-family: 'Anta', sans-serif;
   font-size: 2.5em;
+  position: relative;
 }
 
 .slide-container {
@@ -652,7 +962,7 @@ strong {
   justify-content: space-around;
   max-width: 1444px;
   width: 90%;
-  height: 90%;
+  height: 80%;
   align-items: center;
 }
 
@@ -662,6 +972,11 @@ strong {
   height: 90%;
   width: 92%;
   padding: 10px 20px 20px;
+  /* only for desktops */
+  @media (min-width: 500px) {
+    height: 70%;
+    width: 70%;
+  }
 }
 .card {
   display: flex;
@@ -671,16 +986,31 @@ strong {
   border-radius: 14px;
 }
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: -webkit-fill-available;
+}
+.card-content h3:has(a) a {
+  text-decoration: none;
+  color: var(--purple);
+}
+.card-content h3 > a:hover {
+  color: purple;
+}
+
 .card-content .name {
   color: var(--primary);
   margin-top: 20px;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .image-content {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   height: 50%;
   border-radius: 12px;
   background-color: var(--primary);
@@ -689,17 +1019,21 @@ strong {
 .image-content img {
   width: 92%;
   height: 92%;
-  object-fit: cover;
+  /*  object-fit: cover; */
   border-radius: 8px;
+}
+.image-content img:hover {
+  transform: scale(1.1);
+  transition: all 1s ease;
 }
 
 .description {
   font-family: 'Poppins', sans-serif;
-  margin: 10px 0;
   color: var(--softcolor);
-  font-size: 16px;
+  font-size: 0.9rem;
+  text-align: justify;
   line-height: 1.5;
-  text-align: center;
+  padding: 0.5rem;
 }
 
 .projects__button {
@@ -711,6 +1045,13 @@ strong {
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.tech_icons img {
+  display: inline;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
 }
 
 /* PROJECT ENDS */
@@ -731,7 +1072,7 @@ strong {
   font-size: 2.5em;
   color: var(--softcolor);
   position: relative;
-  margin-bottom: 50px;
+  xmargin-bottom: 50px;
   font-weight: 500;
   font-family: 'Anta', sans-serif;
 }
@@ -739,7 +1080,7 @@ strong {
 .experience_main .head_experience::after {
   content: '';
   position: absolute;
-  width: 50%;
+  width: 100%;
   height: 3px;
   left: 50%;
   bottom: -5px;
@@ -753,12 +1094,13 @@ strong {
   margin: auto 0;
   position: relative;
   padding-top: 0px;
+  margin-top: 100px;
 }
 .experiences__container ul {
   list-style-type: none;
 }
 
-.experiences__container .timeline::after {
+.experiences__container ul.timeline::after {
   content: '  ';
   width: 2px;
   height: 100%;
@@ -768,7 +1110,7 @@ strong {
   background-image: linear-gradient(to bottom, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747));
 }
 
-.experiences__container ul li {
+.experiences__container ul.timeline li {
   width: 50%;
   height: auto;
   padding: 15px 20px;
@@ -786,11 +1128,15 @@ strong {
   font-family: 'Roboto', sans-serif;
 }
 
-.experiences__container ul li:nth-child(4) {
+.experiences__container .heading > a {
+  color: dodgerblue;
+}
+
+.experiences__container ul.timeline li:nth-child(4) {
   margin-bottom: 0;
 }
 
-.experiences__container ul li .circle {
+.experiences__container ul.timeline li .circle {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -809,17 +1155,17 @@ strong {
   border-radius: 50%;
 }
 
-ul li:nth-child(odd) .circle {
+ul.timeline li:nth-child(odd) .circle {
   transform: translate(50%, -50%);
   right: -30px;
 }
 
-ul li:nth-child(even) .circle {
+ul.timeline li:nth-child(even) .circle {
   transform: translate(-50%, -50%);
   left: -30px;
 }
 
-ul li .date {
+ul.timeline li .date {
   position: absolute;
   width: 280px;
   height: 33px;
@@ -835,19 +1181,19 @@ ul li .date {
   box-shadow: var(--degrade);
 }
 
-.experiences__container ul li:nth-child(odd) {
+.experiences__container ul.timeline li:nth-child(odd) {
   float: left;
   clear: right;
   text-align: right;
   transform: translateX(-30px);
 }
-.experiences__container ul li:nth-child(even) {
+.experiences__container ul.timeline li:nth-child(even) {
   float: right;
   clear: left;
   transform: translateX(30px);
 }
 
-.experiences__container ul li p {
+.experiences__container ul.timeline li p {
   margin: 10px 0;
   color: var(--softcolor);
   font-size: 1rem;
@@ -859,11 +1205,11 @@ ul li:nth-child(odd) .date {
   right: 20px;
 }
 
-.experiences__container ul li {
+.experiences__container ul.timeline li {
   transition: transform 0.9s ease, box-shadow 0.9s ease;
 }
 
-.experiences__container ul li:hover {
+.experiences__container ul.timeline li:hover {
   transform: scale(1.05);
   border: 2px solid #8257e5;
 }
@@ -872,36 +1218,33 @@ ul li:nth-child(odd) .date {
   .experiences__container {
     width: 70%;
     height: auto;
-    transform: translateX(20px);
+    transform: translateX(0.8rem);
   }
 
-  .experiences__container ul li {
+  .experiences__container ul.timeline li {
     width: 100%;
     float: none;
     clear: none;
     margin-bottom: 80px;
   }
-  .experiences__container .timeline::after {
+  .experiences__container ul.timeline::after {
     left: -40px;
   }
 
-  .experiences__container ul li .circle {
+  .experiences__container ul.timeline li .circle {
     left: -40px;
     transform: translate(-50%, -50%);
   }
 
-  .experiences__container ul li {
+  .experiences__container ul.timeline li {
     transition: none; /* Remover a transição em dispositivos móveis */
   }
-  .experience_main .head_experience {
-    padding-bottom: 50px;
-  }
 
-  .experiences__container ul li:nth-child(odd) {
+  .experiences__container ul.timeline li:nth-child(odd) {
     transform: translateX(0px);
     text-align: left;
   }
-  .experiences__container ul li:nth-child(even) {
+  .experiences__container ul.timeline li:nth-child(even) {
     transform: translateX(0px);
   }
 }
@@ -919,18 +1262,22 @@ ul li:nth-child(odd) .date {
 
 .skills_container .heading {
   text-align: center;
-  padding-bottom: 66px;
+
   color: var(--softcolor);
   text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   font-size: 2.5em;
   font-family: 'Anta', sans-serif;
   letter-spacing: 1px;
+  position: relative;
+  width: fit-content;
+  margin: auto;
 }
 
 .skills_container .card--container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 15px;
+  padding-top: 66px;
 }
 
 .skills_container .card--container .card_skill {
@@ -988,6 +1335,9 @@ ul li:nth-child(odd) .date {
   height: auto;
   background-color: var(--background2);
   font-family: 'Lato', sans-serif;
+  @media (max-width: 500px) {
+    padding-block: 10vh;
+  }
 }
 
 .contact--container {
@@ -996,19 +1346,28 @@ ul li:nth-child(odd) .date {
   align-items: center;
   align-content: space-between;
   justify-content: space-around;
-  padding: 80px;
+  padding: 100px 80px;
   gap: 2rem;
+  @media (max-width: 500px) {
+    padding: 0.5rem;
+  }
 }
 .contact-form {
   background-color: var(--background3);
   padding: 40px;
   display: flex;
+  max-width: 500px;
+  width: 100%;
   flex-direction: column;
   align-items: start;
   gap: 1.25rem;
   border-radius: 12px;
   margin: 0;
   margin-left: 0;
+  @media (max-width: 500px) {
+    padding: 1rem;
+    width: 100%;
+  }
 }
 
 .contact--container .contact-title {
@@ -1016,6 +1375,10 @@ ul li:nth-child(odd) .date {
   color: var(--softcolor);
   font-size: 2rem;
   margin-bottom: 2px;
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
 }
 
 .contact-form hr {
@@ -1035,7 +1398,8 @@ ul li:nth-child(odd) .date {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   height: 50px;
   border: none;
   outline: none;
@@ -1097,7 +1461,22 @@ ul li:nth-child(odd) .date {
   box-shadow: 0 0 2px 2px var(--primary);
 }
 
+.contact-image img {
+  width: 100%;
+}
+
 /* CONTACT  ENDS*/
+
+.after_title_section::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to right, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747));
+}
 
 /* MOBILE */
 @media screen and (max-width: 1180px) {

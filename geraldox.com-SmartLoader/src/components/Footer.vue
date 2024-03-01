@@ -28,7 +28,7 @@
         <path d="M16 12l-4-4-4 4"></path>
         <path d="M12 16V8"></path></svg
     ></a>
-    <p>Created By Geraldo Costa | Copyright &copy; 2023 GMAPDEV</p>
+    <p>Make by Geraldo Costa - copyright &copy; 2024 GMAPDEV</p>
   </footer>
 </template>
 
