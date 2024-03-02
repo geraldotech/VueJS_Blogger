@@ -5,15 +5,15 @@
         <li>
           <router-link to="/">Home</router-link>
         </li>
-        <li>
+       <!--  <li>
           <router-link :to="{ name: `projects` }">Projects</router-link>
-        </li>
+        </li> -->
         <li>
           <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
         </li>
-        <li>
+       <!--  <li>
           <router-link :to="{ name: `about` }">About</router-link>
-        </li>
+        </li> -->
       </section>
       <section class="top-nav_search__icon">
         <!--   <img
@@ -198,7 +198,7 @@ body {
 .menu {
   display: flex;
   max-width: 550px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   height: 55px;

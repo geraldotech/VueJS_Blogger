@@ -1227,6 +1227,7 @@ ul.timeline li .date {
   float: left;
   clear: right;
   text-align: right;
+  z-index: inherit;
   transform: translateX(-30px);
 }
 .experiences__container ul.timeline li:nth-child(even) {
