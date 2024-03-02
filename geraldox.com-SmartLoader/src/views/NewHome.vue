@@ -463,7 +463,7 @@
                 Estágio Técnico de Suporte <br />
                 Make Solutions
               </h3>
-              <p>Configuração de computadores, network, softwares, manutenção preventiva, Backup do banco de dados, Tratativa de ordem de serviço CFTV, câmera IP, roteadores, switche</p>
+              <p>Configuração de computadores, network, softwares, manutenção preventiva, Backup do banco de dados, Tratativa de ordem de serviço CFTV, câmera IP, roteadores e switches.</p>
               <span class="date">Jan 2023 / Dez 2024</span>
               <span class="circle"></span>
             </li>
@@ -530,10 +530,38 @@
           </div>
           <div class="card_skill">
             <img
+              src="/src/assets/icons/svg/vuejs.svg"
+              alt="" />
+            <h3>VueJS</h3>
+            <p>The Progressive JavaScript Framework building web user interfaces.</p>
+          </div>
+          <div class="card_skill">
+            <img
               src="/src/assets/icons/svg/nodejs.svg"
               alt="" />
             <h3>NodeJS</h3>
             <p>JavaScript runtime built on Chrome's V8 JavaScript engine</p>
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/ubuntu.svg"
+              alt="" />
+            <h3>Linux Services</h3>
+            <p>Serviços como Apache LAMP, FTP server, Squid Proxy, MySQL, DHCP, IP Tables e Shell Script</p>geraldo.filho92@yahoo.com.br  Python automação - Análise de dados 
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/php.svg"
+              alt="" />
+            <h3>PHP</h3>
+            <p>Integração com banco de dados MySQL</p>
+          </div>
+          <div class="card_skill">
+            <img
+              src="/src/assets/icons/svg/python.svg"
+              alt="" />
+            <h3>Python</h3>
+            <p>Gerar automaticamente PDFs, automação e Análise de dados</p>
           </div>
         </div>
       </div>
@@ -1017,7 +1045,7 @@ strong {
 }
 
 .image-content img {
-  width: 92%;
+  
   height: 92%;
   /*  object-fit: cover; */
   border-radius: 8px;

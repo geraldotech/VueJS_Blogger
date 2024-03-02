@@ -193,7 +193,7 @@ module.exports = {
 
 <style scoped>
 figure:has(img) img {
-  max-width: 80%;
+  max-width: 50%;
 }
 
 h1:nth-child(1) {
@@ -209,11 +209,14 @@ h1:nth-child(1) {
 .cards {
   display: grid;
   /* auto responsive */
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
   justify-items: center;
   max-width: 75rem;
   margin: 0 auto;
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
 }
 .card h1 {
   color: rebeccapurple;
