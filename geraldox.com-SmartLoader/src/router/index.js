@@ -1,7 +1,7 @@
 import cdn from '../cdn.js' //this import to use cdn links
 
 const Home = httpVueLoader('/src/views/Home.vue')
-const NewHome = httpVueLoader('/src/views/NewHome.vue')
+const HomeOld = httpVueLoader('/src/views/HomeOld.vue')
 const About =  httpVueLoader('/src/views/About.vue')
 const Politica = httpVueLoader('./src/views/Politicaprivacidade.vue')
 const Projects = httpVueLoader('/src/views/Projects.vue')
@@ -33,9 +33,9 @@ const routes = [
     name: 'Home Page',
   }, 
   {
-    path: '/novahome',
-    components: { default: NewHome },
-    name: 'NovaHome',
+    path: '/homeold',
+    components: { default: HomeOld },
+    name: 'OldHome',
     
   },
   {

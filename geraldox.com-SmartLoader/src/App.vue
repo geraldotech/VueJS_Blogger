@@ -98,7 +98,7 @@ module.exports = {
       this.isModalVisible = !this.isModalVisible
     },
     currentRouterToApplyClass() {
-      const RouterNames = ['Home Page', 'NovaHome']
+      const RouterNames = ['Home Page', 'OldHome']
       
       // if have not a named router
       const currentRouter = this.$route?.name?? ''
