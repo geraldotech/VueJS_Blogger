@@ -47,12 +47,20 @@
     <nav
       class="top-homepage"
       v-if="$route.name == 'Home Page'">
-      <li class="logo">
-        <a href="#">GPX</a>
-      </li>
+      <li class="logo">GPX</li>
+      <label>
+        <input
+          type="checkbox"
+          id="toggleMenu"
+          @change="handlerMenuChange"
+          v-model="menustate" />
+       <span class="menuicon">
+         <i class="fa-solid fa-bars"></i>
+       </span>
+      </label>
       <div class="items_menu">
         <li>
-          <a href="#">Projetos</a>
+          <a href="#projects">Projetos</a>
         </li>
         <li>
           <a href="#experiences">Experiência</a>
@@ -67,16 +75,6 @@
           <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
         </li>
       </div>
-      <label>
-        <input
-          type="checkbox"
-          id="toggleMenu"
-          @change="handlerMenuChange"
-          v-model="menustate" />
-        <span class="menuicon">
-          <i class="fa-solid fa-bars"></i>
-        </span>
-      </label>
     </nav>
 
     <!-- if route is HomePage not apply this class name, so HomePage gets full-width -->
@@ -108,7 +106,6 @@
     </main>
 
     <Foot />
-
     <!-- before wrapper in main, now to get full width is outside -->
   </div>
 </template>
@@ -117,7 +114,8 @@
 module.exports = {
   mounted() {
     this.closeMenuAftterClick()
-   // this.handlerMenuChange()
+    this.handlerMenuChange()
+    
   },
   data() {
     return {
@@ -155,10 +153,8 @@ module.exports = {
     },
     closeMenuAftterClick() {
       const menuItens = document.querySelectorAll('.items_menu li')
-
-      console.log(`closeMenuAftterClick loaded`)
-      console.warn(menuItens)
-
+      const toggleMenu = document.querySelector('#toggleMenu')
+ 
       menuItens.forEach((val) => {
         val.addEventListener('click', () => {
           console.log(`click`)
@@ -167,22 +163,12 @@ module.exports = {
           this.handlerMenuChange()
         })
       })
-    },
-    handlerMenuChange() {
-      const menuicon = document.querySelector('.menuicon')
-      menuicon.innerHTML = this.menustate ? `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-bars"></i>`
-    },
+    },  
+    handlerMenuChange(){
+      const menuicon = document.querySelector('.menuicon')   
+      menuicon.innerHTML = this.menustate ?  `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-bars"></i>`
+    }
   },
-  watch: {
-     $route() {
-      console.log($route.name) 
-            this.$nextTick(this.routeLoaded);
-            console.log(`rota ok`)
-          
-            setTimeout(() => {
-            }, 500);
-         }    
-  }
 }
 </script>
 <style>
@@ -390,7 +376,6 @@ nav:has(.btnDownload) a {
   text-decoration: none;
   color: #878787;
   font-size: 1.3rem;
-  padding: 1rem;
   &:hover {
     color: #fff;
   }
@@ -399,16 +384,13 @@ nav:has(.btnDownload) a {
   font-weight: 900;
   font-family: 'Anta', sans-serif;
   font-size: 2.5em;
-  a {
-    text-decoration: none;
-     color: #fff;
-  }
 }
 
 #toggleMenu,
 label:has(#toggleMenu) {
   display: none;
   cursor: pointer;
+  
 }
 label i {
   font-size: 2rem;
@@ -416,7 +398,7 @@ label i {
 
 @media (max-width: 700px) {
   label:has(#toggleMenu) {
-    display: block;
+    display: block;    
   }
   .top-homepage {
     position: sticky;
@@ -426,34 +408,24 @@ label i {
     padding-inline: 0.2rem;
   }
   .top-homepage .items_menu {
-    position: absolute;
-    top: 50px;
-    z-index: 1;
-    right: 0;
-    flex-direction: column;
-     justify-content: flex-start;
-    overflow: hidden;
-    gap: 3rem;
-
-    /*   visibility: hidden;
-   
-     */
-    opacity: 0;
-    height: 0;
-       width: 100vw;
-    transition: all 500ms ease-in-out;
+     display: noxne; 
+    position: relative;
+      right:  0;
+     visibility: hidden;
+     opacity: 0;
+     height: 0;
+     transition: all 1s ease-in-out;
   }
-
-  /* === WHEN MENU IS CHECKED === */
   .top-homepage:has(#toggleMenu:checked) .items_menu {
+     
+    flex-direction: column;
     top: 8vh;
-    height: 100vh;
-    overflow: hidden;
-    /*   
- visibility: visible;
-    */
+    width: 100%;
+    right: 0;
+    height: auto;
+    position: absolute;
     background-color: #000000;
-    transition: all 500ms linear;
+    visibility: visible;
     opacity: 1;
   }
 }

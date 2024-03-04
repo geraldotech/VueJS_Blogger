@@ -23,7 +23,6 @@
               ><i class="icon-link fa-brands fa-github"></i
             ></a>
             <a href="#"><i class="icon-link fa-regular fa-envelope"></i></a>
-            <a href="#file.pdf"><i class="icon-link fa-solid fa-download"></i></a>
             <a href="#">
               <button class="btn-about">
                 <a href="#contact">Contato</a>

@@ -67,7 +67,6 @@ h3 {
   margin-block: 15px;
 }
 div {
-  height: 320px;
   border-top: 1px solid;
   margin-top: 50px;
 }
