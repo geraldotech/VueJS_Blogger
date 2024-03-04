@@ -52,7 +52,7 @@
       </li>
       <div class="items_menu">
         <li>
-          <a href="#">Projetos</a>
+          <a href="#projects">Projetos</a>
         </li>
         <li>
           <a href="#experiences">Experiência</a>
@@ -119,8 +119,8 @@ module.exports = {
     this.handlerMenuChange()
     this.closeMenuAftterClick()
   },
-  updated(){
-      //this.closeMenuAftterClick()
+  updated() {
+    //this.closeMenuAftterClick()
   },
   data() {
     return {
@@ -164,12 +164,7 @@ module.exports = {
 
       menuItens.forEach((val) => {
         val.addEventListener('click', () => {
-          console.log(`click`)
           this.menustate = !this.menustate
-
-
-
-         
         })
       })
     },
@@ -179,24 +174,10 @@ module.exports = {
     },
   },
   watch: {
-    menustate(){
-       this.handlerMenuChange()
-       console.log(`mudando de state`)
+    menustate() {
+      this.handlerMenuChange()
     },
-     $route() {
-      console.log(this.$router) 
-           // this.$nextTick(this.routeLoaded);
-            console.log(`rota ok`)
-          
-            setTimeout(() => {
-            }, 500);
-         },
-         watch:{
-    $route (to, from){
-   //  this.closeMenuAftterClick()
-    }
-}     
-  }
+  },
 }
 </script>
 <style>
@@ -415,7 +396,7 @@ nav:has(.btnDownload) a {
   font-size: 2.5em;
   a {
     text-decoration: none;
-     color: #fff;
+    color: #fff;
   }
 }
 
@@ -445,7 +426,7 @@ label i {
     z-index: 1;
     right: 0;
     flex-direction: column;
-     justify-content: flex-start;
+    justify-content: flex-start;
     overflow: hidden;
     gap: 3rem;
 
@@ -454,7 +435,7 @@ label i {
      */
     opacity: 0;
     height: 0;
-       width: 100vw;
+    width: 100vw;
     transition: all 500ms ease-in-out;
   }
 
