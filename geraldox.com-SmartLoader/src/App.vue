@@ -116,11 +116,11 @@
 <script>
 module.exports = {
   mounted() {
-  //  this.closeMenuAftterClick()
     this.handlerMenuChange()
+    this.closeMenuAftterClick()
   },
   updated(){
-      this.closeMenuAftterClick()
+      //this.closeMenuAftterClick()
   },
   data() {
     return {
@@ -167,7 +167,9 @@ module.exports = {
           console.log(`click`)
           this.menustate = !this.menustate
 
-          this.handlerMenuChange()
+
+
+         
         })
       })
     },
@@ -177,6 +179,10 @@ module.exports = {
     },
   },
   watch: {
+    menustate(){
+       this.handlerMenuChange()
+       console.log(`mudando de state`)
+    },
      $route() {
       console.log(this.$router) 
            // this.$nextTick(this.routeLoaded);
