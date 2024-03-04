@@ -116,8 +116,11 @@
 <script>
 module.exports = {
   mounted() {
-    this.closeMenuAftterClick()
-   // this.handlerMenuChange()
+  //  this.closeMenuAftterClick()
+    this.handlerMenuChange()
+  },
+  updated(){
+      this.closeMenuAftterClick()
   },
   data() {
     return {
@@ -175,13 +178,18 @@ module.exports = {
   },
   watch: {
      $route() {
-      console.log($route.name) 
-            this.$nextTick(this.routeLoaded);
+      console.log(this.$router) 
+           // this.$nextTick(this.routeLoaded);
             console.log(`rota ok`)
           
             setTimeout(() => {
             }, 500);
-         }    
+         },
+         watch:{
+    $route (to, from){
+   //  this.closeMenuAftterClick()
+    }
+}     
   }
 }
 </script>
