@@ -118,9 +118,12 @@ module.exports = {
   mounted() {
     this.handlerMenuChange()
     this.closeMenuAftterClick()
+  setTimeout(() => {
+  //  console.log(`setime`)
+  }, 2000)
   },
   updated() {
-    //this.closeMenuAftterClick()
+   
   },
   data() {
     return {
@@ -174,6 +177,12 @@ module.exports = {
     menustate() {
       this.handlerMenuChange()
     },
+     '$route' (to, from) {
+       setTimeout(() => {
+      //console.log(`router change!`)
+      this.closeMenuAftterClick()
+    }, 500)
+    }
   },
 }
 </script>
