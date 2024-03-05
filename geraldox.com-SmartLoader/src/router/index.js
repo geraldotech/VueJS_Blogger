@@ -87,7 +87,10 @@ const routes = [
 ]
 
 // CHECK is deploy or production environment - by GMAP
-const producOrDevMode = location.hostname.includes('127.0.0.1')
+// if has any por like localhost:5000 / 192.168.0.1:4434 return true and apply hash
+
+const producOrDevMode = location.port != '' 
+//OLD const producOrDevMode = location.hostname.includes('127.0.0.1')
 
 const router = new VueRouter({
   mode: producOrDevMode ? '' : 'history',

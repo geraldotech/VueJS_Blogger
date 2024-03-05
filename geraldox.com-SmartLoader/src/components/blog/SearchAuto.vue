@@ -206,7 +206,7 @@ form input:focus {
   border: none;
   padding: 8px 10px;
   padding-inline: 25px;
-  border: 1px solid #eee;
+  background-color: #333;
   border-radius: 6px;
 }
 

@@ -2,8 +2,7 @@
   <footer>
     <router-link to="/politica-privacidade">Politica de Privacidade </router-link>
     |
-    <router-link to="/about">About </router-link> |
-
+    <router-link to="/about">About </router-link>
     <a
       href="#top"
       class="backtop"
@@ -27,7 +26,8 @@
         <path d="M16 12l-4-4-4 4"></path>
         <path d="M12 16V8"></path></svg
     ></a>
-    <p>Make by Geraldo Costa - copyright &copy; 2024 GMAPDEV</p>
+    <p>Built with VueJS by Geraldo Costa</p>
+    <p>Copyright &copy; 2024 GMAPDEV </p>
   </footer>
 </template>
 
@@ -41,16 +41,22 @@ footer {
   min-width: 200px;
   margin: auto;
   background: rgb(34, 34, 34);
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
   color: rgb(158, 149, 137);
   font-size: 13px;
   width: 100%;
-  height: 100px;
+  & a {
+    text-decoration: none;
+    color: dodgerblue;;
+  }
+  & a:hover{
+    text-decoration: underline;
+  }
 }
 
-footer p {
-  margin-block: 20px;
+footer p:first-of-type {
+  margin-top: 10px;
 }
 
 .backtop {

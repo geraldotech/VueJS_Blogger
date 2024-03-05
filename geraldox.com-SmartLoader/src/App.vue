@@ -77,14 +77,13 @@
         <input
           type="checkbox"
           id="toggleMenu"
-          @change="handlerMenuChange"
+          @change="handleMenuChangeIcon"
           v-model="menustate" />
         <span class="menuicon">
           <i class="fa-solid fa-bars"></i>
         </span>
       </label>
     </nav>
-
     <!-- if route is HomePage not apply this class name, so HomePage gets full-width -->
 
     <!--  <main :class="($route.name = checkCurrentRouterApplyClass() ? '' : 'main')"> -->
@@ -121,9 +120,6 @@
 
 <script>
 module.exports = {
-  updated() {
- 
-  },
   data() {
     return {
       isModalVisible: false,
@@ -139,6 +135,9 @@ module.exports = {
   methods: {
     clickCloseMenu() {
       this.menustate = !this.menustate
+
+      // call handleMenuChange to changeIcon
+      this.handleMenuChangeIcon()
     },
     showModal() {
       this.isModalVisible = true
@@ -161,20 +160,16 @@ module.exports = {
       }
       return 'full-width'
     },
-    handlerMenuChange() {
+    handleMenuChangeIcon() {
       const menuicon = document.querySelector('.menuicon')
       menuicon.innerHTML = this.menustate ? `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-bars"></i>`
     },
   },
   watch: {
-    menustate() {
-      this.handlerMenuChange()
-    },
      $route (to, from){
       if(to.name == 'Blog Posts'){
        // alert(`Bem vindo ao Blog`)
       }
-      console.log(from)
       // if from blog
      if(from.path == '/blog'){
       // close menu
@@ -206,11 +201,10 @@ body {
   color: #fff;
   line-height: 1.5;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /*  background: rgb(0, 12, 21); */
 }
 /* trick to keep footer on bottom and container get max-space */
 .main {
-  margin: 0 auto; /* before is body */
+  margin: 0 auto; /* before was body */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -457,9 +451,9 @@ label i {
   }
 }
 
-/* TOP HOME PAGE */
+/* === TOP HOME PAGE === */
 
-/* Desktop */
+/* === Desktop === */
 @media screen and (min-width: 650px) {
   .menu a {
     text-transform: uppercase; /* only desktop is upperCase menu */
