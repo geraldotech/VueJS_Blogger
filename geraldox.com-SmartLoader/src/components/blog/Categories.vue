@@ -49,8 +49,8 @@ module.exports = {
       const req = await fetch('/src/db/data.json')
       const res = await req.json()
       //filter post published
-      this.blogPosts = res.blog.posts
-      const getBlogPost = this.blogPosts.filter((post) => this.$route.params.category == post.category).reverse()
+      this.blogPosts = res.blog.posts 
+      const getBlogPost = this.blogPosts.filter((post) => this.$route.params.category == post.category && post.published).reverse()
       //console.log(publicados);
       //reverse render posts mais novos on top
       this.opt = getBlogPost
