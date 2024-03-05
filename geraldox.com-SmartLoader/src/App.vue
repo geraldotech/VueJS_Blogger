@@ -391,7 +391,7 @@ nav:has(.btnDownload) a {
   font-weight: 900;
   font-family: 'Anta', sans-serif;
   font-size: 2.5em;
-  a {
+  & a {
     text-decoration: none;
     color: #fff;
   }
