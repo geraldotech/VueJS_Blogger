@@ -159,9 +159,6 @@ module.exports = {
     closeMenuAftterClick() {
       const menuItens = document.querySelectorAll('.items_menu li')
 
-      console.log(`closeMenuAftterClick loaded`)
-      console.warn(menuItens)
-
       menuItens.forEach((val) => {
         val.addEventListener('click', () => {
           this.menustate = !this.menustate
