@@ -50,7 +50,9 @@
       <li class="logo">
         <a href="/">GPX</a>
       </li>
-      <div class="items_menu">
+      <div
+        class="items_menu"
+        @click="clickCloseMenu">
         <li>
           <a href="#projects">Projetos</a>
         </li>
@@ -64,7 +66,11 @@
           <a href="#contact">Contato</a>
         </li>
         <li>
-          <router-link :to="{ name: 'Blog Posts' }">Blog</router-link>
+          <router-link
+            :to="{ name: 'Blog Posts' }"
+            @click.native="clickCloseMenu"
+            >Blog</router-link
+          >
         </li>
       </div>
       <label>
@@ -115,15 +121,8 @@
 
 <script>
 module.exports = {
-  mounted() {
-    this.handlerMenuChange()
-    this.closeMenuAftterClick()
-  setTimeout(() => {
-  //  console.log(`setime`)
-  }, 2000)
-  },
   updated() {
-   
+ 
   },
   data() {
     return {
@@ -138,6 +137,9 @@ module.exports = {
     Modal: httpVueLoader('../src/components/Modal.vue'),
   },
   methods: {
+    clickCloseMenu() {
+      this.menustate = !this.menustate
+    },
     showModal() {
       this.isModalVisible = true
     },
@@ -159,15 +161,6 @@ module.exports = {
       }
       return 'full-width'
     },
-    closeMenuAftterClick() {
-      const menuItens = document.querySelectorAll('.items_menu li a')
-
-      menuItens.forEach((val) => {
-        val.addEventListener('click', () => {
-          this.menustate = !this.menustate
-        })
-      })
-    },
     handlerMenuChange() {
       const menuicon = document.querySelector('.menuicon')
       menuicon.innerHTML = this.menustate ? `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-bars"></i>`
@@ -177,11 +170,17 @@ module.exports = {
     menustate() {
       this.handlerMenuChange()
     },
-     '$route' (to, from) {
-       setTimeout(() => {
-      //console.log(`router change!`)
-      this.closeMenuAftterClick()
-    }, 800)
+     $route (to, from){
+      if(to.name == 'Blog Posts'){
+       // alert(`Bem vindo ao Blog`)
+      }
+      console.log(from)
+      // if from blog
+     if(from.path == '/blog'){
+      // close menu
+        this.clickCloseMenu()
+     }       
+        
     }
   },
 }
@@ -415,7 +414,7 @@ label i {
   font-size: 2rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   label:has(#toggleMenu) {
     display: block;
   }
@@ -436,8 +435,7 @@ label i {
     overflow: hidden;
     gap: 3rem;
 
-    /*   visibility: hidden;
-   
+    /*   visibility: hidden;   
      */
     opacity: 0;
     height: 0;
