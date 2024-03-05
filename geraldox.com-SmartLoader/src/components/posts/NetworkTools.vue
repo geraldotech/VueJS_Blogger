@@ -31,7 +31,7 @@
         1.0.0.0
     </pre>
 
-    <h2>Over TLS</h2>
+    <h1>Over TLS</h1>
     <pre>
         1dot1dot1dot1.cloudflare-dns.com
     </pre>
@@ -44,6 +44,7 @@
 
     <h2>Others</h2>
     <pre>family-filter-dns.cleanbrowsing.org</pre>
+    <pre>dns.adguard.com</pre>
   </div>
 </template>
 

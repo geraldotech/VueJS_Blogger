@@ -160,7 +160,7 @@ module.exports = {
       return 'full-width'
     },
     closeMenuAftterClick() {
-      const menuItens = document.querySelectorAll('.items_menu li')
+      const menuItens = document.querySelectorAll('.items_menu li a')
 
       menuItens.forEach((val) => {
         val.addEventListener('click', () => {
