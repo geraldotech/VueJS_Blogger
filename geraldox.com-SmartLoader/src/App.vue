@@ -167,13 +167,14 @@ module.exports = {
   },
   watch: {
      $route (to, from){
+     // console.log(to)
       if(to.name == 'Blog Posts'){
        // alert(`Bem vindo ao Blog`)
       }
-      // if from blog
-     if(from.path == '/blog'){
+      // of to goingo Home and from from blog router
+     if(to.name == 'Home Page' && from.path == '/blog'){
       // close menu
-        this.clickCloseMenu()
+       this.menustate = !this.menustate
      }       
         
     }

@@ -313,6 +313,7 @@ h1 {
   cursor: pointer;
   text-align: center;
   background: #0044b3;
+  color: #fff;
   padding: 5px 8px;
   border: none;
   opacity: 0.8;

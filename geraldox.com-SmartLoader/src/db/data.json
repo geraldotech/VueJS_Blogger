@@ -371,6 +371,17 @@
         "article": "",
         "component": "hydratationssr",
         "category": "developer"
+      },
+      {
+        "id": 35,
+        "title": "Frontend Games",
+        "slug": "front-end-games",
+        "author": "geraldox",
+        "published": false,
+        "createdAt": "Mar 05, 2024",
+        "article": "<p>List of games to play made with HTML/CSS/JavaScript</p>",
+        "component": "frontgames",
+        "category": "developer"
       }
     ]
   }

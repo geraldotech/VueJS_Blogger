@@ -110,7 +110,11 @@ module.exports = {
 
       this.blog = getBlogPost
 
+
       this.metaInfoInject(getBlogPost.title)
+
+
+      this.tryImportComponentAuto(getBlogPost)
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
@@ -134,6 +138,9 @@ module.exports = {
         },
       }
     },
+    tryImportComponentAuto(blog){
+      console.log(blog)
+    }
   },
 }
 </script>

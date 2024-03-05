@@ -1136,6 +1136,7 @@ strong {
   position: relative;
   padding-top: 0px;
   margin-top: 100px;
+  z-index: 2;
 }
 .experiences__container ul {
   list-style-type: none;

@@ -5,8 +5,7 @@
     <ul v-for="(value, name) in categorias" :key="name">
       <li>
         <router-link :to="`/categories/${name}`"
-          >{{ name }} - {{ value }}</router-link
-        >
+          >{{ name }} - {{ value }}</router-link>
       </li>
     </ul>
   </div>

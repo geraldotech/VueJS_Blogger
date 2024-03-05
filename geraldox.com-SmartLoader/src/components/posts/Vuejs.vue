@@ -1,7 +1,7 @@
 <template>
   <div>
     <figure>
-      <img :src="`${img[2023]}/vuejs.png`" />
+      <img class="img-flex" :src="`${img[2023]}/vuejs.svg`" />
     </figure>
     <p>How check Vue Version ?</p>
     <code> console.log(Vue.version);</code>
