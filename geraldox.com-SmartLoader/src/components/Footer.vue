@@ -19,7 +19,7 @@
         stroke-linejoin="round"
         stroke-width="1.5"
         viewBox="0 0 24 24"
-        style="color: currentcolor; width: 40px; height: 40px">
+        style="color: #fff; width: 40px; height: 40px">
         <circle
           cx="12"
           cy="12"
@@ -85,7 +85,7 @@ footer p {
   footer {
     background: rgb(29, 27, 27);
     text-align: center;
-    color: dodgerblue;
+    color: #fff;
   }
   .backtop {
     right: 0 !important;
