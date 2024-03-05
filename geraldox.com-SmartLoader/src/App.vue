@@ -48,7 +48,7 @@
       class="top-homepage"
       v-if="$route.name == 'Home Page'">
       <li class="logo">
-        <a href="#">GPX</a>
+        <a href="/">GPX</a>
       </li>
       <div class="items_menu">
         <li>

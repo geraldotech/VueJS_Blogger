@@ -3,7 +3,6 @@
     <router-link to="/politica-privacidade">Politica de Privacidade </router-link>
     |
     <router-link to="/about">About </router-link> |
-    <router-link to="/novahome">/NovaHome </router-link>
 
     <a
       href="#top"
