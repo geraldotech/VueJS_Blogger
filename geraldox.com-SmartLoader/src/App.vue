@@ -181,7 +181,7 @@ module.exports = {
        setTimeout(() => {
       //console.log(`router change!`)
       this.closeMenuAftterClick()
-    }, 500)
+    }, 800)
     }
   },
 }
