@@ -44,7 +44,7 @@ footer {
   padding: 2rem;
   text-align: center;
   color: rgb(158, 149, 137);
-  font-size: 13px;
+  font-size: 10px;
   width: 100%;
   & a {
     text-decoration: none;

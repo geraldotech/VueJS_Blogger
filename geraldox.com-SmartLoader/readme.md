@@ -150,14 +150,15 @@
     // where CDN is a custom name of import
 
     // import cdn from './cdn.js'
+    // Considerer use loading="lazy" to performance benefits
 
-    <img src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop"
+    <img loading="lazy" src="${cdn.img[2023]}/desativando-modo-turbo.jpg" alt="drop"
 
     // fullpath + manual
-    <img src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop"
+    <img loading="lazy" src="${cdn.img.path}/2023/img/desativando-modo-turbo.jpg" alt="drop"
 
     //Amazon S3
-     <img src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
+     <img loading="lazy" src="${cdn.img.s3[2023]}/offline.jpg" alt="" />
     ```
 
     - `Components.vue` - It was necessary add Vue Mixin in `main.js`
