@@ -38,18 +38,22 @@
           <p v-html="blog.article"></p>
 
           <!-- render components -->
-          <!-- v1 se comentar vai quebrar o WebComponents.js e importacao de nomes -->
           <component :is="blog.component"></component>
-
-          <!-- v2 NOW import is Dynamic -->
-          <component :is="dynamicComponent"></component>
-
           <!-- render SmartComponents[ContainerPosts.vue de Components] -->
           <Container></Container>
         </article>
         <div v-else>
           <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
         </div>
+
+        <h4 style="color: coral">{{ blog.component }}</h4>
+
+
+
+         <component :is="importedComponent"></component> 
+     
+      
+       
 
         <!-- custom html to specific slug posts -->
         <div v-if="$route.params.slug == 'speed-test'">
@@ -80,29 +84,32 @@ module.exports = {
   async created() {
     this.posts()
     // this.tryImportComponentAuto()
-
     //console.log(this.$route); //currently
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
     //console.log(`UserPost: root`, this.$root);
-  },
-  async mounted() {
+      try {
+      this.importedComponent = await this.tryImportComponentAuto();
+       console.log(this.importedComponent)
+    } catch (error) {
+      console.error('Error importing component:', error);
+    } 
   },
   data() {
     return {
       blog: {},
       GetallPosts: [],
-      dynamicComponent: null,
+      importedComponent: 'hydratationssr'
     }
   },
   components: {
-    /* === BLOG PARTIALS ===  */
+    /* BLOG  */
     Sidebarbottom: httpVueLoader('/src/components/blog/SidebarBottom.vue'),
     Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
     Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
     Searchauto: httpVueLoader('../components/blog/SearchAuto.vue'),
     Adsense: httpVueLoader('../components/blog//Adsense.vue'),
 
-    /* === BLOG POSTS === */
+    /* POSTS */
     Android: httpVueLoader('../posts/android-roo.vue'),
     Vuejs: httpVueLoader('../posts/Vuejs.vue'),
     Speedtest: httpVueLoader('../posts/Speedtest.vue'),
@@ -116,17 +123,14 @@ module.exports = {
     async posts() {
       const req = await fetch('/src/db/data.json')
       const data = await req.json()
+      //console.warn(data);
       this.GetallPosts = data.blog.posts
       //encontra a slug atual e verifica se esta plublicada
       const getBlogPost = this.GetallPosts.find((post) => post.slug == this.$route.params.slug && post.published)
 
       this.blog = getBlogPost
 
-      /* Dynamic apply metaInfo */
       this.metaInfoInject(getBlogPost.title)
-
-      /* Dynamic Import Components */
-      this.getDynamicComponent(getBlogPost)
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
@@ -150,43 +154,21 @@ module.exports = {
         },
       }
     },
-    async fetchComponentData() {
-      try {
-        const checkExist = await axios.head(`/src/components/posts/${this.blog.component}.vue`)
-        if (checkExist.status >= 200 && checkExist.status < 300) {
-          return {
-            component: `/src/components/posts/${this.blog.component}.vue`,
-          }
-        } else {
-          console.log('fetchComponent Dynamic File does not exist')
-          return null
-        }
-      } catch (error) {
-        if (error.response && error.response.status === 404) {
-          console.log('fetchComponent Dynamic File does not exist')
-          return null
-        } else {
-          console.error('Error checking file existence:', error)
-          return null
+   async tryImportComponentAuto() {
+      
+      httpVueLoader.httpRequest = async function (url = '/src/components/posts/frontgames.vue') {
+        try {
+          const response = await axios.get(url)
+          console.log(response.data)
+         
+         // await new Promise((resolve) => setTimeout(resolve, 1000))
+          return response.data
+        } catch (err) {
+           throw new Error(error.response.status);
         }
       }
-
-     /*  return {
-        component: `/src/components/posts/${this.blog.component}.vue`,
-      } */
-    },
-    async getDynamicComponent() {
-      try {
-        const componentData = await this.fetchComponentData() // Fetch component data from your router or other source
-
-        if (componentData) {
-          this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
-        }
-      } catch (error) {
-        // console.error('Error loading dynamic component:', error)
-      } finally {
-        console.log()
-      }
+      httpVueLoader.httpRequest()
+      /* end */
     },
   },
 }

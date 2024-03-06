@@ -377,9 +377,9 @@
         "title": "Frontend Games",
         "slug": "front-end-games",
         "author": "geraldox",
-        "published": false,
+        "published": true,
         "createdAt": "Mar 05, 2024",
-        "article": "<p>List of games to play made with HTML/CSS/JavaScript</p>",
+        "article": "",
         "component": "frontgames",
         "category": "developer"
       }

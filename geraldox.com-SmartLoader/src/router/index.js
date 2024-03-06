@@ -45,7 +45,7 @@ const routes = [
     children: [
       {
         path: 'mapa',
-        name: 'Categories Map',
+        name: 'categoriesMap',
         component: Mapa,
       },
     ],
@@ -57,6 +57,7 @@ const routes = [
   },
   {
     path: '/categories/:category',
+    name: 'category',
     component: Categories,
   },
   {

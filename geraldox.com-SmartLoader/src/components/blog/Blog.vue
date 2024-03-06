@@ -27,7 +27,7 @@
         <!--  -->
         <div class="map">
           <div>
-            <router-link :to="{ name: `Categories Map` }">Website Map:</router-link>
+            <router-link :to="{ name: `categoriesMap` }">Website Map:</router-link>
           </div>
           <label>Selecionar:</label>
           <select
@@ -80,7 +80,6 @@
           </p>
         </section>
         <!--  pinnedPost -->
-        <!--  <h1>Threads:</h1> -->
 
         <!--  RenderPosts -->
         <ul>
