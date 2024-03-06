@@ -133,9 +133,6 @@
     <div v-if="$route.name == `categoriesMap`">
       <Mapas />
     </div>
-    <div v-if="$route.name == 'megageMapa'">
-      <Megax />
-    </div>
   </div>
 </template>
 
@@ -163,7 +160,6 @@ module.exports = {
     Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
     Searchauto: httpVueLoader('/src/components/blog/SearchAuto.vue'),
     Mapas: httpVueLoader('/src/components/blog/mapa.vue'),
-    Megax: httpVueLoader('/src/components/blog/CategoriesX'),
     Adsense: httpVueLoader('/src/components/blog/Adsense.vue'),
   },
   data() {

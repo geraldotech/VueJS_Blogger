@@ -56,7 +56,7 @@ const routes = [
     component: UserPost,
   },
   {
-    path: '/categories/:category',
+    path: '/blog/categories/:category',
     name: 'category',
     component: Categories,
   },
@@ -137,5 +137,4 @@ router.afterEach((to, from) => {
     }
   })
 }) */
-
 export default router
