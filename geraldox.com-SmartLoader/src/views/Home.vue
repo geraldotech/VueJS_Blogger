@@ -166,6 +166,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
+                loading="lazy"
                   src="https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png"
                   alt="" />
               </div>
@@ -204,6 +205,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
+                loading="lazy"
                   src="https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png"
                   alt="" />
               </div>
@@ -239,8 +241,9 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
+                loading="lazy"
                   src="https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw"
-                  alt="" />
+                  alt="pdf icon" />
               </div>
               <div class="card-content">
                 <h3 class="name">
@@ -274,6 +277,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
+                loading="lazy"
                   src="https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png"
                   alt="" />
               </div>
@@ -404,6 +408,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
+                loading="lazy"
                   src="https://firebasemood.netlify.app/assets/images/logo.svg"
                   alt="" />
               </div>
@@ -519,6 +524,7 @@
           </div>
           <div class="card_skill">
             <img
+            loading="lazy"
               src="/src/assets/icons/svg/firebasevertical.svg"
               alt="" />
             <h3>Google Firebase</h3>
