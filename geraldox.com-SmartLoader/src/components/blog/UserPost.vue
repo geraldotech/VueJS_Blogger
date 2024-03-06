@@ -39,7 +39,7 @@
 
           <!-- render components -->
           <!-- v1 se comentar vai quebrar o WebComponents.js e importacao de nomes -->
-          <component :is="blog.component"></component>
+       <!--    <component :is="blog.component"></component> -->
 
           <!-- v2 NOW import is Dynamic -->
           <component :is="dynamicComponent"></component>
@@ -59,6 +59,7 @@
       </main>
       <Sidebar />
     </div>
+
   </div>
 </template>
 <script>

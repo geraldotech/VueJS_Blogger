@@ -24,10 +24,9 @@
           <Searchauto v2 />
         </div>
 
-        <!--  -->
         <div class="map">
           <div>
-            <router-link :to="{ name: `categoriesMap` }">Website Map:</router-link>
+            <router-link :to="{ name: 'categoriesMap' }">Website Map:</router-link>
           </div>
           <label>Selecionar:</label>
           <select
@@ -80,7 +79,6 @@
           </p>
         </section>
         <!--  pinnedPost -->
-
         <!--  RenderPosts -->
         <ul>
           <li
@@ -132,8 +130,11 @@
       <Sidebar />
     </div>
     <!--  if a rota for === entao show -->
-    <div v-if="$route.name == `Categories Map`">
+    <div v-if="$route.name == `categoriesMap`">
       <Mapas />
+    </div>
+    <div v-if="$route.name == 'megageMapa'">
+      <Megax />
     </div>
   </div>
 </template>
@@ -162,6 +163,7 @@ module.exports = {
     Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
     Searchauto: httpVueLoader('/src/components/blog/SearchAuto.vue'),
     Mapas: httpVueLoader('/src/components/blog/mapa.vue'),
+    Megax: httpVueLoader('/src/components/blog/CategoriesX'),
     Adsense: httpVueLoader('/src/components/blog/Adsense.vue'),
   },
   data() {

@@ -91,6 +91,7 @@
       <router-view
         :key="$route.path"
         class="router-view"></router-view>
+      <router-view> </router-view>
 
       <Modal
         v-show="isModalVisible"
@@ -166,18 +167,17 @@ module.exports = {
     },
   },
   watch: {
-     $route (to, from){
-     // console.log(to)
-      if(to.name == 'Blog Posts'){
-       // alert(`Bem vindo ao Blog`)
+    $route(to, from) {
+      // console.log(to)
+      if (to.name == 'Blog Posts') {
+        // alert(`Bem vindo ao Blog`)
       }
       // of to goingo Home and from from blog router
-     if(to.name == 'Home Page' && from.path == '/blog'){
-      // close menu
-       this.menustate = !this.menustate
-     }       
-        
-    }
+      if (to.name == 'Home Page' && from.path == '/blog') {
+        // close menu
+        this.menustate = !this.menustate
+      }
+    },
   },
 }
 </script>

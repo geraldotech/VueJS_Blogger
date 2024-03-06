@@ -51,7 +51,7 @@ const routes = [
     ],
   },
   {
-    path: '/blog/:category/:slug+',
+    path: '/blog/:category/:slug+', // if remove + not load 404 page
     name: 'threads',
     component: UserPost,
   },
