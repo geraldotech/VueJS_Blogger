@@ -71,8 +71,8 @@ module.exports = {
     getPostsFromCategory() {
       // no forget pust ? to void error
       const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
-      this.categoryRes = posts
-      return posts
+     return this.categoryRes = posts
+       
     },
     getPostMultipleQueries() {
       return this.allposts?.filter((post) => post.id === +this.$route.query.id)

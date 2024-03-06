@@ -2,9 +2,9 @@
   <div>
       <button @click="handlerPushRouter()">handlerPushRouter</button>
 
-      <p>Try query search params in <a href="https://geraldox.com/blog/search?category=android"></a> </p>
+      <p>Try query search params in <a href="https://geraldox.com/blog/search?category=android">https://geraldox.com/blog/search?category=android</a> </p>
     <figure>
-      <img class="img-flex" loading="lazy" :src="`${img[2023]}/vuejs.svg`" />
+      <img class="img-flex" height="100px" loading="lazy" :src="`${img[2023]}/vuejs.svg`" />
     </figure>
     <p>How check Vue Version ?</p>
     <code> console.log(Vue.version);</code>
