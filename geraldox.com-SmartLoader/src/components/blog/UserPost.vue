@@ -25,7 +25,8 @@
               By:<span>{{ blog.author }}</span> | Posted on: {{ blog.createdAt }} |
               <button
                 data="print"
-                onclick="print()">                
+                title="print"
+                onclick="print()">
                 <i class="fa-solid fa-print"></i>
               </button>
             </p>
@@ -110,9 +111,7 @@ module.exports = {
 
       this.blog = getBlogPost
 
-
       this.metaInfoInject(getBlogPost.title)
-
 
       this.tryImportComponentAuto(getBlogPost)
     },
@@ -138,9 +137,13 @@ module.exports = {
         },
       }
     },
-    tryImportComponentAuto(blog){
-      console.log(blog)
-    }
+    tryImportComponentAuto(blog) {
+      /* TO THIS WORK NAME OS COMPONENT MUST BE NAME OF FILE TOO */
+      const defaultPostsPath = `/posts/${blog}.vue`
+
+      httpVueLoader(defaultPostsPath),
+      console.log(blog.component)
+    },
   },
 }
 </script>
@@ -173,6 +176,7 @@ article p {
   margin: 7px 0;
 }
 div.breadcrumbs {
+  font-size: 12px;
   margin: 4px 0;
   border-radius: 5px 5px;
   font-weight: bold;
@@ -186,7 +190,7 @@ div.breadcrumbs {
   text-transform: uppercase; /* first-letter maiusculo */
 }
 .breadcrumbs__author__date {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 .breadcrumbs a {
   text-decoration: none;
@@ -204,11 +208,11 @@ h4.notFound {
 }
 button[data*='print'] {
   background: none;
-  padding: 0px 15px;
+  color: #05bdba;
   border: none;
   cursor: pointer;
-  font-size: inherit;
   
+  font-size: inherit;
 }
 
 /* for desktop */
