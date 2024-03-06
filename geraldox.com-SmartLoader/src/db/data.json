@@ -382,17 +382,6 @@
         "article": "",
         "component": "frontgames",
         "category": "developer"
-      },
-      {
-        "id": 36,
-        "title": "Frontend Games",
-        "slug": "front-end-games",
-        "author": "geraldox",
-        "published": true,
-        "createdAt": "Mar 05, 2024",
-        "article": "",
-        "component": "frontgames",
-        "category": "developer"
       }
     ]
   }

@@ -3,6 +3,8 @@
     <h1>Router Search, and using axios to fetch data</h1>
     <h2>Example how to use query params you can direct in get:</h2>
 
+    <button @click="fetchData()">fetchData()</button>
+
     <p><strong>blog/search?category=android</strong></p>
     <p>{{ getPostsFromCategory }}</p>
 
@@ -53,7 +55,7 @@ module.exports = {
     /* === USE method to fetch and anther to filter data  ===*/
     fetchData() {
       axios
-        .get('./src/db/data.json')
+        .get('/src/db/data.json')
         .then((response) => {
           this.rawData = response.data?.blog.posts
           this.handlerFilterfromFN()
