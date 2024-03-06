@@ -16,7 +16,7 @@
               >
               <router-link
                 class="categories"
-                :to="`/categories/${blog.category}`"
+                :to="{name: 'category', params: {category: blog.category?? true}}"
                 >{{ blog.category }}</router-link
               >
             </p>

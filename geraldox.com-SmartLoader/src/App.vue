@@ -91,7 +91,6 @@
       <router-view
         :key="$route.path"
         class="router-view"></router-view>
-      <router-view> </router-view>
 
       <Modal
         v-show="isModalVisible"

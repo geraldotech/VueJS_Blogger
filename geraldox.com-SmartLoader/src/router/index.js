@@ -2,13 +2,14 @@ import cdn from '../cdn.js' //this import to use cdn links
 
 const Home = httpVueLoader('/src/views/Home.vue')
 const HomeOld = httpVueLoader('/src/views/HomeOld.vue')
-const About =  httpVueLoader('/src/views/About.vue')
+const About = httpVueLoader('/src/views/About.vue')
 const Politica = httpVueLoader('./src/views/Politicaprivacidade.vue')
 const Projects = httpVueLoader('/src/views/Projects.vue')
 const Blog = httpVueLoader('/src/components/blog/Blog.vue')
 const Mapa = httpVueLoader('/src/components/blog/mapa.vue')
 const UserPost = httpVueLoader('/src/components/blog/UserPost.vue')
 const Categories = httpVueLoader('/src/components/blog/Categories.vue')
+const Routersearch = httpVueLoader('/src/components/blog/Routersearch.vue')
 
 const home2 = {
   template: `<p>VueJS Named Views from String </p>`,
@@ -27,16 +28,15 @@ const NotFound = {
 }
 
 const routes = [
-    {
+  {
     path: '/',
     components: { default: Home, yt: home2 },
     name: 'Home Page',
-  }, 
+  },
   {
     path: '/homeold',
     components: { default: HomeOld },
     name: 'OldHome',
-    
   },
   {
     path: '/blog',
@@ -48,18 +48,35 @@ const routes = [
         name: 'categoriesMap',
         component: Mapa,
       },
+      {
+        path: 'search', // search?name=geraldo
+        name: 'search',
+        component: Routersearch,
+      },
+      /* DYNAMIC ROUTER :anything below must be in the end */
+      {
+        path: ':category',
+        name: 'category',
+        component: Categories,
+      },
+      {
+        path: ':category/:slug+',
+        name: 'threads',
+        component: UserPost,
+      },
+      
     ],
   },
-  {
+  /*   {
     path: '/blog/:category/:slug+', // if remove + not load 404 page
     name: 'threads',
     component: UserPost,
-  },
-  {
+  }, */
+  /*   {
     path: '/blog/categories/:category',
     name: 'category',
     component: Categories,
-  },
+  }, */
   {
     path: '/projects',
     component: Projects,
@@ -72,7 +89,7 @@ const routes = [
   },
   {
     path: '/about',
-    component:About,
+    component: About,
     name: 'about',
     children: [
       { path: 'resume', name: 'r1', component: Resume },
@@ -90,7 +107,7 @@ const routes = [
 // CHECK is deploy or production environment - by GMAP
 // if has any por like localhost:5000 / 192.168.0.1:4434 return true and apply hash
 
-const producOrDevMode = location.port != '' 
+const producOrDevMode = location.port != ''
 //OLD const producOrDevMode = location.hostname.includes('127.0.0.1')
 
 const router = new VueRouter({

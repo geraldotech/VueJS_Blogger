@@ -1,5 +1,8 @@
 <template>
   <div>
+      <button @click="handlerPushRouter()">handlerPushRouter</button>
+
+      <p>Try query search params in <a href="https://geraldox.com/blog/search?category=android"></a> </p>
     <figure>
       <img class="img-flex" loading="lazy" :src="`${img[2023]}/vuejs.svg`" />
     </figure>
@@ -83,7 +86,20 @@
   </div>
 </template>
 <script>
-module.exports = {}
+module.exports = {
+  data(){
+    return{}
+  },
+  methods:{
+    handlerPushRouter(){
+
+      // https://router.vuejs.org/guide/essentials/navigation.html
+      // https://v3.router.vuejs.org/guide/essentials/navigation.html
+      //this.$router.push({ name: 'category', params: { category: 'android' } })
+      this.$router.push({ name: 'Home Page',   hash: '#contact' })
+    }
+  }
+}
 </script>
 <style scoped>
 code {

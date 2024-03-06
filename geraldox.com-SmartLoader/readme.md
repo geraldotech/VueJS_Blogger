@@ -50,6 +50,47 @@
 
 ### Changes and Features:
 
+
+- 06.03.2024
+  `Blog.vue` changes:
+
+  ```js
+  // remove this code, to router-view  haha sorry for that
+   <div v-if="$route.name == `categoriesMap`">
+      <Mapas />
+    </div>
+
+    // to  
+  <router-view></router-view>
+
+  // ROUTER NESTED CHANGES 
+  // move  ❌categories/developer 
+  // to✅ 
+  /blog/categories/developer
+  /blog/category?/
+  /blog/category?/post
+
+  // fixed annoying warning
+  //missing param for named route "threads": 
+  //Expected "category" to be defined, I just
+
+  // I just add an ?? true or ?? 'whatever'
+    <router-link :to="{
+    name: 'threads',
+    params: { category: pinned.category?? true, slug: pinned.slug?? true },}"
+    >{{ pinned.title }}</router-link> 
+
+
+  // Apply import dymanic instead every time import component in UserPost.vue
+    components {
+        mycompot: httpVueLoader(....)
+    }
+  // 👉to work consider componentName === componentName.vue in JSON
+  // 👉always loads from /src/components/posts/componentName.vue
+
+
+```
+
 - 03.12.2023
 
   - When empty you can use `article` to document updated article

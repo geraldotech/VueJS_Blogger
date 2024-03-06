@@ -3,6 +3,7 @@
     <!-- <p>Adsense here</p> -->
     <figure>
       <img
+        loading="lazy"
         src="https://placehold.jp/30/161a49/ffffff/500x90.png?text=ads+here"
         alt="ads" />
     </figure>

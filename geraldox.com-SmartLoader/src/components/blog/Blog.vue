@@ -2,7 +2,7 @@
   <div>
     <!--  <Adsense></Adsense> -->
     <div
-      v-if="$route.name == `Blog Posts`"
+      v-if="$route.name == 'Blog Posts'"
       class="list-all">
       <section class="threads">
         <nav class="legacy_searchs">
@@ -31,7 +31,7 @@
           <label>Selecionar:</label>
           <select
             v-model="select"
-            @change="changeRoute($event)">
+            @change="selectCategoryHandler($event)">
             <option
               v-for="(itens, ind) in categorias"
               :key="itens.id"
@@ -58,23 +58,23 @@
             <span>Pinned:</span>
           </p>
           <p>
-            <router-link
+             <router-link
               :to="{
                 name: 'threads',
-                params: { category: pinned.category, slug: pinned.slug },
+                params: { category: pinned.category?? true, slug: pinned.slug?? true },
               }"
               >{{ pinned.title }}</router-link
-            >
+            > 
           </p>
           <time>{{ pinned.createdAt }}</time>
           <p>
             <span class="cat">
               CATEGORY:
-              <router-link
-                class="cats"
-                :to="`/categories/${pinned.category}`"
+               <router-link
+                class="cats"               
+                :to="{name: 'category', params: {category: pinned.category?? 'x'},}"
                 >{{ pinned.category ? pinned.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
-              >
+              >  
             </span>
           </p>
         </section>
@@ -85,13 +85,13 @@
             v-for="artigos in opt"
             :key="artigos.slug"
             class="threads_list">
-            <router-link
+             <router-link
               :to="{
                 name: 'threads',
                 params: { category: artigos.category, slug: artigos.slug },
               }">
               {{ artigos.title }}</router-link
-            >
+            > 
 
             <time>{{ artigos.createdAt }}</time>
             <!-- categories router page -->
@@ -99,9 +99,10 @@
               CATEGORY:
               <router-link
                 class="cats"
-                :to="`/categories/${artigos.category}`"
+                :to="{
+                  name: 'category', params: {category: artigos.category},}"
                 >{{ artigos.category ? artigos.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
-              >
+              > 
             </div>
             <!-- categories router page -->
             <!--    <time>{{ artigos.data }}</time> -->
@@ -129,10 +130,9 @@
 
       <Sidebar />
     </div>
-    <!--  if a rota for === entao show -->
-    <div v-if="$route.name == `categoriesMap`">
-      <Mapas />
-    </div>
+
+    <!-- For Nested Routers -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -152,9 +152,11 @@ module.exports = {
     ],
   },
   created() {
-    this.posts()
+   
+    },
+  mounted() {
+     this.posts()
   },
-  mounted() {},
   components: {
     Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
     Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
@@ -181,6 +183,7 @@ module.exports = {
 
       // Pinned receive all posts
       this.FindPinned(res.blog.posts)
+      //setTimeout(  , 1000)
 
       //filter post published && exclude pinned posts from the main list
       const blogPosts = res.blog.posts.filter((posts) => posts.published && !Object.keys(posts).includes('pinned'))
@@ -206,8 +209,10 @@ module.exports = {
       //recebe os posts com limitador opcional
       this.opt = this.GetBlogPosts(this.numero)
     },
-    changeRoute(e) {
-      this.$router.push('/categories/' + e.target.value)
+
+    /* ===  */
+    selectCategoryHandler(e) {     
+      this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
     GetBlogPosts(n) {
       return this.AllPosts.filter((posts) => posts.published)
