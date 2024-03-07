@@ -11,14 +11,12 @@
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
     <h3>{{ getPostsFromCategory }}</h3>
 
-    
-
     <h2>method return a postid</h2>
     <p><strong>this.$route.query.postid</strong> Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></p>
 
     <h3>{{ findById }}</h3>
 
-<section>
+    <section>
       <h2>Search Constructor - Advanced Search</h2>
       <label for="opt">Escolha a categoria::</label>
       <select
@@ -47,14 +45,12 @@
       <h2>
         <a :href="handlerFilter">{{ handlerFilter }}</a>
       </h2>
-   
 
-    <h2>Multiple queries category and title includes</h2>
-    <p>Abre a possibilidade de compartilhar o link com alguém que vai receber os resultados na busca</p>
-    <p><strong>/blog/search?category=network&title=ssl</strong> <a href="https://geraldox.com/blog/search?category=network&title=test">click</a></p>
-    <h3>{{ getPostMultipleQueries }}</h3>
-
-     </section>
+      <h2>Multiple queries category and title includes</h2>
+      <p>Abre a possibilidade de compartilhar o link com alguém que vai receber os resultados na busca</p>
+      <p><strong>/blog/search?category=network&title=ssl</strong> <a href="https://geraldox.com/blog/search?category=network&title=test">click</a></p>
+      <h3>{{ getPostMultipleQueries }}</h3>
+    </section>
   </div>
 </template>
 
@@ -103,7 +99,7 @@ module.exports = {
       categoryRes: [],
       findById: null,
       searchTitle: '',
-      searchCat: null,
+      searchCat: '',
     }
   },
   methods: {

@@ -1,8 +1,18 @@
 <template>
   <div>
       <button @click="handlerPushRouter()">handlerPushRouter</button>
+      
+      <ul>
+        <li>
+           <router-link :to="{name: 'search'}">Try query search params search</router-link>
+           </li>
+        <li>
+          <router-link :to="{name: 'searchconstructor'}">searchconstructor</router-link>
+        </li>
+      </ul>
+      
 
-      <p>Try query search params in <a href="https://geraldox.com/blog/search?category=android">https://geraldox.com/blog/search?category=android</a> </p>
+   
     <figure>
       <img class="img-flex" height="100px" loading="lazy" :src="`${img[2023]}/vuejs.svg`" />
     </figure>
@@ -15,6 +25,7 @@
         target="_blank"
         >VueJS 3.2.41 Dev</a
       >
+
     </nav>
     <hr />
     <h1>Introduction to primitive wrapper types</h1>

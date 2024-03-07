@@ -11,7 +11,7 @@
       More from
       <router-link
         class="category"
-        :to="`/categories/${$route.params.category}`"
+        :to="{name: 'category', params: $route.params.category}"
         >{{ $route.params.category }}</router-link
       >:
     </h3>

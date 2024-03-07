@@ -10,6 +10,7 @@ const Mapa = httpVueLoader('/src/components/blog/mapa.vue')
 const UserPost = httpVueLoader('/src/components/blog/UserPost.vue')
 const Categories = httpVueLoader('/src/components/blog/Categories.vue')
 const Routersearch = httpVueLoader('/src/components/blog/Routersearch.vue')
+const SearchConstructor = httpVueLoader('/src/components/blog/SearchConstructor.vue')
 
 const home2 = {
   template: `<p>VueJS Named Views from String </p>`,
@@ -53,10 +54,15 @@ const routes = [
         name: 'search',
         component: Routersearch,
       },
+      {
+        path: 'searchconstructor', // search?name=geraldo
+        name: 'searchconstructor',
+        component: SearchConstructor,
+      },
       /* DYNAMIC ROUTER :anything below must be in the end */
       /* TO SEND PARAMS IN ROUTER USE path */
       {
-        path: ':category/:optional?',
+        path: ':category',
         name: 'category',
         component: Categories,
       },
@@ -67,16 +73,6 @@ const routes = [
       },
     ],
   },
-  /*   {
-    path: '/blog/:category/:slug+', // if remove + not load 404 page
-    name: 'threads',
-    component: UserPost,
-  }, */
-  /*   {
-    path: '/blog/categories/:category',
-    name: 'category',
-    component: Categories,
-  }, */
   {
     path: '/projects',
     component: Projects,

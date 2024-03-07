@@ -58,23 +58,23 @@
             <span>Pinned:</span>
           </p>
           <p>
-             <router-link
+            <router-link
               :to="{
                 name: 'threads',
-                params: { category: pinned.category?? true, slug: pinned.slug?? true },
+                params: { category: pinned.category ?? true, slug: pinned.slug ?? true },
               }"
               >{{ pinned.title }}</router-link
-            > 
+            >
           </p>
           <time>{{ pinned.createdAt }}</time>
           <p>
             <span class="cat">
               CATEGORY:
-               <router-link
-                class="cats"               
-                :to="{name: 'category', params: {category: pinned.category?? 'x'},}"
+              <router-link
+                class="cats"
+                :to="{ name: 'category', params: { category: pinned.category ?? 'x' } }"
                 >{{ pinned.category ? pinned.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
-              >  
+              >
             </span>
           </p>
         </section>
@@ -85,13 +85,13 @@
             v-for="artigos in opt"
             :key="artigos.slug"
             class="threads_list">
-             <router-link
+            <router-link
               :to="{
                 name: 'threads',
                 params: { category: artigos.category, slug: artigos.slug },
               }">
               {{ artigos.title }}</router-link
-            > 
+            >
 
             <time>{{ artigos.createdAt }}</time>
             <!-- categories router page -->
@@ -100,9 +100,11 @@
               <router-link
                 class="cats"
                 :to="{
-                  name: 'category', params: {category: artigos.category},}"
+                  name: 'category',
+                  params: { category: artigos.category },
+                }"
                 >{{ artigos.category ? artigos.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
-              > 
+              >
             </div>
             <!-- categories router page -->
             <!--    <time>{{ artigos.data }}</time> -->
@@ -132,7 +134,10 @@
     </div>
 
     <!-- For Nested Routers -->
-    <router-view></router-view>
+
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -151,11 +156,9 @@ module.exports = {
       { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
     ],
   },
-  created() {
-   
-    },
+  created() {},
   mounted() {
-     this.posts()
+    this.posts()
   },
   components: {
     Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
@@ -211,7 +214,7 @@ module.exports = {
     },
 
     /* ===  */
-    selectCategoryHandler(e) {     
+    selectCategoryHandler(e) {
       this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
     GetBlogPosts(n) {
