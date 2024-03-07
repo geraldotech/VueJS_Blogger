@@ -4,7 +4,7 @@
     <h2>Example how to use query params you can direct in get:</h2>
 
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
-    <p>{{ getPostsFromCategory }}</p>
+   <!--  <p>{{ getPostsFromCategory }}</p> -->
 
     <h2>Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
     <strong>this.$route.query.postid</strong>
@@ -29,7 +29,7 @@ const database = './src/db/data.json'
 */
 module.exports = {
   created() {
-    console.log(this.$route)
+   /// console.log(this.$route)
   },
   mounted() {
     /* EXAMPLE 1 */
@@ -49,7 +49,7 @@ module.exports = {
     //this.fetchData()
 
     /* CAN CALL DIRECT OU CALL A FN */
-    this.fetchNative()
+   this.fetchNative()
   },
   data() {
     return {
@@ -79,16 +79,11 @@ module.exports = {
     },
     async fetchNative() {
       await new Promise((response) => setTimeout(response, 2000))
+
       try {
-        fetch(database)
-          .then((res) => res.json())
-          .then(
-            (data) => {
-              this.allposts = data.blog.posts
-              this.state = true
-            }
-            //this.allposts = response.data?.blog.posts
-          )
+        const req = await fetch(database)
+        const data = await req.json()
+        console.log(data)
       } catch (err) {
         console.log(err)
       }
