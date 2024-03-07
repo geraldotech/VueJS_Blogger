@@ -6,22 +6,19 @@
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
     <p>{{ getPostsFromCategory }}</p>
 
-
-
-
     <h2>Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
     <strong>this.$route.query.postid</strong>
- <!--    <p>{{ filteredData }}</p> -->
+    <!--    <p>{{ filteredData }}</p> -->
     <h2>Multiple queries category and id</h2>
     <p>
       <strong>/blog/search?category=android&id=4</strong>
     </p>
-   <!--  <p>{{ getPostMultipleQueries }}</p> -->
-
+    <!--  <p>{{ getPostMultipleQueries }}</p> -->
   </div>
 </template>
 
 <script>
+const database = './src/db/data.json'
 /*
 
   Vue3 add query:
@@ -33,12 +30,11 @@
 module.exports = {
   created() {
     console.log(this.$route)
-    console.log(`hello 1`)
   },
   mounted() {
     /* EXAMPLE 1 */
 
-    axios.get('./src/db/data.json').then(
+    /*  axios.get('./src/db/data.json').then(
       (response) =>
         //console.log(response.data.blog.posts)
         setTimeout(() => {
@@ -47,17 +43,18 @@ module.exports = {
         }, 1000)
     ).catch(error => {
           console.error('Error fetching data:', error);
-        });
+        }); */
 
     /* EXAMPLE 2 */
     //this.fetchData()
 
-   
+    /* CAN CALL DIRECT OU CALL A FN */
+    this.fetchNative()
   },
   data() {
     return {
       allposts: null,
-      state: false,  
+      state: false,
 
       categoryRes: [],
       filteredData: [],
@@ -77,8 +74,24 @@ module.exports = {
         })
     },
     handlerFilterfromFN() {
-     // console.log(this.$route.query.postid)
+      // console.log(this.$route.query.postid)
       this.filteredData = this.rawData.filter((post) => post.id == this.$route.query.postid)
+    },
+    async fetchNative() {
+      await new Promise((response) => setTimeout(response, 2000))
+      try {
+        fetch(database)
+          .then((res) => res.json())
+          .then(
+            (data) => {
+              this.allposts = data.blog.posts
+              this.state = true
+            }
+            //this.allposts = response.data?.blog.posts
+          )
+      } catch (err) {
+        console.log(err)
+      }
     },
   },
   /* === USE computed to get posts  === */
@@ -86,9 +99,9 @@ module.exports = {
     getPostsFromCategory() {
       // no forget pust ? to void error
 
-      if(this.state){
-        console.warn(this.allposts)
-        console.log(this.$route.query.category ?? 'no category')
+      if (this.state) {
+        //console.warn(this.allposts)
+        //console.log(this.$route.query.category ?? 'no category')
         return this.allposts?.filter((post) => post.category == this.$route.query.category)
       }
       return 'Loading...'
@@ -103,7 +116,6 @@ module.exports = {
     getPostMultipleQueries() {
       return this.allposts?.filter((post) => post.id === +this.$route.query.id)
     },
-   
   },
 }
 </script>
