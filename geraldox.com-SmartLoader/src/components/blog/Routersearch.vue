@@ -18,8 +18,6 @@
     </p>
    <!--  <p>{{ getPostMultipleQueries }}</p> -->
 
-
-
   </div>
 </template>
 
@@ -35,6 +33,7 @@
 module.exports = {
   created() {
     console.log(this.$route)
+    console.log(`hello 1`)
   },
   mounted() {
     /* EXAMPLE 1 */
@@ -46,7 +45,9 @@ module.exports = {
           this.allposts = response.data?.blog.posts
           this.state = true
         }, 1000)
-    )
+    ).catch(error => {
+          console.error('Error fetching data:', error);
+        });
 
     /* EXAMPLE 2 */
     //this.fetchData()
@@ -56,7 +57,8 @@ module.exports = {
   data() {
     return {
       allposts: null,
-      state: false,      
+      state: false,  
+
       categoryRes: [],
       filteredData: [],
     }
@@ -78,9 +80,6 @@ module.exports = {
      // console.log(this.$route.query.postid)
       this.filteredData = this.rawData.filter((post) => post.id == this.$route.query.postid)
     },
-    handlerCategory(){
-     // this.allposts.find
-    },
   },
   /* === USE computed to get posts  === */
   computed: {
@@ -89,6 +88,7 @@ module.exports = {
 
       if(this.state){
         console.warn(this.allposts)
+        console.log(this.$route.query.category ?? 'no category')
         return this.allposts?.filter((post) => post.category == this.$route.query.category)
       }
       return 'Loading...'
