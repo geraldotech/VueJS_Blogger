@@ -6,14 +6,17 @@
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
     <p>{{ getPostsFromCategory }}</p>
 
+
+
+
     <h2>Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
     <strong>this.$route.query.postid</strong>
-    <p>{{ filteredData }}</p>
+ <!--    <p>{{ filteredData }}</p> -->
     <h2>Multiple queries category and id</h2>
     <p>
       <strong>/blog/search?category=android&id=4</strong>
     </p>
-    <p>{{ getPostMultipleQueries }}</p>
+   <!--  <p>{{ getPostMultipleQueries }}</p> -->
   </div>
 </template>
 
@@ -38,7 +41,7 @@ module.exports = {
         //console.log(response.data.blog.posts)
         setTimeout(() => {
           this.allposts = response.data?.blog.posts
-        }, 2000)
+        }, 1500)
        // (this.allposts = response.data?.blog.posts)
     )
 
@@ -67,10 +70,11 @@ module.exports = {
         })
     },
     handlerFilterfromFN() {
+      console.log(this.$route.query.postid)
       this.filteredData = this.rawData.filter((post) => post.id == this.$route.query.postid)
     },
     handlerCategory(){
-      this.allposts.find
+     // this.allposts.find
     }
   },
   /* === USE computed to get posts  === */
