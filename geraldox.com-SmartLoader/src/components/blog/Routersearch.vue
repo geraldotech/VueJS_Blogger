@@ -8,15 +8,13 @@
     <p><strong>blog/search?category=android</strong></p>
     <p>{{ getPostsFromCategory }}</p>
 
-    <h2>Always fech post.id === 1</h2>
+    <h2>Always fecth post.id === 1</h2>
     <p>{{ filteredData }}</p>
     <h2>Multiple queries category and id</h2>
     <p>
       <strong>/blog/search?category=android&id=4</strong>
     </p>
     <p>{{ getPostMultipleQueries }}</p>
-
-  
   </div>
 </template>
 
@@ -52,7 +50,7 @@ module.exports = {
     }
   },
   methods: {
-    /* === USE method to fetch and anther to filter data  ===*/
+    /* === USE method to fetch and another to filter data  === */
     fetchData() {
       axios
         .get('/src/db/data.json')
@@ -72,9 +70,10 @@ module.exports = {
   computed: {
     getPostsFromCategory() {
       // no forget pust ? to void error
+      console.log(this.$route.query.category)
+
       const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
-     return this.categoryRes = posts
-       
+      return (this.categoryRes = posts)
     },
     getPostMultipleQueries() {
       return this.allposts?.filter((post) => post.id === +this.$route.query.id)
