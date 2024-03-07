@@ -6,7 +6,7 @@
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
     <p>{{ getPostsFromCategory }}</p>
 
-    <h2>Always fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
+    <h2>Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
     <strong>this.$route.query.postid</strong>
     <p>{{ filteredData }}</p>
     <h2>Multiple queries category and id</h2>
@@ -50,13 +50,14 @@ module.exports = {
       allposts: null,
       categoryRes: [],
       filteredData: [],
+      fetchstatus: false
     }
   },
   methods: {
     /* === USE method to fetch and another to filter data  === */
     fetchData() {
       axios
-        .get('/src/db/data.json')
+        .get('./src/db/data.json')
         .then((response) => {
           this.rawData = response.data?.blog.posts
           this.handlerFilterfromFN()
@@ -68,13 +69,16 @@ module.exports = {
     handlerFilterfromFN() {
       this.filteredData = this.rawData.filter((post) => post.id == this.$route.query.postid)
     },
+    handlerCategory(){
+      this.allposts.find
+    }
   },
   /* === USE computed to get posts  === */
   computed: {
     getPostsFromCategory() {
       // no forget pust ? to void error
 
-      return this.$route.query.category && this.allposts?.find((post) => post.id == 2)
+      return this.allposts?.filter((post) => post.category == this.$route.query.category)
       /* 
      if(this.$route.query?.category && this.allposts){
       const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
