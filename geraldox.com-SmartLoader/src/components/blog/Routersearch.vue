@@ -3,12 +3,11 @@
     <h1>Router Search, and using axios to fetch data</h1>
     <h2>Example how to use query params you can direct in get:</h2>
 
-    <button @click="fetchData()">fetchData()</button>
-
     <p><strong>blog/search?category=android</strong></p>
     <p>{{ getPostsFromCategory }}</p>
 
-    <h2>Always fecth post.id === 1</h2>
+    <h2>Always fecth post.id</h2>
+    <strong>this.$route.query.postid</strong>
     <p>{{ filteredData }}</p>
     <h2>Multiple queries category and id</h2>
     <p>
@@ -63,17 +62,20 @@ module.exports = {
         })
     },
     handlerFilterfromFN() {
-      this.filteredData = this.rawData.filter((post) => post.id === 1)
+      this.filteredData = this.rawData.filter((post) => post.id == this.$route.query.postid)
     },
   },
   /* === USE computed to get posts  === */
   computed: {
     getPostsFromCategory() {
       // no forget pust ? to void error
-      console.log(this.$route.query.category)
 
+      if(this.$route.query?.category){
       const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
       return (this.categoryRes = posts)
+      }
+      return 'no data in category params'
+
     },
     getPostMultipleQueries() {
       return this.allposts?.filter((post) => post.id === +this.$route.query.id)
