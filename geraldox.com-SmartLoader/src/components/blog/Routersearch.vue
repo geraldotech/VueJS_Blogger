@@ -64,7 +64,7 @@ module.exports = {
     /* === USE method to fetch and another to filter data  === */
     fetchData() {
       axios
-        .get('./src/db/data.json')
+        .get('/src/db/data.json')
         .then((response) => {
           this.rawData = response.data?.blog.posts
           this.handlerFilterfromFN()
