@@ -9,7 +9,7 @@
         <div class="intro__content-devinfo">
           <div>
             <h1 class="name">Geraldo Costa</h1>
-            <h2 class="subtitle">Frontend Developer</h2>
+            <h2 class="subtitle"><i class="fa-solid fa-code"></i>Frontend Developer</h2>
           </div>
           <div class="social-icons">
             <a
@@ -71,6 +71,10 @@
             inovadoras para desafios técnicos complexos.
           </p>
 
+
+          <h1>
+             <i class="fa-solid fa-terminal"></i><strong> Currículo:</strong>
+          </h1>
           <nav class="resume">
             <h1>
               <span class="icon-link-download">
@@ -897,7 +901,6 @@ strong {
 }
 
 .resume {
-  padding-block: 2rem;
   text-align: left;
 }
 .resume h1 {
@@ -985,6 +988,7 @@ strong {
 .about__info h1 {
   align-self: flex-start;
 }
+
 /* ABOUT ENDS */
 
 /* PROJECTS */

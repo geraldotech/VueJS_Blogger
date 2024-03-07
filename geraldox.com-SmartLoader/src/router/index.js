@@ -12,8 +12,8 @@ const Categories = httpVueLoader('/src/components/blog/Categories.vue')
 const Routersearch = httpVueLoader('/src/components/blog/Routersearch.vue')
 const SearchConstructor = httpVueLoader('/src/components/blog/SearchConstructor.vue')
 
-const home2 = {
-  template: `<p>VueJS Named Views from String </p>`,
+const homeBottom = {
+  template: `<p>Powered by <i class="fa-brands fa-vuejs"></i></p>`,
 }
 
 const gdrive = {
@@ -31,7 +31,7 @@ const NotFound = {
 const routes = [
   {
     path: '/',
-    components: { default: Home, yt: home2 },
+    components: { default: Home, homeBottom: homeBottom },
     name: 'Home Page',
   },
   {

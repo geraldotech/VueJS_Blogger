@@ -108,7 +108,7 @@
       </Modal>
       <!--  named  router-->
       <router-view
-        name="yt"
+        name="homeBottom"
         class="named-views"></router-view>
     </main>
 

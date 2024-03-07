@@ -43,9 +43,10 @@ const API = '../src/db/data.json'
 
 module.exports = {
   mounted() {
+    /* mounted call fetch to get auto api data  */
     this.fetchData()
-    console.log(this.$route.query.category ?? null)
-    console.log(this.$route.query.hasOwnProperty('category'))
+/*     console.log(this.$route.query.category ?? null)
+    console.log(this.$route.query.hasOwnProperty('category')) */
   },
   data() {
     return {
@@ -105,6 +106,6 @@ ul li {
   padding-block: .5rem;
 }
 input, select{
-  padding: .5rem;
+  padding: .2rem;
 }
 </style>

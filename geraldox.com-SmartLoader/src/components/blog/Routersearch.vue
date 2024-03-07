@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main_container">
     <h1>Router Search</h1>
     <ul>
       <li>query params you can direct in get (url)</li>
@@ -9,22 +9,24 @@
 
     <h2>computed wait fetch and change state to return something</h2>
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
-    <h3>{{ getPostsFromCategory }}</h3>
+    <div class="fetch">
+      <p>{{ getPostsFromCategory }}</p>
+    </div>
 
     <h2>method return a postid</h2>
     <p><strong>this.$route.query.postid</strong> Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></p>
 
-    <h3>{{ findById }}</h3>
+    <div class="fetch">
+      <p>{{ findById }}</p>
+    </div>
 
     <section>
       <h2>Search Constructor - Advanced Search</h2>
       <label for="opt">Escolha a categoria::</label>
       <select
-        name=""
         id="opt"
         v-model="searchCat">
         <option
-          value=""
           disabled></option>
         <option value="android">Android</option>
         <option value="developer">Developer</option>
@@ -42,14 +44,18 @@
         value="Search"
         @click="navigateToHandlerFilter" />
 
-      <h2>
-        <a :href="handlerFilter">{{ handlerFilter }}</a>
-      </h2>
+      <div class="fetch">
+        <p>
+          <a :href="handlerFilter">{{ handlerFilter }}</a>
+        </p>
+      </div>
 
       <h2>Multiple queries category and title includes</h2>
       <p>Abre a possibilidade de compartilhar o link com alguém que vai receber os resultados na busca</p>
       <p><strong>/blog/search?category=network&title=ssl</strong> <a href="https://geraldox.com/blog/search?category=network&title=test">click</a></p>
-      <h3>{{ getPostMultipleQueries }}</h3>
+     <div class="fetch">
+       <p>{{ getPostMultipleQueries }}</p>
+     </div>
     </section>
   </div>
 </template>
@@ -167,6 +173,12 @@ module.exports = {
 </script>
 
 <style scoped>
+.main_container {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 div,
 p {
   padding: 0.8rem;
@@ -184,13 +196,21 @@ ul {
   padding: 1rem;
 }
 
-h3 {
+.fetch {
+  max-width: 500px;
+  width: 100%;
+  overflow: scroll;
+}
+
+.fetch p {
   color: #05bdba;
-  font-family: monospace;
+  width: 100%;
 }
 
 section {
   background-color: #333;
   padding: 1rem;
+  max-width: 100%;
+  width: 100%;
 }
 </style>
