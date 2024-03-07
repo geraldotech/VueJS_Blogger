@@ -4,7 +4,7 @@
     <h2>Example how to use query params you can direct in get:</h2>
 
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
-   <!--  <p>{{ getPostsFromCategory }}</p> -->
+     <p>{{ getPostsFromCategory }}</p> 
 
     <h2>Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
     <strong>this.$route.query.postid</strong>
@@ -30,12 +30,12 @@ const database = '../src/db/data.json'
 */
 module.exports = {
   created() {
-   /// console.log(this.$route)
+    console.log(this.$route)
   },
   mounted() {
     /* EXAMPLE 1 */
 
-    /*  axios.get('./src/db/data.json').then(
+      axios.get(database).then(
       (response) =>
         //console.log(response.data.blog.posts)
         setTimeout(() => {
@@ -44,13 +44,13 @@ module.exports = {
         }, 1000)
     ).catch(error => {
           console.error('Error fetching data:', error);
-        }); */
+        }); 
 
     /* EXAMPLE 2 */
     //this.fetchData()
 
     /* CAN CALL DIRECT OU CALL A FN */
-   this.fetchNative()
+  // this.fetchNative()
   },
   data() {
     return {
