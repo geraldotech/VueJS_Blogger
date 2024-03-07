@@ -18,7 +18,8 @@
 </template>
 
 <script>
-const database = './src/db/data.json'
+/* TESTING .. because this is a nested router */
+const database = '../src/db/data.json'
 /*
 
   Vue3 add query:
