@@ -70,11 +70,13 @@ module.exports = {
     getPostsFromCategory() {
       // no forget pust ? to void error
 
-      if(this.$route.query?.category){
+      return this.allposts?.filter(post => post.id === 2)
+
+   /*    if(this.$route.query?.category && this.allposts){
       const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
       return (this.categoryRes = posts)
       }
-      return 'no data in category params'
+      return 'no data in category params' */
 
     },
     getPostMultipleQueries() {
