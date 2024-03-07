@@ -6,7 +6,7 @@
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
     <p>{{ getPostsFromCategory }}</p>
 
-    <h2>Always fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a> </h2>
+    <h2>Always fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
     <strong>this.$route.query.postid</strong>
     <p>{{ filteredData }}</p>
     <h2>Multiple queries category and id</h2>
@@ -32,10 +32,14 @@ module.exports = {
   },
   mounted() {
     /* EXAMPLE 1 */
+
     axios.get('./src/db/data.json').then(
       (response) =>
-        //console.log(response)
-        (this.allposts = response.data?.blog.posts)
+        //console.log(response.data.blog.posts)
+        setTimeout(() => {
+          this.allposts = response.data?.blog.posts
+        }, 2000)
+       // (this.allposts = response.data?.blog.posts)
     )
 
     /* EXAMPLE 2 */
@@ -70,14 +74,13 @@ module.exports = {
     getPostsFromCategory() {
       // no forget pust ? to void error
 
-      return this.$route.query.category && this.allposts?.find((post => post.id  == 2))
-/* 
+      return this.$route.query.category && this.allposts?.find((post) => post.id == 2)
+      /* 
      if(this.$route.query?.category && this.allposts){
       const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
       return (this.categoryRes = posts)
       }
       return 'no data in category params'  */
-
     },
     getPostMultipleQueries() {
       return this.allposts?.filter((post) => post.id === +this.$route.query.id)
