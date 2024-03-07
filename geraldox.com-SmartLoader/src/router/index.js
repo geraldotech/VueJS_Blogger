@@ -54,8 +54,9 @@ const routes = [
         component: Routersearch,
       },
       /* DYNAMIC ROUTER :anything below must be in the end */
+      /* TO SEND PARAMS IN ROUTER USE path */
       {
-        path: ':category',
+        path: ':category/:optional?',
         name: 'category',
         component: Categories,
       },
@@ -64,7 +65,6 @@ const routes = [
         name: 'threads',
         component: UserPost,
       },
-      
     ],
   },
   /*   {

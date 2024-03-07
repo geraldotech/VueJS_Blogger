@@ -11,45 +11,51 @@
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
     <h3>{{ getPostsFromCategory }}</h3>
 
+    
+
     <h2>method return a postid</h2>
     <p><strong>this.$route.query.postid</strong> Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></p>
 
     <h3>{{ findById }}</h3>
+
+<section>
+      <h2>Search Constructor - Advanced Search</h2>
+      <label for="opt">Escolha a categoria::</label>
+      <select
+        name=""
+        id="opt"
+        v-model="searchCat">
+        <option
+          value=""
+          disabled></option>
+        <option value="android">Android</option>
+        <option value="developer">Developer</option>
+        <option value="drivers">Drivers</option>
+        <option value="linux">Linux</option>
+        <option value="network">Network</option>
+        <option value="windows">Windows</option>
+      </select>
+      <input
+        type="search"
+        v-model="searchTitle"
+        placeholder="post title" />
+      <input
+        type="button"
+        value="Search"
+        @click="navigateToHandlerFilter" />
+
+      <h2>
+        <a :href="handlerFilter">{{ handlerFilter }}</a>
+      </h2>
+   
+
     <h2>Multiple queries category and title includes</h2>
     <p>Abre a possibilidade de compartilhar o link com alguém que vai receber os resultados na busca</p>
     <p><strong>/blog/search?category=network&title=ssl</strong> <a href="https://geraldox.com/blog/search?category=network&title=test">click</a></p>
     <h3>{{ getPostMultipleQueries }}</h3>
 
-    <h2>Search Constructor - Advanced Search</h2>
-
-    <label for="opt">Escolha a categoria::</label>
-    <select
-      name=""
-      id="opt"
-      v-model="searchCat">
-      <option
-        value=""
-        disabled></option>
-      <option value="android">Android</option>
-      <option value="developer">Developer</option>
-      <option value="drivers">Drivers</option>
-      <option value="linux">Linux</option>
-      <option value="network">Network</option>
-      <option value="windows">Windows</option>
-    </select>
-    <input
-      type="search"
-      v-model="searchTitle"
-      placeholder="`title" />
-    <input
-      type="button"
-      value="Search"
-      @click="navigateToHandlerFilter"
-       />
-      
-      <h2> <a :href="handlerFilter">{{handlerFilter}}</a></h2>
+     </section>
   </div>
-
 </template>
 
 <script>
@@ -97,7 +103,7 @@ module.exports = {
       categoryRes: [],
       findById: null,
       searchTitle: '',
-      searchCat: '',
+      searchCat: null,
     }
   },
   methods: {
@@ -126,10 +132,10 @@ module.exports = {
       } catch (err) {
         console.log(err)
       }
-    },  
-    navigateToHandlerFilter(){
-        window.location.href = this.handlerFilter
-    }
+    },
+    navigateToHandlerFilter() {
+      window.location.href = this.handlerFilter
+    },
   },
 
   /* === USE computed to get posts  === */
@@ -148,13 +154,9 @@ module.exports = {
     getPostMultipleQueries() {
       return this.rawData?.filter((post) => post.category === this.$route.query.category && post.title.toLowerCase().includes(this.$route.query.title))
     },
-      handlerFilter() {
-       
+    handlerFilter() {
       const producOrDevMode = location.port != ''
-      const baseURL = producOrDevMode ?  'index.html#/blog/search' :  'https://geraldox.com/blog/search'
-      console.log(baseURL)
-      const urlSearch = `index.html#/blog/search?category=${this.searchCat}&title=${this.searchTitle}`
-      //location.href = urlSearch
+      const baseURL = producOrDevMode ? 'index.html#/blog/search' : 'https://geraldox.com/blog/search'
 
       const queryParams = {
         category: this.searchCat,
@@ -189,5 +191,10 @@ ul {
 h3 {
   color: #05bdba;
   font-family: monospace;
+}
+
+section {
+  background-color: #333;
+  padding: 1rem;
 }
 </style>

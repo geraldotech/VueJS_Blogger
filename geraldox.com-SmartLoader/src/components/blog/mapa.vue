@@ -2,10 +2,12 @@
   <div class="block">
     <h1>Map: Categorias</h1>
     <p>{{ categorias }}</p>
-    <ul v-for="(value, name) in categorias" :key="name">
+    <ul
+      v-for="(value, name) in categorias"
+      :key="name">
       <li>
-        <router-link :to="`/categories/${name}`"
-          >{{ name }} - {{ value }}</router-link>
+        <router-link :to="{ name: 'category', params: { category: name } }">{{ name }} - {{ value }}</router-link>
+        <br />
       </li>
     </ul>
   </div>
@@ -14,23 +16,23 @@
 <script>
 module.exports = {
   created() {
-    this.posts();
+    this.posts()
     //console.log(this.$route);
   },
   data() {
     return {
       blogPosts: [],
       categorias: {},
-    };
+    }
   },
   methods: {
     async posts() {
-      const req = await fetch("/src/db/data.json");
-      const res = await req.json();
-      this.blogPosts = res.blog.posts;
+      const req = await fetch('/src/db/data.json')
+      const res = await req.json()
+      this.blogPosts = res.blog.posts
 
       //categorias only
-      const getCatego = this.blogPosts.map((val) => val.category);
+      const getCatego = this.blogPosts.map((val) => val.category)
       //filter remove duplicado e undefined itens
       /*  const UniqueCats = getCatego.filter(
         (val, ind) => getCatego.indexOf(val) == ind && val != undefined
@@ -40,15 +42,13 @@ module.exports = {
       //return valores unicos
       //this.categorias = UniqueCats.sort();
       //contar n de categories values
-      const counter = getCatego
-        .sort()
-        .reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {});
+      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
       // console.log(`counter`, counter);
       //return valores unicos + n de posts com determinada categoria
-      this.categorias = counter;
+      this.categorias = counter
     },
   },
-};
+}
 </script>
 <style scoped>
 div {
