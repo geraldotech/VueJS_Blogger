@@ -2,24 +2,54 @@
   <div>
     <h1>Router Search</h1>
     <ul>
-      <li> query params you can direct in get (url)</li>
+      <li>query params you can direct in get (url)</li>
       <li>axios to fetch data</li>
+      <li>Testar individualmente</li>
     </ul>
 
-    <h2>computed wait data fech and change state to return something </h2>
+    <h2>computed wait fetch and change state to return something</h2>
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
-     <h3>{{ getPostsFromCategory }}</h3> 
+    <h3>{{ getPostsFromCategory }}</h3>
 
-  <h2>method return a postid</h2>
-  <p><strong>this.$route.query.postid</strong> Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></p>
-   
-     <h3>{{ findById }}</h3>
-    <h2>Multiple queries category and id</h2>
-    <p>
-      <strong>/blog/search?category=android&id=4</strong>
-    </p>
-    <!--  <p>{{ getPostMultipleQueries }}</p> -->
+    <h2>method return a postid</h2>
+    <p><strong>this.$route.query.postid</strong> Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></p>
+
+    <h3>{{ findById }}</h3>
+    <h2>Multiple queries category and title includes</h2>
+    <p>Abre a possibilidade de compartilhar o link com alguém que vai receber os resultados na busca</p>
+    <p><strong>/blog/search?category=network&title=ssl</strong> <a href="https://geraldox.com/blog/search?category=network&title=test">click</a></p>
+    <h3>{{ getPostMultipleQueries }}</h3>
+
+    <h2>Search Constructor - Advanced Search</h2>
+
+    <label for="opt">Escolha a categoria::</label>
+    <select
+      name=""
+      id="opt"
+      v-model="searchCat">
+      <option
+        value=""
+        disabled></option>
+      <option value="android">Android</option>
+      <option value="developer">Developer</option>
+      <option value="drivers">Drivers</option>
+      <option value="linux">Linux</option>
+      <option value="network">Network</option>
+      <option value="windows">Windows</option>
+    </select>
+    <input
+      type="search"
+      v-model="searchTitle"
+      placeholder="`title" />
+    <input
+      type="button"
+      value="Search"
+      @click="navigateToHandlerFilter"
+       />
+      
+      <h2> <a :href="handlerFilter">{{handlerFilter}}</a></h2>
   </div>
+
 </template>
 
 <script>
@@ -40,30 +70,34 @@ module.exports = {
   mounted() {
     /* EXAMPLE 1 */
 
-      axios.get(API).then(
-      (response) =>
+    axios
+      .get(API)
+      .then((response) =>
         //console.log(response.data.blog.posts)
         setTimeout(() => {
           this.allposts = response.data?.blog.posts
           this.state = true
         }, 2000)
-    ).catch(error => {
-          console.error('Error fetching data:', error);
-        }); 
+      )
+      .catch((error) => {
+        console.error('Error fetching data:', error)
+      })
 
     /* EXAMPLE 2 */
     this.fetchData()
 
     /* CAN CALL DIRECT OU CALL A FN */
-  // this.fetchNative()
+    // this.fetchNative()
   },
   data() {
     return {
       allposts: null,
       state: false,
-
+      rawData: [],
       categoryRes: [],
       findById: null,
+      searchTitle: '',
+      searchCat: '',
     }
   },
   methods: {
@@ -80,10 +114,8 @@ module.exports = {
         })
     },
     handlerFilterfromFN() {
-     const postsById =  this.rawData.find((post) => post.id == this.$route.query.postid)
-     console.log(postsById ?? 'n tem')
-     return this.findById = postsById ?? '404 no POST'
-
+      const postsById = this.rawData.find((post) => post.id == this.$route.query.postid)
+      return (this.findById = postsById ?? '404 no POST')
     },
     async fetchNative() {
       await new Promise((response) => setTimeout(response, 2000))
@@ -94,32 +126,43 @@ module.exports = {
       } catch (err) {
         console.log(err)
       }
-    },
+    },  
+    navigateToHandlerFilter(){
+        window.location.href = this.handlerFilter
+    }
   },
 
   /* === USE computed to get posts  === */
   computed: {
     getPostsFromCategory() {
-      
       if (this.state) {
         //console.log(this.$route.query.category ?? 'no category')
-         const postsByCategory =  this.allposts?.filter((post) => post.category == this.$route.query.category)
-         if(!postsByCategory.length){
-           return 'Nada encontrado!'
-         }
-          return postsByCategory
-      }      
-      return 'Loading...'
-
-      /* 
-     if(this.$route.query?.category && this.allposts){
-      const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
-      return (this.categoryRes = posts)
+        const postsByCategory = this.allposts?.filter((post) => post.category == this.$route.query.category)
+        if (!postsByCategory.length) {
+          return 'Nada encontrado!'
+        }
+        return postsByCategory
       }
-      return 'no data in category params'  */
+      return 'Loading...'
     },
     getPostMultipleQueries() {
-      return this.allposts?.filter((post) => post.id === +this.$route.query.id)
+      return this.rawData?.filter((post) => post.category === this.$route.query.category && post.title.toLowerCase().includes(this.$route.query.title))
+    },
+      handlerFilter() {
+       
+      const producOrDevMode = location.port != ''
+      const baseURL = producOrDevMode ?  'index.html#/blog/search' :  'https://geraldox.com/blog/search'
+      console.log(baseURL)
+      const urlSearch = `index.html#/blog/search?category=${this.searchCat}&title=${this.searchTitle}`
+      //location.href = urlSearch
+
+      const queryParams = {
+        category: this.searchCat,
+        title: this.searchTitle,
+      }
+
+      const queryParamsDone = new URLSearchParams(queryParams).toString()
+      return `${baseURL}?${queryParamsDone}`
     },
   },
 }
@@ -143,8 +186,8 @@ ul {
   padding: 1rem;
 }
 
-h3{
-  color: coral;
+h3 {
+  color: #05bdba;
   font-family: monospace;
 }
 </style>
