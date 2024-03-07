@@ -45,11 +45,11 @@ module.exports = {
         setTimeout(() => {
           this.allposts = response.data?.blog.posts
           this.state = true
-        }, 5000)
+        }, 1000)
     )
 
     /* EXAMPLE 2 */
-    this.fetchData()
+    //this.fetchData()
 
    
   },
@@ -88,6 +88,7 @@ module.exports = {
       // no forget pust ? to void error
 
       if(this.state){
+        console.warn(this.allposts)
         return this.allposts?.filter((post) => post.category == this.$route.query.category)
       }
       return 'Loading...'
