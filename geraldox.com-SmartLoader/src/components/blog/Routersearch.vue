@@ -17,6 +17,9 @@
       <strong>/blog/search?category=android&id=4</strong>
     </p>
    <!--  <p>{{ getPostMultipleQueries }}</p> -->
+
+
+
   </div>
 </template>
 
@@ -41,19 +44,21 @@ module.exports = {
         //console.log(response.data.blog.posts)
         setTimeout(() => {
           this.allposts = response.data?.blog.posts
-        }, 1500)
-       // (this.allposts = response.data?.blog.posts)
+          this.state = true
+        }, 5000)
     )
 
     /* EXAMPLE 2 */
     this.fetchData()
+
+   
   },
   data() {
     return {
       allposts: null,
+      state: false,      
       categoryRes: [],
       filteredData: [],
-      fetchstatus: false
     }
   },
   methods: {
@@ -70,19 +75,23 @@ module.exports = {
         })
     },
     handlerFilterfromFN() {
-      console.log(this.$route.query.postid)
+     // console.log(this.$route.query.postid)
       this.filteredData = this.rawData.filter((post) => post.id == this.$route.query.postid)
     },
     handlerCategory(){
      // this.allposts.find
-    }
+    },
   },
   /* === USE computed to get posts  === */
   computed: {
     getPostsFromCategory() {
       // no forget pust ? to void error
 
-      return this.allposts?.filter((post) => post.category == this.$route.query.category)
+      if(this.state){
+        return this.allposts?.filter((post) => post.category == this.$route.query.category)
+      }
+      return 'Loading...'
+
       /* 
      if(this.$route.query?.category && this.allposts){
       const posts = this.allposts?.filter((post) => post.category === this.$route.query.category)
@@ -93,6 +102,7 @@ module.exports = {
     getPostMultipleQueries() {
       return this.allposts?.filter((post) => post.id === +this.$route.query.id)
     },
+   
   },
 }
 </script>
