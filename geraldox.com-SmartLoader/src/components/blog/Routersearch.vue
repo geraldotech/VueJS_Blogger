@@ -1,14 +1,19 @@
 <template>
   <div>
-    <h1>Router Search, and using axios to fetch data</h1>
-    <h2>Example how to use query params you can direct in get:</h2>
+    <h1>Router Search</h1>
+    <ul>
+      <li> query params you can direct in get (url)</li>
+      <li>axios to fetch data</li>
+    </ul>
 
+    <h2>computed wait data fech and change state to return something </h2>
     <p><strong>blog/search?category=android</strong> <a href="https://geraldox.com/blog/search?category=android">click</a></p>
-     <p>{{ getPostsFromCategory }}</p> 
+     <h3>{{ getPostsFromCategory }}</h3> 
 
-    <h2>Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></h2>
-    <strong>this.$route.query.postid</strong>
-     <p>{{ filterbyID }}</p>
+  <h2>method return a postid</h2>
+  <p><strong>this.$route.query.postid</strong> Fecth post.id <a href="https://geraldox.com/blog/search?postid=2">click</a></p>
+   
+     <h3>{{ findById }}</h3>
     <h2>Multiple queries category and id</h2>
     <p>
       <strong>/blog/search?category=android&id=4</strong>
@@ -58,7 +63,7 @@ module.exports = {
       state: false,
 
       categoryRes: [],
-      filterbyID: [],
+      findById: null,
     }
   },
   methods: {
@@ -75,7 +80,10 @@ module.exports = {
         })
     },
     handlerFilterfromFN() {
-      this.filterbyID = this.rawData.filter((post) => post.id == this.$route.query.postid)
+     const postsById =  this.rawData.find((post) => post.id == this.$route.query.postid)
+     console.log(postsById ?? 'n tem')
+     return this.findById = postsById ?? '404 no POST'
+
     },
     async fetchNative() {
       await new Promise((response) => setTimeout(response, 2000))
@@ -95,8 +103,12 @@ module.exports = {
       
       if (this.state) {
         //console.log(this.$route.query.category ?? 'no category')
-        return this.allposts?.filter((post) => post.category == this.$route.query.category)
-      }
+         const postsByCategory =  this.allposts?.filter((post) => post.category == this.$route.query.category)
+         if(!postsByCategory.length){
+           return 'Nada encontrado!'
+         }
+          return postsByCategory
+      }      
       return 'Loading...'
 
       /* 
@@ -126,5 +138,13 @@ strong {
 h2 {
   margin-block: 10px;
   border-bottom: 2px solid red;
+}
+ul {
+  padding: 1rem;
+}
+
+h3{
+  color: coral;
+  font-family: monospace;
 }
 </style>
