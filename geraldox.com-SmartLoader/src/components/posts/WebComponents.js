@@ -1,7 +1,7 @@
 // Vanilla Web Components
 
 //Global CDN IMG
-import cdn from '/src/cdn.js'
+import cdn from '/src/lib/cdn.js'
 //console.log(img,"CDN importado WebComponents.js")
 
 // Vanilla Web Components [Beta]

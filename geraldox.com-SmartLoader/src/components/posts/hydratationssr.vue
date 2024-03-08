@@ -54,4 +54,8 @@
 
 <script></script>
 
-<style></style>
+<style scoped>
+.article {
+  text-align: justify;
+}
+</style>

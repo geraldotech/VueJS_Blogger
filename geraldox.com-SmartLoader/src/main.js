@@ -1,15 +1,15 @@
 import router from '../src/router/index.js'
-import SmartLoader from './assets/lib/smartLoader.js'
-SmartLoader('/src/components/ContainerVue.js', 'module')
-SmartLoader('/src/components/WebComponents.js', 'module')
+import SmartLoader from './lib/smartLoader.js'
+SmartLoader('/src/components/posts/ContainerVue.js', 'module')
+SmartLoader('/src/components/posts/WebComponents.js', 'module')
 // Standalone WebComponents
-SmartLoader('/src/components/externo.js', 'module')
+SmartLoader('/src/components/posts/externo.js', 'module')
 /* snippet-x library */
-SmartLoader('/src/assets/lib/snippet-x.js')
+SmartLoader('/src/lib/snippet-x.js')
 
 
 //import CDN to Vue Mixin
-import cdn from '/src/cdn.js'
+import cdn from '/src/lib/cdn.js'
 
 // Assim todos os Components.vue podem usar a CDN diretamente das variaveis Globais:
 Vue.mixin({

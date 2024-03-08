@@ -1,4 +1,4 @@
-import cdn from '../cdn.js' //this import to use cdn links
+import cdn from '../lib/cdn.js' //this import to use cdn links
 
 const Home = httpVueLoader('/src/views/Home.vue')
 const HomeOld = httpVueLoader('/src/views/HomeOld.vue')

@@ -2,7 +2,7 @@
  Container JavaScript with VueComponents  
  */
 
-import cdn from '/src/cdn.js'
+import cdn from '/src/lib/cdn.js'
 
 /* Container Components.js */
 const superNintendo = `

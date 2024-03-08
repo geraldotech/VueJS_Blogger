@@ -127,10 +127,10 @@ module.exports = {
     }
   },
   components: {
-    Foot: httpVueLoader('/src/components/Footer.vue'),
+    Foot: httpVueLoader('/src/components/blog/Footer.vue'),
     Busca: httpVueLoader('/src/components/Search.vue'),
     Searchauto: httpVueLoader('../src/components/blog/SearchAuto.vue'),
-    Modal: httpVueLoader('../src/components/Modal.vue'),
+    Modal: httpVueLoader('../src/components/blog/Modal.vue'),
   },
   methods: {
     clickCloseMenu() {
