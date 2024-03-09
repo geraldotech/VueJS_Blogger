@@ -40,7 +40,7 @@
         "published": true,
         "createdAt": "May 31, 2021",
         "article": "<h1 style='text-align:center; margin: 10px 0;'>Listando Android Apps</h1>",
-        "component": "Android",
+        "component": "android-roo",
         "category": "android"
       },
       {

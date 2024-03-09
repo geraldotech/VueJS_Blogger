@@ -115,10 +115,11 @@ async checkFileExistsHttLoader(url) {
 
   // ONLY ON PRODUCTION Netlify components ContainerVue.js, externo.js and WebComponents.js are loaded success, so DynamicStatus is true, so this native import component render is not render...
 
-  // EVEN post undefined axios return a /src/components/posts/undefined.vue
+  //👉✅ EVEN post undefined axios return a /src/components/posts/undefined.vue
 
-  // em breve remover this Container.vue to no load 100% content, better performance
-  // checkFileExistsHttLoader() using HttpLoader really check if exists, axios in local ok, but in production return files always exists
+  // checkFileExistsHttLoader() using HttpLoader really check if file exists, axios in localhost ok, but in production return files always exists
+  // this was caused so maby bugs
+  // removed all manual imports, except ContainerPosts.vue because is duplicated call and renderreds to better performance
 ```
 
 - 03.12.2023

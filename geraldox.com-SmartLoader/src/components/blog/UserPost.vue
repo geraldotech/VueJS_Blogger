@@ -51,10 +51,11 @@
             - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
            -->
           <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2>
-          <component v-show="!dynamicComponent" :is="blog.component"></component>
+          <component
+            :is="blog.component"></component>
 
           <!-- v2 Dynamic Imports -->
-          <component :is="dynamicComponent"></component>
+          <component  :is="dynamicComponent"></component>
 
           <!-- render SmartComponents[ContainerPosts.vue de Components] -->
           <Container></Container>
@@ -85,16 +86,12 @@ Vue.component('cardy', {
 //ends String Components
 module.exports = {
   name: 'BlogPosts',
-  mounted() {
-    //console.log(test);
-  },
+  mounted() {},
   beforeCreate() {
     // console.log(`UserPost.vue`, this.$appName);
   },
   async created() {
     this.posts()
-    // this.tryImportComponentAuto()
-
     //console.log(this.$route); //currently
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
     //console.log(`UserPost: root`, this.$root);
@@ -119,14 +116,8 @@ module.exports = {
     Adsense: httpVueLoader('../components/blog//Adsense.vue'),
 
     /* === BLOG POSTS === */
-    Android: httpVueLoader('../posts/android-roo.vue'),
-    Vuejs: httpVueLoader('../posts/Vuejs.vue'),
-    Speedtest: httpVueLoader('../posts/Speedtest.vue'),
-    NetworkTools: httpVueLoader('../posts/NetworkTools.vue'),
     Container: httpVueLoader('/src/components/posts/ContainerPosts.vue'),
-    whatsappapi: httpVueLoader('../posts/whatsappapi.vue'),
-    winoffline: httpVueLoader('../posts/winoffline.vue'),
-    hydratationssr: httpVueLoader('../posts/hydratationssr.vue'),
+    
   },
   methods: {
     async posts() {
@@ -177,7 +168,7 @@ module.exports = {
         },
       }
     },
-     fetchComponentData() {
+    fetchComponentData() {
       try {
         const checkExist = this.checkFileExistsHttLoader(`/src/components/posts/${this.blog.component}.vue`)
         if (checkExist) {
@@ -213,8 +204,6 @@ module.exports = {
         }
       } catch (error) {
         // console.error('Error loading dynamic component:', error)
-      } finally {
-        console.log()
       }
     },
     selectCategoryHandler(e) {
@@ -229,11 +218,12 @@ module.exports = {
           .then((res) => res.template)
           .then((data) => {
             if (data) {
-              this.fetchDataHTTP = data
+             // this.fetchDataHTTP = data
+             return true
             }
           })
       } catch (err) {
-        console.error(err, `file 404`)
+        //console.error(err, `file 404`)
       }
     },
   },
