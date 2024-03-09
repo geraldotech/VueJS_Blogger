@@ -155,7 +155,7 @@ module.exports = {
       this.categorias = counter
 
 
-      this.checkFileExists(`/src/components/posts/${this.blog.component}.vue`)
+      this.checkFileExists(`./src/components/posts/${this.blog.component}.vue`)
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
