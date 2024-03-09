@@ -100,7 +100,7 @@ module.exports = {
     //console.log(`UserPost: root`, this.$root);
   },
   async mounted() {
-    this.checkFileExists(`/src/components/posts/${this.blog.component}.vue`)
+    //this.checkFileExists(`/src/components/posts/${this.blog.component}.vue`)
   },
   data() {
     return {
