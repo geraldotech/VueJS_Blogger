@@ -48,10 +48,10 @@
           <!-- v1 se comentar vai quebrar o WebComponents.js e importacao de nomes, but se nao comentar duplica o content
          
             Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
-            - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered  v-show="!dynamicImportStatus"
+            - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
            -->
           <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2>
-          <component :is="blog.component"></component>
+          <component  v-show="!dynamicImportStatus" :is="blog.component"></component>
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
