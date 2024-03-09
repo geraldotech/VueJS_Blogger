@@ -48,15 +48,13 @@
           <!-- v1 se comentar vai quebrar o WebComponents.js e importacao de nomes, but se nao comentar duplica o content
          
             Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
-            - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered
+            - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered  v-show="!dynamicImportStatus"
            -->
-          <h2>Is a Dynamic Component Import or manual import?{{dynamicImportStatus ? 'Dynamic' : 'Not Dynamic'}}</h2>
-          <component v-show="!dynamicImportStatus" :is="blog.component"></component>
+          <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2>
+          <component :is="blog.component"></component>
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
-          
-        
 
           <!-- render SmartComponents[ContainerPosts.vue de Components] -->
           <Container></Container>
@@ -71,7 +69,9 @@
         </div>
         <Sidebarbottom :allposts="GetallPosts" />
       </main>
-      <Sidebar :categorias="categorias" @selectcategory="selectCategoryHandler" />
+      <Sidebar
+        :categorias="categorias"
+        @selectcategory="selectCategoryHandler" />
     </div>
   </div>
 </template>
@@ -108,7 +108,7 @@ module.exports = {
       GetallPosts: [],
       dynamicComponent: null,
       categorias: '',
-      dynamicImportStatus: false
+      dynamicImportStatus: false,
     }
   },
   components: {
@@ -146,7 +146,7 @@ module.exports = {
       this.getDynamicComponent(getBlogPost)
 
       /* Sidebar props... */
-        const getCatego =  this.GetallPosts.map((val) => val.category)
+      const getCatego = this.GetallPosts.map((val) => val.category)
 
       //🔢 contar n de categories values + ordenar com sort()
       const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
@@ -182,7 +182,7 @@ module.exports = {
         if (checkExist.status >= 200 && checkExist.status < 300) {
           return {
             component: `/src/components/posts/${this.blog.component}.vue`,
-             status: true           
+            status: true,
           }
         } else {
           console.log('fetchComponent Dynamic File does not exist')
@@ -216,19 +216,19 @@ module.exports = {
         console.log()
       }
     },
-     selectCategoryHandler(e) {
+    selectCategoryHandler(e) {
       this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
-   async checkFileExists(url) {
-  return fetch(url, { method: 'HEAD' })
-    .then(response => {
-      console.log(response.ok)// Returns true if file exists, false otherwise
-    })
-    .catch(error => {
-      console.error('Error checking file existence:', error);
-      return false; // Assume file doesn't exist in case of an error
-    });
-}
+    async checkFileExists(url) {
+      return fetch(url, { method: 'HEAD' })
+        .then((response) => {
+          console.log(response.ok) // Returns true if file exists, false otherwise
+        })
+        .catch((error) => {
+          console.error('Error checking file existence:', error)
+          return false // Assume file doesn't exist in case of an error
+        })
+    },
   },
 }
 </script>
