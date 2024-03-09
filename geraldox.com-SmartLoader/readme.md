@@ -51,6 +51,14 @@
 ### Changes and Features:
 
 
+- 09.03.2024 checkfile exists and render html template
+
+```js
+
+
+
+```
+
 - 06.03.2024 a 09.03.2024
   `Blog.vue` changes:
 

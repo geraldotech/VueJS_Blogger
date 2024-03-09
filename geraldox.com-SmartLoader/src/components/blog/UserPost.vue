@@ -5,6 +5,7 @@
       <main>
         <!--  <div><Searchlegacy v1 /></div> -->
         <!--   <div><Searchauto v2 /></div> -->
+        <h3 v-html="fetchDataHTTP"></h3>
         <article v-if="blog">
           <!-- card starts -->
           <div class="breadcrumbs">
@@ -51,7 +52,9 @@
             - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
            -->
           <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2>
-          <component  v-show="!dynamicImportStatus" :is="blog.component"></component>
+          <component
+            v-show="!dynamicImportStatus"
+            :is="blog.component"></component>
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
@@ -99,9 +102,7 @@ module.exports = {
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
     //console.log(`UserPost: root`, this.$root);
   },
-  async mounted() {
-   
-  },
+  async mounted() {},
   data() {
     return {
       blog: {},
@@ -109,6 +110,7 @@ module.exports = {
       dynamicComponent: null,
       categorias: '',
       dynamicImportStatus: false,
+      fetchDataHTTP: null,
     }
   },
   components: {
@@ -154,8 +156,7 @@ module.exports = {
       //🔢 recebe o contador unique + contador
       this.categorias = counter
 
-
-      this.checkFileExists(`./src/components/posts/${this.blog.component}.vue`)
+      this.checkFileExistsHttLoader(`/src/components/posts/${this.blog.component}.vue`)
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
@@ -182,9 +183,6 @@ module.exports = {
     async fetchComponentData() {
       try {
         const checkExist = await axios.head(`/src/components/posts/${this.blog.component}.vue`)
-        console.log(checkExist)
-        console.log(checkExist.config.url)
-        console.log(`data exists?`, checkExist.data === '')
         if (checkExist.status >= 200 && checkExist.status < 300) {
           return {
             component: `/src/components/posts/${this.blog.component}.vue`,
@@ -225,15 +223,21 @@ module.exports = {
     selectCategoryHandler(e) {
       this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
-    async checkFileExists(url) {
-      return fetch(url, { method: 'HEAD' })
-        .then((response) => {
-          console.log(`checkfileExists`, response) // Returns true if file exists, false otherwise
-        })
-        .catch((error) => {
-          console.error('Error checking file existence:', error)
-          return false // Assume file doesn't exist in case of an error
-        })
+    async checkFileExistsHttLoader(url) {
+      try {
+        const componentExist = httpVueLoader(url)
+        // console.log(componentExist()) // return a promisse, so use then
+        componentExist()
+          .then((res) => res.template)
+          .then((data) => {
+            console.log(data.length)
+            if (data) {
+              this.fetchDataHTTP = data
+            }
+          })
+      } catch (err) {
+        console.error(err, `arquivo nao existe`)
+      }
     },
   },
 }
