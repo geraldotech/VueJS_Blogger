@@ -51,7 +51,7 @@ module.exports = {
   overflow-x: auto;
   display: flex;
   flex-direction: column;
-  max-width: 40%;
+  max-width: 75%;
   width: 100%;
   min-height: 50vh;
   border-radius: 10px;

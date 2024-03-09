@@ -30,7 +30,7 @@
             cleanInput()
           ">
           <!-- in routerLink emit a event function to parent -->
-          {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
+          {{ autosearch.title.substring(0, 30) }}... - {{ autosearch.data }}
         </router-link>
       </li>
       <h1>{{ Message }}</h1>
@@ -179,9 +179,9 @@ module.exports = {
 }
 
 .search .formparent form {
-  position: fixed;
-  top: 60px;
-  max-width: 40%; /* same modal */
+  position: absolute;
+  top: 13px;
+  max-width: 100%; /* same modal */
   width: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -208,6 +208,7 @@ form input:focus {
   padding-inline: 25px;
   background-color: #333;
   border-radius: 6px;
+  color: #fff;
 }
 
 .search .containerResults {
