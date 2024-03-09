@@ -6,7 +6,7 @@
     </p>
     <form>
       <label for="num">Número com DDD:</label>
-      <input type="text" v-model="userNumber" id="num" />
+      <input type="number" v-model="userNumber" id="num" />
       <label for="tex">Mensagem inicial (opcional): </label>
       <input type="text" v-model="userText" id="tex" />
     </form>
