@@ -51,7 +51,9 @@
             - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
            -->
           <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2>
-          <component :is="blog.component"></component>
+          <component
+            v-show="!dynamicImportStatus"
+            :is="blog.component"></component>
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
@@ -177,10 +179,10 @@ module.exports = {
         },
       }
     },
-     fetchComponentData() {
+    async fetchComponentData() {
       try {
-        const checkExist = this.checkFileExistsHttLoader(`/src/components/posts/${this.blog.component}.vue`)
-        if (checkExist) {
+        const checkExist = await axios.head(`/src/components/posts/${this.blog.component}.vue`)
+        if (checkExist.status >= 200 && checkExist.status < 300) {
           return {
             component: `/src/components/posts/${this.blog.component}.vue`,
             status: true,
@@ -220,7 +222,6 @@ module.exports = {
     selectCategoryHandler(e) {
       this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
-    /* === CHECK COMPONENT.VUE EXISTS === */
     async checkFileExistsHttLoader(url) {
       try {
         const componentExist = httpVueLoader(url)
@@ -233,7 +234,7 @@ module.exports = {
             }
           })
       } catch (err) {
-        console.error(err, `file 404`)
+        console.error(err, `arquivo nao existe`)
       }
     },
   },

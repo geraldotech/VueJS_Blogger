@@ -118,6 +118,7 @@ async checkFileExistsHttLoader(url) {
   // EVEN post undefined axios return a /src/components/posts/undefined.vue
 
   // em breve remover this Container.vue to no load 100% content, better performance
+  // checkFileExistsHttLoader() using HttpLoader really check if exists, axios in local ok, but in production return files always exists
 ```
 
 - 03.12.2023
