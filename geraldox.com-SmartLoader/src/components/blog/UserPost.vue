@@ -100,7 +100,7 @@ module.exports = {
     //console.log(`UserPost: root`, this.$root);
   },
   async mounted() {
-    //this.checkFileExists(`/src/components/posts/${this.blog.component}.vue`)
+   
   },
   data() {
     return {
@@ -153,6 +153,9 @@ module.exports = {
 
       //🔢 recebe o contador unique + contador
       this.categorias = counter
+
+
+      this.checkFileExists(`/src/components/posts/${this.blog.component}.vue`)
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
@@ -225,7 +228,7 @@ module.exports = {
     async checkFileExists(url) {
       return fetch(url, { method: 'HEAD' })
         .then((response) => {
-          console.log(response.ok) // Returns true if file exists, false otherwise
+          console.log(`checkfileExists`, response) // Returns true if file exists, false otherwise
         })
         .catch((error) => {
           console.error('Error checking file existence:', error)
