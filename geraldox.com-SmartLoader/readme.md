@@ -87,7 +87,10 @@
     }
   // 👉to work consider componentName === componentName.vue in JSON
   // 👉always loads from /src/components/posts/componentName.vue
-  // dectado que components in ContainerVue.js are loaded success
+
+  //❌ Bufs
+  // dectado que components in ContainerVue.js, externo.js and WebComponents.js are loaded success, so DynamicStat is true, so this native import component render is not render
+  // em breve remover this Container.vue to no load 100% content, better performance
 ```
 
 - 03.12.2023

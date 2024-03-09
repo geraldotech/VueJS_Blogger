@@ -99,7 +99,9 @@ module.exports = {
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
     //console.log(`UserPost: root`, this.$root);
   },
-  async mounted() {},
+  async mounted() {
+    this.checkFileExists(`/src/components/posts/${this.blog.component}.vue`)
+  },
   data() {
     return {
       blog: {},
@@ -217,6 +219,16 @@ module.exports = {
      selectCategoryHandler(e) {
       this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
+   async checkFileExists(url) {
+  return fetch(url, { method: 'HEAD' })
+    .then(response => {
+      console.log(response.ok)// Returns true if file exists, false otherwise
+    })
+    .catch(error => {
+      console.error('Error checking file existence:', error);
+      return false; // Assume file doesn't exist in case of an error
+    });
+}
   },
 }
 </script>
