@@ -51,20 +51,7 @@
 ### Changes and Features:
 
 
-- 09.03.2024 -
-
-```js
-// check devtools network each fetch data.json, checkout Request URL exists 
-
-'<', "<!DOCTYPE "... is not valid JSON
-
-// nested router like: /blog/   must be  import as:  '../src/data.json' instead  '/src/...' because is a diff directory 
-// make this change even woking in localhost and production, but in production will warning
-
-
- ```
-
-- 06.03.2024
+- 06.03.2024 a 09.03.2024
   `Blog.vue` changes:
 
 ```js
@@ -101,8 +88,9 @@
   // 👉to work consider componentName === componentName.vue in JSON
   // 👉always loads from /src/components/posts/componentName.vue
 
-  //❌ Bufs
-  // dectado que components in ContainerVue.js, externo.js and WebComponents.js are loaded success, so DynamicStat is true, so this native import component render is not render
+  //❌ Bug report:
+
+  // ONLY ON PRODUCTION Netlify components ContainerVue.js, externo.js and WebComponents.js are loaded success, so DynamicStatus is true, so this native import component render is not render...
   // em breve remover this Container.vue to no load 100% content, better performance
 ```
 
