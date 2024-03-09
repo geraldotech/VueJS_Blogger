@@ -87,6 +87,7 @@
     }
   // 👉to work consider componentName === componentName.vue in JSON
   // 👉always loads from /src/components/posts/componentName.vue
+  // dectado que components in ContainerVue.js are loaded success
 ```
 
 - 03.12.2023
