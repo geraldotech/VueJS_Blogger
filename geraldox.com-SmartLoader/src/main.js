@@ -1,6 +1,6 @@
 import router from '../src/router/index.js'
 import SmartLoader from './lib/smartLoader.js'
-SmartLoader('/src/components/posts/ContainerVue.js', 'module')
+SmartLoader('/src/components/posts/extends/ContainerVue.js', 'module')
 SmartLoader('/src/components/posts/WebComponents.js', 'module')
 // Standalone WebComponents
 SmartLoader('/src/components/posts/externo.js', 'module')
