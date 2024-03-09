@@ -178,6 +178,10 @@ module.exports = {
   color: var(--search-links-color); /* var in App */
 }
 
+.search .formparent {
+  position: relative;
+}
+
 .search .formparent form {
   position: absolute;
   top: 13px;
@@ -232,7 +236,6 @@ form input:focus {
 /* for mobile */
 @media screen and (max-width: 750px) {
   .search input[type='text'] {
-    width: 90%;
     height: 40px;
   }
 
@@ -241,7 +244,7 @@ form input:focus {
     width: 100% !important;
   }
   form {
-    max-width: 95% !important;
+    max-width: 100% !important;
   }
 }
 </style>
