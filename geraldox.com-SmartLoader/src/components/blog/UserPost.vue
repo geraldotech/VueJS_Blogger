@@ -179,6 +179,9 @@ module.exports = {
     async fetchComponentData() {
       try {
         const checkExist = await axios.head(`/src/components/posts/${this.blog.component}.vue`)
+        console.log(checkExist)
+        console.log(checkExist.config.url)
+        console.log(`data exists?`, checkExist.data === '')
         if (checkExist.status >= 200 && checkExist.status < 300) {
           return {
             component: `/src/components/posts/${this.blog.component}.vue`,
