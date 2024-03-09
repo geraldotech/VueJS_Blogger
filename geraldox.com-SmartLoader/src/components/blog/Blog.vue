@@ -187,7 +187,7 @@ module.exports = {
   },
   methods: {
     async posts() {
-      const req = await fetch('./src/db/data.json')
+      const req = await fetch('../src/db/data.json')
       const res = await req.json()
 
       // Pinned receive all posts
