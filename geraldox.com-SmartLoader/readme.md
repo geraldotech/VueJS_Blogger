@@ -14,7 +14,7 @@
   - Use `<p class="article">` for first letter uppercase
   - CSS Global `class='btnDownload'` for button downloads e.g: `<nav><a href="#">button downloads</a></nav>`
 
-- Components
+- ## Components
 
   > Thanks [https://www.storyblok.com/tp/vue-dynamic-component-from-json](https://www.storyblok.com/tp/vue-dynamic-component-from-json)
 
