@@ -50,13 +50,28 @@
 
 ### Changes and Features:
 
-
-- 09.03.2024 checkfile exists and render html template
+- 09.03.2024 How checkfile exists, dynamic import and render html template with `httpVueLoader`
 
 ```js
+async checkFileExistsHttLoader(url) {
+      try {
+        const componentExist = httpVueLoader(url)
+        // console.log(componentExist()) // return a promisse, so use then
+        componentExist()
+          .then((res) => res.template)
+          .then((data) => {
+            console.log(data.length)
+            if (data) {
+              this.fetchDataHTTP = data
+            }
+          })
+      } catch (err) {
+        console.error(err, `arquivo nao existe`)
+      }
+    },
 
-
-
+//define a out html
+ <h3 v-html="fetchDataHTTP"></h3>
 ```
 
 - 06.03.2024 a 09.03.2024
@@ -68,25 +83,25 @@
       <Mapas />
     </div>
 
-    // to  
+    // to
   <router-view></router-view>
 
-  // ROUTER NESTED CHANGES 
-  // move  ❌categories/developer 
-  // to✅ 
+  // ROUTER NESTED CHANGES
+  // move  ❌categories/developer
+  // to✅
   /blog/categories/developer
   /blog/category?/
   /blog/category?/post
 
   // fixed annoying warning
-  //missing param for named route "threads": 
+  //missing param for named route "threads":
   //Expected "category" to be defined, I just
 
   // I just add an ?? true or ?? 'whatever'
     <router-link :to="{
     name: 'threads',
     params: { category: pinned.category?? true, slug: pinned.slug?? true },}"
-    >{{ pinned.title }}</router-link> 
+    >{{ pinned.title }}</router-link>
 
 
   // Apply import dymanic instead every time import component in UserPost.vue
@@ -387,9 +402,7 @@
 const getCatego = this.opt.map((val) => val.category)
 
 //filter remove duplicado e undefined itens
-const filtra = getCatego.filter(
-  (val, ind) => getCatego.indexOf(val) == ind && val != undefined
-)
+const filtra = getCatego.filter((val, ind) => getCatego.indexOf(val) == ind && val != undefined)
 //catategories by sort()
 this.categorias = filtra.sort()
 ```
@@ -421,7 +434,10 @@ const getBlogPost = this.blogPosts.find(
 
   ```js
   <div v-if="$route.params.category.includes('ndroid')">
-    <img src="./src/assets/img/android.png" alt="android" />
+    <img
+      src="./src/assets/img/android.png"
+      alt="android"
+    />
   </div>
   ```
 
