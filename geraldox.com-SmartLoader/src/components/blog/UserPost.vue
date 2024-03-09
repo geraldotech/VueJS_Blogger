@@ -131,7 +131,7 @@ module.exports = {
   },
   methods: {
     async posts() {
-      const req = await fetch('/src/db/data.json')
+      const req = await fetch('../src/db/data.json')
       const data = await req.json()
       this.GetallPosts = data.blog.posts
       //encontra a slug atual e verifica se esta plublicada
