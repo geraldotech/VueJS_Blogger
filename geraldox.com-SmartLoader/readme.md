@@ -51,6 +51,19 @@
 ### Changes and Features:
 
 
+- 09.03.2024 -
+
+```js
+// check devtools network each fetch data.json, checkout Request URL exists 
+
+'<', "<!DOCTYPE "... is not valid JSON
+
+// nested router like: /blog/   must be  import as:  '../src/data.json' instead  '/src/...' because is a diff directory 
+// make this change even woking in localhost and production, but in production will warning
+
+
+ ```
+
 - 06.03.2024
   `Blog.vue` changes:
 
