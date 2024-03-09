@@ -54,7 +54,7 @@
 - 06.03.2024
   `Blog.vue` changes:
 
-  ```js
+```js
   // remove this code, to router-view  haha sorry for that
    <div v-if="$route.name == `categoriesMap`">
       <Mapas />
@@ -87,8 +87,6 @@
     }
   // 👉to work consider componentName === componentName.vue in JSON
   // 👉always loads from /src/components/posts/componentName.vue
-
-
 ```
 
 - 03.12.2023

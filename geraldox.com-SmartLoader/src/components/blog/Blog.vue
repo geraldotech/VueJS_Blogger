@@ -5,7 +5,9 @@
       v-if="$route.name == 'Blog Posts'"
       class="list-all">
       <section class="threads">
-        <nav class="legacy_searchs">
+        <nav
+          class="legacy_searchs"
+          v-show="false">
           <input
             type="checkbox"
             id="showlegacy"
@@ -24,7 +26,9 @@
           <Searchauto v2 />
         </div>
 
-        <div class="map">
+        <div
+          class="map"
+          v-show="false">
           <div>
             <router-link :to="{ name: 'categoriesMap' }">Website Map:</router-link>
           </div>
@@ -43,7 +47,7 @@
         <h1>Threads:</h1>
         <!--  pinnedPost -->
         <section
-          class="threads_list pinned"
+          class="thread-item pinned"
           v-show="Object.hasOwn(pinned, 'id')">
           <p>
             <svg
@@ -80,17 +84,17 @@
         </section>
         <!--  pinnedPost -->
         <!--  RenderPosts -->
-        <ul>
+        <ul class="threads-container grid">
           <li
             v-for="artigos in opt"
             :key="artigos.slug"
-            class="threads_list">
+            class="thread-item">
             <router-link
               :to="{
                 name: 'threads',
                 params: { category: artigos.category, slug: artigos.slug },
               }">
-              {{ artigos.title }}</router-link
+              {{ artigos.title.slice(0, 30) + '...' }}</router-link
             >
 
             <time>{{ artigos.createdAt }}</time>
@@ -130,7 +134,9 @@
         </nav>
       </section>
 
-      <Sidebar />
+      <Sidebar
+        :categorias="categorias"
+        @selectcategory="selectCategoryHandler" />
     </div>
 
     <!-- For Nested Routers -->
@@ -209,7 +215,7 @@ module.exports = {
       //thos AllPosts a ser usado no length and pelo @click show all posts
       this.AllPosts = blogPosts
 
-      //recebe os posts com limitador opcional
+      //🔢 recebe os posts com limitador opcional
       this.opt = this.GetBlogPosts(this.numero)
     },
 
@@ -223,8 +229,8 @@ module.exports = {
         .slice(0, n)
     },
     ShowAllPosts(e) {
-      //onclick shoow +1 posts
-      this.numero = this.numero + 5
+      //onclick show +1 posts
+      this.numero = this.numero + 4
       return (this.opt = this.GetBlogPosts(this.numero))
     },
     ShowLessPosts() {
@@ -253,7 +259,7 @@ h1 {
   /*  padding: 10px; */
 }
 
-.threads_list {
+.thread-item {
   line-height: 1.5rem;
   /* background: #222; */
   background: #0e1319;
@@ -265,7 +271,7 @@ h1 {
   border-radius: 10px;
 }
 
-.threads_list:hover {
+.thread-item:hover {
   background: rgb(26, 28, 29, 0.7);
 }
 
@@ -289,10 +295,6 @@ h1 {
   color: rgb(68, 186, 246);
 }
 
-.threads li {
-  margin: 20px 0;
-}
-
 .threads .cats {
   font-size: 0.7rem;
   color: #05bdba;
@@ -304,6 +306,30 @@ h1 {
 .threads .cat {
   font-size: 0.7rem;
 }
+
+/* 
+to remove grid just remove .grid class in multiple class on html
+
+*/
+.threads-container .thread-item {
+  margin: 20px 0;
+}
+.threads-container.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+  margin-block: 1rem;
+
+  & .thread-item {
+    margin: 0;
+  }
+}
+
+/* 
+remove:
+.thread-item   margin: 20px 0px;
+
+*/
 
 .limiter {
   display: flex;
@@ -334,16 +360,6 @@ h1 {
 }
 .sidebar img {
   width: 100%;
-}
-
-.map p {
-  padding: 10px 0;
-}
-.map select {
-  margin-top: 10px;
-}
-.map h1 {
-  margin-bottom: 10px;
 }
 
 time {

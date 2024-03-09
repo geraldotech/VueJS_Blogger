@@ -8,7 +8,23 @@
         software development, Linux, containers, and also FrontEnd, which is one
         of my favorite hobbies.
       </p>
-      <h2>Table of Contents</h2>
+      <h3>Table of Contents</h3>
+    <div class="map">
+          <div>
+            <router-link :to="{ name: 'categoriesMap' }">Website Map:</router-link>
+          </div>
+          <select
+            v-model="select"
+            @change="selectCategoryHandler($event)">
+          <option value="" disabled>Categoria</option>
+            <option
+              v-for="(itens, ind) in categorias"
+              :key="itens.id"
+              :value="ind">
+              {{ ind.toUpperCase() }} - {{ itens }}
+            </option>
+          </select>
+        </div>
       <ul>
         <li><a href="http://geraldox.com">Home</a></li>
       </ul>
@@ -38,6 +54,11 @@
 </template>
 <script>
 module.exports = {
+  props:{
+    categorias:{
+      type: Array
+    },
+  },
   data() {
     return {}
   },
@@ -49,15 +70,17 @@ module.exports = {
       select: '',
     }
   },
+  methods: {
+    selectCategoryHandler(){
+      /* Sendo eventname + event from select to parent */
+      this.$emit('selectcategory', event)
+    }
+  }
 }
 </script>
 <style scoped>
-h2 {
-  text-decoration: underline;
-  margin-block: 10px;
-}
+
 .sidebar {
-  text-align: justify;
   margin-top: 15px;
 }
 .sidebar .content {
@@ -68,6 +91,7 @@ h2 {
   margin-top: 5px;
   font-size: 14px;
   color: #e8e6e3;
+  text-wrap: balance;
 }
 .content ul {
   margin-top: 15px;
@@ -76,9 +100,10 @@ h2 {
   line-height: 2rem;
 }
 
-.sidebar h2 {
+.sidebar h2, h3 {
   text-align: center;
   padding: 0;
+  margin-block: 15px;
 }
 
 .sidebar figure img {
@@ -144,4 +169,21 @@ h2 {
     max-width: 400px;
   }
 }
+
+.map{
+  text-align: center;
+  background: #333;
+}
+
+
+.map p {
+  padding: 10px 0;
+}
+.map select {
+  margin-top: 10px;
+}
+.map h1 {
+  margin-bottom: 10px;
+}
+
 </style>
