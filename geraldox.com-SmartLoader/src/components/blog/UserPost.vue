@@ -51,7 +51,7 @@
             - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
            -->
           <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2>
-          <component :is="blog.component"></component>
+          <component v-show="!dynamicComponent" :is="blog.component"></component>
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
