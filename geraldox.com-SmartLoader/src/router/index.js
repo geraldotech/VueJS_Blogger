@@ -111,13 +111,14 @@ const router = new VueRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
 
+    if (savedPosition) {
+      return savedPosition;
+    }
     if (to.hash) {
-      console.log(`tem hash`)
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      }
-    } else{
+      console.log(`hash detected`)
+      return { el: to.hash, behavior: "smooth" };
+    } else {
+      console.log("moving to top of the page");
       window.scrollTo(0, 0);
     }
     
