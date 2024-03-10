@@ -110,13 +110,18 @@ const router = new VueRouter({
   mode: producOrDevMode ? '' : 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
+
     if (to.hash) {
+      console.log(`tem hash`)
       return {
         el: to.hash,
         behavior: 'smooth',
       }
+    } else{
+      window.scrollTo(0, 0);
     }
-    return { x: 0, y: 0, behavior: 'smooth' } // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
+    
+    // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
   },
 })
 
