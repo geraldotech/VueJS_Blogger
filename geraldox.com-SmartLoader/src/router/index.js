@@ -115,10 +115,10 @@ const router = new VueRouter({
       return savedPosition;
     }
     if (to.hash) {
+      const el = window.location.href.split('#')[1]
       if (el.length) {
-        document.getElementById(el).scrollIntoView({ behavior: "smooth" });
+        document.getElementById(el).scrollIntoView({ behavior: 'smooth' })
       }
-    //  return { el: to.hash, behavior: "smooth" };
     } else {
       console.log("moving to top of the page");
       window.scrollTo(0, 0);
