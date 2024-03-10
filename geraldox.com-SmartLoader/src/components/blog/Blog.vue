@@ -87,7 +87,7 @@
         <ul class="threads-container grid">
           <li
             v-for="artigos in opt"
-            :key="artigos.slug"
+            :key=artigos.slug
             class="thread-item">
             <router-link
               :to="{

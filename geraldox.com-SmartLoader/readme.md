@@ -50,6 +50,11 @@
 
 ### Changes and Features:
 
+- 10.03.2024 Updated
+ -  Vue 2.7.13 to latest 2.7.16 version
+ - VueRouter 3 to [READ](https://github.com/vuejs/vue-router/blob/dev/CHANGELOG.md)
+
+
 - 09.03.2024 How checkfile exists, dynamic import and render html template with `httpVueLoader`
 
 ```js

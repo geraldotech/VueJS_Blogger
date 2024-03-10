@@ -56,7 +56,9 @@
     <h1>Introduction to primitive wrapper types</h1>
 
     <a href="#add">Scroll TESTE</a>
-    <div v-show="false">
+    <router-link to=""></router-link>
+    <router-link to="#add">/#add</router-link>
+    <div v-show="true">
       <p>Testing import de webcomponents alone</p>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
