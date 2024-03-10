@@ -111,9 +111,10 @@ const router = new VueRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
+       console.log(`tohash`, to.hash)
       return {
-        el: to.hash,
-        behavior: 'smooth',
+        selector: to.hash,
+        // offset: { x: 0, y: 10 },
       }
     }
     return { x: 0, y: 0, behavior: 'smooth' } // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
