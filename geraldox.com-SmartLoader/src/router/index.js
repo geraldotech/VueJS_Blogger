@@ -107,7 +107,7 @@ const producOrDevMode = location.port != ''
 //OLD const producOrDevMode = location.hostname.includes('127.0.0.1')
 
 const router = new VueRouter({
-  mode: producOrDevMode ? '' : 'history',
+ mode: producOrDevMode ? '' : 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
 
@@ -115,8 +115,10 @@ const router = new VueRouter({
       return savedPosition;
     }
     if (to.hash) {
-      console.log(`hash detected`)
-      return { el: to.hash, behavior: "smooth" };
+      if (el.length) {
+        document.getElementById(el).scrollIntoView({ behavior: "smooth" });
+      }
+    //  return { el: to.hash, behavior: "smooth" };
     } else {
       console.log("moving to top of the page");
       window.scrollTo(0, 0);

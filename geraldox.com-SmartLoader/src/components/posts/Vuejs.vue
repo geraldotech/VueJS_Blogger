@@ -58,6 +58,7 @@
     <a href="#add">Scroll TESTE</a>
     <router-link to=""></router-link>
     <router-link to="#add">/#add</router-link>
+     
     <div v-show="true">
       <p>Testing import de webcomponents alone</p>
       <p>
