@@ -490,4 +490,9 @@ button {
 :target {
   scroll-margin-top: 50px;
 }
+@media (max-width: 500px){
+  :target {
+    scroll-margin-top: 80px;
+  }
+}
 </style>
