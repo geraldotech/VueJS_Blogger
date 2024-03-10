@@ -107,25 +107,18 @@ const producOrDevMode = location.port != ''
 //OLD const producOrDevMode = location.hostname.includes('127.0.0.1')
 
 const router = new VueRouter({
- mode: producOrDevMode ? '' : 'history',
+  mode: producOrDevMode ? '' : 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
-
-    if (savedPosition) {
-      return savedPosition;
-    }
     if (to.hash) {
-      const el = window.location.href.split('#')[1]
-      if (el.length) {
-        document.getElementById(el).scrollIntoView({ behavior: 'smooth' })
-      }
-    } else {
-      console.log("moving to top of the page");
-      window.scrollTo(0, 0);
-    }
-    
-    // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
-  },
+      console.log(`tohash`, to.hash)
+     return {
+       selector: to.hash,
+       // offset: { x: 0, y: 10 },
+     }
+   }
+   return { x: 0, y: 0, behavior: 'smooth' } // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
+ },
 })
 
 router.beforeResolve((to, from, next) => {
@@ -135,7 +128,16 @@ router.beforeResolve((to, from, next) => {
     NProgress.start()
   }
   next()
+
+  if(to.hash){
+    return {
+      selector: to.hash,
+      // offset: { x: 0, y: 10 },
+    }
+  }
 })
+
+router.next
 
 router.afterEach((to, from) => {
   // Complete the animation of the route progress bar.
