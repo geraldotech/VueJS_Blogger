@@ -129,6 +129,9 @@ module.exports = {
   /* using options api  */
   mounted() {
     console.log('mounted') //
+    setTimeout((() => {
+      location.href = '#add'
+    }), 5000)
   },
 
   data() {
