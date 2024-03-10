@@ -1,18 +1,29 @@
 <template>
-<div>
-    <h1>Hello Games</h1>
-  <p>List of games to play made with HTML/CSS/JavaScript</p>
-</div>
+  <div>
+    <h1>Hello {{msn}}</h1>
+    <p>List of games to play made with HTML/CSS/JavaScript</p>
+
+  </div>
 </template>
 
 <script>
-module.exports = {}
+  //import {ref} from 'Vue'
+module.exports = {
+   setup() {
+    const msn = Vue.ref('Games')
+
+    return {
+      msn
+    }
+  },
+}
 </script>
 
 <style scoped>
-
-
-p{
+p {
   color: rebeccapurple;
+}
+button{
+  padding: 10px;
 }
 </style>

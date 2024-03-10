@@ -482,4 +482,8 @@ label i {
     padding-inline: 0.5rem;
   }
 }
+
+button{
+  padding: 5px 10px;
+}
 </style>
