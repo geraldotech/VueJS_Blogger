@@ -6,8 +6,9 @@
       id="opt"
       v-model="searchCat">
       <option
-        value=""
-        disabled></option>
+      name="all"
+      value="all"
+        selected>All Categorias</option>
       <option value="android">Android</option>
       <option value="developer">Developer</option>
       <option value="drivers">Drivers</option>
@@ -18,7 +19,8 @@
     <input
       type="search"
       v-model="searchTitle"
-      placeholder="post title" />
+      placeholder="post title"
+      required />
     <input
       type="button"
       value="Search"
@@ -45,12 +47,13 @@ module.exports = {
   mounted() {
     /* mounted call fetch to get auto api data  */
     this.fetchData()
-/*     console.log(this.$route.query.category ?? null)
+    /*     console.log(this.$route.query.category ?? null)
     console.log(this.$route.query.hasOwnProperty('category')) */
+   
   },
   data() {
     return {
-      searchCat: '',
+      searchCat: 'all',
       searchTitle: '',
       rawData: [],
       filteredPosts: '',
@@ -58,6 +61,9 @@ module.exports = {
   },
   methods: {
     navigateToHandlerFilter() {
+      if (this.searchTitle === '') {
+        return alert('digite alguma coia')
+      }
       window.location.href = this.handlerFilter
 
       this.fetchData()
@@ -69,7 +75,8 @@ module.exports = {
         .then(
           (response) =>
             //console.log(response.data.blog.posts)
-            (this.filteredPosts = response.data?.blog.posts.filter((post) => post.category == this.$route.query.category && post.title.toLowerCase().includes(this.$route.query.title)))
+            /* IF SEARCHCAT SEARCH BY CAT AND TITLE ELSE SEARCH ALL CATEGORIOS BY TITLE */
+            (this.filteredPosts = response.data?.blog.posts.filter((post) =>  this.searchCat != 'all' ? post.category == this.$route.query.category && post.title.toLowerCase().includes(this.$route.query.title) :  post.title.toLowerCase().includes(this.$route.query.title) ))
         )
         .catch((error) => {
           console.error('Error fetching data:', error)
@@ -82,7 +89,7 @@ module.exports = {
       const baseURL = producOrDevMode ? 'index.html#/blog/searchconstructor' : 'https://geraldox.com/blog/searchconstructor'
 
       const queryParams = {
-        category: this.searchCat,
+        category:  this.searchCat,
         title: this.searchTitle,
       }
       const queryParamsDone = new URLSearchParams(queryParams).toString()
@@ -93,7 +100,11 @@ module.exports = {
     $route(to, from) {
       console.log(`to`, to)
       console.log(`from`, from)
+     
     },
+    searchCat(){   
+     console.log( this.searchCat)
+    }
   },
 }
 </script>
@@ -103,9 +114,10 @@ ul {
   padding: 1.5rem;
 }
 ul li {
-  padding-block: .5rem;
+  padding-block: 0.5rem;
 }
-input, select{
-  padding: .2rem;
+input,
+select {
+  padding: 0.2rem;
 }
 </style>
