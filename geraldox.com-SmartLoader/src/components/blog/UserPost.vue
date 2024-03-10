@@ -50,7 +50,7 @@
             Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
             - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
            -->
-          <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2>
+        <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
           <component
             :is="blog.component"></component>
 
