@@ -486,4 +486,8 @@ label i {
 button {
   padding: 5px 10px;
 }
+
+:target {
+  scroll-margin-top: 100px;
+}
 </style>

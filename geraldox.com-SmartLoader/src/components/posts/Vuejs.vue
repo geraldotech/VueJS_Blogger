@@ -53,9 +53,10 @@
       <p class="text">VueJS v-bind in CSS</p>
     </section>
 
-    <h1>Introduction to primitive wrapper types</h1>
+    <h1>Menu:</h1>
 
     <a href="#add">Scroll TESTE</a>
+    <a href="#download">Download</a>
     <router-link to="#add">/#add</router-link>
 
     <div v-show="true">
