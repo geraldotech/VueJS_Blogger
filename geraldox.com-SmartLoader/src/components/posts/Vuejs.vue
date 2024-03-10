@@ -131,7 +131,7 @@ module.exports = {
     const hash = location.hash
     console.log(hash)
     setTimeout((() => {
-      location.href = hash
+  //    location.href = hash
     }), 5000)
   },
 
