@@ -57,7 +57,7 @@
 
     <a href="#add">Scroll TESTE</a>
     <router-link to="#add">/#add</router-link>
-     
+
     <div v-show="true">
       <p>Testing import de webcomponents alone</p>
       <p>
@@ -92,20 +92,26 @@
         <li>Delete the instance immediately.</li>
         <li>So the following code</li>
       </ul>
+
+      <h2 id="download">Download: Resources</h2>
+
+      <p>
+        you can download here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem natus at, officia exercitationem nam libero aspernatur. Porro laudantium corporis quos hic fuga, autem
+        necessitatibus provident amet assumenda accusamus sapiente. Id.
+      </p>
     </div>
   </div>
 </template>
 
 <script setup>
-  const theme = {
-    color: 'red',
-  }
+const theme = {
+  color: 'red',
+}
 const { ref, onMounted } = Vue
 module.exports = {
   setup() {
     const msn = ref('Hello From Refs')
     const count = ref(0)
-
 
     onMounted(() => {
       console.log(`onMounted`)
@@ -127,13 +133,7 @@ module.exports = {
     }
   },
   /* using options api  */
-  mounted() {
-    const hash = location.hash
-    console.log(hash)
-    setTimeout((() => {
-  //    location.href = hash
-    }), 5000)
-  },
+  mounted() {},
 
   data() {
     return {
