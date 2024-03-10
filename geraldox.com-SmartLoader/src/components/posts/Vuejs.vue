@@ -201,4 +201,8 @@ img {
 ul li {
   padding: 0.7rem;
 }
+
+:target {
+  scroll-margin-top: 50px;
+}
 </style>
