@@ -121,7 +121,8 @@ const router = new VueRouter({
  },
 })
 
-router.beforeResolve((to, from, next) => {
+router.beforeResolve(async (to, from, next) => {
+  
   if (to) {
     // showPinner ?
     NProgress.configure({ showSpinner: false })
@@ -130,10 +131,7 @@ router.beforeResolve((to, from, next) => {
   next()
 
   if(to.hash){
-    return {
-      selector: to.hash,
-      // offset: { x: 0, y: 10 },
-    }
+    location.href = to.hash;
   }
 })
 
