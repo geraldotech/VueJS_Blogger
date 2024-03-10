@@ -10,7 +10,7 @@ const Mapa = httpVueLoader('/src/components/blog/mapa.vue')
 const UserPost = httpVueLoader('/src/components/blog/UserPost.vue')
 const Categories = httpVueLoader('/src/components/blog/Categories.vue')
 const Routersearch = httpVueLoader('/src/components/blog/Routersearch.vue')
-const SearchConstructor = httpVueLoader('/src/components/blog/SearchConstructor.vue')
+const AdvancedSearch = httpVueLoader('/src/components/blog/AdvancedSearch.vue')
 
 const homeBottom = {
   template: `<p>Powered by <i class="fa-brands fa-vuejs"></i></p>`,
@@ -55,9 +55,9 @@ const routes = [
         component: Routersearch,
       },
       {
-        path: 'searchconstructor', // search?name=geraldo
-        name: 'searchconstructor',
-        component: SearchConstructor,
+        path: 'advancedsearch', // advancedsearch?name=geraldo
+        name: 'advancedsearch',
+        component: AdvancedSearch,
       },
       /* DYNAMIC ROUTER :anything below must be in the end */
       /* TO SEND PARAMS IN ROUTER USE path */
