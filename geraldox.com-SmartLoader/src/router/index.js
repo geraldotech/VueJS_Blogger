@@ -136,7 +136,9 @@ router.afterEach((to, from) => {
   NProgress.done()
 
   if (to.hash) {
-    setTimeout((location.href = to.hash), 1000)
+    setTimeout((() => {
+      location.href = hash
+    }), 3000)
   }
 })
 

@@ -128,9 +128,10 @@ module.exports = {
   },
   /* using options api  */
   mounted() {
-    console.log('mounted') //
+    const hash = location.hash
+    console.log(hash)
     setTimeout((() => {
-      location.href = '#add'
+      location.href = hash
     }), 5000)
   },
 
