@@ -55,8 +55,10 @@
 
     <h1>Menu:</h1>
 
-    <a href="#add">Scroll TESTE</a>
-    <a href="#download">Download</a>
+    <ul>
+      <li><a href="#add">Scroll TESTE</a></li>
+      <li><a href="#download">Download</a></li>
+    </ul>
     <router-link to="#add">/#add</router-link>
 
     <div v-show="true">

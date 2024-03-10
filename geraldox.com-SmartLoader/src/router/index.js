@@ -138,7 +138,7 @@ router.afterEach((to, from) => {
   if (to.hash) {
     setTimeout((() => {
       location.href = to.hash
-    }), 500)
+    }), 1000)
   }
 })
 
