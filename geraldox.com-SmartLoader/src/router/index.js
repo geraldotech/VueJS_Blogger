@@ -112,35 +112,32 @@ const router = new VueRouter({
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       console.log(`tohash`, to.hash)
-     return {
-       selector: to.hash,
-       // offset: { x: 0, y: 10 },
-     }
-   }
-   return { x: 0, y: 0, behavior: 'smooth' } // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
- },
+      return {
+        selector: to.hash,
+        // offset: { x: 0, y: 10 },
+      }
+    }
+    return { x: 0, y: 0, behavior: 'smooth' } // always scroll to top - working mesmo desativado no desktop, problema ocorre no mobile
+  },
 })
 
 router.beforeResolve(async (to, from, next) => {
-  
   if (to) {
     // showPinner ?
     NProgress.configure({ showSpinner: false })
     NProgress.start()
   }
   next()
-
-  if(to.hash){
-    location.href = to.hash;
-  }
 })
-
-router.next
 
 router.afterEach((to, from) => {
   // Complete the animation of the route progress bar.
   NProgress.configure({ easing: 'ease', speed: 1000, showSpinner: false })
   NProgress.done()
+
+  if (to.hash) {
+    setTimeout((location.href = to.hash), 1000)
+  }
 })
 
 //Pegar primeira letra da String e deixar UpperCase() by geraldoX
