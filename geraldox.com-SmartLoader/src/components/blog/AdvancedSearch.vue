@@ -65,7 +65,8 @@ module.exports = {
       if (this.searchTitle === '') {
         return alert('type something')
       }
-      window.location.href = this.handlerFilter
+     window.history.pushState({}, '', this.handlerFilter);
+
 
       this.fetchData()
 
