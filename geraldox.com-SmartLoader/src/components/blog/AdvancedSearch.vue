@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h2>Advanced Search Constructor</h2>
-    <label for="opt">Categoria:</label>
+   <section>
+     <h1>Advanced Search Constructor</h1>
+    <label for="opt">Category:</label>
     <select
       id="opt"
       v-model="searchCat">
@@ -9,7 +10,7 @@
         name="all"
         value="all"
         selected>
-        All Categorias
+        All Categories
       </option>
       <option
         v-for="cat in getCategories(allPosts)"
@@ -21,12 +22,14 @@
     <input
       type="search"
       v-model="searchTitle"
-      placeholder="post title"
+      placeholder="type a key or will return all posts in selected categories"
+      @keyup.enter="navigateToHandlerFilter"
       required />
     <input
       type="button"
       value="Search"
       @click="navigateToHandlerFilter" />
+   </section>
 
     <ul>
       <li
@@ -44,47 +47,46 @@
 const API = '../src/db/data.json'
 
 module.exports = {
-  created() {},
+  created(){
+    },
   mounted() {
-   
+    console.log(document.title)
     this.fetchData()
     /*     console.log(this.$route.query.category ?? null)
     console.log(this.$route.query.hasOwnProperty('category')) */
   },
   data() {
     return {
-      searchCat: '',
+      searchCat: 'all',
       searchTitle: '',
       filteredPosts: '',
       allPosts: [],
     }
   },
   methods: {
+    /* === filter category and titles === */
     performFilter() {
-
-      const handlerFilter = this.allPosts.filter((post) => post.category == this.$route.query?.category && post.title.toLowerCase().includes(this.$route.query.title))
-      console.log(handlerFilter)
-      return (this.filteredPosts = handlerFilter)
+      const getCatandTitlePosts = this.allPosts.filter((post) => post.category == this.$route.query?.category && post.title.toLowerCase().includes(this.$route.query.title))
+    
+      return (this.filteredPosts = getCatandTitlePosts)
     },
+    /* === filter onclick by category and title */
     navigateToHandlerFilter() {
-      /*   if (this.searchTitle === '') {
-        return alert('type something')
-      }
-     window.history.pushState({}, '', this.handlerFilter); */
 
-     console.log( this.searchCat, this.searchTitle)
-
-      /* IF SEARCH CAT SEARCH BY CAT AND TITLE ELSE SEARCH ALL CATEGORIOS BY TITLE */
-      const filterHanlde =  this.allPosts.filter((post) =>
-       post.category == this.searchCat && post.title.toLowerCase().includes(this.searchTitle))
-
- 
-        
-         return (this.filteredPosts = filterHanlde)
-        //: post.title.toLowerCase().includes(this.$route.query.title)
       
+    // This will also update the URL without reloading the page.
+     window.history.pushState({}, '', this.builtUrlParams)
+
+      if (this.searchCat == 'all') {
+        const handleFilterAll = this.allPosts.filter((post) => post.title.toLowerCase().includes(this.searchTitle))
+       return this.filteredPosts = handleFilterAll
+      }
+      /* IF SEARCH CAT SEARCH BY CAT AND TITLE ELSE SEARCH ALL CATEGORIOS BY TITLE */
+      const handleFilter = this.allPosts.filter((post) => post.category == this.searchCat && post.title.toLowerCase().includes(this.searchTitle))
+
+      return (this.filteredPosts = handleFilter)
+      //: post.title.toLowerCase().includes(this.$route.query.title)
     },
-    /* FAZER O FETCH QUANDO FOR REQUISITADO */
     fetchData() {
       axios
         .get(API)
@@ -108,7 +110,7 @@ module.exports = {
     },
   },
   computed: {
-    handlerFilter() {
+    builtUrlParams() {
       const producOrDevMode = location.port != ''
       const baseURL = producOrDevMode ? `index.html#/blog/${this.$route.name}` : 'https://geraldox.com/blog/advancedsearch'
 
@@ -133,9 +135,18 @@ module.exports = {
 </script>
 
 <style scoped>
-ul {
+ul, section {
   padding: 1.5rem;
+ 
 }
+section {
+   text-align: center;
+   & h1{
+
+     margin-block: 1rem;
+   }
+}
+
 ul li {
   padding-block: 0.5rem;
 }
@@ -143,4 +154,5 @@ input,
 select {
   padding: 0.2rem;
 }
+
 </style>
