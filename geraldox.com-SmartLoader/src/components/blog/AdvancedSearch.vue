@@ -1,35 +1,35 @@
 <template>
   <div>
-   <section>
-     <h1>Advanced Search Constructor</h1>
-    <label for="opt">Category:</label>
-    <select
-      id="opt"
-      v-model="searchCat">
-      <option
-        name="all"
-        value="all"
-        selected>
-        All Categories
-      </option>
-      <option
-        v-for="cat in getCategories(allPosts)"
-        :value="cat"
-        :key="cat.id">
-        {{ cat.split('')[0].toUpperCase() + cat.slice(1) }}
-      </option>
-    </select>
-    <input
-      type="search"
-      v-model="searchTitle"
-      placeholder="type a key or will return all posts in selected categories"
-      @keyup.enter="navigateToHandlerFilter"
-      required />
-    <input
-      type="button"
-      value="Search"
-      @click="navigateToHandlerFilter" />
-   </section>
+    <section>
+      <h1>Advanced Search Constructor</h1>
+      <label for="opt">Category:</label>
+      <select
+        id="opt"
+        v-model="searchCat">
+        <option
+          name="all"
+          value="all"
+          selected>
+          All Categories
+        </option>
+        <option
+          v-for="cat in getCategories(allPosts)"
+          :value="cat"
+          :key="cat.id">
+          {{ cat.split('')[0].toUpperCase() + cat.slice(1) }}
+        </option>
+      </select>
+      <input
+        type="search"
+        v-model="searchTitle"
+        placeholder="type a key..."
+        @keyup.enter="navigateToHandlerFilter"
+        required />
+      <input
+        type="button"
+        value="Search"
+        @click="navigateToHandlerFilter" />
+    </section>
 
     <ul>
       <li
@@ -47,8 +47,7 @@
 const API = '../src/db/data.json'
 
 module.exports = {
-  created(){
-    },
+  created() {},
   mounted() {
     console.log(document.title)
     this.fetchData()
@@ -67,19 +66,22 @@ module.exports = {
     /* === filter category and titles === */
     performFilter() {
       const getCatandTitlePosts = this.allPosts.filter((post) => post.category == this.$route.query?.category && post.title.toLowerCase().includes(this.$route.query.title))
-    
+
       return (this.filteredPosts = getCatandTitlePosts)
     },
     /* === filter onclick by category and title */
     navigateToHandlerFilter() {
+      /* void return all posts if empy */
+      if (this.searchTitle == '') {
+        return alert('type anything')
+      }
 
-      
-    // This will also update the URL without reloading the page.
-     window.history.pushState({}, '', this.builtUrlParams)
+      // This will also update the URL without reloading the page.
+      window.history.pushState({}, '', this.builtUrlParams)
 
       if (this.searchCat == 'all') {
         const handleFilterAll = this.allPosts.filter((post) => post.title.toLowerCase().includes(this.searchTitle))
-       return this.filteredPosts = handleFilterAll
+        return (this.filteredPosts = handleFilterAll)
       }
       /* IF SEARCH CAT SEARCH BY CAT AND TITLE ELSE SEARCH ALL CATEGORIOS BY TITLE */
       const handleFilter = this.allPosts.filter((post) => post.category == this.searchCat && post.title.toLowerCase().includes(this.searchTitle))
@@ -135,16 +137,15 @@ module.exports = {
 </script>
 
 <style scoped>
-ul, section {
+ul,
+section {
   padding: 1.5rem;
- 
 }
 section {
-   text-align: center;
-   & h1{
-
-     margin-block: 1rem;
-   }
+  text-align: center;
+  & h1 {
+    margin-block: 1rem;
+  }
 }
 
 ul li {
@@ -154,5 +155,4 @@ input,
 select {
   padding: 0.2rem;
 }
-
 </style>
