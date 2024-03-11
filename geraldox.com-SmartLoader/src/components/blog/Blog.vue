@@ -274,7 +274,7 @@ h1 {
   /* background: #222; */
   background: #0e1319;
   padding: 10px;
-  animation: PostIntro ease 3s;
+  animation: PostIntro ease 1s;
   /*   border: 2px solid rgb(0, 54, 143); */
   border-top: 2px solid #05bdba;
   box-shadow: 0 0 10px rgb(0, 0, 0);

@@ -19,16 +19,18 @@
           {{ cat.split('')[0].toUpperCase() + cat.slice(1) }}
         </option>
       </select>
-      <input
+     <div class="inputs">
+       <input
         type="search"
         v-model="searchTitle"
-        placeholder="type a key..."
+        placeholder="type 2 characters a key..."
         @keyup.enter="navigateToHandlerFilter"
         required />
       <input
         type="button"
         value="Search"
         @click="navigateToHandlerFilter" />
+     </div>
     </section>
 
     <ul>
@@ -72,7 +74,7 @@ module.exports = {
     /* === filter onclick by category and title */
     navigateToHandlerFilter() {
       /* void return all posts if empy */
-      if (this.searchTitle == '') {
+      if (this.searchTitle.length < 2) {
         return alert('type anything')
       }
 
@@ -80,7 +82,7 @@ module.exports = {
       window.history.pushState({}, '', this.builtUrlParams)
 
       if (this.searchCat == 'all') {
-        const handleFilterAll = this.allPosts.filter((post) => post.title.toLowerCase().includes(this.searchTitle))
+        const handleFilterAll = this.allPosts.filter((post) => post.title.toLowerCase().includes(this.searchTitle.toLowerCase()))
         return (this.filteredPosts = handleFilterAll)
       }
       /* IF SEARCH CAT SEARCH BY CAT AND TITLE ELSE SEARCH ALL CATEGORIOS BY TITLE */
@@ -145,6 +147,9 @@ section {
   text-align: center;
   & h1 {
     margin-block: 1rem;
+  }
+  .inputs{
+    margin-top: 1rem;
   }
 }
 
