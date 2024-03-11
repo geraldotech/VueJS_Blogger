@@ -11,8 +11,11 @@
         selected>
         All Categorias
       </option>
-      <option v-for="cat in getCategories(allPosts)" :value="cat" :key="cat.id">
-        {{cat.split('')[0].toUpperCase() + cat.slice(1)}}
+      <option
+        v-for="cat in getCategories(allPosts)"
+        :value="cat"
+        :key="cat.id">
+        {{ cat.split('')[0].toUpperCase() + cat.slice(1) }}
       </option>
     </select>
     <input
@@ -34,8 +37,6 @@
         </router-link>
       </li>
     </ul>
-
-    
   </div>
 </template>
 
@@ -43,59 +44,68 @@
 const API = '../src/db/data.json'
 
 module.exports = {
-  created(){
-  },
+  created() {},
   mounted() {
-    /* mounted call fetch to get auto api data  */
+   
     this.fetchData()
     /*     console.log(this.$route.query.category ?? null)
     console.log(this.$route.query.hasOwnProperty('category')) */
   },
   data() {
     return {
-      searchCat: 'all',
+      searchCat: '',
       searchTitle: '',
-      rawData: [],
       filteredPosts: '',
       allPosts: [],
     }
   },
   methods: {
+    performFilter() {
+
+      const handlerFilter = this.allPosts.filter((post) => post.category == this.$route.query?.category && post.title.toLowerCase().includes(this.$route.query.title))
+      console.log(handlerFilter)
+      return (this.filteredPosts = handlerFilter)
+    },
     navigateToHandlerFilter() {
-      if (this.searchTitle === '') {
+      /*   if (this.searchTitle === '') {
         return alert('type something')
       }
-     window.history.pushState({}, '', this.handlerFilter);
+     window.history.pushState({}, '', this.handlerFilter); */
 
-
-      this.fetchData()
+     console.log( this.searchCat, this.searchTitle)
 
       /* IF SEARCH CAT SEARCH BY CAT AND TITLE ELSE SEARCH ALL CATEGORIOS BY TITLE */
-      this.filteredPosts = this.allPosts.filter((post) =>
-        this.searchCat != 'all' ? post.category == this.$route.query.category && post.title.toLowerCase().includes(this.$route.query.title) : post.title.toLowerCase().includes(this.$route.query.title)
-      )
+      const filterHanlde =  this.allPosts.filter((post) =>
+       post.category == this.searchCat && post.title.toLowerCase().includes(this.searchTitle))
+
+ 
+        
+         return (this.filteredPosts = filterHanlde)
+        //: post.title.toLowerCase().includes(this.$route.query.title)
+      
     },
     /* FAZER O FETCH QUANDO FOR REQUISITADO */
     fetchData() {
       axios
         .get(API)
         .then(
-          (response) =>
-            //console.log(response.data.blog.posts)
-
-            (this.allPosts = response.data?.blog.posts)
+          (response) => {
+            this.allPosts = response.data?.blog.posts // get all categorios
+            this.performFilter()
+          }
+          //console.log(response.data.blog.posts)
         )
         .catch((error) => {
           console.error('Error fetching data:', error)
         })
     },
-    getCategories(posts){
+    getCategories(posts) {
       const getCatego = posts.map((val) => val.category)
 
       //🔢 contar n de categories values + ordenar com sort()
       const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
       return Object.keys(counter)
-    }
+    },
   },
   computed: {
     handlerFilter() {
