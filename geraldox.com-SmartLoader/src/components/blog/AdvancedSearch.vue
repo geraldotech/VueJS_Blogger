@@ -119,9 +119,10 @@ module.exports = {
       const baseURL = producOrDevMode ? `index.html#/blog/${this.$route.name}` : 'https://geraldox.com/blog/advancedsearch'
 
       const queryParams = {
-        category: this.searchCat,
-        title: this.searchTitle,
+        category: this.searchCat.toLowerCase(),
+        title: this.searchTitle.toLowerCase(),
       }
+      console.log(queryParams)
       const queryParamsDone = new URLSearchParams(queryParams).toString()
       return `${baseURL}?${queryParamsDone}`
     },
