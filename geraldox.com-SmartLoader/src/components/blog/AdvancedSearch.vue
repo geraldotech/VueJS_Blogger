@@ -86,7 +86,7 @@ module.exports = {
         return (this.filteredPosts = handleFilterAll)
       }
       /* IF SEARCH CAT SEARCH BY CAT AND TITLE ELSE SEARCH ALL CATEGORIOS BY TITLE */
-      const handleFilter = this.allPosts.filter((post) => post.category == this.searchCat && post.title.toLowerCase().includes(this.searchTitle))
+      const handleFilter = this.allPosts.filter((post) => post.category == this.searchCat && post.title.toLowerCase().includes(this.searchTitle.toLowerCase()))
 
       return (this.filteredPosts = handleFilter)
       //: post.title.toLowerCase().includes(this.$route.query.title)
