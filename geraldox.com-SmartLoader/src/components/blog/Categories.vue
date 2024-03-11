@@ -32,9 +32,28 @@
 
 <script>
 module.exports = {
+  /*   metaInfo: {
+    title: 'Categorias',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: 'Threads written by Geraldo Filho',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
+    ],
+  },  */
   created() {
     this.posts()
     console.log(this.$route);
+    document.title = 'test'
+    
+  },
+  mounted() {
+    
+    console.log(this.$route.params.category)
   },
   data() {
     return {

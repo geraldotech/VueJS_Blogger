@@ -87,7 +87,7 @@
         <ul class="threads-container grid">
           <li
             v-for="artigos in opt"
-            :key=artigos.slug
+            :key="artigos.slug"
             class="thread-item">
             <router-link
               :to="{
@@ -148,9 +148,14 @@
 </template>
 
 <script>
+
 module.exports = {
-  metaInfo: {
-    title: 'Blog Posts',
+  title: {
+    rota: this.$router,
+  },
+/*   metaInfo: {
+    // title: 'Blog Posts',
+    title: 'dynamicTitle',
     titleTemplate: '%s - geraldoX',
     meta: [
       { charset: 'utf-8' },
@@ -161,9 +166,13 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
     ],
+  }, */
+  created() {
+    //this.setTitleAuto('Blog')
   },
-  created() {},
   mounted() {
+    /* set dynamic titles and category params title */
+    this.setTitleAuto(this.$route?.name + ' - ' + this.$route.params?.category)
     this.posts()
   },
   components: {
@@ -183,6 +192,7 @@ module.exports = {
       pinned: {},
       showlegacy: '',
       showautoseach: '',
+      dynamicTitle: 'Blog',
     }
   },
   methods: {
@@ -243,6 +253,9 @@ module.exports = {
 
       // check if Pinned  exists
       !findPinned ? false : (this.pinned = findPinned)
+    },
+    setTitleAuto(current, manual) {
+      document.title = current + '- geraldoX'
     },
   },
 }

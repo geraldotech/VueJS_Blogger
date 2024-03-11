@@ -653,6 +653,19 @@
 
 <script>
 module.exports = {
+   metaInfo: {
+    title: 'Home Page',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: 'Threads written by Geraldo Filho',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
+    ],
+  },
   /* MOUNTED */
   mounted() {
     this.loadSwiperScript()
