@@ -150,9 +150,6 @@
 <script>
 
 module.exports = {
-  title: {
-    rota: this.$router,
-  },
 /*   metaInfo: {
     // title: 'Blog Posts',
     title: 'dynamicTitle',
@@ -171,8 +168,8 @@ module.exports = {
     //this.setTitleAuto('Blog')
   },
   mounted() {
-    /* set dynamic titles and category params title */
-    this.setTitleAuto(this.$route?.name + ' - ' + this.$route.params?.category)
+    /* set dynamic titles and category params title, if undefined return '' */
+    this.setTitleAuto(this.$route?.name?? '' + ' - ' + this.$route.params?.category?? '')
     this.posts()
   },
   components: {
@@ -255,7 +252,7 @@ module.exports = {
       !findPinned ? false : (this.pinned = findPinned)
     },
     setTitleAuto(current, manual) {
-      document.title = current + '- geraldoX'
+      document.title = current + ' - geraldoX'
     },
   },
 }
