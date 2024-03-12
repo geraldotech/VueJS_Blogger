@@ -74,9 +74,9 @@ const routes = [
     ],
   },
   {
-    path: '/projects',
+    path: '/projectsx',
     component: Projects,
-    name: 'projects',
+    name: 'projectsx',
   },
   {
     path: '/projects2',

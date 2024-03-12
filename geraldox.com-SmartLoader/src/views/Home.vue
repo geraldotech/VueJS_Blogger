@@ -71,10 +71,7 @@
             inovadoras para desafios técnicos complexos.
           </p>
 
-
-          <h1>
-             <i class="fa-solid fa-terminal"></i><strong> Currículo:</strong>
-          </h1>
+          <h1><i class="fa-solid fa-terminal"></i><strong> Currículo:</strong></h1>
           <nav class="resume">
             <h1>
               <span class="icon-link-download">
@@ -106,6 +103,36 @@
       <div class="slide-container swiper">
         <div class="slide-content">
           <div class="card-wrapper swiper-wrapper">
+            <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <a href="https://geraldox.com">
+                  <img
+                    style="background-color: #fff"
+                    src="/src/assets/img/gpx-logo.svg"
+                    alt="" />
+                </a>
+              </div>
+              <div class="card-content">
+                <div class="card-header">
+                  <h3 class="name">
+                    GPX
+                  </h3>
+                  <p class="description">
+                    fake API, VueRouter, nested Router, named Router, v-for, Data API e muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.
+                  </p>
+                </div>
+                <div class="techs">
+                  <span class="tech_icons">
+                    <img
+                      src="/src/assets/icons/svg/vuejs.svg"
+                      title="VueJS"
+                      alt="" />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- CARD-->
             <!-- CARD-->
             <div class="card swiper-slide">
               <div class="image-content">
@@ -170,7 +197,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                loading="lazy"
+                  loading="lazy"
                   src="https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png"
                   alt="" />
               </div>
@@ -209,7 +236,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                loading="lazy"
+                  loading="lazy"
                   src="https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png"
                   alt="" />
               </div>
@@ -245,7 +272,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                loading="lazy"
+                  loading="lazy"
                   src="https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw"
                   alt="pdf icon" />
               </div>
@@ -281,7 +308,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                loading="lazy"
+                  loading="lazy"
                   src="https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png"
                   alt="" />
               </div>
@@ -412,7 +439,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
-                loading="lazy"
+                  loading="lazy"
                   src="https://firebasemood.netlify.app/assets/images/logo.svg"
                   alt="" />
               </div>
@@ -444,6 +471,43 @@
                     title="firebase"
                     alt="" />
                 </span>
+              </div>
+            </div>
+            <!-- CARD-->
+                 <!-- CARD-->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <a href="https://dev.geraldox.com/projects/quizExpert_vanilla" target="_blank">
+                  <img
+                    src="/src/assets/img/Customer Survey-amico.svg"
+                    alt="" />
+                </a>
+              </div>
+              <div class="card-content">
+                <div class="card-header">
+                  <h3 class="name">
+                    quiz Expert
+                  </h3>
+                  <p class="description">
+                    Teste seus conhecimentos em JavaScript
+                  </p>
+                </div>
+                <div class="techs">
+                  <span class="tech_icons">
+                  <img
+                    src="/src/assets/icons/svg/html.svg"
+                    title="HTML"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/css.svg"
+                    title="CSS"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/javascript.svg"
+                    title="Javascript"
+                    alt="" />
+                </span>
+                </div>
               </div>
             </div>
             <!-- CARD-->
@@ -514,7 +578,7 @@
               src="/src/assets/icons/svg/javascript.svg"
               alt="" />
             <h3>Javascript</h3>
-            <p>Linguagem em foco, a base para desenvolver projetos com e sem bicliotecas e frameworks</p>
+            <p>Linguagem em foco, a base para desenvolver sem o uso de bibliotecas e frameworks</p>
           </div>
           <div class="card_skill">
             <img
@@ -528,7 +592,7 @@
           </div>
           <div class="card_skill">
             <img
-            loading="lazy"
+              loading="lazy"
               src="/src/assets/icons/svg/firebasevertical.svg"
               alt="" />
             <h3>Google Firebase</h3>
@@ -570,7 +634,7 @@
               src="/src/assets/icons/svg/ubuntu.svg"
               alt="" />
             <h3>Linux Services</h3>
-            <p>Serviços como Apache LAMP, FTP server, Squid Proxy, MySQL, DHCP, IP Tables e Shell Script</p>
+            <p>Apache LAMP, FTP server, Squid Proxy, MySQL, DHCP, IP Tables e Shell Script</p>
           </div>
           <div class="card_skill">
             <img
@@ -653,7 +717,7 @@
 
 <script>
 module.exports = {
-   metaInfo: {
+  metaInfo: {
     title: 'Home Page',
     titleTemplate: '%s - geraldoX',
     meta: [
@@ -1116,6 +1180,15 @@ strong {
   width: 32px;
   height: 32px;
   cursor: pointer;
+}
+
+.projects a > img {
+  width: 65%;
+}
+
+.projects a:has(img) {
+  display: flex;
+  justify-content: center;
 }
 
 /* PROJECT ENDS */
