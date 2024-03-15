@@ -36,5 +36,8 @@ window.onload = function () {
     },
     router,
   }).$mount('#app')
+
+ 
+
 }
 

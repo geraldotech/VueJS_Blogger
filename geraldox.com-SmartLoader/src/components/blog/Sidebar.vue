@@ -56,7 +56,7 @@
 module.exports = {
   props:{
     categorias:{
-      type: Array
+      type: null
     },
   },
   data() {

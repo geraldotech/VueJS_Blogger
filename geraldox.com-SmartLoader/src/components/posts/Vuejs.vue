@@ -40,6 +40,8 @@
           >Vue 2.7</a
         >
         Naruto Using refs
+        -
+        <a href="https://v2.vuejs.org/v2/guide/migration-vue-2-7" target="_blank">https://v2.vuejs.org/v2/guide/migration-vue-2-7</a>
       </h1>
 
       <button @click="log">{{ msn }}</button>

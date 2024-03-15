@@ -1,19 +1,36 @@
 <template>
   <div>
     <h1>Hello {{msn}}</h1>
-    <p>List of games to play made with HTML/CSS/JavaScript</p>
+    <h2>{{subtitle}}</h2>
+    <ul>
+      <li v-for="(link, index) in links" :key="index">
+       <a :href="link.href" target="_blank"> {{link.name}}</a>
+      </li>
+    </ul>
 
   </div>
 </template>
 
 <script>
-  //import {ref} from 'Vue'
+
+const {ref, reactive} = Vue
+
+const subtitle = 'List of games to play made with HTML/CSS/JavaScript'
+
 module.exports = {
    setup() {
-    const msn = Vue.ref('Games')
+    const msn = ref('Games')
+    const links = reactive(
+      [{name: 'jogo da velha', href: 'https://jogo-da-velha-nine-ebon.vercel.app/'},
+      {name: 'tic-tac-toe', href: 'https://tic-tac-toe-java-script.vercel.app/'},
+      {name: 'Tic-Tac-Toe', href: 'https://geovanelelis.github.io/Tic-Tac-Toe/'},
+      ]
+      )
 
     return {
-      msn
+      msn,
+      links,
+      subtitle
     }
   },
 }
