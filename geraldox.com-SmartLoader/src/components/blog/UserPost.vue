@@ -174,18 +174,12 @@ module.exports = {
       // call dynamic
       this.getDynamicComponent()
     },
-
-    async getDynamicComponent() {
-      try {
-        const componentData = this.componentObject()
-        if (componentData) {
-          this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
-          this.dynamicImportStatus = componentData.status // dynamicImportStatus recebei status if component exists
-        }
-      } catch (error) {
-        // console.error('Error loading dynamic component:', error)
+     getDynamicComponent() {
+      const componentData = this.componentObject()
+      if (componentData) {
+        this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
+        this.dynamicImportStatus = componentData.status // dynamicImportStatus get status if component exists
       }
-
       /*  return {
         component: `/src/components/posts/${this.blog.component}.vue`,
       } */
@@ -194,7 +188,7 @@ module.exports = {
     componentObject() {
       return {
         component: `/src/components/posts/${this.blog.component}.vue`,
-        status: true,
+        status: true, // extra status because component exists
       }
     },
 
