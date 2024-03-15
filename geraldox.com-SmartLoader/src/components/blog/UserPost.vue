@@ -86,17 +86,17 @@ Vue.component('cardy', {
 //ends String Components
 module.exports = {
   name: 'BlogPosts',
-  mounted() {},
   beforeCreate() {
     // console.log(`UserPost.vue`, this.$appName);
   },
   async created() {
-    this.posts()
     //console.log(this.$route); //currently
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
     //console.log(`UserPost: root`, this.$root);
   },
-  async mounted() {},
+  mounted() {
+      this.posts()
+  },
   data() {
     return {
       blog: {},
