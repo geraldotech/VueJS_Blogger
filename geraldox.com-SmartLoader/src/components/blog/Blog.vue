@@ -165,7 +165,7 @@ module.exports = {
   }, */
   created() {
     //this.setTitleAuto('Blog')
-     this.posts()
+     this.posts() // teste no mobile, in created is more faster than mounted hook to show posts
   },
   mounted() {
     /* set dynamic titles and category params title, if undefined return '' */
