@@ -235,9 +235,8 @@ article p {
 }
 .article:first-letter,
 .blogger article > p:first-letter {
-  /* color: green; */
-  font-size: 2.6rem;
-  margin-left: 15px;
+ /*  font-size: 2.6rem; */
+  margin-left: 1rem;
 }
 
 .blogger {

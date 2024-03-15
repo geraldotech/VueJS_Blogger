@@ -165,11 +165,12 @@ module.exports = {
   }, */
   created() {
     //this.setTitleAuto('Blog')
+     this.posts()
   },
   mounted() {
     /* set dynamic titles and category params title, if undefined return '' */
     this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
-    this.posts()
+   
   },
   components: {
     Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
