@@ -50,12 +50,11 @@
             Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
             - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
            -->
-        <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
-          <component
-            :is="blog.component"></component>
+          <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
+          <component :is="blog.component"></component>
 
           <!-- v2 Dynamic Imports -->
-          <component  :is="dynamicComponent"></component>
+          <component :is="dynamicComponent"></component>
 
           <!-- render SmartComponents[ContainerPosts.vue de Components] -->
           <Container></Container>
@@ -95,7 +94,7 @@ module.exports = {
     //console.log(`UserPost: root`, this.$root);
   },
   mounted() {
-      this.posts()
+    this.posts()
   },
   data() {
     return {
@@ -117,7 +116,6 @@ module.exports = {
 
     /* === BLOG POSTS === */
     Container: httpVueLoader('/src/components/posts/ContainerPosts.vue'),
-    
   },
   methods: {
     async posts() {
@@ -133,7 +131,7 @@ module.exports = {
       this.metaInfoInject(getBlogPost.title)
 
       /* Dynamic Import Components */
-      this.getDynamicComponent(getBlogPost)
+      this.checkComponentData()
 
       /* Sidebar props... */
       const getCatego = this.GetallPosts.map((val) => val.category)
@@ -143,8 +141,6 @@ module.exports = {
 
       //🔢 recebe o contador unique + contador
       this.categorias = counter
-
-      this.checkFileExistsHttLoader(`/src/components/posts/${this.blog.component}.vue`)
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
@@ -168,49 +164,53 @@ module.exports = {
         },
       }
     },
-    fetchComponentData() {
+    checkComponentData() {
+      // se n tem return false
+      if (!this.blog.component) {
+        return {
+          status: false,
+        }
+      }
+      // call dynamic
+      this.getDynamicComponent()
+    },
+
+    async getDynamicComponent() {
       try {
-        const checkExist = this.checkFileExistsHttLoader(`/src/components/posts/${this.blog.component}.vue`)
-        if (checkExist) {
-          return {
-            component: `/src/components/posts/${this.blog.component}.vue`,
-            status: true,
-          }
-        } else {
-          console.log('fetchComponent Dynamic File does not exist')
-          return null
+        const componentData = this.componentObject()
+        if (componentData) {
+          this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
+          this.dynamicImportStatus = componentData.status // dynamicImportStatus recebei status if component exists
         }
       } catch (error) {
-        if (error.response && error.response.status === 404) {
-          console.log('fetchComponent Dynamic File does not exist')
-          return null
-        } else {
-          console.error('Error checking file existence:', error)
-          return null
-        }
+        // console.error('Error loading dynamic component:', error)
       }
 
       /*  return {
         component: `/src/components/posts/${this.blog.component}.vue`,
       } */
     },
-    async getDynamicComponent() {
-      try {
-        const componentData = await this.fetchComponentData() // Fetch component data from your router or other source
-
-        if (componentData) {
-          this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
-          this.dynamicImportStatus = componentData.status
-        }
-      } catch (error) {
-        // console.error('Error loading dynamic component:', error)
+    // constructor component object for VueLoader
+    componentObject() {
+      return {
+        component: `/src/components/posts/${this.blog.component}.vue`,
+        status: true,
       }
     },
+
     selectCategoryHandler(e) {
       this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
     /* === CHECK COMPONENT.VUE EXISTS === */
+
     async checkFileExistsHttLoader(url) {
+      // ✅  UDPATE    verificar se o arquivo existe na pasta ok!
+      // mais antes disso verificar se o component foi declarado na lista de objetos é mais simples e de suma importancia
+      // sendo assim desnecessário fazer esse fetch para um obj que pode nao existir
+      // avoid erros no console quando o arquivo nao existe
+      if (!this.blog.component) {
+        return false
+      }
       try {
         const componentExist = httpVueLoader(url)
         // console.log(componentExist()) // return a promisse, so use then
@@ -218,8 +218,8 @@ module.exports = {
           .then((res) => res.template)
           .then((data) => {
             if (data) {
-             // this.fetchDataHTTP = data
-             return true
+              // this.fetchDataHTTP = data
+              return true
             }
           })
       } catch (err) {
