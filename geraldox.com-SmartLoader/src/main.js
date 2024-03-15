@@ -7,7 +7,6 @@ SmartLoader('/src/components/posts/externo.js', 'module')
 /* snippet-x library */
 SmartLoader('/src/lib/snippet-x.js')
 
-
 //import CDN to Vue Mixin
 import cdn from '/src/lib/cdn.js'
 
@@ -22,7 +21,6 @@ Vue.mixin({
   },
 })
 
-
 Vue.prototype.$appName = 'geraldoX'
 window.onload = function () {
   const vm = new Vue({
@@ -36,8 +34,4 @@ window.onload = function () {
     },
     router,
   }).$mount('#app')
-
- 
-
 }
-
