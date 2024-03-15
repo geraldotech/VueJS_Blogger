@@ -33,37 +33,47 @@
     </section>
 
     <section>
-      <h1>
-        <a
-          href="https://blog.vuejs.org/posts/vue-2-7-naruto"
-          target="_blank"
-          >Vue 2.7</a
-        >
-        Naruto Using refs
-        -
-        <a href="https://v2.vuejs.org/v2/guide/migration-vue-2-7" target="_blank">https://v2.vuejs.org/v2/guide/migration-vue-2-7</a>
-      </h1>
+      <h1>Naruto Using refs -</h1>
+      <ul>
+        <li>
+          <a
+            href="https://blog.vuejs.org/posts/vue-2-7-naruto"
+            target="_blank"
+            >Vue 2.7</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://v2.vuejs.org/v2/guide/migration-vue-2-7"
+            target="_blank"
+            >migration-vue-2-7</a
+          >
+        </li>
+      </ul>
+      <section>
+        <h1>Refs</h1>
 
-      <button @click="log">{{ msn }}</button>
+        <button @click="log">{{ msn }}</button>
+      </section>
 
-      <h1>Increase {{ count }}</h1>
-      <button @click="count++">Increase</button>
-      <button @click="increaseVal">increaseVal</button>
+      <section>
+        <h1>Increase {{ count }}</h1>
+        <button @click="count++">Increase</button>
+        <button @click="increaseVal">increaseVal</button>
+      </section>
 
-      <h1>v-bind CSS</h1>
-
-      <p class="text">VueJS v-bind in CSS</p>
+      <p class="text">VueJS v-bind in CSS - no working in Vue 2 CDN até o momento</p>
     </section>
+    <section>
+      <h1>Menu scroll behavior test Vue Routers</h1>
 
-    <h1>Menu scroll behavior test Vue Routers</h1>
-
-    <ul>
-      <li><a href="#add">#add</a></li>
-      <li> <router-link to="#add">/#add router-link</router-link></li>
-      <li><a href="#download">Download</a></li>
-      <li><a href="#javascript">JavaScript</a></li>
-    </ul>
-   
+      <ul>
+        <li><a href="#add">#add</a></li>
+        <li><router-link to="#add">/#add router-link</router-link></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#javascript">JavaScript</a></li>
+      </ul>
+    </section>
 
     <div>
       <p>Testing import de webcomponents alone</p>
@@ -194,7 +204,7 @@ code {
 }
 section {
   padding: 1rem;
-  margin-block: 3rem;
+  margin-block: 1.5rem;
 }
 
 img {

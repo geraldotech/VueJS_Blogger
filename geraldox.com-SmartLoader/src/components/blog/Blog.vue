@@ -148,9 +148,8 @@
 </template>
 
 <script>
-
 module.exports = {
-/*   metaInfo: {
+  /*   metaInfo: {
     // title: 'Blog Posts',
     title: 'dynamicTitle',
     titleTemplate: '%s - geraldoX',
@@ -169,7 +168,7 @@ module.exports = {
   },
   mounted() {
     /* set dynamic titles and category params title, if undefined return '' */
-    this.setTitleAuto(this.$route?.name?? '' + ' - ' + this.$route.params?.category?? '')
+    this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
     this.posts()
   },
   components: {
@@ -261,7 +260,15 @@ module.exports = {
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-h1 {
+
+/* 
+avoidcall h1 direct here for nesting itens not get this styles
+
+h1 {  ❌
+ 
+}
+*/
+.threads h1 {
   margin-top: 20px;
   font-size: 1.7rem;
 }
