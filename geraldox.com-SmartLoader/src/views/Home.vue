@@ -412,7 +412,7 @@
               <div class="card-content">
                 <h3 class="name">
                   <a
-                    href="https://dev.geraldox.com/projects/base64-converter/base64-converter-2"
+                    href="https://dev.geraldox.com/projects/base64-converter"
                     target="_blank"
                     >Password generator
                   </a>
