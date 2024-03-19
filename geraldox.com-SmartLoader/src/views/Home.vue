@@ -71,14 +71,14 @@
             inovadoras para desafios técnicos complexos.
           </p>
 
-          <h1><i class="fa-solid fa-terminal"></i><strong> Currículo:</strong></h1>
+          <h1><i class="fa-solid fa-terminal"></i><strong>Download currículo:</strong></h1>
           <nav class="resume">
             <h1>
               <span class="icon-link-download">
                 <a
-                  href="https://gpnotes.droppages.com/geraldox.proxyfiles.com/files/geraldo_resume_ptbr.pdf"
+                  href="https://gpnotes.droppages.com/geraldox.proxyfiles.com/files/geraldo_resume_ptbr-txt.pdf"
                   target="_blank"
-                  ><strong>Baixar currículo 'ptBR'</strong><i class="fa-solid fa-file-arrow-down"></i></a
+                  ><strong>currículo 'ptBR'</strong><i class="fa-solid fa-file-arrow-down"></i></a
               ></span>
             </h1>
             <h1>
@@ -86,7 +86,7 @@
                 <a
                   href="https://gpnotes.droppages.com/geraldox.proxyfiles.com/files/geraldo_resume_eng.pdf"
                   target="_blank"
-                  ><strong>Baixar currículo 'eng'</strong><i class="fa-solid fa-file-arrow-down"></i></a
+                  ><strong>currículo 'eng'</strong><i class="fa-solid fa-file-arrow-down"></i></a
               ></span>
             </h1>
           </nav>
@@ -119,7 +119,7 @@
                     GPX
                   </h3>
                   <p class="description">
-                    fake API, VueRouter, nested Router, named Router, v-for, Data API e muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.
+                    Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.
                   </p>
                 </div>
                 <div class="techs">
@@ -177,10 +177,10 @@
                     <a
                       href="https://react-movie-apis.netlify.app/"
                       target="_blank">
-                      The Movie DB</a
+                      Cinema Router</a
                     >
                   </h3>
-                  <p class="description">Consumindo a API do The Movies Data Base para listar os 20 filmes mais populares.</p>
+                  <p class="description">Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica. </p>
                 </div>
                 <div class="techs">
                   <span class="tech_icons">
