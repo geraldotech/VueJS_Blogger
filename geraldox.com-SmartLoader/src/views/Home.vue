@@ -426,7 +426,6 @@
               </div>
             </div>
             <!-- CARD-->
-
           </div>
         </div>
         <div class="swiper-button-next swiper-navBtn"></div>
@@ -632,8 +631,6 @@
 </template>
 
 <script>
-const iconPath = '/src/assets/icons/svg/'
-
 const icon = {
   html: '/src/assets/icons/svg/html.svg',
   vuejs: '/src/assets/icons/svg/vuejs.svg',
@@ -644,8 +641,6 @@ const icon = {
   nodejs: '/src/assets/icons/svg/nodejs.svg',
   firebase: '/src/assets/icons/svg/firebasevertical.svg',
 }
-
-console.log(icon.html)
 
 module.exports = {
   metaInfo: {
@@ -675,7 +670,7 @@ module.exports = {
           icons: api.icons.map((icon) => ({
             path: icon.path.replace('${placeholder}', iconPath),
           })),
-        }))   
+        }))
 
         // this.projectsx =  data?.projects
       })
@@ -732,8 +727,7 @@ module.exports = {
           name: 'quiz Expert',
           url: 'https://dev.geraldox.com/projects/quizExpert_vanilla',
           image: '/src/assets/img/Customer Survey-amico.svg',
-          description:
-            'Teste seus conhecimentos em JavaScript',
+          description: 'Teste seus conhecimentos em JavaScript',
           icons: [
             { title: 'HTML', path: icon.html },
             { title: 'CSS', path: icon.css },
