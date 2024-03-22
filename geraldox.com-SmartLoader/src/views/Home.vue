@@ -668,16 +668,14 @@ module.exports = {
     fetch('/src/db/projects.json')
       .then((req) => req.json())
       .then((data) => {
-        console.log(data.projects)
+        //console.log(data.projects)
 
         const apirUpdate = data.projects.map((api) => ({
           ...api,
           icons: api.icons.map((icon) => ({
             path: icon.path.replace('${placeholder}', iconPath),
           })),
-        }))
-
-        console.warn(apirUpdate)
+        }))   
 
         // this.projectsx =  data?.projects
       })

@@ -80,7 +80,7 @@
           @change="handleMenuChangeIcon"
           v-model="menustate" />
         <span class="menuicon">
-          <i class="fa-solid fa-bars"></i>
+          <i class="menuiconelement fa-solid fa-bars"></i>
         </span>
       </label>
     </nav>
@@ -162,7 +162,7 @@ module.exports = {
     },
     handleMenuChangeIcon() {
       const menuicon = document.querySelector('.menuicon')
-      menuicon.innerHTML = this.menustate ? `<i class="fa-solid fa-x"></i>` : `<i class="fa-solid fa-bars"></i>`
+      menuicon.innerHTML = this.menustate ? `<i class="menuiconelement fa-solid fa-x"></i>` : `<i class="fa-solid fa-bars"></i>`
     },
   },
   watch: {
@@ -209,6 +209,10 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
+}
+
+i{
+  font-family: inherit;
 }
 
 .main a {
@@ -330,12 +334,7 @@ code {
   cursor: pointer;
   text-align: center;
   font-size: 16px;
-  background: #1a2b81;
   padding: 0.5em 3em;
-  border: none;
-  opacity: 0.8;
-  border-radius: 10px;
-  text-decoration: none;
 }
 
 nav:has(.btnDownload) {
@@ -348,12 +347,6 @@ nav:has(.btnDownload) a {
   margin: 15px 0;
 }
 
-.btnDownload:hover {
-  box-shadow: 0 0 15px black;
-  color: white;
-  background: #0747a6;
-  transition: 2s;
-}
 
 .top-search img {
   cursor: pointer;
@@ -404,7 +397,7 @@ label:has(#toggleMenu) {
   display: none;
   cursor: pointer;
 }
-label i {
+i.menuiconelement {
   font-size: 2rem;
 }
 

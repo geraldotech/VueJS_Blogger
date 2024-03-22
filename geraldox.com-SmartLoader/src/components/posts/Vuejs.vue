@@ -1,5 +1,9 @@
 <template>
   <div>
+    <Mysuperhtml></Mysuperhtml>
+
+    <component :is="Mysuperhtml"></component>
+
     <figure>
       <img
         class="img-flex"
@@ -8,19 +12,21 @@
         :src="`${img[2023]}/vuejs.svg`" />
     </figure>
     <p>How check Vue Version ?</p>
-    <code> console.log(Vue.version);</code>
-    <nav>
+    <code> console.log(Vue.version)</code>
+    <nav class="btnDownload">
       <a
-        class="btnDownload"
         :href="`${cdnfiles}/vue.global_3.2.41_dev.zip`"
-        target="_blank"
-        >VueJS 3.2.41 Dev</a
-      >
+        target="_blank">
+        <p-button
+          label="VueJS 3.2.41 Dev"
+          class="p-button-success"
+          icon="pi pi-download"></p-button>
+      </a>
     </nav>
 
     <hr />
     <section>
-      <h1>Blog Features Beta:</h1>
+      <h1>Blog Last Features:</h1>
       <ul>
         <li>
           <router-link :to="{ name: 'search' }">Try query search params search</router-link>
@@ -29,27 +35,43 @@
           <router-link :to="{ name: 'advancedsearch' }">Advanced Search Constructor</router-link>
         </li>
         <li><button @click="handlerPushRouter()">handlerPushRouter</button></li>
+        <li>
+          <a href="#primevue">Prime Vue Components</a>
+        </li>
+        <li>
+          <a href="#narutoversion">Vue 2.7 naruto latest version Backported Features</a>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h1>Naruto Using refs -</h1>
-      <ul>
-        <li>
-          <a
-            href="https://blog.vuejs.org/posts/vue-2-7-naruto"
-            target="_blank"
-            >Vue 2.7</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://v2.vuejs.org/v2/guide/migration-vue-2-7"
-            target="_blank"
-            >migration-vue-2-7</a
-          >
-        </li>
-      </ul>
+    <section id="narutoversion">
+      <h1>
+        Vue 2.7 Naruto Using
+        <i
+          style="color: red; font-size: 1.3rem"
+          class="pi pi-bolt"></i>
+      </h1>
+
+      <div>
+        <h2>Composition API - refs</h2>
+        <ul>
+          <li>
+            <a
+              href="https://blog.vuejs.org/posts/vue-2-7-naruto"
+              target="_blank"
+              >Vue 2.7</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://v2.vuejs.org/v2/guide/migration-vue-2-7"
+              target="_blank"
+              >migration-vue-2-7</a
+            >
+          </li>
+        </ul>
+      </div>
+
       <section>
         <h1>Refs</h1>
 
@@ -64,6 +86,41 @@
 
       <p class="text">VueJS v-bind in CSS - no working in Vue 2 CDN até o momento</p>
     </section>
+
+    <section id="primevue">
+      <h1>Prime Vue 2 Components</h1>
+
+      <i
+        class="pi pi-spin pi-spinner"
+        style="font-size: 2rem"></i>
+
+      <p-calendar
+        v-model="isCalendar"
+        date-Format="dd.mm.yy"></p-calendar>
+
+      <p-button label="Primary theme Download"></p-button>
+      <p-button
+        label="Download"
+        class="p-button-secondary"></p-button>
+      <p-button
+        label="success"
+        class="p-button-success"></p-button>
+      <p-button
+        label="warning"
+        class="p-button-warning"></p-button>
+      <p-button
+        label="danger"
+        class="p-button-danger"></p-button>
+      <p-button
+        label="success"
+        class="p-button-text"></p-button>
+
+      <p-button
+        label="Primary theme Download"
+        class="p-button-success"
+        icon="pi pi-download"></p-button>
+    </section>
+
     <section>
       <h1>Menu scroll behavior test Vue Routers</h1>
 
@@ -147,18 +204,15 @@
   </div>
 </template>
 
-<script setup>
-const theme = {
-  color: 'red',
-}
-const { ref, onMounted } = Vue
+<script>
+const { ref, onMounted, h } = Vue
 module.exports = {
   setup() {
     const msn = ref('Hello From Refs')
     const count = ref(0)
 
     onMounted(() => {
-      console.log(`onMounted`)
+      // console.log(`onMounted`)
     })
 
     function log() {
@@ -169,11 +223,14 @@ module.exports = {
       count.value++
     }
 
+    const Mysuperhtml = h('h1', 'title goes here')
+
     return {
       msn,
       log,
       count,
       increaseVal,
+      Mysuperhtml,
     }
   },
   /* using options api  */
@@ -182,7 +239,12 @@ module.exports = {
   data() {
     return {
       color: 'red',
+      isCalendar: null,
     }
+  },
+  components: {
+    'p-calendar': calendar,
+    'p-button': button,
   },
   methods: {
     handlerPushRouter() {
@@ -205,6 +267,7 @@ code {
 section {
   padding: 1rem;
   margin-block: 1.5rem;
+  border: 1px solid;
 }
 
 img {

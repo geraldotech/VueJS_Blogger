@@ -258,9 +258,6 @@ module.exports = {
 }
 </script>
 <style scoped>
-* {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
 /* 
 avoidcall h1 direct here for nesting itens not get this styles
