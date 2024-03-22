@@ -3,7 +3,9 @@
     <section class="intro">
       <div class="intro__content">
         <div class="intro__content-img">
-          <img src="https://avatars.githubusercontent.com/u/92253544?v=4" />
+          <img
+            loading="lazy"
+            src="https://avatars.githubusercontent.com/u/92253544?v=4" />
         </div>
 
         <div class="intro__content-devinfo">
@@ -100,69 +102,55 @@
       id="projects"
       class="projects">
       <h1 class="heading after_title_section">Projetos</h1>
+
       <div class="slide-container swiper">
         <div class="slide-content">
           <div class="card-wrapper swiper-wrapper">
-            <!-- CARD-->
-            <div class="card swiper-slide">
+            <!-- CARD V-FOR -->
+            <div
+              class="card swiper-slide"
+              v-for="card in projectsx"
+              :key="card.name">
               <div class="image-content">
-                <a href="https://geraldox.com">
+                <a
+                  :href="card.url"
+                  target="_blank">
                   <img
                     style="background-color: #fff"
-                    src="/src/assets/img/gpx-logo.svg"
+                    loading="lazy"
+                    class="image-content_logo"
+                    :src="card.image"
                     alt="" />
                 </a>
               </div>
               <div class="card-content">
                 <div class="card-header">
                   <h3 class="name">
-                    GPX
+                    <a
+                      :href="card.url"
+                      target="_blank"
+                      >{{ card.name }}</a
+                    >
                   </h3>
                   <p class="description">
-                    Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.
+                    {{ card.description }}
                   </p>
                 </div>
                 <div class="techs">
-                  <span class="tech_icons">
+                  <span
+                    class="tech_icons"
+                    v-for="icon in card.icons"
+                    :key="icon">
                     <img
-                      src="/src/assets/icons/svg/vuejs.svg"
-                      title="VueJS"
+                      :src="icon.path"
+                      :title="icon.title"
                       alt="" />
                   </span>
                 </div>
               </div>
             </div>
-            <!-- CARD-->
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  src="/src/assets/img/apple-sum.jpg"
-                  alt="" />
-              </div>
+            <!-- CARD V-FOR -->
 
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 class="name">
-                    <a
-                      href="https://dev.geraldox.com/projects/apple-sum/"
-                      target="_blank"
-                      >Vamos somar</a
-                    >
-                  </h3>
-                  <p class="description">Ajuda crianças na fase da alfabetização matemática, gerando contas aleatórias e respostas com multiplca escolha.</p>
-                </div>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/vuejs.svg"
-                      title="VueJS"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
             <!-- CARD-->
             <div class="card swiper-slide">
               <div class="image-content">
@@ -180,7 +168,9 @@
                       Cinema Router</a
                     >
                   </h3>
-                  <p class="description">Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica. </p>
+                  <p class="description">
+                    Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica.
+                  </p>
                 </div>
                 <div class="techs">
                   <span class="tech_icons">
@@ -236,6 +226,7 @@
             <div class="card swiper-slide">
               <div class="image-content">
                 <img
+                  class="logo"
                   loading="lazy"
                   src="https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png"
                   alt="" />
@@ -435,82 +426,7 @@
               </div>
             </div>
             <!-- CARD-->
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  loading="lazy"
-                  src="https://firebasemood.netlify.app/assets/images/logo.svg"
-                  alt="" />
-              </div>
-              <div class="card-content">
-                <h3 class="name">
-                  <a
-                    href="https://firebasemood.netlify.app/"
-                    target="_blank"
-                    >The Moody Zone
-                  </a>
-                </h3>
-                <p>Understanding Feelings</p>
-                <p class="description">Create Posts Read Posts Update Posts Delete Posts</p>
-                <span class="tech_icons">
-                  <img
-                    src="/src/assets/icons/svg/html.svg"
-                    title="HTML"
-                    alt="" />
-                  <img
-                    src="/src/assets/icons/svg/css.svg"
-                    title="CSS"
-                    alt="" />
-                  <img
-                    src="/src/assets/icons/svg/javascript.svg"
-                    title="Javascript"
-                    alt="" />
-                  <img
-                    src="/src/assets/icons/svg/firebasevertical.svg"
-                    title="firebase"
-                    alt="" />
-                </span>
-              </div>
-            </div>
-            <!-- CARD-->
-                 <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <a href="https://dev.geraldox.com/projects/quizExpert_vanilla" target="_blank">
-                  <img
-                    src="/src/assets/img/Customer Survey-amico.svg"
-                    alt="" />
-                </a>
-              </div>
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 class="name">
-                    quiz Expert
-                  </h3>
-                  <p class="description">
-                    Teste seus conhecimentos em JavaScript
-                  </p>
-                </div>
-                <div class="techs">
-                  <span class="tech_icons">
-                  <img
-                    src="/src/assets/icons/svg/html.svg"
-                    title="HTML"
-                    alt="" />
-                  <img
-                    src="/src/assets/icons/svg/css.svg"
-                    title="CSS"
-                    alt="" />
-                  <img
-                    src="/src/assets/icons/svg/javascript.svg"
-                    title="Javascript"
-                    alt="" />
-                </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
+
           </div>
         </div>
         <div class="swiper-button-next swiper-navBtn"></div>
@@ -716,6 +632,21 @@
 </template>
 
 <script>
+const iconPath = '/src/assets/icons/svg/'
+
+const icon = {
+  html: '/src/assets/icons/svg/html.svg',
+  vuejs: '/src/assets/icons/svg/vuejs.svg',
+  html: '/src/assets/icons/svg/html.svg',
+  css: '/src/assets/icons/svg/css.svg',
+  react: '/src/assets/icons/svg/reactjs.svg',
+  javascript: '/src/assets/icons/svg/javascript.svg',
+  nodejs: '/src/assets/icons/svg/nodejs.svg',
+  firebase: '/src/assets/icons/svg/firebasevertical.svg',
+}
+
+console.log(icon.html)
+
 module.exports = {
   metaInfo: {
     title: 'Home Page',
@@ -734,14 +665,84 @@ module.exports = {
   mounted() {
     this.loadSwiperScript()
     //this.scrollToBottom()
+    fetch('/src/db/projects.json')
+      .then((req) => req.json())
+      .then((data) => {
+        console.log(data.projects)
+
+        const apirUpdate = data.projects.map((api) => ({
+          ...api,
+          icons: api.icons.map((icon) => ({
+            path: icon.path.replace('${placeholder}', iconPath),
+          })),
+        }))
+
+        console.warn(apirUpdate)
+
+        // this.projectsx =  data?.projects
+      })
   },
   created() {},
-  beforeMount() {},
+  beforeMount() {
+    console.log(this.projects)
+  },
   data() {
     return {
       name: '',
       email: '',
       message: '',
+      projectsx: [
+        {
+          name: 'GPX',
+          url: 'https://geraldox.com',
+          image: '/src/assets/img/gpx-logo.svg',
+          description:
+            'Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.',
+          icons: [{ title: 'VueJS', path: icon.vuejs }],
+        },
+        {
+          name: 'Vamos somar',
+          url: 'https://dev.geraldox.com/projects/apple-sum/',
+          image: '/src/assets/img/apple-sum.jpg',
+          description: 'Ajuda crianças na fase da alfabetização matemática, gerando contas aleatórias e respostas com multiplca escolha.',
+          icons: [{ title: 'VueJS', path: icon.vuejs }],
+        },
+        {
+          name: 'The Moody Zone',
+          url: 'https://themoodyzone.netlify.app/',
+          image: 'https://themoodyzone.netlify.app/assets/images/logo.svg',
+          description: 'Understanding Feelings create Posts Read Posts Update Posts Delete Posts',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'VueJS', path: icon.javascript },
+            { title: 'Firebase', path: icon.firebase },
+          ],
+        },
+        {
+          name: 'Life Vans',
+          url: 'https://vannlifeforfirebase.pages.dev/',
+          image: 'https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png',
+          description:
+            'Contextualizando recursos avançados como Router, Context API, Nested Routers, Outline, link state, search Params consumindo dados do Firebase. use as credenciais configuradas no miragejs: <b>g@g.com@123</b>.',
+          icons: [
+            { title: 'React', path: icon.react },
+            { title: 'Firebase', path: icon.firebase },
+          ],
+        },
+        {
+          name: 'quiz Expert',
+          url: 'https://dev.geraldox.com/projects/quizExpert_vanilla',
+          image: '/src/assets/img/Customer Survey-amico.svg',
+          description:
+            'Teste seus conhecimentos em JavaScript',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+      ],
     }
   },
   methods: {
@@ -1137,16 +1138,17 @@ strong {
 
 .image-content {
   display: flex;
+
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 50%;
+  height: 100px;
   border-radius: 12px;
   background-color: var(--primary);
 }
 
 .image-content img {
-  height: 92%;
+  height: 100px;
   /*  object-fit: cover; */
   border-radius: 8px;
 }
@@ -1183,7 +1185,9 @@ strong {
 }
 
 .projects a > img {
-  width: 65%;
+}
+
+.projects a:has(img) img {
 }
 
 .projects a:has(img) {
