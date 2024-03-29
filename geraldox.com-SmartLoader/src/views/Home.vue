@@ -99,7 +99,8 @@
 
     <!-- PROJECTS -->
     <section
-      id="projects"
+      id="projectsx"
+      v-show="false"
       class="projects">
       <h1 class="heading after_title_section">Projetos</h1>
 
@@ -192,31 +193,40 @@
     </section>
     <!-- PROJECTS -->
 
-    <!-- PROJECTS NEW -->
-    <section id="skills">
-      <div class="skills_container">
-        <h1 class="heading after_title_section">Habilidades</h1>
+    <!-- === PROJECTS NEW ===  -->
+    <section id="projects">
+      <div class="projects_container">
+        <h1 class="heading after_title_section">Projetos</h1>
+
+        <!-- Filter -->
         <div class="projects__filter">
           <p-button
-            class="p-button-outlined p-button-warning"
+            class="p-button-sm p-button-outlined p-button-warning"
             @click="filterProject('html')"
-            >HTML/CSS/JS</p-button
+            >Javascript</p-button
           >
           <p-button
-            class="p-button-outlined p-button-help"
+            class="p-button-sm p-button-outlined p-button-help"
             @click="filterProject('reactjs')"
             >ReactJS
           </p-button>
 
           <p-button
             label="Vue"
-            class="p-button-outlined p-button-success"
+            class="p-button-sm p-button-outlined p-button-success"
             icon="pi pi-tech"
             @click="filterProject('vue')"></p-button>
           <p-button
-            icon="pi pi-filter-slash" @click="filterProject('')" v-show="postsShow.length > 0"></p-button>
-            <p>{{ postsShow.length }}</p>
+          title="clean filter"
+          class="p-button-sm  p-button-danger"
+            icon="pi pi-filter-slash"
+            @click="filterProject('')"
+            v-show="filterOn"></p-button>
+          <p>Mostrando: {{ postsShow.length }}</p>
         </div>
+        <!-- Filter -->
+        <!--  @click="window.open(card.url, '_blank')"
+         -->
 
         <div class="card--container">
           <!-- v-for -->
@@ -231,7 +241,7 @@
               alt="" />
             <h3 class="name">
               <a
-                href="https://dev.geraldox.com/projects/base64-converter"
+                :href="card.url"
                 target="_blank"
                 class="name__title"
                 >{{ card.name }}
@@ -246,78 +256,38 @@
                 <img
                   :src="icon.path"
                   :title="icon.title"
-                  alt="" />
+                  :alt="icon.title" />
               </span>
             </div>
+            <div class="card__info">
+              <div class="card__btns">
+                <a
+                  v-show="card.git"
+                  :href="card.git"
+                  target="_blank">
+                  <p-button
+                    icon="pi pi-github"
+                    label="Github"
+                    class="p-button-xoutlined p-button-help"></p-button>
+                </a>
+                <a
+                  :href="card.url"
+                  target="_blank">
+                  <p-button
+                    icon="pi pi-external-link"
+                    label="Deploy"
+                    class="bt__card p-button-success"
+                    href="google.com"></p-button>
+                </a>
+              </div>
+            </div>
           </div>
-
           <!-- v-for -->
-          <div class="card_skill project">
-            <img
-              src="/src/assets/icons/svg/javascript.svg"
-              alt="" />
-            <h3 class="name">
-              <a
-                href="https://dev.geraldox.com/projects/base64-converter"
-                target="_blank"
-                class="name__title"
-                >Password generator
-              </a>
-            </h3>
-            <p class="description">Codificador de senhas usando a Base 64</p>
-            <span class="tech_icons">
-              <img
-                src="/src/assets/icons/svg/html.svg"
-                title="HTML"
-                alt="" />
-              <img
-                src="/src/assets/icons/svg/css.svg"
-                title="CSS"
-                alt="" />
-              <img
-                src="/src/assets/icons/svg/javascript.svg"
-                title="Javascript"
-                alt="" />
-            </span>
-          </div>
         </div>
-
-        <!--   <div class="container-newcards">
-          <div class="image-content">
-                <img
-                  src="/src/assets/img/password-128.svg"
-                  alt="" />
-              </div>
-              <div class="card-content-new">
-                <h3 class="name">
-                  <a                 
-                    href="https://dev.geraldox.com/projects/base64-converter"
-                    target="_blank"
-                    >Password generator
-                  </a>
-                </h3>
-                <p class="description">Codificador de senhas usando a Base 64</p>
-                <span class="tech_icons">
-                  <img
-                    src="/src/assets/icons/svg/html.svg"
-                    title="HTML"
-                    alt="" />
-                  <img
-                    src="/src/assets/icons/svg/css.svg"
-                    title="CSS"
-                    alt="" />
-                  <img
-                    src="/src/assets/icons/svg/javascript.svg"
-                    title="Javascript"
-                    alt="" />
-                </span>
-              </div>
-        </div>
- -->
       </div>
-      <!-- skill container -->
     </section>
-    <!-- PROJECTS NEW -->
+
+    <!-- === PROJECTS NEW ===  -->
 
     <!-- EXPERIENCES -->
     <section id="experiences">
@@ -548,6 +518,7 @@ module.exports = {
     this.postsShow = this.allprojects
 
     this.loadSwiperScript()
+
     //this.scrollToBottom()
     fetch('/src/db/projects.json')
       .then((req) => req.json())
@@ -560,7 +531,6 @@ module.exports = {
             path: icon.path.replace('${placeIconPath}', '/src/assets/icons/svg'),
           })),
         }))
-
         //  this.allprojects =  data.projects
       })
     // this.postsShow = this.allprojects
@@ -572,11 +542,13 @@ module.exports = {
       name: '',
       email: '',
       message: '',
+      filterOn: false,
       postsShow: [],
       allprojects: [
         {
           name: 'GPX',
           url: 'https://geraldox.com',
+          git: 'https://github.com/geraldotech/VueJS_Blogger',
           image: '/src/assets/img/gpx-logo2.png',
           description:
             'Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.',
@@ -592,18 +564,20 @@ module.exports = {
         {
           name: 'The Moody Zone',
           url: 'https://themoodyzone.netlify.app/',
+          git: 'https://github.com/geraldotech/moodyapp',
           image: 'https://themoodyzone.netlify.app/assets/images/logo.svg',
           description: 'Understanding Feelings create Posts Read Posts Update Posts Delete Posts',
           icons: [
             { title: 'HTML', path: icon.html },
             { title: 'CSS', path: icon.css },
-            { title: 'VueJS', path: icon.javascript },
+            { title: 'Javascript', path: icon.javascript },
             { title: 'Firebase', path: icon.firebase },
           ],
         },
         {
           name: 'Life Vans',
           url: 'https://vannlifeforfirebase.pages.dev/',
+          git: 'https://github.com/geraldotech/DevMap/tree/main/ReactJS/projects/scrimba/Router/VanLifefor_Firebase',
           image: 'https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png',
           description:
             'Contextualizando recursos avançados como Router, Context API, Nested Routers, Outline, link state, search Params consumindo dados do Firebase. use as credenciais configuradas no miragejs: <b>g@g.com@123</b>.',
@@ -626,6 +600,7 @@ module.exports = {
         {
           name: 'Cinema Router',
           url: 'https://react-movie-apis.netlify.app',
+          git: 'https://github.com/geraldotech/DevMap/tree/main/ReactJS/projects/API-themovieDB',
           image: '/src/assets/img/moviedb.jpg',
           description: 'Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica.',
           icons: [{ title: 'ReactJS', path: icon.react }],
@@ -644,6 +619,7 @@ module.exports = {
         {
           name: 'Gerador de Etiquetas',
           url: 'https://geraldotech.github.io/Gerador-Etiquetas-Make/FrontVersion',
+          git: 'https://github.com/geraldotech/Gerador-Etiquetas-Make',
           image: 'https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw',
           description: 'App construido para atender uma necessidade da empresa que fiz estágio',
           icons: [
@@ -677,9 +653,10 @@ module.exports = {
         {
           name: 'Express session login',
           url: 'https://expressloginway.onrender.com',
+          git: 'https://github.com/geraldotech/ExpressLoginPage', 
           image: '/src/assets/icons/svg/nodejslogo.svg',
           description: 'Simulando um sistema de login, cada user tem um painel diferente',
-          icons: [{ title: 'HTML', path: icon.nodejs }],
+          icons: [{ title: 'nodejs', path: icon.nodejs }],
         },
       ],
     }
@@ -687,11 +664,13 @@ module.exports = {
   methods: {
     filterProject(type) {
       const filtered = this.allprojects.filter((post) => post.icons.some((icon) => icon.title.toLowerCase().includes(type)))
-      if(type){
+      if (type) {
         this.postsShow = filtered
+        this.filterOn = true
       }
-      if(type == ''){
+      if (type == '') {
         this.postsShow = this.allprojects
+        this.filterOn = false
       }
     },
     loadSwiperScript() {
@@ -1018,7 +997,7 @@ strong {
 
 /* ABOUT ENDS */
 
-/* PROJECTS NEW */
+/* === PROJECTS NEW SECTION === */
 .name__title {
   text-decoration: none;
   font-size: 1.6rem;
@@ -1039,10 +1018,107 @@ strong {
 
 .projects__filter {
   margin-top: 1.5rem;
-  text-align: center;
+  text-align: left;
 }
 
-/* PROJECTS NEW */
+.card__info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*  background: linear-gradient(to top, #a52a2a, black); */
+  backdrop-filter: blur(4px);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.6s;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_skill.project:hover .card__info {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.projects_container {
+  background-color: var(--blackcolor);
+  padding: 50px 5%;
+  padding-bottom: 100px;
+  height: 100%;
+}
+
+.projects_container .heading {
+  text-align: center;
+
+  color: var(--softcolor);
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-size: 2.5em;
+  font-family: 'Anta', sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+.projects_container .card--container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 15px;
+  padding-block: 60px;
+
+  @media (max-width: 500px) {
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+  }
+}
+
+.projects_container .card--container .card_skill {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: var(--background3);
+  text-align: center;
+  padding: 15px 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.projects_container .card--container .card_skill > img {
+  height: 60px;
+  color: var(--primary);
+}
+
+.projects_container .card--container .card_skill h3 {
+  color: var(--softcolor);
+  font-size: 1.2rem;
+  padding: 10px 0;
+}
+
+.projects_container .card--container .card_skill p {
+  color: var(--softcolor);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+.projects_container .card--container .card_skill:hover {
+  background-color: var(--blackcolor);
+  /*  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); */
+  transform: scale(1.03);
+  /* border: 1.5px solid #7401e1; */
+  box-shadow: 0 0 1.2px 1.2px #7401e1;
+}
+
+.projects_container .card--container .card_skill:hover h3 {
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+.projects_container .card--container .card_skill:hover p {
+  color: var(--whitecolor);
+  transition: color 0.3s ease;
+}
+
+/* === PROJECTS NEW SECTION === */
 
 /* PROJECTS */
 
