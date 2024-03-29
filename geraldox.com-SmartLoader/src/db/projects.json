@@ -7,7 +7,41 @@
       "description": "Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.",
       "icons": [
         { "title": "VueJS", "path": "/src/assets/icons/svg/vuejs.svg" },
-        { "title": "HTML", "path": "${placeholder}/html.svg" }
+        { "title": "HTML", "path": "${placeIconPath}/html.svg" },
+        { "title": "CSS", "path": "${placeIconPath}/css.svg" }
+      ]
+    },
+    {
+      "name": "GPX",
+      "url": "https://geraldox.com",
+      "image": "/src/assets/img/gpx-logo.svg",
+      "description": "Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.",
+      "icons": [
+        { "title": "VueJS", "path": "/src/assets/icons/svg/vuejs.svg" },
+        { "title": "HTML", "path": "${placeIconPath}/html.svg" },
+        { "title": "CSS", "path": "${placeIconPath}/css.svg" }
+      ]
+    },
+    {
+      "name": "GPX",
+      "url": "https://geraldox.com",
+      "image": "/src/assets/img/gpx-logo.svg",
+      "description": "Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.",
+      "icons": [
+        { "title": "VueJS", "path": "/src/assets/icons/svg/vuejs.svg" },
+        { "title": "HTML", "path": "${placeIconPath}/html.svg" },
+        { "title": "CSS", "path": "${placeIconPath}/css.svg" }
+      ]
+    },
+    {
+      "name": "GPX",
+      "url": "https://geraldox.com",
+      "image": "/src/assets/img/gpx-logo.svg",
+      "description": "Site pessoal que demostra meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.",
+      "icons": [
+        { "title": "VueJS", "path": "/src/assets/icons/svg/vuejs.svg" },
+        { "title": "HTML", "path": "${placeIconPath}/html.svg" },
+        { "title": "CSS", "path": "${placeIconPath}/css.svg" }
       ]
     }
   ]

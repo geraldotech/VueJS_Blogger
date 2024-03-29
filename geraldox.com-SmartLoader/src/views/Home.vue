@@ -109,14 +109,13 @@
             <!-- CARD V-FOR -->
             <div
               class="card swiper-slide"
-              v-for="card in projectsx"
+              v-for="card in allprojects"
               :key="card.name">
               <div class="image-content">
                 <a
                   :href="card.url"
                   target="_blank">
                   <img
-                    style="background-color: #fff"
                     loading="lazy"
                     class="image-content_logo"
                     :src="card.image"
@@ -151,248 +150,6 @@
             </div>
             <!-- CARD V-FOR -->
 
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  src="/src/assets/img/moviedb.jpg"
-                  alt="" />
-              </div>
-
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 class="name">
-                    <a
-                      href="https://react-movie-apis.netlify.app/"
-                      target="_blank">
-                      Cinema Router</a
-                    >
-                  </h3>
-                  <p class="description">
-                    Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica.
-                  </p>
-                </div>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/reactjs.svg"
-                      title="React"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  loading="lazy"
-                  src="https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png"
-                  alt="" />
-              </div>
-
-              <div class="card-content">
-                <div class="card-header">
-                  <h3 class="name">
-                    <a
-                      href="https://dev.geraldox.com/projects/shoppingcart/"
-                      target="_blank"
-                      >Shopping Cart</a
-                    >
-                  </h3>
-                  <p class="description">Simulando um sistemas de compras, adicionar e remover itens ao carrinho</p>
-                </div>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/html.svg"
-                      title="HTML"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/css.svg"
-                      title="CSS"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/javascript.svg"
-                      title="Javascript"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  class="logo"
-                  loading="lazy"
-                  src="https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png"
-                  alt="" />
-              </div>
-              <div class="card-content">
-                <h3 class="name">
-                  <a
-                    href="https://vannlifeforfirebase.pages.dev/"
-                    target="_blank"
-                    >Life Vans</a
-                  >
-                </h3>
-                <p class="description">
-                  Contextualizando recursos avançados como Router, Context API, Nested Routers, Outline, link state, search Params consumindo dados do Firebase. use as credenciais configuradas no
-                  miragejs: <b>g@g.com@123</b>.
-                </p>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/reactjs.svg"
-                      title="React"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/firebasevertical.svg"
-                      title="Firebase"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
-
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  loading="lazy"
-                  src="https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw"
-                  alt="pdf icon" />
-              </div>
-              <div class="card-content">
-                <h3 class="name">
-                  <a
-                    href="https://geraldotech.github.io/Gerador-Etiquetas-Make/FrontVersion/"
-                    target="_blank"
-                    >Gerador de Etiquetas</a
-                  >
-                </h3>
-                <p class="description">App construido para atender uma necessidade da empresa que fiz estágio</p>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/html.svg"
-                      title="HTML"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/css.svg"
-                      title="CSS"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/javascript.svg"
-                      title="Javascript"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  loading="lazy"
-                  src="https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png"
-                  alt="" />
-              </div>
-              <div class="card-content">
-                <h3 class="name">
-                  <a
-                    href="https://gmapdev.netlify.app/projects/vivoeasy/"
-                    target="_blank"
-                    >Vivo Easy clone</a
-                  >
-                </h3>
-                <p class="description">Um do clone simulando as funcionalidades do aplicativo Vivo Easy</p>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/html.svg"
-                      title="HTML"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/css.svg"
-                      title="CSS"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/javascript.svg"
-                      title="Javascript"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  src="/src/assets/icons/svg/javascriptlogo.svg"
-                  alt="" />
-              </div>
-              <div class="card-content">
-                <h3 class="name">
-                  <a
-                    href="https://dev.geraldox.com/projects/array_input_radio_search/"
-                    target="_blank"
-                    >Filtro dados</a
-                  >
-                </h3>
-                <p class="description">Filtrando dados por nome ou estado</p>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/html.svg"
-                      title="HTML"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/css.svg"
-                      title="CSS"
-                      alt="" />
-                    <img
-                      src="/src/assets/icons/svg/javascript.svg"
-                      title="Javascript"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
-            <!-- CARD-->
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <img
-                  src="/src/assets/icons/svg/nodejslogo.svg"
-                  alt="" />
-              </div>
-              <div class="card-content">
-                <h3 class="name">
-                  <a
-                    href="https://expressloginway.onrender.com/"
-                    target="_blank"
-                    >Express session login
-                  </a>
-                </h3>
-                <p class="description">Simulando um sistema de login, cada user tem um painel diferente</p>
-                <div class="techs">
-                  <span class="tech_icons">
-                    <img
-                      src="/src/assets/icons/svg/nodejs.svg"
-                      title="NodeJS"
-                      alt="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- CARD-->
             <!-- CARD-->
             <div class="card swiper-slide">
               <div class="image-content">
@@ -434,6 +191,133 @@
       </div>
     </section>
     <!-- PROJECTS -->
+
+    <!-- PROJECTS NEW -->
+    <section id="skills">
+      <div class="skills_container">
+        <h1 class="heading after_title_section">Habilidades</h1>
+        <div class="projects__filter">
+          <p-button
+            class="p-button-outlined p-button-warning"
+            @click="filterProject('html')"
+            >HTML/CSS/JS</p-button
+          >
+          <p-button
+            class="p-button-outlined p-button-help"
+            @click="filterProject('reactjs')"
+            >ReactJS
+          </p-button>
+
+          <p-button
+            label="Vue"
+            class="p-button-outlined p-button-success"
+            icon="pi pi-tech"
+            @click="filterProject('vue')"></p-button>
+          <p-button
+            icon="pi pi-filter-slash" @click="filterProject('')" v-show="postsShow.length > 0"></p-button>
+            <p>{{ postsShow.length }}</p>
+        </div>
+
+        <div class="card--container">
+          <!-- v-for -->
+          <div
+            class="card_skill project"
+            v-for="card in postsShow"
+            :key="card">
+            <img
+              loading="lazy"
+              class="project_logo"
+              :src="card.image"
+              alt="" />
+            <h3 class="name">
+              <a
+                href="https://dev.geraldox.com/projects/base64-converter"
+                target="_blank"
+                class="name__title"
+                >{{ card.name }}
+              </a>
+            </h3>
+            <p class="description">{{ card.description }}</p>
+            <div class="tech_icons">
+              <span
+                class="tech_icons"
+                v-for="icon in card.icons"
+                :key="icon">
+                <img
+                  :src="icon.path"
+                  :title="icon.title"
+                  alt="" />
+              </span>
+            </div>
+          </div>
+
+          <!-- v-for -->
+          <div class="card_skill project">
+            <img
+              src="/src/assets/icons/svg/javascript.svg"
+              alt="" />
+            <h3 class="name">
+              <a
+                href="https://dev.geraldox.com/projects/base64-converter"
+                target="_blank"
+                class="name__title"
+                >Password generator
+              </a>
+            </h3>
+            <p class="description">Codificador de senhas usando a Base 64</p>
+            <span class="tech_icons">
+              <img
+                src="/src/assets/icons/svg/html.svg"
+                title="HTML"
+                alt="" />
+              <img
+                src="/src/assets/icons/svg/css.svg"
+                title="CSS"
+                alt="" />
+              <img
+                src="/src/assets/icons/svg/javascript.svg"
+                title="Javascript"
+                alt="" />
+            </span>
+          </div>
+        </div>
+
+        <!--   <div class="container-newcards">
+          <div class="image-content">
+                <img
+                  src="/src/assets/img/password-128.svg"
+                  alt="" />
+              </div>
+              <div class="card-content-new">
+                <h3 class="name">
+                  <a                 
+                    href="https://dev.geraldox.com/projects/base64-converter"
+                    target="_blank"
+                    >Password generator
+                  </a>
+                </h3>
+                <p class="description">Codificador de senhas usando a Base 64</p>
+                <span class="tech_icons">
+                  <img
+                    src="/src/assets/icons/svg/html.svg"
+                    title="HTML"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/css.svg"
+                    title="CSS"
+                    alt="" />
+                  <img
+                    src="/src/assets/icons/svg/javascript.svg"
+                    title="Javascript"
+                    alt="" />
+                </span>
+              </div>
+        </div>
+ -->
+      </div>
+      <!-- skill container -->
+    </section>
+    <!-- PROJECTS NEW -->
 
     <!-- EXPERIENCES -->
     <section id="experiences">
@@ -656,8 +540,13 @@ module.exports = {
       { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
     ],
   },
+  components: {
+    'p-button': button,
+  },
   /* MOUNTED */
   mounted() {
+    this.postsShow = this.allprojects
+
     this.loadSwiperScript()
     //this.scrollToBottom()
     fetch('/src/db/projects.json')
@@ -665,30 +554,30 @@ module.exports = {
       .then((data) => {
         //console.log(data.projects)
 
-        const apirUpdate = data.projects.map((api) => ({
+        const apiUpdated = data.projects.map((api) => ({
           ...api,
           icons: api.icons.map((icon) => ({
-            path: icon.path.replace('${placeholder}', iconPath),
+            path: icon.path.replace('${placeIconPath}', '/src/assets/icons/svg'),
           })),
         }))
 
-        // this.projectsx =  data?.projects
+        //  this.allprojects =  data.projects
       })
+    // this.postsShow = this.allprojects
   },
   created() {},
-  beforeMount() {
-    console.log(this.projects)
-  },
+  beforeMount() {},
   data() {
     return {
       name: '',
       email: '',
       message: '',
-      projectsx: [
+      postsShow: [],
+      allprojects: [
         {
           name: 'GPX',
           url: 'https://geraldox.com',
-          image: '/src/assets/img/gpx-logo.svg',
+          image: '/src/assets/img/gpx-logo2.png',
           description:
             'Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.',
           icons: [{ title: 'VueJS', path: icon.vuejs }],
@@ -719,7 +608,7 @@ module.exports = {
           description:
             'Contextualizando recursos avançados como Router, Context API, Nested Routers, Outline, link state, search Params consumindo dados do Firebase. use as credenciais configuradas no miragejs: <b>g@g.com@123</b>.',
           icons: [
-            { title: 'React', path: icon.react },
+            { title: 'Reactjs', path: icon.react },
             { title: 'Firebase', path: icon.firebase },
           ],
         },
@@ -734,10 +623,77 @@ module.exports = {
             { title: 'Javascript', path: icon.javascript },
           ],
         },
+        {
+          name: 'Cinema Router',
+          url: 'https://react-movie-apis.netlify.app',
+          image: '/src/assets/img/moviedb.jpg',
+          description: 'Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica.',
+          icons: [{ title: 'ReactJS', path: icon.react }],
+        },
+        {
+          name: 'Shopping Cart',
+          url: 'https://dev.geraldox.com/projects/shoppingcart',
+          image: 'https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png',
+          description: 'Simulando um sistemas de compras, adicionar e remover itens ao carrinho',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Gerador de Etiquetas',
+          url: 'https://geraldotech.github.io/Gerador-Etiquetas-Make/FrontVersion',
+          image: 'https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw',
+          description: 'App construido para atender uma necessidade da empresa que fiz estágio',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Vivo Easy clone',
+          url: 'https://gmapdev.netlify.app/projects/vivoeasy',
+          image: 'https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png',
+          description: 'Um do clone simulando as funcionalidades do aplicativo Vivo Easy',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Filtro dados',
+          url: 'https://dev.geraldox.com/projects/array_input_radio_search',
+          image: '/src/assets/icons/svg/javascriptlogo.svg',
+          description: 'Filtrando dados por nome ou estado',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Express session login',
+          url: 'https://expressloginway.onrender.com',
+          image: '/src/assets/icons/svg/nodejslogo.svg',
+          description: 'Simulando um sistema de login, cada user tem um painel diferente',
+          icons: [{ title: 'HTML', path: icon.nodejs }],
+        },
       ],
     }
   },
   methods: {
+    filterProject(type) {
+      const filtered = this.allprojects.filter((post) => post.icons.some((icon) => icon.title.toLowerCase().includes(type)))
+      if(type){
+        this.postsShow = filtered
+      }
+      if(type == ''){
+        this.postsShow = this.allprojects
+      }
+    },
     loadSwiperScript() {
       var swiper = new Swiper('.slide-content', {
         slidesPerView: 5,
@@ -827,6 +783,7 @@ module.exports = {
     },
     // https://docs.web3forms.com/getting-started/examples/ajax-contact-form-using-javascript
   },
+  computed: {},
 }
 </script>
 
@@ -1061,6 +1018,32 @@ strong {
 
 /* ABOUT ENDS */
 
+/* PROJECTS NEW */
+.name__title {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: var(--purple);
+}
+
+.card_skill.project {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card_skill.project .img {
+  width: 100px;
+}
+
+.projects__filter {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* PROJECTS NEW */
+
 /* PROJECTS */
 
 .projects {
@@ -1102,10 +1085,12 @@ strong {
 }
 .card {
   display: flex;
+  gap: 1px;
   flex-direction: column;
   background-color: #202024;
   height: 100%;
   border-radius: 14px;
+  max-width: 200px;
 }
 
 .card-content {
@@ -1169,7 +1154,7 @@ strong {
   transition: all 0.3s ease;
 }
 
-.tech_icons img {
+.tech_icons > img {
   display: inline;
   width: 32px;
   height: 32px;
@@ -1428,7 +1413,7 @@ ul li:nth-child(odd) .date {
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
-.skills_container .card--container .card_skill img {
+.skills_container .card--container .card_skill > img {
   height: 60px;
   color: var(--primary);
 }
