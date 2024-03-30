@@ -39,12 +39,6 @@
     <!-- about -->
     <section class="about">
       <div class="about__content">
-        <!--  <figure class="about__img">
-          <img
-            src="https://placekitten.com/600/610"
-            alt="" />
-        </figure> -->
-
         <div class="about__info">
           <h1>
             <strong>Experiência:</strong>
@@ -217,16 +211,15 @@
             icon="pi pi-tech"
             @click="filterProject('vue')"></p-button>
           <p-button
-          title="clean filter"
-          class="p-button-sm  p-button-danger"
+            title="clean filter"
+            class="p-button-sm p-button-danger"
             icon="pi pi-filter-slash"
             @click="filterProject('')"
             v-show="filterOn"></p-button>
           <p>Mostrando: {{ postsShow.length }}</p>
         </div>
         <!-- Filter -->
-        <!--  @click="window.open(card.url, '_blank')"
-         -->
+        <!--  @click="window.open(card.url, '_blank')" -->
 
         <div class="card--container">
           <!-- v-for -->
@@ -653,7 +646,7 @@ module.exports = {
         {
           name: 'Express session login',
           url: 'https://expressloginway.onrender.com',
-          git: 'https://github.com/geraldotech/ExpressLoginPage', 
+          git: 'https://github.com/geraldotech/ExpressLoginPage',
           image: '/src/assets/icons/svg/nodejslogo.svg',
           description: 'Simulando um sistema de login, cada user tem um painel diferente',
           icons: [{ title: 'nodejs', path: icon.nodejs }],
@@ -1010,6 +1003,8 @@ strong {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
+  position: relative;
 }
 
 .card_skill.project .img {
@@ -1021,16 +1016,26 @@ strong {
   text-align: left;
 }
 
-.card__info {
+
+.projects_container {
+  background-color: var(--blackcolor);
+  padding: 50px 5%;
+  padding-bottom: 100px;
+  height: 100%;
+  position: relative;
+}
+
+.projects_container .card__info {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 0; 
   /*  background: linear-gradient(to top, #a52a2a, black); */
   backdrop-filter: blur(4px);
-  transform: translateY(100%);
+ transform: translateY(100%);
   opacity: 0;
+  height: 100%;
   transition: 0.6s;
   z-index: 3;
   display: flex;
@@ -1039,18 +1044,11 @@ strong {
   align-items: center;
 }
 
-.card_skill.project:hover .card__info {
-  transform: translateY(0);
+.projects_container  .card_skill.project:hover .card__info {
+  transform: translateY(0); 
   opacity: 1;
+  
 }
-
-.projects_container {
-  background-color: var(--blackcolor);
-  padding: 50px 5%;
-  padding-bottom: 100px;
-  height: 100%;
-}
-
 .projects_container .heading {
   text-align: center;
 
