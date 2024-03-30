@@ -1027,7 +1027,6 @@ strong {
 .projects_container .card__info {
   position: absolute;
   inset: 0;
-  xbackground: linear-gradient(to top, #a52a2a, black); 
  /*  background-image: linear-gradient(to bottom, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747)); */
 
 

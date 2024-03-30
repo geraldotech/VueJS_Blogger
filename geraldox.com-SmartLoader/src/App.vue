@@ -162,7 +162,7 @@ module.exports = {
     },
     handleMenuChangeIcon() {
       const menuicon = document.querySelector('.menuicon')
-      menuicon.innerHTML = this.menustate ? `<i class="menuiconelement fa-solid fa-x"></i>` : `<i class="fa-solid fa-bars"></i>`
+      menuicon.innerHTML = this.menustate ? `<i class="menuiconelement fa-solid fa-x"></i>` : `<i class="menuiconelement fa-solid fa-bars"></i>`
     },
   },
   watch: {
