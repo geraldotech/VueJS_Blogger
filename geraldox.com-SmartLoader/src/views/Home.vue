@@ -1016,7 +1016,6 @@ strong {
   text-align: left;
 }
 
-
 .projects_container {
   background-color: var(--blackcolor);
   padding: 50px 5%;
@@ -1027,27 +1026,29 @@ strong {
 
 .projects_container .card__info {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; 
-  /*  background: linear-gradient(to top, #a52a2a, black); */
-  backdrop-filter: blur(4px);
- transform: translateY(100%);
+  inset: 0;
+  xbackground: linear-gradient(to top, #a52a2a, black); 
+ /*  background-image: linear-gradient(to bottom, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747)); */
+
+
+  backdrop-filter: blur(2px);
+
+  transform: translateY(100%);
   opacity: 0;
   height: 100%;
-  transition: 0.6s;
+  transition:  backdrop-filter 0.6s, transform 0.3s; 
   z-index: 3;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.projects_container  .card_skill.project:hover .card__info {
-  transform: translateY(0); 
+.projects_container .card_skill.project:hover .card__info {
   opacity: 1;
-  
+  transform: translateY(0);
+   /* transition: transform 500ms ease-in-out;  */
 }
 .projects_container .heading {
   text-align: center;
@@ -1081,6 +1082,13 @@ strong {
   padding: 15px 10px;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
+.projects_container .card--container .card_skill:hover {
+  background-color: var(--blackcolor);
+  /*  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); */
+  /*   transform: scale(1.03); */
+  /* border: 1.5px solid #7401e1; */
+  box-shadow: 0 0 1.2px 1.2px #7401e1;
+}
 
 .projects_container .card--container .card_skill > img {
   height: 60px;
@@ -1098,13 +1106,6 @@ strong {
   font-size: 1rem;
   line-height: 1.8;
   text-align: center;
-}
-.projects_container .card--container .card_skill:hover {
-  background-color: var(--blackcolor);
-  /*  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); */
-  transform: scale(1.03);
-  /* border: 1.5px solid #7401e1; */
-  box-shadow: 0 0 1.2px 1.2px #7401e1;
 }
 
 .projects_container .card--container .card_skill:hover h3 {
@@ -1233,12 +1234,6 @@ strong {
   width: 32px;
   height: 32px;
   cursor: pointer;
-}
-
-.projects a > img {
-}
-
-.projects a:has(img) img {
 }
 
 .projects a:has(img) {
