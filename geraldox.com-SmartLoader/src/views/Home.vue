@@ -508,7 +508,14 @@ module.exports = {
   },
   /* MOUNTED */
   mounted() {
-    this.postsShow = this.allprojects
+    // before all set a default image background
+    const defaultImage = '/src/assets/img/project-default.jpg' // Default image path
+    this.allposts = this.allprojects?.filter((post) => {
+      const image = post.image ? post.image : (post.image = defaultImage)
+      return post && image
+    })
+    // instead original post send newArray posts
+    this.postsShow = this.allposts
 
     this.loadSwiperScript()
 
@@ -537,6 +544,7 @@ module.exports = {
       message: '',
       filterOn: false,
       postsShow: [],
+      allposts: [],
       allprojects: [
         {
           name: 'GPX',
@@ -651,18 +659,24 @@ module.exports = {
           description: 'Simulando um sistema de login, cada user tem um painel diferente',
           icons: [{ title: 'nodejs', path: icon.nodejs }],
         },
+        {
+          name: 'JS Downloader',
+          url: 'https://dev.geraldox.com/projects/JSFileDownloader',
+          description: 'Precisa baixar arquivos js para consumir offline, isso pode ser muito fácil no PC mas não com as limitações do mobile',
+          icons: [{ title: 'vuejs', path: icon.vuejs }],
+        },
       ],
     }
   },
   methods: {
     filterProject(type) {
-      const filtered = this.allprojects.filter((post) => post.icons.some((icon) => icon.title.toLowerCase().includes(type)))
+      const filtered = this.allposts.filter((post) => post.icons.some((icon) => icon.title.toLowerCase().includes(type)))
       if (type) {
         this.postsShow = filtered
         this.filterOn = true
       }
       if (type == '') {
-        this.postsShow = this.allprojects
+        this.postsShow = this.allposts
         this.filterOn = false
       }
     },
@@ -1027,15 +1041,14 @@ strong {
 .projects_container .card__info {
   position: absolute;
   inset: 0;
- /*  background-image: linear-gradient(to bottom, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747)); */
-
+  /*  background-image: linear-gradient(to bottom, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747)); */
 
   backdrop-filter: blur(2px);
 
   transform: translateY(100%);
   opacity: 0;
   height: 100%;
-  transition:  backdrop-filter 0.6s, transform 0.3s; 
+  transition: backdrop-filter 0.6s, transform 0.3s;
   z-index: 3;
 
   display: flex;
@@ -1047,7 +1060,7 @@ strong {
 .projects_container .card_skill.project:hover .card__info {
   opacity: 1;
   transform: translateY(0);
-   /* transition: transform 500ms ease-in-out;  */
+  /* transition: transform 500ms ease-in-out;  */
 }
 .projects_container .heading {
   text-align: center;
