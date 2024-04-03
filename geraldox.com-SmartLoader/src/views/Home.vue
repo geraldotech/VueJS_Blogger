@@ -665,7 +665,16 @@ module.exports = {
           description: 'Precisa baixar arquivos js para consumir offline, isso pode ser muito fácil no PC mas não com as limitações do mobile',
           icons: [{ title: 'vuejs', path: icon.vuejs }],
         },
-      ],
+        {
+          name: 'Password generator',
+          url: 'https://dev.geraldox.com/projects/base64-converter',
+          image: "/src/assets/img/password-128.svg",
+          description: 'Codificador de senhas usando a Base 64',
+          icons: [  { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },],
+        },
+      ],console.log(``)
     }
   },
   methods: {
