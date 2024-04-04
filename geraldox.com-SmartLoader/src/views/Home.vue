@@ -674,7 +674,7 @@ module.exports = {
             { title: 'CSS', path: icon.css },
             { title: 'Javascript', path: icon.javascript },],
         },
-      ],console.log(``)
+      ]
     }
   },
   methods: {
