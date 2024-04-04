@@ -119,7 +119,28 @@
 </template>
 
 <script>
+// if window change, close menu
+
+/* window.addEventListener('resize', function() {
+  // Check if the window width is greater than the mobile breakpoint (e.g., 768px)
+  console.log(toggle.checked)
+    // Check if the mobile menu checkbox is checked
+   
+    if (toggle.checked) {
+      // Uncheck the mobile menu checkbox to close the menu
+      toggle.checked = false;
+    }
+  
+}); */
 module.exports = {
+  mounted() {
+    window.addEventListener('resize', () => {
+      // menu close
+      this.menustate = false
+      // call handleMenuChange to changeIcon
+      this.handleMenuChangeIcon()
+    })
+  },
   data() {
     return {
       isModalVisible: false,
@@ -211,7 +232,7 @@ body {
   min-height: 100dvh;
 }
 
-i{
+i {
   font-family: inherit;
 }
 
@@ -346,7 +367,6 @@ nav:has(.btnDownload) a {
   display: block;
   margin: 15px 0;
 }
-
 
 .top-search img {
   cursor: pointer;
@@ -483,7 +503,7 @@ button {
 :target {
   scroll-margin-top: 50px;
 }
-@media (max-width: 500px){
+@media (max-width: 500px) {
   :target {
     scroll-margin-top: 80px;
   }
