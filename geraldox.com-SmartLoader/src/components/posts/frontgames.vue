@@ -24,6 +24,7 @@ module.exports = {
       [{name: 'jogo da velha', href: 'https://jogo-da-velha-nine-ebon.vercel.app/'},
       {name: 'tic-tac-toe', href: 'https://tic-tac-toe-java-script.vercel.app/'},
       {name: 'Tic-Tac-Toe', href: 'https://geovanelelis.github.io/Tic-Tac-Toe/'},
+      {name: 'Jogo da Memoria', href: 'https://dev.geraldox.com/frontend/third-parties/jogo-da-memoria-dio-master/'},
       ]
       )
 
