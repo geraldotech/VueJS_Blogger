@@ -174,8 +174,9 @@ module.exports = {
       // call dynamic
       this.getDynamicComponent()
     },
-     getDynamicComponent() {
+    getDynamicComponent() {
       const componentData = this.componentObject()
+      console.warn(`componentData`, componentData)
       if (componentData) {
         this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
         this.dynamicImportStatus = componentData.status // dynamicImportStatus get status if component exists
@@ -186,16 +187,21 @@ module.exports = {
     },
     // constructor component object for VueLoader
     componentObject() {
-      return {
-        component: `/src/components/posts/${this.blog.component}.vue`,
-        status: true, // extra status because component exists
+      const exists = `/src/components/posts/${this.blog.component}.vue`
+
+      if (exists) {
+        return {
+          component: `/src/components/posts/${this.blog.component}.vue`,
+          status: true, // extra status because component exists
+        }
       }
+      return false
     },
 
     selectCategoryHandler(e) {
       this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
-    
+
     /* === CHECK COMPONENT.VUE EXISTS === */
     async checkFileExistsHttLoader(url) {
       // ✅  UDPATE    verificar se o arquivo existe na pasta ok!

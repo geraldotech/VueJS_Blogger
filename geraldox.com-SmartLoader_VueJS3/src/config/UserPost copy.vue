@@ -16,7 +16,7 @@
               >
               <router-link
                 class="categories"
-                :to="{ name: 'category', params: { category: blog.category ?? true } }"
+                :to="`/categories/${blog.category}`"
                 >{{ blog.category }}</router-link
               >
             </p>
@@ -27,14 +27,7 @@
                 data="print"
                 title="print"
                 onclick="print()">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                  fill="#05bdba">
-                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-                </svg>
+                <i class="fa-solid fa-print"></i>
               </button>
             </p>
           </div>
@@ -45,17 +38,7 @@
           <p v-html="blog.article"></p>
 
           <!-- render components -->
-          <!-- v1 se comentar vai quebrar o WebComponents.js e importacao de nomes, but se nao comentar duplica o content
-         
-            Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
-            - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
-           -->
-          <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
           <component :is="blog.component"></component>
-
-          <!-- v2 Dynamic Imports -->
-          <component :is="dynamicComponent"></component>
-
           <!-- render SmartComponents[ContainerPosts.vue de Components] -->
           <Container></Container>
         </article>
@@ -63,15 +46,22 @@
           <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
         </div>
 
+        <h4 style="color: coral">{{ blog.component }}</h4>
+
+
+
+         <component :is="importedComponent"></component> 
+     
+      
+       
+
         <!-- custom html to specific slug posts -->
         <div v-if="$route.params.slug == 'speed-test'">
           <p>Hello post about speedTest</p>
         </div>
         <Sidebarbottom :allposts="GetallPosts" />
       </main>
-      <Sidebar
-        :categorias="categorias"
-        @selectcategory="selectCategoryHandler" />
+      <Sidebar />
     </div>
   </div>
 </template>
@@ -85,62 +75,62 @@ Vue.component('cardy', {
 //ends String Components
 module.exports = {
   name: 'BlogPosts',
+  mounted() {
+    //console.log(test);
+  },
   beforeCreate() {
     // console.log(`UserPost.vue`, this.$appName);
   },
   async created() {
+    this.posts()
+    // this.tryImportComponentAuto()
     //console.log(this.$route); //currently
     // console.log(`this.router`, this.$router); //parametros e funcionalidades
     //console.log(`UserPost: root`, this.$root);
-  },
-  mounted() {
-    this.posts()
+      try {
+      this.importedComponent = await this.tryImportComponentAuto();
+       console.log(this.importedComponent)
+    } catch (error) {
+      console.error('Error importing component:', error);
+    } 
   },
   data() {
     return {
       blog: {},
       GetallPosts: [],
-      dynamicComponent: null,
-      categorias: '',
-      dynamicImportStatus: false,
-      fetchDataHTTP: null,
+      importedComponent: 'hydratationssr'
     }
   },
   components: {
-    /* === BLOG PARTIALS ===  */
+    /* BLOG  */
     Sidebarbottom: httpVueLoader('/src/components/blog/SidebarBottom.vue'),
     Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
     Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
     Searchauto: httpVueLoader('../components/blog/SearchAuto.vue'),
     Adsense: httpVueLoader('../components/blog//Adsense.vue'),
 
-    /* === BLOG POSTS === */
-    Container: httpVueLoader('/src/components/posts/ContainerPosts.vue'),
+    /* POSTS */
+    Android: httpVueLoader('../posts/android-roo.vue'),
+    Vuejs: httpVueLoader('../posts/Vuejs.vue'),
+    Speedtest: httpVueLoader('../posts/Speedtest.vue'),
+    NetworkTools: httpVueLoader('../posts/NetworkTools.vue'),
+    Container: httpVueLoader('/src/components/ContainerPosts.vue'),
+    whatsappapi: httpVueLoader('../posts/whatsappapi.vue'),
+    winoffline: httpVueLoader('../posts/winoffline.vue'),
+    hydratationssr: httpVueLoader('../posts/hydratationssr.vue'),
   },
   methods: {
     async posts() {
       const req = await fetch('/src/db/data.json')
       const data = await req.json()
+      //console.warn(data);
       this.GetallPosts = data.blog.posts
       //encontra a slug atual e verifica se esta plublicada
       const getBlogPost = this.GetallPosts.find((post) => post.slug == this.$route.params.slug && post.published)
 
       this.blog = getBlogPost
 
-      /* Dynamic apply metaInfo */
       this.metaInfoInject(getBlogPost.title)
-
-      /* Dynamic Import Components */
-      this.checkComponentData()
-
-      /* Sidebar props... */
-      const getCatego = this.GetallPosts.map((val) => val.category)
-
-      //🔢 contar n de categories values + ordenar com sort()
-      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
-
-      //🔢 recebe o contador unique + contador
-      this.categorias = counter
     },
     //by gmap function trata metaInfo and currently title eachPost
     metaInfoInject(currentTitle) {
@@ -164,61 +154,21 @@ module.exports = {
         },
       }
     },
-    checkComponentData() {
-      // se n tem return false
-      if (!this.blog.component) {
-        return {
-          status: false,
+   async tryImportComponentAuto() {
+      
+      httpVueLoader.httpRequest = async function (url = '/src/components/posts/frontgames.vue') {
+        try {
+          const response = await axios.get(url)
+          console.log(response.data)
+         
+         // await new Promise((resolve) => setTimeout(resolve, 1000))
+          return response.data
+        } catch (err) {
+           throw new Error(error.response.status);
         }
       }
-      // call dynamic
-      this.getDynamicComponent()
-    },
-     getDynamicComponent() {
-      const componentData = this.componentObject()
-      if (componentData) {
-        this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
-        this.dynamicImportStatus = componentData.status // dynamicImportStatus get status if component exists
-      }
-      /*  return {
-        component: `/src/components/posts/${this.blog.component}.vue`,
-      } */
-    },
-    // constructor component object for VueLoader
-    componentObject() {
-      return {
-        component: `/src/components/posts/${this.blog.component}.vue`,
-        status: true, // extra status because component exists
-      }
-    },
-
-    selectCategoryHandler(e) {
-      this.$router.push({ name: 'category', params: { category: e.target.value } })
-    },
-    
-    /* === CHECK COMPONENT.VUE EXISTS === */
-    async checkFileExistsHttLoader(url) {
-      // ✅  UDPATE    verificar se o arquivo existe na pasta ok!
-      // mais antes disso verificar se o component foi declarado na lista de objetos é mais simples e de suma importancia
-      // sendo assim desnecessário fazer esse fetch para um obj que pode nao existir
-      // avoid erros no console quando o arquivo nao existe
-      if (!this.blog.component) {
-        return false
-      }
-      try {
-        const componentExist = httpVueLoader(url)
-        // console.log(componentExist()) // return a promisse, so use then
-        componentExist()
-          .then((res) => res.template)
-          .then((data) => {
-            if (data) {
-              // this.fetchDataHTTP = data
-              return true
-            }
-          })
-      } catch (err) {
-        //console.error(err, `file 404`)
-      }
+      httpVueLoader.httpRequest()
+      /* end */
     },
   },
 }
@@ -230,13 +180,15 @@ article h1 {
   font-weight: bolder;
 }
 article p {
+  text-align: justify;
   line-height: 1.5rem;
   margin-top: 10px;
 }
 .article:first-letter,
 .blogger article > p:first-letter {
- /*  font-size: 2.6rem; */
-  margin-left: 1rem;
+  /* color: green; */
+  font-size: 2.6rem;
+  margin-left: 15px;
 }
 
 .blogger {
@@ -265,9 +217,6 @@ div.breadcrumbs {
 }
 .breadcrumbs__author__date {
   font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: .3rem;
 }
 .breadcrumbs a {
   text-decoration: none;
@@ -285,14 +234,11 @@ h4.notFound {
 }
 button[data*='print'] {
   background: none;
+  color: #05bdba;
   border: none;
   cursor: pointer;
-  &svg
 
-}
-
-button[data*='print'] svg{
-color: #05bdba;
+  font-size: inherit;
 }
 
 /* for desktop */
