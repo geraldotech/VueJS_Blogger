@@ -1,168 +1,3 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-
-const icon = {
-  html: '/src/assets/icons/svg/html.svg',
-  vuejs: '/src/assets/icons/svg/vuejs.svg',
-  html: '/src/assets/icons/svg/html.svg',
-  css: '/src/assets/icons/svg/css.svg',
-  react: '/src/assets/icons/svg/reactjs.svg',
-  javascript: '/src/assets/icons/svg/javascript.svg',
-  nodejs: '/src/assets/icons/svg/nodejs.svg',
-  firebase: '/src/assets/icons/svg/firebasevertical.svg',
-}
-
-const postsShow = ref([])
-
-const name = ref('Geraldo')
-
-const allprojects = ref([
-  {
-    name: 'GPX',
-    url: 'https://geraldox.com',
-    git: 'https://github.com/geraldotech/VueJS_Blogger',
-    image: '/src/assets/img/gpx-logo2.png',
-    description:
-      'Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.',
-    icons: [{ title: 'VueJS', path: icon.vuejs }],
-  },
-  {
-    name: 'Vamos somar',
-    url: 'https://dev.geraldox.com/projects/apple-sum/',
-    image: '/src/assets/img/apple-sum.jpg',
-    description: 'Ajuda crianças na fase da alfabetização matemática, gerando contas aleatórias e respostas com multiplca escolha.',
-    icons: [{ title: 'VueJS', path: icon.vuejs }],
-  },
-  {
-    name: 'The Moody Zone',
-    url: 'https://themoodyzone.netlify.app/',
-    git: 'https://github.com/geraldotech/moodyapp',
-    image: 'https://themoodyzone.netlify.app/assets/images/logo.svg',
-    description: 'Understanding Feelings create Posts Read Posts Update Posts Delete Posts',
-    icons: [
-      { title: 'HTML', path: icon.html },
-      { title: 'CSS', path: icon.css },
-      { title: 'Javascript', path: icon.javascript },
-      { title: 'Firebase', path: icon.firebase },
-    ],
-  },
-  {
-    name: 'Life Vans',
-    url: 'https://vannlifeforfirebase.pages.dev/',
-    git: 'https://github.com/geraldotech/DevMap/tree/main/ReactJS/projects/scrimba/Router/VanLifefor_Firebase',
-    image: 'https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png',
-    description:
-      'Contextualizando recursos avançados como Router, Context API, Nested Routers, Outline, link state, search Params consumindo dados do Firebase. use as credenciais configuradas no miragejs: <b>g@g.com@123</b>.',
-    icons: [
-      { title: 'Reactjs', path: icon.react },
-      { title: 'Firebase', path: icon.firebase },
-    ],
-  },
-  {
-    name: 'quiz Expert',
-    url: 'https://dev.geraldox.com/projects/quizExpert_vanilla',
-    image: '/src/assets/img/Customer Survey-amico.svg',
-    description: 'Teste seus conhecimentos em JavaScript',
-    icons: [
-      { title: 'HTML', path: icon.html },
-      { title: 'CSS', path: icon.css },
-      { title: 'Javascript', path: icon.javascript },
-    ],
-  },
-  {
-    name: 'Cinema Router',
-    url: 'https://react-movie-apis.netlify.app',
-    git: 'https://github.com/geraldotech/DevMap/tree/main/ReactJS/projects/API-themovieDB',
-    image: '/src/assets/img/moviedb.jpg',
-    description: 'Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica.',
-    icons: [{ title: 'ReactJS', path: icon.react }],
-  },
-  {
-    name: 'Shopping Cart',
-    url: 'https://dev.geraldox.com/projects/shoppingcart',
-    image: 'https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png',
-    description: 'Simulando um sistemas de compras, adicionar e remover itens ao carrinho',
-    icons: [
-      { title: 'HTML', path: icon.html },
-      { title: 'CSS', path: icon.css },
-      { title: 'Javascript', path: icon.javascript },
-    ],
-  },
-  {
-    name: 'Gerador de Etiquetas',
-    url: 'https://geraldotech.github.io/Gerador-Etiquetas-Make/FrontVersion',
-    git: 'https://github.com/geraldotech/Gerador-Etiquetas-Make',
-    image: 'https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw',
-    description: 'App construido para atender uma necessidade da empresa que fiz estágio',
-    icons: [
-      { title: 'HTML', path: icon.html },
-      { title: 'CSS', path: icon.css },
-      { title: 'Javascript', path: icon.javascript },
-    ],
-  },
-  {
-    name: 'Vivo Easy clone',
-    url: 'https://gmapdev.netlify.app/projects/vivoeasy',
-    image: 'https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png',
-    description: 'Um do clone simulando as funcionalidades do aplicativo Vivo Easy',
-    icons: [
-      { title: 'HTML', path: icon.html },
-      { title: 'CSS', path: icon.css },
-      { title: 'Javascript', path: icon.javascript },
-    ],
-  },
-  {
-    name: 'Filtro dados',
-    url: 'https://dev.geraldox.com/projects/array_input_radio_search',
-    image: '/src/assets/icons/svg/javascriptlogo.svg',
-    description: 'Filtrando dados por nome ou estado',
-    icons: [
-      { title: 'HTML', path: icon.html },
-      { title: 'CSS', path: icon.css },
-      { title: 'Javascript', path: icon.javascript },
-    ],
-  },
-  {
-    name: 'Express session login',
-    url: 'https://expressloginway.onrender.com',
-    git: 'https://github.com/geraldotech/ExpressLoginPage',
-    image: '/src/assets/icons/svg/nodejslogo.svg',
-    description: 'Simulando um sistema de login, cada user tem um painel diferente',
-    icons: [{ title: 'nodejs', path: icon.nodejs }],
-  },
-  {
-    name: 'JS Downloader',
-    url: 'https://dev.geraldox.com/projects/JSFileDownloader',
-    description: 'Precisa baixar arquivos js para consumir offline, isso pode ser muito fácil no PC mas não com as limitações do mobile',
-    icons: [{ title: 'vuejs', path: icon.vuejs }],
-  },
-  {
-    name: 'Password generator',
-    url: 'https://dev.geraldox.com/projects/base64-converter',
-    image: '/src/assets/img/password-128.svg',
-    description: 'Codificador de senhas usando a Base 64',
-    icons: [
-      { title: 'HTML', path: icon.html },
-      { title: 'CSS', path: icon.css },
-      { title: 'Javascript', path: icon.javascript },
-    ],
-  },
-])
-
-/* FETCH PROJECTS */
-function listProjects() {
-  fetch('/src/db/projects.json')
-    .then((req) => req.json())
-    .then((res) => {
-      const projects = res.projects
-    })
-}
-
-onMounted(() => {
-  listProjects()
-})
-</script>
-
 <template>
   <main class="page-wrapper">
     <section class="intro">
@@ -641,6 +476,311 @@ onMounted(() => {
     <!-- CONTACT -->
   </main>
 </template>
+
+<script>
+const icon = {
+  html: '/src/assets/icons/svg/html.svg',
+  vuejs: '/src/assets/icons/svg/vuejs.svg',
+  html: '/src/assets/icons/svg/html.svg',
+  css: '/src/assets/icons/svg/css.svg',
+  react: '/src/assets/icons/svg/reactjs.svg',
+  javascript: '/src/assets/icons/svg/javascript.svg',
+  nodejs: '/src/assets/icons/svg/nodejs.svg',
+  firebase: '/src/assets/icons/svg/firebasevertical.svg',
+}
+
+module.exports = {
+  metaInfo: {
+    title: 'Home Page',
+    titleTemplate: '%s - geraldoX',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'description',
+        content: 'Threads written by Geraldo Filho',
+      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
+    ],
+  },
+  components: {
+    'p-button': button,
+  },
+  /* MOUNTED */
+  mounted() {
+    // before all set a default image background
+    const defaultImage = '/src/assets/img/project-default.jpg' // Default image path
+    this.allposts = this.allprojects?.filter((post) => {
+      const image = post.image ? post.image : (post.image = defaultImage)
+      return post && image
+    })
+    // instead original post send newArray posts
+    this.postsShow = this.allposts
+
+    this.loadSwiperScript()
+
+    //this.scrollToBottom()
+    fetch('/src/db/projects.json')
+      .then((req) => req.json())
+      .then((data) => {
+        //console.log(data.projects)
+
+        const apiUpdated = data.projects.map((api) => ({
+          ...api,
+          icons: api.icons.map((icon) => ({
+            path: icon.path.replace('${placeIconPath}', '/src/assets/icons/svg'),
+          })),
+        }))
+        //  this.allprojects =  data.projects
+      })
+    // this.postsShow = this.allprojects
+  },
+  created() {},
+  beforeMount() {},
+  data() {
+    return {
+      name: '',
+      email: '',
+      message: '',
+      filterOn: false,
+      postsShow: [],
+      allposts: [],
+      allprojects: [
+        {
+          name: 'GPX',
+          url: 'https://geraldox.com',
+          git: 'https://github.com/geraldotech/VueJS_Blogger',
+          image: '/src/assets/img/gpx-logo2.png',
+          description:
+            'Site pessoal para exibir meu trabalho, habilidades, desenvolvido com VueJS, inclúi muitos conceitos de manipulação de API foram usados para construir este site principalmente a parte do blog.',
+          icons: [{ title: 'VueJS', path: icon.vuejs }],
+        },
+        {
+          name: 'Vamos somar',
+          url: 'https://dev.geraldox.com/projects/apple-sum/',
+          image: '/src/assets/img/apple-sum.jpg',
+          description: 'Ajuda crianças na fase da alfabetização matemática, gerando contas aleatórias e respostas com multiplca escolha.',
+          icons: [{ title: 'VueJS', path: icon.vuejs }],
+        },
+        {
+          name: 'The Moody Zone',
+          url: 'https://themoodyzone.netlify.app/',
+          git: 'https://github.com/geraldotech/moodyapp',
+          image: 'https://themoodyzone.netlify.app/assets/images/logo.svg',
+          description: 'Understanding Feelings create Posts Read Posts Update Posts Delete Posts',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+            { title: 'Firebase', path: icon.firebase },
+          ],
+        },
+        {
+          name: 'Life Vans',
+          url: 'https://vannlifeforfirebase.pages.dev/',
+          git: 'https://github.com/geraldotech/DevMap/tree/main/ReactJS/projects/scrimba/Router/VanLifefor_Firebase',
+          image: 'https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png',
+          description:
+            'Contextualizando recursos avançados como Router, Context API, Nested Routers, Outline, link state, search Params consumindo dados do Firebase. use as credenciais configuradas no miragejs: <b>g@g.com@123</b>.',
+          icons: [
+            { title: 'Reactjs', path: icon.react },
+            { title: 'Firebase', path: icon.firebase },
+          ],
+        },
+        {
+          name: 'quiz Expert',
+          url: 'https://dev.geraldox.com/projects/quizExpert_vanilla',
+          image: '/src/assets/img/Customer Survey-amico.svg',
+          description: 'Teste seus conhecimentos em JavaScript',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Cinema Router',
+          url: 'https://react-movie-apis.netlify.app',
+          git: 'https://github.com/geraldotech/DevMap/tree/main/ReactJS/projects/API-themovieDB',
+          image: '/src/assets/img/moviedb.jpg',
+          description: 'Essa aplicação consome a API do The Movie Database (TMDb) para listar uma seleção de filmes, permitindo aos usuários explorar e descobrir novos filmes de forma dinâmica.',
+          icons: [{ title: 'ReactJS', path: icon.react }],
+        },
+        {
+          name: 'Shopping Cart',
+          url: 'https://dev.geraldox.com/projects/shoppingcart',
+          image: 'https://dev.geraldox.com/projects/ShoppingCart/src/shopping.png',
+          description: 'Simulando um sistemas de compras, adicionar e remover itens ao carrinho',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Gerador de Etiquetas',
+          url: 'https://geraldotech.github.io/Gerador-Etiquetas-Make/FrontVersion',
+          git: 'https://github.com/geraldotech/Gerador-Etiquetas-Make',
+          image: 'https://play-lh.googleusercontent.com/exNzDTL0Wnl9jFvvw6NJXSsH11lzW_N1-6DpsVsbi7jzR3TCBkVhaVV3_9IWEodNOsE=w240-h480-rw',
+          description: 'App construido para atender uma necessidade da empresa que fiz estágio',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Vivo Easy clone',
+          url: 'https://gmapdev.netlify.app/projects/vivoeasy',
+          image: 'https://gmapdev.netlify.app/projects/vivoeasy/assets/vivoeasy16034139943003.png',
+          description: 'Um do clone simulando as funcionalidades do aplicativo Vivo Easy',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Filtro dados',
+          url: 'https://dev.geraldox.com/projects/array_input_radio_search',
+          image: '/src/assets/icons/svg/javascriptlogo.svg',
+          description: 'Filtrando dados por nome ou estado',
+          icons: [
+            { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },
+          ],
+        },
+        {
+          name: 'Express session login',
+          url: 'https://expressloginway.onrender.com',
+          git: 'https://github.com/geraldotech/ExpressLoginPage',
+          image: '/src/assets/icons/svg/nodejslogo.svg',
+          description: 'Simulando um sistema de login, cada user tem um painel diferente',
+          icons: [{ title: 'nodejs', path: icon.nodejs }],
+        },
+        {
+          name: 'JS Downloader',
+          url: 'https://dev.geraldox.com/projects/JSFileDownloader',
+          description: 'Precisa baixar arquivos js para consumir offline, isso pode ser muito fácil no PC mas não com as limitações do mobile',
+          icons: [{ title: 'vuejs', path: icon.vuejs }],
+        },
+        {
+          name: 'Password generator',
+          url: 'https://dev.geraldox.com/projects/base64-converter',
+          image: "/src/assets/img/password-128.svg",
+          description: 'Codificador de senhas usando a Base 64',
+          icons: [  { title: 'HTML', path: icon.html },
+            { title: 'CSS', path: icon.css },
+            { title: 'Javascript', path: icon.javascript },],
+        },
+      ]
+    }
+  },
+  methods: {
+    filterProject(type) {
+      const filtered = this.allposts.filter((post) => post.icons.some((icon) => icon.title.toLowerCase().includes(type)))
+      if (type) {
+        this.postsShow = filtered
+        this.filterOn = true
+      }
+      if (type == '') {
+        this.postsShow = this.allposts
+        this.filterOn = false
+      }
+    },
+    loadSwiperScript() {
+      var swiper = new Swiper('.slide-content', {
+        slidesPerView: 5,
+        spaceBetween: 25,
+        loop: false,
+        centerSlide: true,
+        fade: true,
+        grabCursor: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          666: {
+            slidesPerView: 2,
+          },
+          1200: {
+            slidesPerView: 3,
+          },
+          1410: {
+            slidesPerView: 4,
+          },
+        },
+      })
+    },
+    scrollToBottom() {
+      setTimeout(() => {
+        window.scrollTo(0, document.body.scrollHeight)
+      }, 500)
+    },
+    handlerSubmit() {
+      event.preventDefault()
+
+      const result = document.getElementById('result')
+
+      const object = {
+        name: this.name,
+        email: this.email,
+        message: this.message,
+        access_key: 'bea9b49b-5b05-4e6a-ae67-d47886aa2cd1',
+      }
+      const json = JSON.stringify(object)
+
+      result.innerHTML = 'Please wait...'
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          let json = await response.json()
+          if (response.status == 200) {
+            result.innerHTML = json.message
+            result.classList.remove('text-gray-500')
+            result.classList.add('text-green-500')
+          } else {
+            console.log(response)
+            result.innerHTML = json.message
+            result.classList.remove('text-gray-500')
+            result.classList.add('text-red-500')
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+          result.innerHTML = 'Something went wrong!'
+        })
+        .then(function () {
+          // form.reset();
+          setTimeout(() => {
+            console.log(`enviado!`)
+            result.style.display = 'none'
+          }, 3000)
+        })
+      event.target.reset()
+    },
+    // https://docs.web3forms.com/getting-started/examples/ajax-contact-form-using-javascript
+  },
+  computed: {},
+}
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');

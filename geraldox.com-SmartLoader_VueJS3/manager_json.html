@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  style="color-scheme: dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>New document</title>
+  </head>
+  <body>
+    <h1>New Document</h1>
+
+    <script>
+
+
+// Variável global (poderia ser estado em SPA)
+let dadosGlobais = []; // depois você usa isso pra gerar novo JSON
+
+// Passo 1: Carrega JSON
+fetch('./src/db/data.json')
+  .then(response => response.json())
+  .then(data => {
+    dadosGlobais = data.blog.posts; // Aqui você salva os dados para uso posterior
+    renderPosts(data.blog.posts); // função que mostra na tela
+  });
+
+function renderPosts(posts) {
+  const container = document.createElement('ul');
+  posts.forEach((post, index) => {
+    const item = document.createElement('li');
+
+    // Exemplo: mostrando título e botão para editar
+    item.innerHTML = `
+      <strong>${post.title}</strong> <br>
+      <em>${post.author}</em> <br>
+      <button onclick="editar(${index})">Editar</button>
+    `;
+    container.appendChild(item);
+  });
+
+  document.body.appendChild(container);
+}
+
+
+
+function editar(index) {
+  console.log(dadosGlobais)
+  // Exemplo: alterar o título via prompt
+  const novoTitulo = prompt("Novo título:");
+  if (novoTitulo) {
+    dadosGlobais[index].title = novoTitulo;
+    baixarJSON(dadosGlobais); // já baixa a versão atualizada
+  }
+}
+
+function baixarJSON(obj) {
+  const jsonString = JSON.stringify(obj, null, 2);
+  const blob = new Blob([jsonString], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "data-atualizado.json";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+    </script>
+  </body>
+</html>
