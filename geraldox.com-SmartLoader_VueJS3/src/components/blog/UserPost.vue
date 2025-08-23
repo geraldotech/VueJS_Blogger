@@ -55,9 +55,6 @@
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
-
-          <!-- render SmartComponents[ContainerPosts.vue de Components] -->
-          <Container></Container>
         </article>
         <div v-else>
           <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
@@ -76,6 +73,7 @@
   </div>
 </template>
 <script>
+import { onMounted, ref, watch } from 'vue'
 /*start String components templates*/
 /* const word = '<p>Hello from String template</p>'
 Vue.component('cardy', {
@@ -83,18 +81,27 @@ Vue.component('cardy', {
 })
  */
 //ends String Components
-module.exports = {
+export default {
   name: 'BlogPosts',
-  beforeCreate() {
-    // console.log(`UserPost.vue`, this.$appName);
+
+  setup(props, { emit }) {
+    // Emitting an event to the parent component
+    const emitEvent = () => {
+      emit('someEvent', 'Data from BlogPosts component')
+    }
+
+    onMounted(() => {
+      console.log(`BlogPosts mounted`)
+    })
+
+    return {
+      emitEvent,
+    }
   },
-  async created() {
-    //console.log(this.$route); //currently
-    // console.log(`this.router`, this.$router); //parametros e funcionalidades
-    //console.log(`UserPost: root`, this.$root);
-  },
+
   mounted() {
     this.posts()
+    console.log(`ok`)
   },
   data() {
     return {
@@ -113,9 +120,6 @@ module.exports = {
     Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
     Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
     Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-
-    /* === BLOG POSTS === */
-    Container: Vue.defineAsyncComponent(() => loadModule('/src/components/posts/ContainerPosts.vue', options)),
   },
   methods: {
     async posts() {
@@ -212,7 +216,7 @@ module.exports = {
         return false
       }
       try {
-        const componentExist = Vue.defineAsyncComponent(() => loadModule(url, options)) 
+        const componentExist = Vue.defineAsyncComponent(() => loadModule(url, options))
 
         // console.log(componentExist()) // return a promisse, so use then
         componentExist()

@@ -1,3 +1,170 @@
+<script>
+import { onMounted, ref, watch } from 'vue'
+
+import Sidebar from '/src/components/blog/Sidebar.vue'
+
+export default {
+  setup(props, { emit }) {
+    /* const  */
+
+    const dynamicTitlevuej3 = ref('Blog ref')
+    const AllPosts = ref([])
+    const categorias = ref([])
+    const pinned = ref({})
+    const opt = ref([])
+
+    async function fetchPosts() {
+      const req = await fetch('/src/db/data.json')
+      const res = await req.json()
+
+      // Pinned receive all posts
+      FindPinned(res.blog.posts)
+      //setTimeout(  , 1000)
+
+      //filter post published && exclude pinned posts from the main list
+      const blogPosts = res.blog.posts.filter((posts) => posts.published && !Object.keys(posts).includes('pinned'))
+
+      // map categoris acima dos limitadores de posts splice()
+      const getCatego = blogPosts.map((val) => val.category)
+
+      //console.log([...getCatego].sort());
+
+      //🔢 contar n de categories values + ordenar com sort()
+      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
+
+      //recebe o contador unique + contador
+      categorias.value = counter
+
+      //🔢 Limitador de posts, lembrando this methods changes the original array
+      // blogPosts.value.splice()
+
+      //thos AllPosts a ser usado no length and pelo @click show all posts
+      AllPosts.value = blogPosts
+
+      //🔢 recebe os posts com limitador opcional
+      opt.value = GetBlogPosts(10)
+    }
+
+    function FindPinned(arr) {
+      // find obj has pinned property
+      const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
+
+      // check if Pinned  exists
+      !findPinned ? false : (pinned.value = findPinned)
+    }
+
+    function GetBlogPosts(n) {
+      return AllPosts.value
+        .filter((posts) => posts.published)
+        .reverse() //reverse depois limiter
+        .slice(0, n)
+    }
+
+    onMounted(() => {
+      console.log(dynamicTitlevuej3.value)
+      fetchPosts()
+    })
+
+    watch(dynamicTitlevuej3, (newTitle) => {
+      /// console.log(`Title changed to: ${newTitle}`)
+    })
+
+    return {
+      dynamicTitlevuej3,
+      pinned,
+      categorias,
+      AllPosts,
+      opt,
+      pinned,
+    }
+  },
+
+  mounted() {
+    /* set dynamic titles and category params title, if undefined return '' */
+    this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
+  },
+  components: {
+    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
+    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
+    Mapas: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/mapa.vue', options)),
+    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
+    Sidebar:Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options))
+  },
+  data() {
+    return {
+      select: '',
+      numero: 10,
+      showlegacy: '',
+      showautoseach: '',
+      dynamicTitle: 'Blog',
+    }
+  },
+  methods: {
+    async posts() {
+      const req = await fetch('/src/db/data.json')
+      const res = await req.json()
+
+      // Pinned receive all posts
+      this.FindPinned(res.blog.posts)
+      //setTimeout(  , 1000)
+
+      //filter post published && exclude pinned posts from the main list
+      const blogPosts = res.blog.posts.filter((posts) => posts.published && !Object.keys(posts).includes('pinned'))
+      // console.log(blogPosts);
+
+      // map categoris acima dos limitadores de posts splice()
+      const getCatego = blogPosts.map((val) => val.category)
+
+      //console.log([...getCatego].sort());
+
+      //🔢 contar n de categories values + ordenar com sort()
+      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
+
+      //recebe o contador unique + contador
+      this.categorias = counter
+
+      //🔢 Limitador de posts, lembrando this methods changes the original array
+      blogPosts.splice()
+
+      //thos AllPosts a ser usado no length and pelo @click show all posts
+      this.AllPosts = blogPosts
+
+      //🔢 recebe os posts com limitador opcional
+      this.opt = this.GetBlogPosts(this.numero)
+    },
+
+    /* ===  */
+    selectCategoryHandler(e) {
+      this.$router.push({ name: 'category', params: { category: e.target.value } })
+    },
+    GetBlogPosts(n) {
+      return this.AllPosts.filter((posts) => posts.published)
+        .reverse() //reverse depois limiter
+        .slice(0, n)
+    },
+    ShowAllPosts(e) {
+      //onclick show +1 posts
+      this.numero = this.numero + 4
+      return (this.opt = this.GetBlogPosts(this.numero))
+    },
+    ShowLessPosts() {
+      //number = 5 minimo posts
+      return (this.opt = this.GetBlogPosts((this.numero = 10)))
+    },
+    FindPinned(arr) {
+      // find obj has pinned property
+      const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
+
+      // check if Pinned  exists
+      !findPinned ? false : (this.pinned = findPinned)
+    },
+    setTitleAuto(current, manual) {
+      document.title = current + ' - geraldoX'
+    },
+  },
+}
+</script>
+
 <template>
   <div>
     <!--  <Adsense></Adsense> -->
@@ -83,21 +250,23 @@
           </p>
         </section>
         <!--  pinnedPost -->
+
         <!--  RenderPosts -->
+
         <ul class="threads-container grid">
           <li
-            v-for="artigos in opt"
-            :key="artigos.slug"
+            v-for="post in opt"
+            :key="post.slug"
             class="thread-item">
             <router-link
               :to="{
                 name: 'threads',
-                params: { category: artigos.category, slug: artigos.slug },
+                params: { category: post.category, slug: post.slug },
               }">
-              {{ artigos.title.slice(0, 30) + '...' }}</router-link
+              {{ post.title.slice(0, 30) + '...' }}</router-link
             >
 
-            <time>{{ artigos.createdAt }}</time>
+            <time>{{ post.createdAt }}</time>
             <!-- categories router page -->
             <div class="cat">
               CATEGORY:
@@ -105,19 +274,15 @@
                 class="cats"
                 :to="{
                   name: 'category',
-                  params: { category: artigos.category },
+                  params: { category: post.category },
                 }"
-                >{{ artigos.category ? artigos.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
+                >{{ post.category ? post.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
               >
-
-
-
-
             </div>
             <!-- categories router page -->
-            <!--    <time>{{ artigos.data }}</time> -->
+            <!--    <time>{{ post.data }}</time> -->
 
-            <!--    <p v-html="artigos.article ? artigos.article.substr(0, 35) : ''"></p> -->
+            <!--    <p v-html="post.article ? post.article.substr(0, 35) : ''"></p> -->
           </li>
         </ul>
         <!--  RenderPosts -->
@@ -145,127 +310,10 @@
 
     <!-- For Nested Routers -->
     <router-view></router-view>
-    <keep-alive> </keep-alive>
   </div>
 </template>
 
-<script>
-module.exports = {
-  /*   metaInfo: {
-    // title: 'Blog Posts',
-    title: 'dynamicTitle',
-    titleTemplate: '%s - geraldoX',
-    meta: [
-      { charset: 'utf-8' },
-      {
-        name: 'description',
-        content: 'Threads written by Geraldo Filho',
-      },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
-    ],
-  }, */
-  created() {
-    //this.setTitleAuto('Blog')
-    this.posts() // teste no mobile, in created is more faster than mounted hook to show posts
-  },
-  mounted() {
-    /* set dynamic titles and category params title, if undefined return '' */
-    this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
-  },
-  components: {
-    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
-    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
-    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
-    Mapas: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/mapa.vue', options)),
-    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-  },
-  data() {
-    return {
-      opt: [],
-      categorias: {},
-      select: '',
-      AllPosts: {},
-      numero: 10,
-      pinned: {},
-      showlegacy: '',
-      showautoseach: '',
-      dynamicTitle: 'Blog',
-    }
-  },
-  methods: {
-    async posts() {
-      const req = await fetch('/src/db/data.json')
-      const res = await req.json()
-
-      // Pinned receive all posts
-      this.FindPinned(res.blog.posts)
-      //setTimeout(  , 1000)
-
-      //filter post published && exclude pinned posts from the main list
-      const blogPosts = res.blog.posts.filter((posts) => posts.published && !Object.keys(posts).includes('pinned'))
-      // console.log(blogPosts);
-
-      // map categoris acima dos limitadores de posts splice()
-      const getCatego = blogPosts.map((val) => val.category)
-
-      //console.log([...getCatego].sort());
-
-      //🔢 contar n de categories values + ordenar com sort()
-      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
-
-      //recebe o contador unique + contador
-      this.categorias = counter
-
-      //🔢 Limitador de posts, lembrando this methods changes the original array
-      blogPosts.splice()
-
-      //thos AllPosts a ser usado no length and pelo @click show all posts
-      this.AllPosts = blogPosts
-
-      //🔢 recebe os posts com limitador opcional
-      this.opt = this.GetBlogPosts(this.numero)
-    },
-
-    /* ===  */
-    selectCategoryHandler(e) {
-      this.$router.push({ name: 'category', params: { category: e.target.value } })
-    },
-    GetBlogPosts(n) {
-      return this.AllPosts.filter((posts) => posts.published)
-        .reverse() //reverse depois limiter
-        .slice(0, n)
-    },
-    ShowAllPosts(e) {
-      //onclick show +1 posts
-      this.numero = this.numero + 4
-      return (this.opt = this.GetBlogPosts(this.numero))
-    },
-    ShowLessPosts() {
-      //number = 5 minimo posts
-      return (this.opt = this.GetBlogPosts((this.numero = 10)))
-    },
-    FindPinned(arr) {
-      // find obj has pinned property
-      const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
-
-      // check if Pinned  exists
-      !findPinned ? false : (this.pinned = findPinned)
-    },
-    setTitleAuto(current, manual) {
-      document.title = current + ' - geraldoX'
-    },
-  },
-}
-</script>
 <style scoped>
-/* 
-avoidcall h1 direct here for nesting itens not get this styles
-
-h1 {  ❌
- 
-}
-*/
 .threads h1 {
   margin-top: 20px;
   font-size: 1.7rem;

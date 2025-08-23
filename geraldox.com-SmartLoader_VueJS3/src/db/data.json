@@ -393,17 +393,6 @@
         "article": "",
         "component": "serverless",
         "category": "developer"
-      },
-      {
-        "id": 37,
-        "title": "voltando as origens",
-        "slug": "voltando-origens",
-        "author": "geraldox",
-        "published": true,
-        "createdAt": "Mar 09, 2025",
-        "article": "loremipsum",
-        "component": "test",
-        "category": "donet"
       }
     ]
   }

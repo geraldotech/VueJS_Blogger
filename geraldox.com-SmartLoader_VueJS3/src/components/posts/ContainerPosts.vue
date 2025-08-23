@@ -6,16 +6,12 @@
 
 <script>
 /* Vue.extend */
-const Perfil = Vue.extend({
+const Perfil = {
   template: `<p>Hello from extends</p>`,
-  data() {
-    return {}
-  },
-})
+}
 
 /* Calctdownload Component */
-Vue.component('Calctdownload', {
-  name: 'CalcDownload',
+app.component({
   data() {
     return {
       title: `Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:`,
@@ -69,7 +65,7 @@ Vue.component('Calctdownload', {
 })
 
 //Acer Component
-Vue.component('acer', {
+app.component('acer', {
   data() {
     return {
       opt: '',
@@ -98,7 +94,7 @@ const sam = `
         <p class="sam">Samsung template</p>
       </main>
    `
-Vue.component('sammy', {
+app.component('sammy', {
   template: sam,
 })
 

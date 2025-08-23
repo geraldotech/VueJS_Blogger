@@ -6,9 +6,6 @@ const Routersearch = () => loadModule('/src/components/blog/Routersearch.vue', o
 const AdvancedSearch = () => loadModule('/src/components/blog/AdvancedSearch.vue', options)
 const Categories = () => loadModule('/src/components/blog/Categories.vue', options)
 const UserPost = () => loadModule('/src/components/blog/UserPost.vue', options)
-const Testeold = () => loadModule('../src/views/testold.vue', options)
-//const TesteNew = () => loadModule('../src/views/testnew.vue', options)
-
 const NotFound = { template: "<h1 style='color:red'>Not Found</h1>" }
 
 // from https://github.com/FranckFreiburger/vue3-sfc-loader/discussions/172
@@ -63,14 +60,4 @@ const router = VueRouter.createRouter({
   //history: VueRouter.createWebHistory(), // remove !# porém bugou carregar componentes.vue
   routes,
 })
-
-// Rotas const para que createapp
-//const appR = Vue.createApp({});
-
-// Routers
-
-//appR.use(router);
-//appR.mount("#rotas"); //deve ser o ultimo apos o mount(router)
-//Vue.createApp().use(router).mount(rotas); //inline fuck yeah!!
-
 export default router
