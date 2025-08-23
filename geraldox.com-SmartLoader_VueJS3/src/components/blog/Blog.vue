@@ -4,6 +4,14 @@ import { onMounted, ref, watch } from 'vue'
 import Sidebar from '/src/components/blog/Sidebar.vue'
 
 export default {
+  components: {
+    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
+    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
+    Mapas: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/mapa.vue', options)),
+    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
+    Sidebar: Sidebar,
+  },
+
   setup(props, { emit }) {
     /* const  */
 
@@ -86,21 +94,17 @@ export default {
       categorias,
       AllPosts,
       opt,
-      pinned, ShowAllPosts, ShowLessPosts
+      pinned,
+      ShowAllPosts,
+      ShowLessPosts,
     }
   },
 
   mounted() {
     /* set dynamic titles and category params title, if undefined return '' */
-   // this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
+    // this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
   },
-  components: {
-    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
-    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
-    Mapas: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/mapa.vue', options)),
-    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
-  },
+
   data() {
     return {
       select: '',
@@ -375,7 +379,7 @@ remove:
 .limiter button:hover {
   opacity: 1;
 }
-.sidebar img {
+.blogsidebar img {
   width: 100%;
 }
 

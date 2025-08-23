@@ -3,28 +3,28 @@
     <section class="content">
       <!--   <p class="search"><Search /></p> -->
       <h2>About this Site:</h2>
-      <p>
-        In this space I will be sharing tech related content in the subjects of
-        software development, Linux, containers, and also FrontEnd, which is one
-        of my favorite hobbies.
-      </p>
+      <p>In this space I will be sharing tech related content in the subjects of software development, Linux, containers, and also FrontEnd, which is one of my favorite hobbies.</p>
       <h3>Table of Contents</h3>
-    <div class="map">
-          <div>
-            <router-link :to="{ name: 'categoriesMap' }">Website Map:</router-link>
-          </div>
-          <select
-            v-model="select"
-            @change="selectCategoryHandler($event)">
-          <option value="" disabled>Categoria</option>
-            <option
-              v-for="(itens, ind) in categorias"
-              :key="itens.id"
-              :value="ind">
-              {{ ind.toUpperCase() }} - {{ itens }}
-            </option>
-          </select>
+      <div class="map">
+        <div>
+          <router-link :to="{ name: 'categoriesMap' }">Website Map:</router-link>
         </div>
+        <select
+          v-model="select"
+          @change="selectCategoryHandler($event)">
+          <option
+            value=""
+            disabled>
+            Categoria
+          </option>
+          <option
+            v-for="(itens, ind) in categorias"
+            :key="itens.id"
+            :value="ind">
+            {{ ind.toUpperCase() }} - {{ itens }}
+          </option>
+        </select>
+      </div>
       <ul>
         <li><a href="http://geraldox.com">Home</a></li>
       </ul>
@@ -46,24 +46,29 @@
         </select>
         <p></p>
         <nav v-show="select">
-          <a href="" class="btnDownload">{{ select }}</a>
+          <a
+            href=""
+            class="btnDownload"
+            >{{ select }}</a
+          >
         </nav>
       </div>
     </section>
   </div>
 </template>
 <script>
-module.exports = {
-  props:{
-    categorias:{
-      type: null
+export default {
+  name: 'blogsidebar',
+  props: {
+    categorias: {
+      type: null,
     },
   },
   data() {
     return {}
   },
   components: {
-    Search: Vue.defineAsyncComponent(() => loadModule('../components/Search.vue', options))
+    Search: Vue.defineAsyncComponent(() => loadModule('../components/Search.vue', options)),
   },
   data() {
     return {
@@ -71,15 +76,14 @@ module.exports = {
     }
   },
   methods: {
-    selectCategoryHandler(){
+    selectCategoryHandler() {
       /* Sendo eventname + event from select to parent */
       this.$emit('selectcategory', event)
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
-
 .sidebar {
   margin-top: 15px;
 }
@@ -100,7 +104,8 @@ module.exports = {
   line-height: 2rem;
 }
 
-.sidebar h2, h3 {
+.sidebar h2,
+h3 {
   text-align: center;
   padding: 0;
   margin-block: 15px;
@@ -170,11 +175,10 @@ module.exports = {
   }
 }
 
-.map{
+.map {
   text-align: center;
   background: #333;
 }
-
 
 .map p {
   padding: 10px 0;
@@ -185,5 +189,4 @@ module.exports = {
 .map h1 {
   margin-bottom: 10px;
 }
-
 </style>
