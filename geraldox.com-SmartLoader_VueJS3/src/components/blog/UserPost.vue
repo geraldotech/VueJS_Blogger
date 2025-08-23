@@ -1,3 +1,142 @@
+<script>
+import { onMounted, ref, watch } from 'vue'
+export default {
+  name: 'BlogPosts',
+
+  components: {
+    /* === BLOG PARTIALS ===  */
+    Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
+    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
+    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
+    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
+    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
+  },
+
+  setup(props, { emit }) {
+    const GetallPosts = ref([])
+    const blog = ref({})
+    const categorias = ref('')
+    const dynamicComponent = ref(null)
+    const dynamicImportStatus = ref(null)
+
+    // Router
+    const useRouter = VueRouter.useRouter()
+    // Route
+    const useRoute = VueRouter.useRoute()
+
+    /* FUNCTIONS */
+    // Emitting an event to the parent component
+    const emitEvent = () => {
+      emit('someEvent', 'Data from BlogPosts component')
+    }
+
+    function selectCategoryHandler(e) {
+      useRouter.push({
+        name: 'category',
+        params: { category: e.target.value },
+      })
+    }
+
+    // single post fetch
+    async function post() {
+      const req = await fetch('/src/db/data.json')
+      const data = await req.json()
+      GetallPosts.value = data.blog.posts
+      //encontra a slug atual e verifica se esta plublicada
+      const getBlogPost = GetallPosts.value.find((post) => post.slug == useRoute.params.slug && post.published)
+      blog.value = getBlogPost
+
+      console.log(`blog`, blog.value)
+
+      /* Dynamic apply metaInfo */
+      metaInfoInject(getBlogPost.title)
+
+      /* Dynamic Import Components */
+      checkComponentData()
+
+      /* Sidebar props... */
+      const getCatego = GetallPosts?.value.map((val) => val.category)
+
+      //🔢 contar n de categories values + ordenar com sort()
+      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
+
+      //🔢 recebe o contador unique + contador
+      categorias.value = counter
+    }
+
+    function metaInfoInject(currentTitle) {
+      document.title = currentTitle ? `${currentTitle} - geraldoX` : '404 Page - geraldoX'
+      return {
+        metaInfo: {
+          title: currentTitle,
+          titleTemplate: '%s - geraldoX',
+          meta: [
+            { charset: 'utf-8' },
+            {
+              name: 'description',
+              content: 'I write articles about Web Development, checkout my GitHub #gmapdev',
+            },
+            {
+              name: 'viewport',
+              content: 'width=device-width, initial-scale=1',
+            },
+            { name: 'keywords', content: 'vuejs, windows, android, linux' },
+          ],
+        },
+      }
+    }
+
+    function checkComponentData() {
+      // se n tem return false
+      if (!blog.value.component) {
+        return {
+          status: false,
+        }
+      }
+      // call dynamic
+      getDynamicComponent()
+    }
+
+    function getDynamicComponent() {
+      const componentData = componentObject()
+
+      if (componentData) {
+        dynamicComponent.value = Vue.defineAsyncComponent(() => loadModule(componentData.component, options)) // Load the component using your custom loader
+        dynamicImportStatus.value = componentData.status // dynamicImportStatus get status if component exists
+      }
+      /*  return {
+        component: `/src/components/posts/${this.blog.component}.vue`,
+      } */
+    }
+    // constructor component object for VueLoader
+    function componentObject() {
+      const exists = `/src/components/posts/${blog.value.component}.vue`
+
+      if (exists) {
+        return {
+          component: `/src/components/posts/${blog.value.component}.vue`,
+          status: true, // extra status because component exists
+        }
+      }
+      return false
+    }
+
+    onMounted(() => {
+      post()
+      console.log('=>>', useRoute.params.slug)
+    })
+
+    return {
+      emitEvent,
+      selectCategoryHandler,
+      GetallPosts,
+      blog,
+      categorias,
+      dynamicComponent,
+    }
+  },
+}
+</script>
 <template>
   <div>
     <!--  <Adsense></Adsense> -->
@@ -72,165 +211,7 @@
     </div>
   </div>
 </template>
-<script>
-import { onMounted, ref, watch } from 'vue'
-export default {
-  name: 'BlogPosts',
 
-  components: {
-    /* === BLOG PARTIALS ===  */
-    Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
-    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
-    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
-    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
-    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-  },
-
-  setup(props, { emit }) {
-    const useRouter = VueRouter.useRouter()
-    // Emitting an event to the parent component
-    const emitEvent = () => {
-      emit('someEvent', 'Data from BlogPosts component')
-    }
-
-    function selectCategoryHandler(e) {
-      useRouter.push({
-        name: 'category',
-        params: { category: e.target.value },
-      })
-    }
-
-    onMounted(() => {})
-
-    return {
-      emitEvent,
-      selectCategoryHandler,
-    }
-  },
-
-  mounted() {
-    this.posts()
-  },
-  data() {
-    return {
-      blog: {},
-      GetallPosts: [],
-      dynamicComponent: null,
-      categorias: '',
-      dynamicImportStatus: false,
-      fetchDataHTTP: null,
-    }
-  },
-
-  methods: {
-    async posts() {
-      const req = await fetch('/src/db/data.json')
-      const data = await req.json()
-      this.GetallPosts = data.blog.posts
-      //encontra a slug atual e verifica se esta plublicada
-      const getBlogPost = this.GetallPosts.find((post) => post.slug == this.$route.params.slug && post.published)
-
-      this.blog = getBlogPost
-
-      /* Dynamic apply metaInfo */
-      this.metaInfoInject(getBlogPost.title)
-
-      /* Dynamic Import Components */
-      this.checkComponentData()
-
-      /* Sidebar props... */
-      const getCatego = this.GetallPosts.map((val) => val.category)
-
-      //🔢 contar n de categories values + ordenar com sort()
-      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
-
-      //🔢 recebe o contador unique + contador
-      this.categorias = counter
-    },
-    //by gmap function trata metaInfo and currently title eachPost
-    metaInfoInject(currentTitle) {
-      document.title = currentTitle ? `${currentTitle} - geraldoX` : '404 Page - geraldoX'
-      return {
-        metaInfo: {
-          title: currentTitle,
-          titleTemplate: '%s - geraldoX',
-          meta: [
-            { charset: 'utf-8' },
-            {
-              name: 'description',
-              content: 'I write articles about Web Development, checkout my GitHub #gmapdev',
-            },
-            {
-              name: 'viewport',
-              content: 'width=device-width, initial-scale=1',
-            },
-            { name: 'keywords', content: 'vuejs, windows, android, linux' },
-          ],
-        },
-      }
-    },
-    checkComponentData() {
-      // se n tem return false
-      if (!this.blog.component) {
-        return {
-          status: false,
-        }
-      }
-      // call dynamic
-      this.getDynamicComponent()
-    },
-    getDynamicComponent() {
-      const componentData = this.componentObject()
-      console.warn(`componentData`, componentData)
-      if (componentData) {
-        this.dynamicComponent = Vue.defineAsyncComponent(() => loadModule(componentData.component, options)) // Load the component using your custom loader
-        this.dynamicImportStatus = componentData.status // dynamicImportStatus get status if component exists
-      }
-      /*  return {
-        component: `/src/components/posts/${this.blog.component}.vue`,
-      } */
-    },
-    // constructor component object for VueLoader
-    componentObject() {
-      const exists = `/src/components/posts/${this.blog.component}.vue`
-
-      if (exists) {
-        return {
-          component: `/src/components/posts/${this.blog.component}.vue`,
-          status: true, // extra status because component exists
-        }
-      }
-      return false
-    },
-
-    /* === CHECK COMPONENT.VUE EXISTS === */
-    async checkFileExistsHttLoader(url) {
-      // ✅  UDPATE    verificar se o arquivo existe na pasta ok!
-      // mais antes disso verificar se o component foi declarado na lista de objetos é mais simples e de suma importancia
-      // sendo assim desnecessário fazer esse fetch para um obj que pode nao existir
-      // avoid erros no console quando o arquivo nao existe
-      if (!this.blog.component) {
-        return false
-      }
-      try {
-        const componentExist = Vue.defineAsyncComponent(() => loadModule(url, options))
-
-        // console.log(componentExist()) // return a promisse, so use then
-        componentExist()
-          .then((res) => res.template)
-          .then((data) => {
-            if (data) {
-              // this.fetchDataHTTP = data
-              return true
-            }
-          })
-      } catch (err) {
-        //console.error(err, `file 404`)
-      }
-    },
-  },
-}
-</script>
 <style>
 article h1 {
   text-align: left;
