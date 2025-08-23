@@ -113,6 +113,7 @@ h3 {
 
 .sidebar figure img {
   width: 100%;
+  max-width: 400px;
   border-radius: 10px 10px;
   margin: 15px auto;
   padding: 5px;
@@ -142,6 +143,11 @@ h3 {
   padding: 5px 0;
 }
 
+  figure:has(img) {
+    text-align: center;
+    margin: auto;
+  }
+
 /* mobile */
 @media screen and (max-width: 600px) {
   .sidebar {
@@ -167,6 +173,9 @@ h3 {
     max-width: 100px;
     width: 100%;
     margin: auto;
+  }
+  figure {
+    text-align: center !important;
   }
   .sidebar figure:has(img) {
     text-align: center;
