@@ -77,6 +77,15 @@ import { onMounted, ref, watch } from 'vue'
 export default {
   name: 'BlogPosts',
 
+  components: {
+    /* === BLOG PARTIALS ===  */
+    Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
+    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
+    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
+    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
+    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
+  },
+
   setup(props, { emit }) {
     const useRouter = VueRouter.useRouter()
     // Emitting an event to the parent component
@@ -91,9 +100,7 @@ export default {
       })
     }
 
-    onMounted(() => {
-      console.log(`BlogPosts mounted`)
-    })
+    onMounted(() => {})
 
     return {
       emitEvent,
@@ -103,7 +110,6 @@ export default {
 
   mounted() {
     this.posts()
-    console.log(`ok`)
   },
   data() {
     return {
@@ -115,14 +121,7 @@ export default {
       fetchDataHTTP: null,
     }
   },
-  components: {
-    /* === BLOG PARTIALS ===  */
-    Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
-    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
-    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
-    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
-    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-  },
+
   methods: {
     async posts() {
       const req = await fetch('/src/db/data.json')
