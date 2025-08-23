@@ -1,8 +1,7 @@
 <script>
 import { onMounted, ref, watch } from 'vue'
 export default {
-  name: 'BlogPosts',
-
+  name: 'singlePost',
   components: {
     /* === BLOG PARTIALS ===  */
     Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),

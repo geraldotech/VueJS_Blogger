@@ -1,5 +1,5 @@
 <script>
-import { onMounted, ref, watch, router } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import Sidebar from '/src/components/blog/Sidebar.vue'
 
 export default {
