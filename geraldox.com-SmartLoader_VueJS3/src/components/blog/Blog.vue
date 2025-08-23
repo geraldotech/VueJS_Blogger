@@ -1,5 +1,5 @@
 <script>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch, router } from 'vue'
 
 import Sidebar from '/src/components/blog/Sidebar.vue'
 
@@ -14,7 +14,7 @@ export default {
 
   setup(props, { emit }) {
     /* const  */
-
+    const useRouter = VueRouter.useRouter()
     const dynamicTitle = ref('Blog')
     const AllPosts = ref([])
     const categorias = ref([])
@@ -79,6 +79,13 @@ export default {
       return (opt.value = GetBlogPosts((numero.value = 10)))
     }
 
+    function selectCategoryHandler(e) {
+      useRouter.push({
+        name: 'category',
+        params: { category: e.target.value },
+      })
+    }
+
     onMounted(() => {
       console.log(dynamicTitle.value)
       fetchPosts()
@@ -97,6 +104,7 @@ export default {
       pinned,
       ShowAllPosts,
       ShowLessPosts,
+      selectCategoryHandler,
     }
   },
 
@@ -114,9 +122,7 @@ export default {
   },
 
   /* ===  */
-  selectCategoryHandler(e) {
-    this.$router.push({ name: 'category', params: { category: e.target.value } })
-  },
+
   setTitleAuto(current, manual) {
     document.title = current + ' - geraldoX'
   },

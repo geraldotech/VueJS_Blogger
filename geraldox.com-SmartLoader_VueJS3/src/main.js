@@ -1,5 +1,4 @@
 import router from '../src/router/index.js'
-
 const { createApp, ref, onMounted, defineCustomElement, reactive } = Vue
 
 //import CDN to Vue Mixin
