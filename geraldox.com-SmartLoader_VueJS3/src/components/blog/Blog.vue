@@ -1,6 +1,5 @@
 <script>
 import { onMounted, ref, watch, router } from 'vue'
-
 import Sidebar from '/src/components/blog/Sidebar.vue'
 
 export default {
@@ -13,7 +12,6 @@ export default {
   },
 
   setup(props, { emit }) {
-    /* const  */
     const useRouter = VueRouter.useRouter()
     const dynamicTitle = ref('Blog')
     const AllPosts = ref([])
@@ -45,7 +43,7 @@ export default {
       categorias.value = counter
 
       //🔢 Limitador de posts, lembrando this methods changes the original array
-      // blogPosts.value.splice()
+     // blogPosts.value.splice()
 
       //thos AllPosts a ser usado no length and pelo @click show all posts
       AllPosts.value = blogPosts

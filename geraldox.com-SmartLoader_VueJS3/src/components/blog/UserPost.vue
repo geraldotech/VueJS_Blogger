@@ -74,20 +74,21 @@
 </template>
 <script>
 import { onMounted, ref, watch } from 'vue'
-/*start String components templates*/
-/* const word = '<p>Hello from String template</p>'
-Vue.component('cardy', {
-  template: word,
-})
- */
-//ends String Components
 export default {
   name: 'BlogPosts',
 
   setup(props, { emit }) {
+    const useRouter = VueRouter.useRouter()
     // Emitting an event to the parent component
     const emitEvent = () => {
       emit('someEvent', 'Data from BlogPosts component')
+    }
+
+    function selectCategoryHandler(e) {
+      useRouter.push({
+        name: 'category',
+        params: { category: e.target.value },
+      })
     }
 
     onMounted(() => {
@@ -96,6 +97,7 @@ export default {
 
     return {
       emitEvent,
+      selectCategoryHandler,
     }
   },
 
@@ -200,10 +202,6 @@ export default {
         }
       }
       return false
-    },
-
-    selectCategoryHandler(e) {
-      this.$router.push({ name: 'category', params: { category: e.target.value } })
     },
 
     /* === CHECK COMPONENT.VUE EXISTS === */
