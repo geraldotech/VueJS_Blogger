@@ -63,7 +63,7 @@ module.exports = {
     return {}
   },
   components: {
-    Search: httpVueLoader('../components/Search.vue'),
+    Search: Vue.defineAsyncComponent(() => loadModule('../components/Search.vue', options))
   },
   data() {
     return {

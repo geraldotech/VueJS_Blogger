@@ -61,7 +61,7 @@ module.exports = {
     }
   },
   components: {
-    Adsense: httpVueLoader('/src/components/blog/Adsense.vue'),
+    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options))
   },
   methods: {
     async posts() {

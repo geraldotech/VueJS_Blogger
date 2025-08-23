@@ -109,6 +109,10 @@
                 }"
                 >{{ artigos.category ? artigos.category.toUpperCase() : 'UNCATEGORIZED' }}</router-link
               >
+
+
+
+
             </div>
             <!-- categories router page -->
             <!--    <time>{{ artigos.data }}</time> -->
@@ -140,10 +144,8 @@
     </div>
 
     <!-- For Nested Routers -->
-
-      <router-view></router-view>
-    <keep-alive>
-    </keep-alive>
+    <router-view></router-view>
+    <keep-alive> </keep-alive>
   </div>
 </template>
 
@@ -165,19 +167,18 @@ module.exports = {
   }, */
   created() {
     //this.setTitleAuto('Blog')
-     this.posts() // teste no mobile, in created is more faster than mounted hook to show posts
+    this.posts() // teste no mobile, in created is more faster than mounted hook to show posts
   },
   mounted() {
     /* set dynamic titles and category params title, if undefined return '' */
     this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
-   
   },
   components: {
-    Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
-    Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
-    Searchauto: httpVueLoader('/src/components/blog/SearchAuto.vue'),
-    Mapas: httpVueLoader('/src/components/blog/mapa.vue'),
-    Adsense: httpVueLoader('/src/components/blog/Adsense.vue'),
+    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
+    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
+    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
+    Mapas: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/mapa.vue', options)),
+    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
   },
   data() {
     return {
@@ -258,7 +259,6 @@ module.exports = {
 }
 </script>
 <style scoped>
-
 /* 
 avoidcall h1 direct here for nesting itens not get this styles
 

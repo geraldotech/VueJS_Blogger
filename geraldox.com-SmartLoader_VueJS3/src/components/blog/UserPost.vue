@@ -77,11 +77,11 @@
 </template>
 <script>
 /*start String components templates*/
-const word = '<p>Hello from String template</p>'
+/* const word = '<p>Hello from String template</p>'
 Vue.component('cardy', {
   template: word,
 })
-
+ */
 //ends String Components
 module.exports = {
   name: 'BlogPosts',
@@ -108,14 +108,14 @@ module.exports = {
   },
   components: {
     /* === BLOG PARTIALS ===  */
-    Sidebarbottom: httpVueLoader('/src/components/blog/SidebarBottom.vue'),
-    Sidebar: httpVueLoader('/src/components/blog/Sidebar.vue'),
-    Searchlegacy: httpVueLoader('/src/components/blog/Search.vue'),
-    Searchauto: httpVueLoader('../components/blog/SearchAuto.vue'),
-    Adsense: httpVueLoader('../components/blog//Adsense.vue'),
+    Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
+    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
+    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
+    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
+    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
 
     /* === BLOG POSTS === */
-    Container: httpVueLoader('/src/components/posts/ContainerPosts.vue'),
+    Container: Vue.defineAsyncComponent(() => loadModule('/src/components/posts/ContainerPosts.vue', options)),
   },
   methods: {
     async posts() {
@@ -178,7 +178,7 @@ module.exports = {
       const componentData = this.componentObject()
       console.warn(`componentData`, componentData)
       if (componentData) {
-        this.dynamicComponent = httpVueLoader(componentData.component) // Load the component using your custom loader
+        this.dynamicComponent = Vue.defineAsyncComponent(() => loadModule(componentData.component, options)) // Load the component using your custom loader
         this.dynamicImportStatus = componentData.status // dynamicImportStatus get status if component exists
       }
       /*  return {
@@ -212,7 +212,8 @@ module.exports = {
         return false
       }
       try {
-        const componentExist = httpVueLoader(url)
+        const componentExist = Vue.defineAsyncComponent(() => loadModule(url, options)) 
+
         // console.log(componentExist()) // return a promisse, so use then
         componentExist()
           .then((res) => res.template)
