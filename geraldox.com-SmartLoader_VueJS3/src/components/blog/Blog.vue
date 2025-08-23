@@ -7,11 +7,12 @@ export default {
   setup(props, { emit }) {
     /* const  */
 
-    const dynamicTitlevuej3 = ref('Blog ref')
+    const dynamicTitle = ref('Blog')
     const AllPosts = ref([])
     const categorias = ref([])
     const pinned = ref({})
     const opt = ref([])
+    const numero = ref(10)
 
     async function fetchPosts() {
       const req = await fetch('/src/db/data.json')
@@ -60,107 +61,60 @@ export default {
         .slice(0, n)
     }
 
+    function ShowAllPosts(e) {
+      //onclick show +1 posts
+      numero.value = numero.value + 4
+      return (opt.value = GetBlogPosts(numero.value))
+    }
+    function ShowLessPosts() {
+      //number = 5 minimo posts
+      return (opt.value = GetBlogPosts((numero.value = 10)))
+    }
+
     onMounted(() => {
-      console.log(dynamicTitlevuej3.value)
+      console.log(dynamicTitle.value)
       fetchPosts()
     })
 
-    watch(dynamicTitlevuej3, (newTitle) => {
+    watch(dynamicTitle, (newTitle) => {
       /// console.log(`Title changed to: ${newTitle}`)
     })
 
     return {
-      dynamicTitlevuej3,
+      dynamicTitle,
       pinned,
       categorias,
       AllPosts,
       opt,
-      pinned,
+      pinned, ShowAllPosts, ShowLessPosts
     }
   },
 
   mounted() {
     /* set dynamic titles and category params title, if undefined return '' */
-    this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
+   // this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
   },
   components: {
     Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
     Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
     Mapas: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/mapa.vue', options)),
     Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-    Sidebar:Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options))
+    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
   },
   data() {
     return {
       select: '',
-      numero: 10,
       showlegacy: '',
       showautoseach: '',
-      dynamicTitle: 'Blog',
     }
   },
-  methods: {
-    async posts() {
-      const req = await fetch('/src/db/data.json')
-      const res = await req.json()
 
-      // Pinned receive all posts
-      this.FindPinned(res.blog.posts)
-      //setTimeout(  , 1000)
-
-      //filter post published && exclude pinned posts from the main list
-      const blogPosts = res.blog.posts.filter((posts) => posts.published && !Object.keys(posts).includes('pinned'))
-      // console.log(blogPosts);
-
-      // map categoris acima dos limitadores de posts splice()
-      const getCatego = blogPosts.map((val) => val.category)
-
-      //console.log([...getCatego].sort());
-
-      //🔢 contar n de categories values + ordenar com sort()
-      const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
-
-      //recebe o contador unique + contador
-      this.categorias = counter
-
-      //🔢 Limitador de posts, lembrando this methods changes the original array
-      blogPosts.splice()
-
-      //thos AllPosts a ser usado no length and pelo @click show all posts
-      this.AllPosts = blogPosts
-
-      //🔢 recebe os posts com limitador opcional
-      this.opt = this.GetBlogPosts(this.numero)
-    },
-
-    /* ===  */
-    selectCategoryHandler(e) {
-      this.$router.push({ name: 'category', params: { category: e.target.value } })
-    },
-    GetBlogPosts(n) {
-      return this.AllPosts.filter((posts) => posts.published)
-        .reverse() //reverse depois limiter
-        .slice(0, n)
-    },
-    ShowAllPosts(e) {
-      //onclick show +1 posts
-      this.numero = this.numero + 4
-      return (this.opt = this.GetBlogPosts(this.numero))
-    },
-    ShowLessPosts() {
-      //number = 5 minimo posts
-      return (this.opt = this.GetBlogPosts((this.numero = 10)))
-    },
-    FindPinned(arr) {
-      // find obj has pinned property
-      const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
-
-      // check if Pinned  exists
-      !findPinned ? false : (this.pinned = findPinned)
-    },
-    setTitleAuto(current, manual) {
-      document.title = current + ' - geraldoX'
-    },
+  /* ===  */
+  selectCategoryHandler(e) {
+    this.$router.push({ name: 'category', params: { category: e.target.value } })
+  },
+  setTitleAuto(current, manual) {
+    document.title = current + ' - geraldoX'
   },
 }
 </script>
