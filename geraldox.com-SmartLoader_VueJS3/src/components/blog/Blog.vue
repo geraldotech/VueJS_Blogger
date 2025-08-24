@@ -17,6 +17,7 @@ const categorias = ref([])
 const pinned = ref({})
 const opt = ref([])
 const numero = ref(10)
+const select = ref([])
 
 function fetchPosts() {
   fetch('/src/db/data.json')
@@ -63,10 +64,11 @@ function fetchPosts() {
 
 function FindPinned(arr) {
   // find obj has pinned property
-  const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
+  const findPinned = arr.filter((post) => post.published && post.hasOwnProperty('pinned'))
 
   // check if Pinned  exists
-  !findPinned ? false : (pinned.value = findPinned)
+  //!findPinned ? false : (pinned.value = findPinned)
+  pinned.value = findPinned
 }
 
 function GetBlogPosts(n) {
@@ -104,7 +106,7 @@ watch(dynamicTitle, (newTitle) => {
 
 <template>
   <div>
-      <Adsense></Adsense> 
+    <Adsense></Adsense>
     <div
       v-if="$route.name == 'Blog Posts'"
       class="list-all">
@@ -150,7 +152,41 @@ watch(dynamicTitle, (newTitle) => {
         </div>
         <h1>Threads:</h1>
         <!--  pinnedPost -->
-        <section
+        <section class="thread-item pinned">
+          <p>
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="#fff"
+              class="r-1bwzh9t r-4qtqp9 r-yyyyoo r-10ptun7 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1janqcz">
+              <g>
+                <path d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"></path>
+              </g>
+            </svg>
+            <span>Pinned ({{ pinned?.length }}):</span>
+          </p>
+
+          <!-- pinned array -->
+          <div
+            v-for="link in pinned"
+            :key="link.id">
+            <router-link :to="{ name: 'threads', params: { category: link.category ?? true, slug: link.slug ?? true } }">{{ link.title.slice(0, 30) + '...' }}</router-link>
+              <time>{{ link.createdAt }}</time>
+              <span class="cat">
+                Category:
+                <router-link
+                  class="cats"
+                  :to="{ name: 'category', params: { category: link.category ?? true } }"
+                  >{{ link.category ? link.category.toUpperCase() : 'Uncategorized' }}
+                </router-link>
+              </span>            
+          <hr>
+          </div>
+        </section>
+
+        <!-- pinned object
+        
+         <section
           class="thread-item pinned"
           v-show="Object.hasOwn(pinned, 'id')">
           <p>
@@ -185,11 +221,10 @@ watch(dynamicTitle, (newTitle) => {
               >
             </span>
           </p>
-        </section>
+        </section> -->
         <!--  pinnedPost -->
 
         <!--  RenderPosts -->
-
         <ul class="threads-container grid">
           <li
             v-for="post in opt"
@@ -206,7 +241,7 @@ watch(dynamicTitle, (newTitle) => {
             <time>{{ post.createdAt }}</time>
             <!-- categories router page -->
             <div class="cat">
-              CATEGORY:
+              Category:
               <router-link
                 class="cats"
                 :to="{
