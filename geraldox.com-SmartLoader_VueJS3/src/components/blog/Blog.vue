@@ -43,7 +43,7 @@ export default {
       categorias.value = counter
 
       //🔢 Limitador de posts, lembrando this methods changes the original array
-     // blogPosts.value.splice()
+      // blogPosts.value.splice()
 
       //thos AllPosts a ser usado no length and pelo @click show all posts
       AllPosts.value = blogPosts
@@ -103,25 +103,6 @@ export default {
       ShowLessPosts,
       selectCategoryHandler,
     }
-  },
-
-  mounted() {
-    /* set dynamic titles and category params title, if undefined return '' */
-    // this.setTitleAuto(this.$route?.name ?? '' + ' - ' + this.$route.params?.category ?? '')
-  },
-
-  data() {
-    return {
-      select: '',
-      showlegacy: '',
-      showautoseach: '',
-    }
-  },
-
-  /* ===  */
-
-  setTitleAuto(current, manual) {
-    document.title = current + ' - geraldoX'
   },
 }
 </script>
