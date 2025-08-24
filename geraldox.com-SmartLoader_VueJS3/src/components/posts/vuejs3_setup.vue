@@ -23,15 +23,27 @@ function makeFetchRequest() {
     .finally(() => {})
 }
 
-/* registrar componentes locais com defineComponent */
-const Child = defineComponent({
-  name: 'Child',
+/* string templates: locais registrar componentes localmente com defineComponent */
+const MyComponentLocal = defineComponent({
+  name: 'MyComponentLocal',
   setup() {
-    const foo = ref(0)
-    return { foo }
+    const count = ref(0)
+    return { count }
   },
-  template: `<h2>child component </h2><button @click="foo++">Cliques: {{ foo }}</button>`
+  template: `
+    <div>
+      <h2>hello com Componente #local</h2>
+      <p>Contador: {{ count }}</p>
+      <button @click="count++">Incrementar</button>
+    </div>
+    <style>
+    div{
+    color: blue;
+    }
+    </style>
+  `,
 })
+
 
 const hello = () => {
   console.log(`click`)
@@ -65,8 +77,8 @@ onMounted(() => {
 
     <h2 @click="hello">hello</h2>
 
-    <h1>component inline</h1>
-    <Child/>
+    <h1>component Local</h1>
+    <MyComponentLocal/>
 
     <h1>component global</h1>
     <MyComponentGlobal/>

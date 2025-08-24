@@ -5,26 +5,11 @@ import Sidebar from '/src/components/blog/Sidebar.vue'
 import { ref, watch, onMounted, defineComponent } from 'vue'
 const foo = ref(0)
 
-const MyComponentLocal = defineComponent({
-  name: 'MyComponentLocal',
-  setup() {
-    const count = ref(0)
-    return { count }
-  },
-  template: `
-    <div>
-      <h2>Componente local</h2>
-      <p>Contador: {{ count }}</p>
-      <button @click="count++">Incrementar</button>
-    </div>
-  `,
-})
 
 onMounted(() => {})
 </script>
 <template>
   <div>
-    <MyComponentLocal/>
     <p>1 - Primeiro baixe o Handle</p>
     <nav>
       <a
