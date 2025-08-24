@@ -1,28 +1,33 @@
-<script>
+<script setup>
 import { onMounted, ref, watch } from 'vue'
 import Sidebar from '/src/components/blog/Sidebar.vue'
+import Searchlegacy from '/src/components/blog/Search.vue'
+import Mapas from '/src/components/blog/mapa.vue'
+import Adsense from '/src/components/blog/Adsense.vue'
+/* 
+component is broken layout
+import Searchauto from '/src/components/blog/SearchAuto.vue'
+ */
 
-export default {
-  components: {
-    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
-    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
-    Mapas: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/mapa.vue', options)),
-    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-    Sidebar: Sidebar,
-  },
+const useRouter = VueRouter.useRouter()
 
-  setup(props, { emit }) {
-    const useRouter = VueRouter.useRouter()
-    const dynamicTitle = ref('Blog')
-    const AllPosts = ref([])
-    const categorias = ref([])
-    const pinned = ref({})
-    const opt = ref([])
-    const numero = ref(10)
+const dynamicTitle = ref('Blog')
+const AllPosts = ref([])
+const categorias = ref([])
+const pinned = ref({})
+const opt = ref([])
+const numero = ref(10)
 
-    async function fetchPosts() {
-      const req = await fetch('/src/db/data.json')
-      const res = await req.json()
+function fetchPosts() {
+  fetch('/src/db/data.json')
+    .then((req) => {
+      if (!req.ok) {
+        throw new Error(`Error na requisição`, res.status)
+      }
+      return req.json()
+    })
+    .then((data) => {
+      const res = data
 
       // Pinned receive all posts
       FindPinned(res.blog.posts)
@@ -50,61 +55,51 @@ export default {
 
       //🔢 recebe os posts com limitador opcional
       opt.value = GetBlogPosts(10)
-    }
-
-    function FindPinned(arr) {
-      // find obj has pinned property
-      const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
-
-      // check if Pinned  exists
-      !findPinned ? false : (pinned.value = findPinned)
-    }
-
-    function GetBlogPosts(n) {
-      return AllPosts.value
-        .filter((posts) => posts.published)
-        .reverse() //reverse depois limiter
-        .slice(0, n)
-    }
-
-    function ShowAllPosts(e) {
-      //onclick show +1 posts
-      numero.value = numero.value + 4
-      return (opt.value = GetBlogPosts(numero.value))
-    }
-    function ShowLessPosts() {
-      //number = 5 minimo posts
-      return (opt.value = GetBlogPosts((numero.value = 10)))
-    }
-
-    function selectCategoryHandler(e) {
-      useRouter.push({
-        name: 'category',
-        params: { category: e.target.value },
-      })
-    }
-
-    onMounted(() => {
-      fetchPosts()
     })
-
-    watch(dynamicTitle, (newTitle) => {
-      /// console.log(`Title changed to: ${newTitle}`)
+    .catch((err) => {
+      console.error('Erro na reqiusição')
     })
-
-    return {
-      dynamicTitle,
-      pinned,
-      categorias,
-      AllPosts,
-      opt,
-      pinned,
-      ShowAllPosts,
-      ShowLessPosts,
-      selectCategoryHandler,
-    }
-  },
 }
+
+function FindPinned(arr) {
+  // find obj has pinned property
+  const findPinned = arr.find((post) => post.published && post.hasOwnProperty('pinned'))
+
+  // check if Pinned  exists
+  !findPinned ? false : (pinned.value = findPinned)
+}
+
+function GetBlogPosts(n) {
+  return AllPosts.value
+    .filter((posts) => posts.published)
+    .reverse() //reverse depois limiter
+    .slice(0, n)
+}
+
+function ShowAllPosts(e) {
+  //onclick show +1 posts
+  numero.value = numero.value + 4
+  return (opt.value = GetBlogPosts(numero.value))
+}
+function ShowLessPosts() {
+  //number = 5 minimo posts
+  return (opt.value = GetBlogPosts((numero.value = 10)))
+}
+
+function selectCategoryHandler(e) {
+  useRouter.push({
+    name: 'category',
+    params: { category: e.target.value },
+  })
+}
+
+onMounted(() => {
+  fetchPosts()
+})
+
+watch(dynamicTitle, (newTitle) => {
+  /// console.log(`Title changed to: ${newTitle}`)
+})
 </script>
 
 <template>

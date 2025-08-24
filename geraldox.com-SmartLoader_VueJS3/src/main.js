@@ -1,6 +1,5 @@
 import router from '../src/router/index.js'
-const { createApp, ref, onMounted, defineCustomElement, reactive } = Vue
-
+const { createApp, ref, onMounted, reactive } = Vue
 //import CDN to Vue Mixin
 import cdn from '/src/lib/cdn.js'
 
@@ -12,8 +11,6 @@ const app = createApp({
   setup() {},
   template: `<App/>`,
 })
-
-
 app.use(router)
 app.mount('#app')
 }
