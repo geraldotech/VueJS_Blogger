@@ -26,9 +26,9 @@
     </p>
 
     <figure>
-      <img
+<!--       <img
         :src="`${img[2024]}/serverless.webp`"
-        class="img-flex" />
+        class="img-flex" /> -->
     </figure>
 
     <p>
