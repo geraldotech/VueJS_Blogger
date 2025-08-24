@@ -2,14 +2,38 @@
 <script setup>
 import { ref } from 'vue'
 const foo = ref(0)
+
+function makeFetchRequest() {
+  fetch('https://api-restful-json.vercel.app/entregasuporte')
+    .then((req) => {
+      if (!req.ok) {
+        throw new Error(`Error na requisição ${req.status}`)
+      }
+      return req.json()
+    })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((error) => {
+      console.error('Erro', error)
+    }).finally(() => {
+      console.log(`acabou`)
+    })
+}
+
+const hello = () => {
+  console.log(`click`)
+}
+
+makeFetchRequest()
 </script>
 <template>
   <div>
-    <h1 >click sobre o gato para aumentar</h1>
-   <div class="flex">
-     <button @click="foo++">click +</button>
-    <button @click="foo--">click -</button>
-   </div>
+    <h1>click sobre o gato para aumentar</h1>
+    <div class="flex">
+      <button @click="foo++">click +</button>
+      <button @click="foo--">click -</button>
+    </div>
 
     <h1>timeline</h1>
     <figure v-if="foo <= 2">
@@ -25,6 +49,8 @@ const foo = ref(0)
 
     <h1>cliques: {{ foo }}</h1>
     <h2 v-show="foo > 10">10KG de ração</h2>
+
+    <h2 @click="hello">hello</h2>
   </div>
 </template>
 <style scoped>
@@ -44,7 +70,7 @@ div {
 .cursor {
   cursor: pointer;
 }
-.flex{
+.flex {
   display: flex;
   padding: 10px;
   justify-content: space-around;

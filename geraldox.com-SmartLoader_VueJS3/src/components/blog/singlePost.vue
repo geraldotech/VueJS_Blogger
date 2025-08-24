@@ -46,8 +46,6 @@ export default {
       const getBlogPost = GetallPosts.value.find((post) => post.slug == useRoute.params.slug && post.published)
       blog.value = getBlogPost
 
-      console.log(`blog`, blog.value)
-
       /* Dynamic apply metaInfo */
       metaInfoInject(getBlogPost.title)
 
@@ -123,7 +121,7 @@ export default {
 
     onMounted(() => {
       post()
-      console.log('=>>', useRoute.params.slug)
+      // console.log('=>>', useRoute.params.slug)
     })
 
     return {
