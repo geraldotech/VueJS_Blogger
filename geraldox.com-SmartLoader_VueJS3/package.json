@@ -1,0 +1,26 @@
+{
+  "name": "geraldox.com-smartloader_vuejs3",
+  "version": "3.0.0",
+  "description": "vuejs3 cdn blogger",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geraldotech/VueJS_Blogger.git"
+  },
+  "keywords": [
+    "vuej3",
+    "cdn",
+    "vuerouter",
+    "blog",
+    "blogger"
+  ],
+  "author": "GeraldoDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geraldotech/VueJS_Blogger/issues"
+  },
+  "homepage": "https://github.com/geraldotech/VueJS_Blogger#readme"
+}
