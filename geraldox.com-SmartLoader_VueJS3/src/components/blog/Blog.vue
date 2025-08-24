@@ -85,7 +85,6 @@ export default {
     }
 
     onMounted(() => {
-      console.log(dynamicTitle.value)
       fetchPosts()
     })
 

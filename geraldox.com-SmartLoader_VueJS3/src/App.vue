@@ -66,4 +66,9 @@ ul li,
 p {
   color: dodgerblue;
 }
+.top-homepage ,.items_menu{
+  display: flex;
+      justify-content: space-between;
+}
+
 </style>

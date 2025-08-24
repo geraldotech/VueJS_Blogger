@@ -1,6 +1,7 @@
-/* WELCOME TO VUEJS 3 components */
 <script setup>
-import { ref } from 'vue'
+/* WELCOME TO VUEJS 3 components
+ usando setup no script é mais pratico ainda */
+import { ref, watch, onMounted } from 'vue'
 const foo = ref(0)
 
 function makeFetchRequest() {
@@ -16,20 +17,20 @@ function makeFetchRequest() {
     })
     .catch((error) => {
       console.error('Erro', error)
-    }).finally(() => {
-      console.log(`acabou`)
     })
+    .finally(() => {})
 }
 
 const hello = () => {
   console.log(`click`)
 }
 
-makeFetchRequest()
+onMounted(() => {
+  makeFetchRequest()
+})
 </script>
 <template>
   <div>
-    <h1>click sobre o gato para aumentar</h1>
     <div class="flex">
       <button @click="foo++">click +</button>
       <button @click="foo--">click -</button>
