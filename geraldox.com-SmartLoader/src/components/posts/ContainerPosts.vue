@@ -18,7 +18,7 @@ Vue.component('Calctdownload', {
   name: 'CalcDownload',
   data() {
     return {
-      title: `Velocidade da conexão em KB /8 para encontrar a taxa de transmissão exe:`,
+      title: ,
     }
   },
   template: `

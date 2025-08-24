@@ -64,18 +64,6 @@
         "category": "upload"
       },
       {
-        "id": 7,
-        "title": "VueJS3 Example Settings",
-        "slug": "blogger-vuejs",
-        "author": "geraldox",
-        "published": true,
-        "createdAt": "March 5, 2023",
-        "article": "",
-        "component": "vuejs3",
-        "category": "developer",
-        "pinned": ""
-      },
-      {
         "id": 8,
         "title": "Support String Components",
         "slug": "string-components",
@@ -116,7 +104,7 @@
         "published": true,
         "createdAt": "Jul 15, 2023",
         "article": "",
-        "component": "Calctdownload",
+        "component": "calcdownload",
         "category": "network"
       },
       {
@@ -227,17 +215,6 @@
         "createdAt": "Sep 16, 2023",
         "article": "<p style='text-align:center'>Block the Windows Updates fastly with this app <nav><a class='btnDownload' href='https://www.sordum.org/9470/windows-update-blocker-v1-8/' target='_blank'>Download Now</a></nav></p> <p>warning: você pode ter inumeros problemas quandod desabilita o Windows Update, por exemplo para habilitar o wsl 'Windows Subsystem for Linux' sempre retorna um erro Installing: Windows Subsystem for <b>Linux Access is denied.</b> então esteja ciente disso, e reative o update para resolver qualquer problema.",
         "component": "",
-        "category": "windows"
-      },
-      {
-        "id": 22,
-        "title": "Testing Alone WebComponents",
-        "slug": "test-alove-webcomponents",
-        "author": "geraldox",
-        "published": true,
-        "createdAt": "Sep 16, 2023",
-        "article": "",
-        "component": "externo-compo",
         "category": "windows"
       },
       {
@@ -404,6 +381,31 @@
         "article": "<h1 style='text-align:center; margin: 10px 0;'>TESSTEEETETE</h1>",
         "component": "",
         "category": "android"
+      },
+      {
+
+        "id": 38,
+        "title": "VueJS3 Example Export",
+        "slug": "blogger-vuejs-export",
+        "author": "geraldox",
+        "published": true,
+        "createdAt": "August, 24, 2025",
+        "article": "",
+        "component": "vuejs3_export",
+        "category": "developer",
+        "pinned": ""
+      },
+      {
+        "id": 39,
+        "title": "VueJS3 Example setup",
+        "slug": "blogger-vuejs-setup",
+        "author": "geraldox",
+        "published": true,
+        "createdAt": "August, 24, 2025",
+        "article": "",
+        "component": "vuejs3_setup",
+        "category": "developer",
+        "pinned": ""
       }
     ]
   }

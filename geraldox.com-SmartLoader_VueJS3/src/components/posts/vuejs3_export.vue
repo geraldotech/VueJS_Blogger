@@ -1,39 +1,44 @@
-<script setup>
-/* WELCOME TO VUEJS 3 components
- usando setup no script é mais pratico ainda */
-import { ref, watch, onMounted } from 'vue'
-const foo = ref(0)
+<script>
+/* WELCOME TO VUEJS 3 components - usando export default*/
+import { onMounted, ref, watch } from 'vue'
+export default {
+  name: 'vuejs3',
+  setup() {
+    const foo = ref(0)
+    function makeFetchRequest() {
+      fetch('https://api-restful-json.vercel.app/entregasuporte')
+        .then((req) => {
+          if (!req.ok) {
+            throw new Error(`Error na requisição ${req.status}`)
+          }
+          return req.json()
+        })
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((error) => {
+          console.error('Erro', error)
+        })
+        .finally(() => {})
+    }
 
-function makeFetchRequest() {
-  fetch('https://api-restful-json.vercel.app/entregasuporte')
-    .then((req) => {
-      if (!req.ok) {
-        throw new Error(`Error na requisição ${req.status}`)
-      }
-      return req.json()
+    const hello = () => {
+      console.log(`click`)
+    }
+
+    onMounted(() => {
+      makeFetchRequest()
     })
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((error) => {
-      console.error('Erro', error)
-    })
-    .finally(() => {})
+
+    return { hello, foo }
+  },
 }
-
-const hello = () => {
-  console.log(`click`)
-}
-
-onMounted(() => {
-  makeFetchRequest()
-})
 </script>
 <template>
   <div>
     <div class="flex">
-      <button @click="foo++">click +</button>
       <button @click="foo--">click -</button>
+      <button @click="foo++">click +</button>
     </div>
 
     <h1>timeline</h1>
