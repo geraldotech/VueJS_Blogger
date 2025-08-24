@@ -1,14 +1,15 @@
 <script>
 import { onMounted, ref, watch } from 'vue'
+import Sidebar from '/src/components/blog/Sidebar.vue'
 export default {
   name: 'singlePost',
   components: {
     /* === BLOG PARTIALS ===  */
     Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
-    Sidebar: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Sidebar.vue', options)),
     Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
     Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
     Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
+    Sidebar: Sidebar,
   },
 
   setup(props, { emit }) {

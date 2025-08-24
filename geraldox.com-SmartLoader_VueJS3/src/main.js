@@ -4,7 +4,6 @@ const { createApp, ref, onMounted, defineCustomElement, reactive } = Vue
 //import CDN to Vue Mixin
 import cdn from '/src/lib/cdn.js'
 
-
 window.onload = function () {
 const app = createApp({
   components: {

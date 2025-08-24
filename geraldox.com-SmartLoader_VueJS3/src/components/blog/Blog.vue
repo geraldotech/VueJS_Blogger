@@ -270,8 +270,9 @@ export default {
         @selectcategory="selectCategoryHandler" />
     </div>
 
-    <!-- For Nested Routers -->
-    <router-view></router-view>
+    <!-- For Nested Routers :key forca redenrizar -->
+    <!-- vue remonte o componente inteiro quando os parâmetros mudarem -->
+    <router-view :key="$route.fullPath"></router-view>
   </div>
 </template>
 

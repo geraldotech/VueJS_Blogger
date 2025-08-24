@@ -65,13 +65,13 @@
       },
       {
         "id": 7,
-        "title": "VueJS Blogger Settings",
+        "title": "VueJS3 Example Settings",
         "slug": "blogger-vuejs",
         "author": "geraldox",
         "published": true,
         "createdAt": "March 5, 2023",
         "article": "",
-        "component": "Vuejs",
+        "component": "vuejs3",
         "category": "developer",
         "pinned": ""
       },
@@ -393,6 +393,17 @@
         "article": "",
         "component": "serverless",
         "category": "developer"
+      },
+      {
+        "id": 37,
+        "title": "Android Apps 22 loremipsum",
+        "slug": "testando-outrao-rota",
+        "author": "geraldox",
+        "published": true,
+        "createdAt": "May 24, 2021",
+        "article": "<h1 style='text-align:center; margin: 10px 0;'>TESSTEEETETE</h1>",
+        "component": "",
+        "category": "android"
       }
     ]
   }
