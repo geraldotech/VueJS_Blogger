@@ -5,30 +5,26 @@ import Sidebar from '/src/components/blog/Sidebar.vue'
 import { ref, watch, onMounted, defineComponent } from 'vue'
 const foo = ref(0)
 
-
 onMounted(() => {})
 </script>
 <template>
   <div>
-    <p>1 - Primeiro baixe o Handle</p>
+    <p>Set wallpaper per monitor:</p>
+
+    <form class="clipboard">
+      <input
+        disabled
+        type="text"
+        value="shell:::{ED834ED6-4B5A-4bfe-8F11-A626DCB6A921} -Microsoft. Personalization\pageWallpaper" />
+      <span id="copiado"></span>
+    </form>
     <nav>
       <a
-        href="https://learn.microsoft.com/pt-br/sysinternals/downloads/handle"
+        href="https://winaero.com/how-to-set-wallpaper-per-monitor-in-windows-11/"
         target="_blank"
-        class="btnDownload"
-        >Download</a
+        >Ref</a
       >
     </nav>
-    <p>2 - Type "handle.exe" (without quotes) and press Enter.</p>
-
-    <figure>
-      <img
-        src="${cdn.img[2023]}/handle-process.jpg"
-        alt="handle process"
-        class="img-flex" />
-    </figure>
-
-    <p>3 - Use "taskkill /PID " (without quotes) and press Enter for each process.</p>
   </div>
 </template>
 <style scoped>

@@ -1,10 +1,13 @@
 <script setup>
-import { ref, watch, onMounted, defineComponent } from 'vue'
+import { ref, watch, onMounted, defineComponent, inject } from 'vue'
 
 import Sidebar from '/src/components/blog/Sidebar.vue'
 /* WELCOME TO VUEJS 3 components
  usando setup no script é mais pratico ainda */
 const foo = ref(0)
+
+// variaveis injetaaas globalmente
+const globais = inject('globais')
 
 function makeFetchRequest() {
   fetch('https://api-restful-json.vercel.app/entregasuporte')
@@ -44,13 +47,14 @@ const MyComponentLocal = defineComponent({
   `,
 })
 
-
 const hello = () => {
   console.log(`click`)
 }
 
 onMounted(() => {
   makeFetchRequest()
+
+  console.log(globais)
 })
 </script>
 <template>
@@ -78,10 +82,10 @@ onMounted(() => {
     <h2 @click="hello">hello</h2>
 
     <h1>component Local</h1>
-    <MyComponentLocal/>
+    <MyComponentLocal />
 
     <h1>component global</h1>
-    <MyComponentGlobal/>
+    <MyComponentGlobal />
 
     <h1>sidebar</h1>
     <Sidebar />

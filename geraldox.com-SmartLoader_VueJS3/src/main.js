@@ -29,6 +29,13 @@ window.onload = function () {
   })
   app.use(router)
 
+  // injectando var globais
+  const globais = {
+    apiUrl: 'https://minha.api',
+    tema: ref('dark'),
+  }
+  app.provide('globais', globais)
+
   // register component global
   app.component('MyComponentGlobal', MyComponentGlobal)
   app.mount('#app')

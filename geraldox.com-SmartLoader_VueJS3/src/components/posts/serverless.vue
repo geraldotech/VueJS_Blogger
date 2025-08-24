@@ -42,9 +42,3 @@
     <a href="https://www.youtube.com/post/UgkxlosES-TkGKTyT11bL679PUKs6HqH7xDQ">REF</a>
   </div>
 </template>
-
-<script>
-module.exports = {}
-</script>
-
-<style></style>
