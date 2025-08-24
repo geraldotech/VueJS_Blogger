@@ -1,24 +1,89 @@
+<script setup>
+import { onMounted, ref, watch, defineProps } from 'vue'
+defineProps({
+  v1: {
+    type: Boolean,
+    // required: true
+  },
+  v2: {
+    type: Boolean,
+    // required: true
+  },
+})
+
+const blog = ref([])
+const userInput = ref('')
+const results = ref('')
+const autoResults = ref('')
+const Message = ref('')
+
+async function posts() {
+  const req = await fetch('/src/db/data.json')
+  const res = await req.json()
+  blog.value = res.blog.posts
+}
+/* clean current last input and old results */
+function cleanInput() {
+  userInput.value = ''
+  autoResults.value = [] //  clean
+}
+function AutoSeach() {
+  // check input has values >1
+  if (userInput.value.length > 1) {
+    const Search = blog.value.filter((val) => val.title.toUpperCase().includes(userInput.value.toUpperCase()))
+    autoResults.value = Search
+
+    if (!autoResults.value.length) {
+      Message.value = 'Not Found'
+      autoResults.value = []
+    } else {
+      Message.value = ''
+    }
+  }
+  // !this.userInput.length
+  if (!this.userInput.length) {
+    this.Message = '' // clean
+    this.autoResults = [] //  clean
+  }
+  /*  console.warn('input vazia?', !this.userInput.length) //true
+      console.warn('input igual a 0?', this.userInput.length == 0) //true
+      console.warn('input has  length a 0?', this.userInput.length) //true */
+}
+
+onMounted(() => {posts()})
+</script>
 <template>
   <div class="search">
     <!-- v1 starts -->
-    <div v-show="v1" class="formparent">
-      <form @submit.prevent="search" @input="AutoSeach">
+        <!-- autosearch v1 for blog.vue -->
+    <div
+      v-show="v1"
+      class="formparent">
+    <!--   <form
+        @submit.prevent="search"
+        @input="AutoSeach">
         <input
           name=""
           type="text"
           v-model="userInput"
           placeholder="What do you need?"
           required />
-        <span class="btn-close" @click="$emit('cancloseafterclick')">X</span>
-        <!-- autosearch v1 for blog.vue -->
-        <p v-if="autoResults">
-          About: {{ autoResults.length }} results for: `{{ userInput }}`
-        </p>
-      </form>
+        <span
+          class="btn-close"
+          @click="$emit('cancloseafterclick')"
+          >X</span
+        >
+        <p v-if="autoResults">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
+      </form> -->
     </div>
 
-    <ul v-show="v1" class="containerResults">
-      <li v-for="autosearch in autoResults" :key="autosearch.id">
+   <!-- in routerLink emit a event function to parent -->
+<!--     <ul
+      v-show="v1"
+      class="containerResults">
+      <li
+        v-for="autosearch in autoResults"
+        :key="autosearch.id">
         <router-link
           class="results_links"
           :to="{
@@ -29,17 +94,21 @@
             $emit('cancloseafterclick')
             cleanInput()
           ">
-          <!-- in routerLink emit a event function to parent -->
+       
           {{ autosearch.title.substring(0, 30) }}... - {{ autosearch.data }}
         </router-link>
       </li>
       <h1>{{ Message }}</h1>
-    </ul>
+    </ul> -->
     <!-- v1 ends -->
 
     <!-- v2 starts -->
-    <div v-show="v2" class="v2">
-      <form @submit.prevent="search" @input="AutoSeach">
+    <div
+      v-show="v2"
+      class="v2">
+      <form
+        @submit.prevent="search"
+        @input="AutoSeach">
         <input
           name=""
           type="text"
@@ -48,13 +117,13 @@
           required />
 
         <!-- autosearch v1 for blog.vue -->
-        <p v-if="autoResults">
-          About: {{ autoResults.length }} results for: `{{ userInput }}`
-        </p>
+        <p v-if="autoResults">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
       </form>
 
       <ul>
-        <li v-for="autosearch in autoResults" :key="autosearch.id">
+        <li
+          v-for="autosearch in autoResults"
+          :key="autosearch.id">
           <!-- emit a ser detectado no App.vue call fun close Modal -->
           <router-link
             class="results_links"
@@ -63,9 +132,16 @@
               params: { category: autosearch.category, slug: autosearch.slug },
             }"
             @click.native="
-              $emit('cancloseafterclick')
+              $emit('cancloseafterclick'),
               cleanInput()
             ">
+
+            <!-- 
+              @click.native="
+              $emit('cancloseafterclick')
+              cleanInput()
+            "
+             -->
             <!-- in routerLink emit a event function to parent -->
             {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
           </router-link>
@@ -76,63 +152,6 @@
     <!-- v2 ends -->
   </div>
 </template>
-<script>
-module.exports = {
-  created() {
-    this.posts()
-  },
-  data() {
-    return {
-      userInput: '',
-      blog: [],
-      results: '',
-      autoResults: '',
-      Message: '',
-    }
-  },
-  props: {
-    v1: Boolean, // v1 for @click show modal search, contains CSS class
-    v2: Boolean, // v2 for autosearch always show input, few CSS class
-  },
-  methods: {
-    async posts() {
-      const req = await fetch('/src/db/data.json')
-      const res = await req.json()
-      this.blog = res.blog.posts
-    },
-    /* clean current last input and old results */
-    cleanInput() {
-      this.userInput = ''
-      this.autoResults = [] //  clean
-    },
-    AutoSeach() {
-      // check input has values >1
-      if (this.userInput.length > 1) {
-        const Search = this.blog.filter((val) =>
-          val.title.toUpperCase().includes(this.userInput.toUpperCase())
-        )
-        this.autoResults = Search
-
-        if (!this.autoResults.length) {
-          this.Message = 'Not Found'
-          this.autoResults = []
-        } else {
-          this.Message = ''
-        }
-      }
-      // !this.userInput.length
-      if (!this.userInput.length) {
-        this.Message = '' // clean
-        this.autoResults = [] //  clean
-      }
-      /*  console.warn('input vazia?', !this.userInput.length) //true
-      console.warn('input igual a 0?', this.userInput.length == 0) //true
-      console.warn('input has  length a 0?', this.userInput.length) //true */
-    },
-  },
-  computed: {},
-}
-</script>
 <style scoped>
 .search {
   border-bottom-width: 10%;

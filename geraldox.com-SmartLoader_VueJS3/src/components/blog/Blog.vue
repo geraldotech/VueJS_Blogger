@@ -1,16 +1,16 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
+
 import Sidebar from '/src/components/blog/Sidebar.vue'
 import Searchlegacy from '/src/components/blog/Search.vue'
 import Mapas from '/src/components/blog/mapa.vue'
 import Adsense from '/src/components/blog/Adsense.vue'
-/* 
-component is broken layout
-import Searchauto from '/src/components/blog/SearchAuto.vue'
- */
+/* component is broken layout*/
+/* import Searchauto from '/src/components/blog/SearchAuto.vue' */
 
 const useRouter = VueRouter.useRouter()
 
+/* REACTIVES */
 const dynamicTitle = ref('Blog')
 const AllPosts = ref([])
 const categorias = ref([])
@@ -104,7 +104,7 @@ watch(dynamicTitle, (newTitle) => {
 
 <template>
   <div>
-    <!--  <Adsense></Adsense> -->
+      <Adsense></Adsense> 
     <div
       v-if="$route.name == 'Blog Posts'"
       class="list-all">
