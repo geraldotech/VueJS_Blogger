@@ -48,9 +48,13 @@
               <label class="form-label">Autor</label>
               <input type="text" class="form-control" id="author" value="geraldox">
             </div>
+            <div class="mb-3">
+              <label class="form-label">Component</label>
+              <input type="text" class="form-control" id="component" value="">
+            </div>
             <div class="form-check mb-3">
               <input class="form-check-input" type="checkbox" id="published" checked>
-              <label class="form-check-label">Publicado</label>
+              <label class="form-check-label" for="published">Publicado</label>
             </div>
             <div class="mb-3">
               <label class="form-label">Categoria</label>
@@ -63,7 +67,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary" id="savebtn">Salvar</button>
           </div>
         </form>
       </div>

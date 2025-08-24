@@ -81,8 +81,14 @@ def delete_post(post_id):
 @app.route("/posts/check-slug/<slug>", methods=["GET"])
 def check_slug(slug):
     data = load_data()
-    exists = any(p["slug"] == slug for p in data["blog"]["posts"])
-    return jsonify({"slug": slug, "exists": exists})
+    post = next((p for p in data["blog"]["posts"] if p["slug"] == slug), None)
+    if post:
+        return jsonify({"exists": True, "slug": slug, "id": post["id"]})
+    return jsonify({"exists": False, "slug": slug, "id": None})
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 const API_URL = 'http://127.0.0.1:5000/posts'
 let postModal
+let currentId
 
 // Inicializa Bootstrap Modal
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,6 +35,13 @@ async function loadPosts() {
 function openCreateModal() {
   resetForm()
   document.getElementById('postModalLabel').innerText = 'Novo Post'
+  setcurrentId()
+}
+
+function setcurrentId() {
+  currentId = document.getElementById('postId').value
+
+  console.warn(`currentId`, currentId)
 }
 
 // Abrir modal para editar post
@@ -42,10 +50,14 @@ async function openEditModal(id) {
   const post = await res.json()
 
   document.getElementById('postId').value = post.id
+  setcurrentId()
+  console.log(`currentId`, currentId)
+
   document.getElementById('title').value = post.title
   document.getElementById('slug').value = post.slug
   document.getElementById('author').value = post.author
   document.getElementById('published').checked = post.published
+  document.getElementById('component').value = post.component
   document.getElementById('category').value = post.category
   document.getElementById('article').value = post.article
 
@@ -54,48 +66,67 @@ async function openEditModal(id) {
 }
 
 // Salvar post (create/update)
+const savebtn = document.getElementById('savebtn')
+const slugInput = document.getElementById('slug')
 
-const slug = document.getElementById('slug')
-slug.addEventListener('blur', function () {
-  if (!checkSlug()) {
-    alert('❌ Essa slug já está em uso, escolha outra!')
+slugInput.addEventListener('blur', function () {
+  const slugValue = slugInput.value.trim()
+  if (!slugValue) {
+    slugInput.classList.remove('is-valid', 'is-invalid')
+    return
+  }
+
+  slugExists(slugValue).then((res) => {
+    if (res.exists && res.id != currentId) {
+      savebtn.innerText = res.exists ? 'Slug inválida' : 'Salvar'
+
+      savebtn.disabled = true
+      savebtn.title = 'slug já está em uso!'
+
+      slugInput.classList.add('is-invalid') // vermelho
+      slugInput.classList.remove('is-valid')
+    } else {
+      slugInput.classList.remove('is-invalid')
+      slugInput.classList.add('is-valid') // verde
+      savebtn.disabled = false
+    }
+  })
+})
+
+document.getElementById('title').addEventListener('input', (e) => {
+  const slugField = document.getElementById('slug')
+  if (!document.getElementById('postId').value) {
+    // só em novo post
+    slugField.value = e.target.value
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9\-]/g, '')
   }
 })
 
-/* FN CHECK SLUG JA ESTA EM USO */
-function checkSlug() {
-  fetch(`${API_URL}/check-slug/${slug}`)
-    .then((req) => {
-      if (!req.ok) {
-        throw new Error(`Error na requisição ${req.status}`)
-      }
-      return req.json()
-    })
-    .then((res) => {
-      const check = res
-      if (check.exists) {
-        return false
-      }
-    })
+/* FN CHECK SLUG JA ESTA EM USO 
+// se nao existe return: exists: false
+// existe return: exists: true
+*/
+function slugExists(slugValue) {
+  return fetch(`${API_URL}/check-slug/${slugValue}`).then((req) => {
+    if (!req.ok) {
+      throw new Error(`Error na requisição ${req.status}`)
+    }
+    return req.json()
+  })
 }
 
 document.getElementById('postForm').addEventListener('submit', async (e) => {
   e.preventDefault()
   const id = document.getElementById('postId').value
 
-  // Verifica slug se for criação
-  if (!id) {
-    if (!checkSlug()) {
-      alert('❌ Essa slug já está em uso, escolha outra!') 
-      return
-    }
-  }
-
   const post = {
     title: document.getElementById('title').value,
     slug: document.getElementById('slug').value,
     author: document.getElementById('author').value,
     published: document.getElementById('published').checked,
+    component: document.getElementById('component').value,
     category: document.getElementById('category').value,
     article: document.getElementById('article').value,
     createdAt: new Date().toLocaleDateString('pt-BR'),
@@ -131,4 +162,6 @@ async function deletePost(id) {
 function resetForm() {
   document.getElementById('postForm').reset()
   document.getElementById('postId').value = ''
+  slugInput.classList.remove('is-valid')
+  slugInput.classList.remove('is-invalid')
 }
