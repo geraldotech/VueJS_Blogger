@@ -1,9 +1,9 @@
 <script setup>
+import { ref, watch, onMounted, defineComponent } from 'vue'
 
 import Sidebar from '/src/components/blog/Sidebar.vue'
 /* WELCOME TO VUEJS 3 components
  usando setup no script é mais pratico ainda */
-import { ref, watch, onMounted } from 'vue'
 const foo = ref(0)
 
 function makeFetchRequest() {
@@ -22,6 +22,16 @@ function makeFetchRequest() {
     })
     .finally(() => {})
 }
+
+/* registrar componentes locais com defineComponent */
+const Child = defineComponent({
+  name: 'Child',
+  setup() {
+    const foo = ref(0)
+    return { foo }
+  },
+  template: `<h2>child component </h2><button @click="foo++">Cliques: {{ foo }}</button>`
+})
 
 const hello = () => {
   console.log(`click`)
@@ -55,7 +65,13 @@ onMounted(() => {
 
     <h2 @click="hello">hello</h2>
 
-    <h1>component</h1>
+    <h1>component inline</h1>
+    <Child/>
+
+    <h1>component global</h1>
+    <MyComponentGlobal/>
+
+    <h1>sidebar</h1>
     <Sidebar />
   </div>
 </template>

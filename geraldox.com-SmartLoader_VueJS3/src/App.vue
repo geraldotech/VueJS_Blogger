@@ -1,6 +1,9 @@
-<script setup lang="jsx">
+<script setup>
 /* import Foo from '../src/components/footer.vue'
 import MyHeader from '../src/components/Header.vue' */
+
+import { ref, watch, onMounted, defineComponent } from 'vue'
+
 </script>
 
 <template>

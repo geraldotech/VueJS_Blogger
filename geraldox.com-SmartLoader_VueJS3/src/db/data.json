@@ -301,7 +301,7 @@
         "author": "geraldox",
         "published": true,
         "createdAt": "Dec 02, 2023",
-        "article": "",
+        "article": "<div><h1>Desativar Telemetry</h1> <p>Digite 'Serviços': <code>services.msc</code> e 'Experiências e Telemetria de Usuário Conectado' e dê um  duplo clique.</p> <p>Na janela de propriedades do serviço clique em 'Parar' caso ele esteja rodando e depois em 'Tipo de  inicialização' coloque 'Desativado'. Depois dê um OK.</p> <p>Ir em regedit ⇒ <code>Computador/HKEY_LOCAL_MACHINE/SOFTWARE/Policies/Microsoft/Windows/DataCollection</code>  create a new value: Valor DWORD (32 bits) com o nome AllowTelemetry e set os dados do valor para 0</p> </div>",
         "component": "win-afterinstall",
         "category": "windows"
       },

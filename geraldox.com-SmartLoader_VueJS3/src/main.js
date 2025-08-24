@@ -1,16 +1,34 @@
 import router from '../src/router/index.js'
-const { createApp, ref, onMounted, reactive } = Vue
+const { createApp, ref, onMounted, reactive, defineComponent } = Vue
 //import CDN to Vue Mixin
 import cdn from '/src/lib/cdn.js'
 
-window.onload = function () {
-const app = createApp({
-  components: {
-    App: Vue.defineAsyncComponent(() => loadModule('./src/App.vue', options)),
+const MyComponentGlobal = defineComponent({
+  name: 'MyComponentGlobal',
+  setup() {
+    const count = ref(0)
+    return { count }
   },
-  setup() {},
-  template: `<App/>`,
+  template: `
+    <div>
+      <h2>hello from component global #works #here</h2>
+      <p>Contador: {{ count }}</p>
+      <button @click="count++">Incrementar</button>
+    </div>
+  `,
 })
-app.use(router)
-app.mount('#app')
+
+window.onload = function () {
+  const app = createApp({
+    components: {
+      App: Vue.defineAsyncComponent(() => loadModule('./src/App.vue', options)),
+    },
+    setup() {},
+    template: `<App/>`,
+  })
+  app.use(router)
+
+  // register component global
+  app.component('MyComponentGlobal', MyComponentGlobal)
+  app.mount('#app')
 }
