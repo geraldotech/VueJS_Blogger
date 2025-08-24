@@ -6,6 +6,7 @@ import Sidebar from '/src/components/blog/Sidebar.vue'
  usando setup no script é mais pratico ainda */
 const foo = ref(0)
 
+
 // variaveis injetaaas globalmente
 const globais = inject('globais')
 
@@ -54,7 +55,9 @@ const hello = () => {
 onMounted(() => {
   makeFetchRequest()
 
-  console.log(globais)
+// globais
+  console.log('globais', globais)
+
 })
 </script>
 <template>
