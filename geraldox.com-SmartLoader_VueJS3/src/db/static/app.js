@@ -35,13 +35,12 @@ async function loadPosts() {
 function openCreateModal() {
   resetForm()
   document.getElementById('postModalLabel').innerText = 'Novo Post'
-  setcurrentId()
+  getCurrentPostID()
 }
 
-function setcurrentId() {
+/* get PostID */
+function getCurrentPostID() {
   currentId = document.getElementById('postId').value
-
-  console.warn(`currentId`, currentId)
 }
 
 // Abrir modal para editar post
@@ -50,7 +49,7 @@ async function openEditModal(id) {
   const post = await res.json()
 
   document.getElementById('postId').value = post.id
-  setcurrentId()
+  getCurrentPostID()
   console.log(`currentId`, currentId)
 
   document.getElementById('title').value = post.title
@@ -78,14 +77,14 @@ slugInput.addEventListener('blur', function () {
 
   slugExists(slugValue).then((res) => {
     if (res.exists && res.id != currentId) {
-      savebtn.innerText = res.exists ? 'Slug inválida' : 'Salvar'
-
+      savebtn.innerText = 'Slug inválida'
       savebtn.disabled = true
       savebtn.title = 'slug já está em uso!'
-
+      
       slugInput.classList.add('is-invalid') // vermelho
       slugInput.classList.remove('is-valid')
     } else {
+      savebtn.innerText = 'Salvar'
       slugInput.classList.remove('is-invalid')
       slugInput.classList.add('is-valid') // verde
       savebtn.disabled = false
@@ -165,3 +164,18 @@ function resetForm() {
   slugInput.classList.remove('is-valid')
   slugInput.classList.remove('is-invalid')
 }
+
+// Filtro de posts
+document.getElementById("searchInput").addEventListener("input", function () {
+  const filter = this.value.toLowerCase();
+  const rows = document.querySelectorAll("#postsTable tr");
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    if (text.includes(filter)) {
+      row.style.display = "";   // mostra
+    } else {
+      row.style.display = "none"; // esconde
+    }
+  });
+});
