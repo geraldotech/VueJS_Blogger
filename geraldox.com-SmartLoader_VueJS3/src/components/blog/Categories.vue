@@ -1,7 +1,36 @@
+<script setup>
+import { onMounted, ref, watch } from 'vue'
+
+const Adsense = Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options))
+
+const blogPosts = ref([])
+const opt = ref(null)
+
+// Route
+const useRoute = VueRouter.useRoute()
+
+async function posts() {
+  const req = await fetch('../src/db/data.json')
+  const res = await req.json()
+  //filter post published
+  blogPosts.value = res.blog.posts
+  const getBlogPost = blogPosts.value.filter((post) => useRoute.params.category == post.category && post.published).reverse()
+  //console.log(publicados);
+  //reverse render posts mais novos on top
+  opt.value = getBlogPost
+  getBlogPost.forEach((val, ind) => {
+    // console.log(ind)
+  })
+}
+
+onMounted(() => {
+  posts()
+})
+</script>
 <template>
   <div class="category">
     <div>
-      <Adsense />
+      <!--   <Adsense /> -->
     </div>
     <div v-if="$route.params.category.includes('ndroid')">
       <div class="cat-banner">
@@ -26,62 +55,10 @@
         <!--  <div></div> -->
       </li>
     </ul>
-   <!--  <router-view></router-view> -->
+    <!--  <router-view></router-view> -->
   </div>
 </template>
 
-<script>
-module.exports = {
-  /*   metaInfo: {
-    title: 'Categorias',
-    titleTemplate: '%s - geraldoX',
-    meta: [
-      { charset: 'utf-8' },
-      {
-        name: 'description',
-        content: 'Threads written by Geraldo Filho',
-      },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: 'vuejs, windows, android, linux, gmapdev' },
-    ],
-  },  */
-  created() {
-    this.posts()
-    console.log(this.$route);
-    document.title = 'test'
-    
-  },
-  mounted() {
-    
-    console.log(this.$route.params.category)
-  },
-  data() {
-    return {
-      opt: '',
-    }
-  },
-  components: {
-    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options))
-  },
-  methods: {
-    async posts() {
-      const req = await fetch('../src/db/data.json')
-      const res = await req.json()
-      //filter post published
-      this.blogPosts = res.blog.posts 
-      const getBlogPost = this.blogPosts.filter((post) => this.$route.params.category == post.category && post.published).reverse()
-      //console.log(publicados);
-      //reverse render posts mais novos on top
-      this.opt = getBlogPost
-      getBlogPost.forEach((val, ind) => {
-        // console.log(ind)
-      })
-      //limitador
-      //this.opt.splice(0, 2);
-    },
-  },
-}
-</script>
 <style scoped>
 .category {
   text-align: center;
