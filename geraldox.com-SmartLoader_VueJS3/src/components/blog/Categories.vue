@@ -1,13 +1,10 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-
 const Adsense = Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options))
 
 const blogPosts = ref([])
 const opt = ref(null)
-
-// Route
-const useRoute = VueRouter.useRoute()
+const useRoute = VueRouter.useRoute() // Route
 
 async function posts() {
   const req = await fetch('../src/db/data.json')
