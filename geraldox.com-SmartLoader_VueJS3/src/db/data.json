@@ -124,8 +124,8 @@
         "title": "Super Nintendo Favorites Games",
         "slug": "super-nintendo-fav-games",
         "author": "geraldox",
-        "published": true,
-        "createdAt": "Jul 29, 2023",
+        "published": false,
+        "createdAt": "02/09/2025",
         "article": "",
         "component": "supergames",
         "category": "games"

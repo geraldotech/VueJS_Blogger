@@ -171,16 +171,16 @@ watch(dynamicTitle, (newTitle) => {
             v-for="link in pinned"
             :key="link.id">
             <router-link :to="{ name: 'threads', params: { category: link.category ?? true, slug: link.slug ?? true } }">{{ link.title.slice(0, 30) + '...' }}</router-link>
-              <time>{{ link.createdAt }}</time>
-              <span class="cat">
-                Category:
-                <router-link
-                  class="cats"
-                  :to="{ name: 'category', params: { category: link.category ?? true } }"
-                  >{{ link.category ? link.category.toUpperCase() : 'Uncategorized' }}
-                </router-link>
-              </span>            
-          <hr>
+            <time>{{ link.createdAt }}</time>
+            <span class="cat">
+              Category:
+              <router-link
+                class="cats"
+                :to="{ name: 'category', params: { category: link.category ?? true } }"
+                >{{ link.category ? link.category.toUpperCase() : 'Uncategorized' }}
+              </router-link>
+            </span>
+            <hr />
           </div>
         </section>
 

@@ -210,7 +210,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 article h1 {
   text-align: left;
   font-size: 1.5rem;
@@ -220,15 +220,12 @@ article p {
   line-height: 1.5rem;
   margin-top: 10px;
 }
-.article:first-letter,
-.blogger article > p:first-letter {
- /*  font-size: 2.6rem; */
-  margin-left: 1rem;
+.breadcrumbs{
+  color: coral;
+
 }
 
-.blogger {
-  /* margin: 5px 15px; */ /* margin do body posts, now get margin from .main parent */
-}
+
 
 .breadcrumbs p {
   margin: 0;

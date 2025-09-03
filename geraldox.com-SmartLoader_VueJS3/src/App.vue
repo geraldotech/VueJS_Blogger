@@ -3,13 +3,11 @@
 import MyHeader from '../src/components/Header.vue' */
 
 import { ref, watch, onMounted, defineComponent } from 'vue'
-
 </script>
 
 <template>
   <div>
-    <nav
-      class="top-homepage">
+    <nav class="top-homepage">
       <li class="logo">
         <a href="/">GPX</a>
       </li>
@@ -39,8 +37,7 @@ import { ref, watch, onMounted, defineComponent } from 'vue'
       <label>
         <input
           type="checkbox"
-          id="toggleMenu"
-           />
+          id="toggleMenu" />
         <span class="menuicon">
           <i class="menuiconelement fa-solid fa-bars"></i>
         </span>
@@ -69,9 +66,20 @@ ul li,
 p {
   color: dodgerblue;
 }
-.top-homepage ,.items_menu{
+.top-homepage,
+.items_menu {
   display: flex;
-      justify-content: space-between;
+  justify-content: space-between;
 }
 
+.blogger {
+  border: 2px solid red;
+  display: flex;
+  /* margin: 5px 15px; */ /* margin do body posts, now get margin from .main parent */
+}
+.article:first-letter,
+.blogger article > p:first-letter {
+  /*  font-size: 2.6rem; */
+  margin-left: 1rem;
+}
 </style>
