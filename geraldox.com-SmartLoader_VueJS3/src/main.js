@@ -3,7 +3,6 @@ const { createApp, ref, onMounted, reactive, defineComponent } = Vue
 //import CDN to Vue Mixin
 import cdn from '/src/lib/cdn.js'
 
-
 /* string templates: components globais */
 const MyComponentGlobal = defineComponent({
   name: 'MyComponentGlobal',
@@ -25,7 +24,11 @@ window.onload = function () {
     components: {
       App: Vue.defineAsyncComponent(() => loadModule('./src/App.vue', options)),
     },
-    setup() {},    
+    setup() {
+      onMounted(() => {
+        
+      })
+    },
     template: `<App/>`,
   })
   app.use(router)

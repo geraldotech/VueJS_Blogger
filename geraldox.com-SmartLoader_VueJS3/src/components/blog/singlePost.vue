@@ -18,6 +18,7 @@ export default {
     const categorias = ref('')
     const dynamicComponent = ref(null)
     const dynamicImportStatus = ref(null)
+    const content = ref([])
 
     // Router
     const useRouter = VueRouter.useRouter()
@@ -35,6 +36,20 @@ export default {
         name: 'category',
         params: { category: e.target.value },
       })
+    }
+
+    /* AUTO FETCH POSTS MARKDOWN */
+    if (useRoute.params.slug[0]) {
+      fetch(`/src/components/posts_md/${useRoute.params.slug[0]}.md`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`Erro na requisição: ${response.status}`)
+          }
+        })
+        .then((md) => {
+          console.log(md)
+          content.value = marked.parse(md)
+        })
     }
 
     // single post fetch
@@ -131,6 +146,7 @@ export default {
       blog,
       categorias,
       dynamicComponent,
+      content,
     }
   },
 }
@@ -192,6 +208,9 @@ export default {
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
+
+          <!-- markdown files -->
+          <div v-html="content"></div>
         </article>
         <div v-else>
           <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
