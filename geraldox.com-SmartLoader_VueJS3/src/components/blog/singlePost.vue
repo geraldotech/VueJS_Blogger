@@ -43,11 +43,11 @@ export default {
       fetch(`/src/components/posts_md/${useRoute.params.slug[0]}.md`)
         .then((res) => {
           if (!res.ok) {
-            throw new Error(`Erro na requisição: ${response.status}`)
+            throw new Error(`Erro na requisição: ${res.status}`)
           }
         })
         .then((md) => {
-          console.log(md)
+          console.log('=>',md)
           content.value = marked.parse(md)
         })
     }

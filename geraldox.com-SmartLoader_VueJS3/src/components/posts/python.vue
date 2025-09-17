@@ -3,7 +3,7 @@ import { ref, watch, onMounted, defineComponent, inject } from 'vue'
 </script>
 <template>
   <div>
-    <h1>Hello Python handler</h1>
+    <h1>Hello Python handler vue file</h1>
   </div>
 </template>
 <style scoped>

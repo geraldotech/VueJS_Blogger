@@ -3,11 +3,11 @@
     "posts": [
       {
         "id": 1,
-        "title": "Speed Testwewe",
+        "title": "Speed Test",
         "slug": "speed-test",
         "author": "geraldox",
         "published": true,
-        "createdAt": "24/08/2025",
+        "createdAt": "2024-02-05",
         "article": "File to test your Network Speed",
         "category": "network",
         "component": "Speedtest"
@@ -18,9 +18,10 @@
         "slug": "burnout-revenge-is-alive",
         "author": "geraldox",
         "published": true,
-        "createdAt": "24/08/2025",
+        "createdAt": "2025-09-01",
         "article": "2JavaScript VueJS Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, rerum <div><figure><img class='img-flex' src='https://upload.wikimedia.org/wikipedia/en/c/cb/Revenge_boxart.jpg' alt='game' /><figcaption>Burnout 2005</figcaption></figure></div> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta eligendi, facere voluptatum non id atque temporibus hic fuga? Voluptas laudantium quisquam adipisci iure sint quam reprehenderit fugit animi ipsam ipsa qui saepe, perspiciatis voluptatibus aliquam vel assumenda earum accusantium laboriosam. Labore, et ipsa! Ratione vero delectus voluptatem exercitationem voluptatibus repellat dicta eos magni dolore placeat quos accusamus odio veritatis sed dolores assumenda, aut, hic esse, facere eius. Ipsam recusandae at laboriosam in ea dolore cum consequuntur facere dolores voluptatem, quisquam laudantium! Dicta quas ea dolorem minima, labore, beatae, consequuntur porro sed quia sapiente debitis aperiam esse doloremque voluptate assumenda rem.</p>",
         "category": "games",
+        "component": "",
         "pinned": ""
       },
       {
@@ -409,13 +410,13 @@
       },
       {
         "title": "usando python para gerenciar o banco de dados",
-        "slug": "usando-python-para-gerenciar-o-banco-de-dados",
+        "slug": "python-para-gerenciar-o-banco-de-dados",
         "author": "geraldox",
         "published": true,
         "component": "python",
         "category": "python",
-        "article": "",
-        "createdAt": "24/08/2025",
+        "article": "aqui é um exemplo de postagem usando o python para gerenciar o backend",
+        "createdAt": "2025-09-05",
         "id": 40
       }
     ]

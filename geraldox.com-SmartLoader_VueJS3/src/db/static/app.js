@@ -50,15 +50,19 @@ async function openEditModal(id) {
 
   document.getElementById('postId').value = post.id
   getCurrentPostID()
-  console.log(`currentId`, currentId)
+  // console.log(`currentId`, currentId)
+
+  console.log(`post`, post)
 
   document.getElementById('title').value = post.title
   document.getElementById('slug').value = post.slug
   document.getElementById('author').value = post.author
   document.getElementById('published').checked = post.published
-  document.getElementById('component').value = post.component
+  document.getElementById('component').value = post.component ?? ''
   document.getElementById('category').value = post.category
   document.getElementById('article').value = post.article
+  document.getElementById('createdat').value = post.createdAt
+
 
   document.getElementById('postModalLabel').innerText = 'Editar Post'
   postModal.show()
@@ -128,7 +132,8 @@ document.getElementById('postForm').addEventListener('submit', async (e) => {
     component: document.getElementById('component').value,
     category: document.getElementById('category').value,
     article: document.getElementById('article').value,
-    createdAt: new Date().toLocaleDateString('pt-BR'),
+    createdAt: document.getElementById('createdat').value,
+  //  createdAt: new Date().toLocaleDateString('pt-BR'),
   }
 
   if (id) {
