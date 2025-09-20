@@ -52,8 +52,6 @@ async function openEditModal(id) {
   getCurrentPostID()
   // console.log(`currentId`, currentId)
 
-  console.log(`post`, post)
-
   document.getElementById('title').value = post.title
   document.getElementById('slug').value = post.slug
   document.getElementById('author').value = post.author
@@ -62,7 +60,6 @@ async function openEditModal(id) {
   document.getElementById('category').value = post.category
   document.getElementById('article').value = post.article
   document.getElementById('createdat').value = post.createdAt
-
 
   document.getElementById('postModalLabel').innerText = 'Editar Post'
   postModal.show()
@@ -84,7 +81,7 @@ slugInput.addEventListener('blur', function () {
       savebtn.innerText = 'Slug inválida'
       savebtn.disabled = true
       savebtn.title = 'slug já está em uso!'
-      
+
       slugInput.classList.add('is-invalid') // vermelho
       slugInput.classList.remove('is-valid')
     } else {
@@ -133,7 +130,7 @@ document.getElementById('postForm').addEventListener('submit', async (e) => {
     category: document.getElementById('category').value,
     article: document.getElementById('article').value,
     createdAt: document.getElementById('createdat').value,
-  //  createdAt: new Date().toLocaleDateString('pt-BR'),
+    //  createdAt: new Date().toLocaleDateString('pt-BR'),
   }
 
   if (id) {
@@ -171,16 +168,16 @@ function resetForm() {
 }
 
 // Filtro de posts
-document.getElementById("searchInput").addEventListener("input", function () {
-  const filter = this.value.toLowerCase();
-  const rows = document.querySelectorAll("#postsTable tr");
+document.getElementById('searchInput').addEventListener('input', function () {
+  const filter = this.value.toLowerCase()
+  const rows = document.querySelectorAll('#postsTable tr')
 
-  rows.forEach(row => {
-    const text = row.innerText.toLowerCase();
+  rows.forEach((row) => {
+    const text = row.innerText.toLowerCase()
     if (text.includes(filter)) {
-      row.style.display = "";   // mostra
+      row.style.display = '' // mostra
     } else {
-      row.style.display = "none"; // esconde
+      row.style.display = 'none' // esconde
     }
-  });
-});
+  })
+})

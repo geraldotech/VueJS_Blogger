@@ -33,14 +33,14 @@ export default {
     })
 
     watch(apisize, () => {
-      console.log(`apisize mudou`)
       emit('apisize', apisize.value) // emit apos mudanca
     })
 
     return {
       triggerEvent,
       apisize,
-      test, onClick
+      test,
+      onClick,
     }
   },
 }
@@ -49,6 +49,6 @@ export default {
   <div>
     <h1>Windows LTBS</h1>
     <button @click="onClick">onClick me</button>
-    <p>{{test}}</p>
+    <p>{{ test }}</p>
   </div>
 </template>
