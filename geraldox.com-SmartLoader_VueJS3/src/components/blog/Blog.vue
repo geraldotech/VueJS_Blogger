@@ -437,7 +437,7 @@ svg {
     gap: 20px;
   }
   .list-all .threads {
-    flex: 1 0 75%;
+    flex: 1 0 80%;
   }
 
   .limiter {

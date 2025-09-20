@@ -47,7 +47,7 @@ export default {
           }
         })
         .then((md) => {
-          console.log('=>',md)
+          console.log('=>', md)
           content.value = marked.parse(md)
         })
     }
@@ -154,7 +154,7 @@ export default {
 <template>
   <div>
     <!--  <Adsense></Adsense> -->
-    <div class="blogger">
+    <div class="single_post">
       <main>
         <!--  <div><Searchlegacy v1 /></div> -->
         <!--   <div><Searchauto v2 /></div> -->
@@ -229,7 +229,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
 article h1 {
   text-align: left;
   font-size: 1.5rem;
@@ -239,12 +239,9 @@ article p {
   line-height: 1.5rem;
   margin-top: 10px;
 }
-.breadcrumbs{
+.breadcrumbs {
   color: coral;
-
 }
-
-
 
 .breadcrumbs p {
   margin: 0;
@@ -270,18 +267,10 @@ div.breadcrumbs {
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-  gap: .3rem;
+  gap: 0.3rem;
 }
 .breadcrumbs a {
   text-decoration: none;
-}
-
-.blogger h2 {
-  padding: 10px 0;
-}
-.blogger ul {
-  margin-top: 20px;
-  padding-left: 15px;
 }
 h4.notFound {
   text-align: center;
@@ -290,29 +279,9 @@ button[data*='print'] {
   background: none;
   border: none;
   cursor: pointer;
-  &svg
-
 }
 
-button[data*='print'] svg{
-color: #05bdba;
-}
-
-/* for desktop */
-@media screen and (min-width: 990px) {
-  .blogger {
-    display: flex;
-    margin-top: 10px;
-    gap: 20px;
-  }
-  .blogger main {
-    flex: 1 0 77%;
-  }
-  article h1 {
-    font-size: 2em;
-  }
-  .blogger {
-    margin: 0; /* margin do body posts */
-  }
+button[data*='print'] svg {
+  color: #05bdba;
 }
 </style>
