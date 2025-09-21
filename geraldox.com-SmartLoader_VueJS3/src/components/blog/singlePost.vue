@@ -13,8 +13,8 @@ export default {
   },
 
   setup(props, { emit }) {
-    const GetallPosts = ref([])
-    const blog = ref({})
+    const allPosts = ref([])
+    const post = ref({})
     const categorias = ref('')
     const dynamicComponent = ref(null)
     const dynamicImportStatus = ref(null)
@@ -52,14 +52,15 @@ export default {
         })
     }
 
-    // single post fetch
-    async function post() {
+    /* FETCH ALL POSTS */
+    async function fetchPost() {
+      // fetch all posts
       const req = await fetch('/src/db/data.json')
       const data = await req.json()
-      GetallPosts.value = data.blog.posts
-      //encontra a slug atual e verifica se esta plublicada
-      const getBlogPost = GetallPosts.value.find((post) => post.slug == useRoute.params.slug && post.published)
-      blog.value = getBlogPost
+      allPosts.value = data.blog.posts
+      // fnid a slug atual e verifica se esta plublicada
+      const getBlogPost = allPosts.value.find((post) => post.slug == useRoute.params.slug && post.published)
+      post.value = getBlogPost
 
       /* Dynamic apply metaInfo */
       metaInfoInject(getBlogPost.title)
@@ -68,7 +69,7 @@ export default {
       checkComponentData()
 
       /* Sidebar props... */
-      const getCatego = GetallPosts?.value.map((val) => val.category)
+      const getCatego = allPosts?.value.map((val) => val.category)
 
       //🔢 contar n de categories values + ordenar com sort()
       const counter = getCatego.sort().reduce((cont, item) => ((cont[item] = cont[item] + 1 || 1), cont), {})
@@ -101,7 +102,7 @@ export default {
 
     function checkComponentData() {
       // se n tem return false
-      if (!blog.value.component) {
+      if (!post.value.component) {
         return {
           status: false,
         }
@@ -118,16 +119,16 @@ export default {
         dynamicImportStatus.value = componentData.status // dynamicImportStatus get status if component exists
       }
       /*  return {
-        component: `/src/components/posts/${this.blog.component}.vue`,
+        component: `/src/components/posts/${this.post.component}.vue`,
       } */
     }
     // constructor component object for VueLoader
     function componentObject() {
-      const exists = `/src/components/posts/${blog.value.component}.vue`
+      const exists = `/src/components/posts/${post.value.component}.vue`
 
       if (exists) {
         return {
-          component: `/src/components/posts/${blog.value.component}.vue`,
+          component: `/src/components/posts/${post.value.component}.vue`,
           status: true, // extra status because component exists
         }
       }
@@ -135,15 +136,15 @@ export default {
     }
 
     onMounted(() => {
-      post()
+      fetchPost()
       // console.log('=>>', useRoute.params.slug)
     })
 
     return {
       emitEvent,
       selectCategoryHandler,
-      GetallPosts,
-      blog,
+      allPosts,
+      post,
       categorias,
       dynamicComponent,
       content,
@@ -158,7 +159,7 @@ export default {
       <main>
         <!--  <div><Searchlegacy v1 /></div> -->
         <!--   <div><Searchauto v2 /></div> -->
-        <article v-if="blog">
+        <article v-if="post">
           <!-- card starts -->
           <div class="breadcrumbs">
             <p>
@@ -169,13 +170,13 @@ export default {
               >
               <router-link
                 class="categories"
-                :to="{ name: 'category', params: { category: blog.category ?? true } }"
-                >{{ blog.category }}</router-link
+                :to="{ name: 'category', params: { category: post.category ?? true } }"
+                >{{ post.category }}</router-link
               >
             </p>
-            <h1>{{ blog.title }}</h1>
+            <h1>{{ post.title }}</h1>
             <p class="breadcrumbs__author__date">
-              By:<span>{{ blog.author }}</span> | Posted on: {{ blog.createdAt }} |
+              By:<span>{{ post.author }}</span> | Posted on: {{ post.createdAt }} |
               <button
                 data="print"
                 title="print"
@@ -195,16 +196,16 @@ export default {
 
           <hr />
           <!-- render html from json -->
-          <p v-html="blog.article"></p>
+          <p v-html="post.article"></p>
 
           <!-- render components -->
           <!-- v1 se comentar vai quebrar o WebComponents.js e importacao de nomes, but se nao comentar duplica o content
          
             Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
-            - setado um state DYNAMIC IMPORT SUCCESS? so native blog.component is not rendered 
+            - setado um state DYNAMIC IMPORT SUCCESS? so native post.component is not rendered 
            -->
           <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
-          <component :is="blog.component"></component>
+          <component :is="post.component"></component>
 
           <!-- v2 Dynamic Imports -->
           <component :is="dynamicComponent"></component>
@@ -220,7 +221,7 @@ export default {
         <div v-if="$route.params.slug == 'speed-test'">
           <p>Hello post about speedTest</p>
         </div>
-        <Sidebarbottom :allposts="GetallPosts" />
+        <Sidebarbottom :allposts="allPosts" />
       </main>
       <Sidebar
         :categorias="categorias"
