@@ -51,8 +51,8 @@ module.exports = {}
 /* desktop */
 @media screen and (min-width: 650px) {
   .ads {
-    margin: 8px;
-    max-width: 80%;
+    margin: 8px 0;
+    max-width: 100%;
   }
 }
 </style>

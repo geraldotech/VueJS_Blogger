@@ -376,7 +376,8 @@ remove:
 */
 
 section.list__pinned {
-    display: flex; gap: 1.2rem;
+  display: flex;
+  gap: 1.2rem;
 }
 
 .limiter {
