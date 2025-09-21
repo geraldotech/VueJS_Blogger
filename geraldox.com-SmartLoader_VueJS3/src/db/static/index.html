@@ -16,20 +16,20 @@
         color: white;
       } */
 
-      .modal-header h5, .form-label{
+      .modal-header h5, .form-label, label{
         color: #f2f2f2;
       }
     </style>
   </head>
   <body class="p-4">
     <div class="container">
-      <h1 class="mb-4">Gerenciar Posts do Blog</h1>
+      <h1 class="mb-4">Gerenciar Posts</h1>
       <button
         class="btn btn-success mb-3"
         data-bs-toggle="modal"
         data-bs-target="#postModal"
         onclick="openCreateModal()">
-        + Novo Post
+        + New Post
       </button>
 
       <input
@@ -42,11 +42,11 @@
         <thead class="table-dark">
           <tr>
             <th>ID</th>
-            <th>Título</th>
+            <th>Title</th>
             <th>Slug</th>
-            <th>Autor</th>
-            <th>Publicado</th>
-            <th>Ações</th>
+            <th>Author</th>
+            <th>Published</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody id="postsTable"></tbody>
@@ -67,7 +67,7 @@
               <h5
                 class="modal-title"
                 id="postModalLabel">
-                Novo Post
+                New Post
               </h5>
               <button
                 type="button"
@@ -80,7 +80,7 @@
                 type="hidden"
                 id="postId" />
               <div class="mb-3">
-                <label class="form-label">Título</label>
+                <label class="form-label">Title</label>
                 <input
                   type="text"
                   class="form-control"
@@ -97,7 +97,7 @@
               </div>
               <div class="row mb-3">
                 <div class="col">
-                  <label class="form-label">Autor</label>
+                  <label class="form-label">Author</label>
                   <input
                     type="text"
                     class="form-control"
@@ -122,13 +122,13 @@
                 <label
                   class="form-check-label"
                   for="published"
-                  >Publicado</label
+                  >Published:</label
                 >
               </div>
 
               <div class="row mb-3">
                 <div class="col">
-                  <label class="form-label">Categoria</label>
+                  <label class="form-label">Category</label>
                   <input
                     type="text"
                     class="form-control"
@@ -143,7 +143,7 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">Conteúdo</label>
+                <label class="form-label">Body</label>
                 <textarea
                   class="form-control"
                   id="article"
@@ -155,13 +155,13 @@
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal">
-                Cancelar
+                Cancel
               </button>
               <button
                 type="submit"
                 class="btn btn-primary"
                 id="savebtn">
-                Salvar
+                Save
               </button>
             </div>
           </form>

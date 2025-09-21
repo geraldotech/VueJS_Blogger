@@ -34,7 +34,7 @@ async function loadPosts() {
 // Abrir modal para novo post
 function openCreateModal() {
   resetForm()
-  document.getElementById('postModalLabel').innerText = 'Novo Post'
+  document.getElementById('postModalLabel').innerText = 'New Post'
   getCurrentPostID()
 }
 
@@ -52,6 +52,8 @@ async function openEditModal(id) {
   getCurrentPostID()
   // console.log(`currentId`, currentId)
 
+  console.log(`post`, post)
+
   document.getElementById('title').value = post.title
   document.getElementById('slug').value = post.slug
   document.getElementById('author').value = post.author
@@ -61,7 +63,7 @@ async function openEditModal(id) {
   document.getElementById('article').value = post.article
   document.getElementById('createdat').value = post.createdAt
 
-  document.getElementById('postModalLabel').innerText = 'Editar Post'
+  document.getElementById('postModalLabel').innerText = 'Edit Post'
   postModal.show()
 }
 
