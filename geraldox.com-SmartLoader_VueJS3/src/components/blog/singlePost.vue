@@ -38,21 +38,24 @@ export default {
       })
     }
 
-    /* AUTO FETCH POSTS MARKDOWN */
+    /* FETCH POSTS MARKDOWN */
     if (useRoute.params.slug[0]) {
       fetch(`/src/components/posts_md/${useRoute.params.slug[0]}.md`)
         .then((res) => {
           if (!res.ok) {
-            throw new Error(`Erro na requisição: ${res.status}`)
+            throw new Error(`Erro na requisicao post md file: ${res.status}`)
           }
         })
         .then((md) => {
-          console.log('=>', md)
+          console.log('================>', md)
           content.value = marked.parse(md)
         })
     }
 
-    /* FETCH ALL POSTS */
+    /** FETCH ALL POSTS 
+     * @param - GET ALL POSTS, AND USE FIND TO GET THE CURRENT POST BY SLUG
+     * @param - DYNAMIC IMPORT COMPONENTS IF POST HAS component key
+    */
     async function fetchPost() {
       // fetch all posts
       const req = await fetch('/src/db/data.json')

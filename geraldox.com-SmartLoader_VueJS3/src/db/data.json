@@ -384,6 +384,18 @@
         "component": "vuejs3_export",
         "category": "developer",
         "pinned": ""
+      },
+      {
+        "id": 39,
+        "title": "VueJS3 Example setup",
+        "slug": "blogger-vuejs-setup",
+        "author": "geraldox",
+        "published": true,
+        "createdAt": "24/08/2025",
+        "article": "asad",
+        "component": "vuejs3_setup",
+        "category": "developer",
+        "pinned": ""
       }
     ]
   }

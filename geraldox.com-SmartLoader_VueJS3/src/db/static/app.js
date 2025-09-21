@@ -183,3 +183,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
     }
   })
 })
+
+// Ativa todos os tooltips da página
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+;[...tooltipTriggerList].map((el) => new bootstrap.Tooltip(el))
