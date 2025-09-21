@@ -4,7 +4,7 @@
     <figure>
       <img
         loading="lazy"
-        src="https://placehold.jp/30/161a49/ffffff/500x90.png?text=ads+here"
+        src="https://placehold.jp/30/161a49/ffffff/500x60.png?text=ads+here"
         alt="ads" />
     </figure>
   </section>
@@ -19,7 +19,7 @@ module.exports = {}
   /* background: #072757; */
   opacity: 1;
   max-width: 100%;
-  height: 90px;
+  height: 60px;
   margin: 8px auto;
   text-align: center;
   display: flex;
@@ -51,7 +51,7 @@ module.exports = {}
 /* desktop */
 @media screen and (min-width: 650px) {
   .ads {
-    margin: 15px;
+    margin: 8px;
     max-width: 80%;
   }
 }

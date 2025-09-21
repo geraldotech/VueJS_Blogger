@@ -13,9 +13,6 @@ const icon = {
 }
 
 const postsShow = ref([])
-
-const name = ref('Geraldo')
-
 const allprojects = ref([
   {
     name: 'GPX',
@@ -258,7 +255,7 @@ onMounted(() => {
 
     <!-- PROJECTS -->
     <section
-      id="projectsx"
+      id="projects"
       v-show="false"
       class="projects">
       <h1 class="heading after_title_section">Projetos</h1>

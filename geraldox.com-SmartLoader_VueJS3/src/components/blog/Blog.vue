@@ -150,7 +150,7 @@ watch(dynamicTitle, (newTitle) => {
             </option>
           </select>
         </div>
-        <h1>Threads:</h1>
+        <h1>threads:</h1>
         <!--  pinnedPost -->
         <section class="thread-item pinned">
           <p>
@@ -167,21 +167,23 @@ watch(dynamicTitle, (newTitle) => {
           </p>
 
           <!-- pinned array -->
-          <div
-            v-for="link in pinned"
-            :key="link.id">
-            <router-link :to="{ name: 'threads', params: { category: link.category ?? true, slug: link.slug ?? true } }">{{ link.title.slice(0, 30) + '...' }}</router-link>
-            <time>{{ link.createdAt }}</time>
-            <span class="cat">
-              Category:
-              <router-link
-                class="cats"
-                :to="{ name: 'category', params: { category: link.category ?? true } }"
-                >{{ link.category ? link.category.toUpperCase() : 'Uncategorized' }}
-              </router-link>
-            </span>
-            <hr />
-          </div>
+          <section class="list__pinned">
+            <div
+              v-for="link in pinned"
+              :key="link.id">
+              <router-link :to="{ name: 'threads', params: { category: link.category ?? true, slug: link.slug ?? true } }">{{ link.title.slice(0, 30) + '...' }}</router-link>
+              <time>{{ link.createdAt }}</time>
+              <span class="cat">
+                Category:
+                <router-link
+                  class="cats"
+                  :to="{ name: 'category', params: { category: link.category ?? true } }"
+                  >{{ link.category ? link.category.toUpperCase() : 'Uncategorized' }}
+                </router-link>
+              </span>
+              <hr />
+            </div>
+          </section>
         </section>
 
         <!-- pinned object
@@ -350,15 +352,21 @@ to remove grid just remove .grid class in multiple class on html
 .threads-container .thread-item {
   margin: 20px 0;
 }
+
 .threads-container.grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1.5rem;
   margin-block: 1rem;
-
+  padding: 0;
   & .thread-item {
     margin: 0;
   }
+}
+
+.pinned p {
+  margin-top: 0;
+  font-size: small;
 }
 
 /* 
@@ -366,6 +374,10 @@ remove:
 .thread-item   margin: 20px 0px;
 
 */
+
+section.list__pinned {
+    display: flex; gap: 1.2rem;
+}
 
 .limiter {
   display: flex;
@@ -433,8 +445,9 @@ svg {
   .list-all {
     display: flex;
     width: 100%;
-    padding: 10px 0;
+    max-width: 1500px;
     gap: 20px;
+    margin: 0 20px;
   }
   .list-all .threads {
     flex: 1 0 80%;

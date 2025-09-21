@@ -2,8 +2,8 @@
   <div class="sidebar">
     <section class="content">
       <!--   <p class="search"><Search /></p> -->
-      <h1>Sidebar</h1>
-      <h2>About this Site:</h2>
+      <h1>sidebar</h1>
+      <h3>About this Site:</h3>
       <p>In this space I will be sharing tech related content in the subjects of software development, Linux, containers, and also FrontEnd, which is one of my favorite hobbies.</p>
       <h3>Table of Contents</h3>
       <div class="map">
@@ -88,9 +88,6 @@ export default {
 .sidebar {
   margin-top: 15px;
 }
-.sidebar .content {
-  padding: 5px;
-}
 
 .sidebar .content p {
   margin-top: 5px;
@@ -114,10 +111,8 @@ h3 {
 
 .sidebar figure img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px 10px;
-  margin: 15px auto;
-  padding: 5px;
+  max-width: 300px;
+  border-radius: 10px 10px;  
 }
 
 .sidebar ul li {
@@ -181,7 +176,7 @@ h3 {
   .sidebar figure:has(img) {
     text-align: center;
     margin: auto;
-    max-width: 400px;
+    max-width: 300px;
   }
 }
 

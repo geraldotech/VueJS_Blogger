@@ -8,7 +8,7 @@ onMounted(() => {})
 </script>
 
 <template>
-  <div>
+  <div class="app__wrapper">
     <nav class="top-homepage">
       <li class="logo">
         <a href="/">GPX</a>
@@ -68,10 +68,34 @@ ul li,
 p {
   color: dodgerblue;
 }
-.top-homepage,
-.items_menu {
+.top-homepage {
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: #3e2773;
+  padding: 10px;
+}
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.items_menu {
+  display: flex;
+  flex-basis: 650px;
+  width: 100%;
+  justify-content: space-between;
+  & li {
+    list-style: none;
+    color: #000;
+  }
+  & li:hover{
+  color: #120f19;    
+  }
 }
 
 /* BLOGGER */
@@ -84,7 +108,6 @@ p {
   /*  font-size: 2.6rem; */
   margin-left: 1rem;
 }
-
 
 .single_post h2 {
   padding: 10px 0;
