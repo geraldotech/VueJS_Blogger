@@ -40,11 +40,14 @@ export default {
 
     /* FETCH POSTS MARKDOWN */
     if (useRoute.params.slug[0]) {
+      console.log(`useRoute.params.slug[0]`, useRoute.params.slug)
       fetch(`/src/components/posts_md/${useRoute.params.slug[0]}.md`)
         .then((res) => {
+          console.log(`res`, res)
           if (!res.ok) {
             throw new Error(`Erro na requisicao post md file: ${res.status}`)
           }
+          return res.text()
         })
         .then((md) => {
           console.log('================>', md)
