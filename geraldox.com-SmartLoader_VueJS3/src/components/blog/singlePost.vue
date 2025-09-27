@@ -43,7 +43,7 @@ export default {
       console.log(`useRoute.params.slug[0]`, useRoute.params.slug)
       fetch(`/src/components/posts_md/${useRoute.params.slug[0]}.md`)
         .then((res) => {
-          console.log(`res`, res)
+          //          console.log(`res`, res)
           if (!res.ok) {
             throw new Error(`Erro na requisicao post md file: ${res.status}`)
           }
@@ -55,10 +55,10 @@ export default {
         })
     }
 
-    /** FETCH ALL POSTS 
+    /** FETCH ALL POSTS
      * @param - GET ALL POSTS, AND USE FIND TO GET THE CURRENT POST BY SLUG
      * @param - DYNAMIC IMPORT COMPONENTS IF POST HAS component key
-    */
+     */
     async function fetchPost() {
       // fetch all posts
       const req = await fetch('/src/db/data.json')

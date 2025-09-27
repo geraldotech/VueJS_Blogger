@@ -1,31 +1,35 @@
 <template>
   <div class="whatsappApi">
-    <p>
-      Você sabia que o WhatsApp permite que você inicie conversas sem criar
-      contatos?
-    </p>
+    <p>Você sabia que o WhatsApp permite que você inicie conversas sem criar contatos?</p>
+
     <form>
       <label for="num">Número com DDD:</label>
-      <input type="number" v-model="userNumber" id="num" />
+      <input
+        type="text"
+        v-model="userNumber"
+        id="num" />
       <label for="tex">Mensagem inicial (opcional): </label>
-      <input type="text" v-model="userText" id="tex" />
+      <input
+        type="text"
+        v-model="userText" />
     </form>
-    <nav v-if="userNumber.length">
-      <a
-        class=""
-        :href="`https://api.whatsapp.com/send?phone=55${userNumber}&text=${userText}`"
-        target="_blank"
-        title="click to open"
-        >https://api.whatsapp.com/send?phone=55{{ userNumber }}&{{
-          userText
-        }}</a
-      >
+
+    <nav>
+      <p v-show="userNumber.length > 2">
+        <a
+          class="text-color"
+          :href="`https://api.whatsapp.com/send?phone=55${userNumber}&text=${userText}`"
+          target="_blank"
+          title="click to open"
+          >https://api.whatsapp.com/send?phone=55{{ userNumber }}&{{ userText }}</a
+        >
+      </p>
     </nav>
   </div>
 </template>
 
 <script>
-module.exports = {
+export default {
   data() {
     return {
       userNumber: '',
@@ -71,5 +75,9 @@ label {
 }
 .whatsappApi input:focus {
   border: 2px solid dodgerblue;
+}
+
+.whatsappApi a {
+  color: blue;
 }
 </style>

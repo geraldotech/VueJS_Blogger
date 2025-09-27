@@ -3,3 +3,9 @@
 - inicio: 29, Marh, 2025
 - continuação: 23, Aug, 2025
   - revisão de rotas e metodos
+
+
+# Features
+
+- auto load .vue components
+- auto load .md files
