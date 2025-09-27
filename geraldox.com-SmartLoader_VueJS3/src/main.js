@@ -40,5 +40,5 @@ window.onload = function () {
 
   // register component global
   app.component('MyComponentGlobal', MyComponentGlobal)
-  app.mount('#app')
+  app.mount('#vue')
 }

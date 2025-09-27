@@ -117,19 +117,25 @@ export default {
       getDynamicComponent()
     }
 
+    /**
+     * dynamic imports components
+     */
     function getDynamicComponent() {
-      const componentData = componentObject()
+      const isComponentAvaivable = componentExists()
 
-      if (componentData) {
-        dynamicComponent.value = Vue.defineAsyncComponent(() => loadModule(componentData.component, options)) // Load the component using your custom loader
-        dynamicImportStatus.value = componentData.status // dynamicImportStatus get status if component exists
+      if (isComponentAvaivable) {
+        dynamicComponent.value = Vue.defineAsyncComponent(() => loadModule(isComponentAvaivable.component, options)) // Load the component using your custom loader
+        dynamicImportStatus.value = isComponentAvaivable.status // dynamicImportStatus get status if component exists
       }
       /*  return {
         component: `/src/components/posts/${this.post.component}.vue`,
       } */
     }
-    // constructor component object for VueLoader
-    function componentObject() {
+
+    /**
+     * constructor component object for VueLoader
+     */
+    function componentExists() {
       const exists = `/src/components/posts/${post.value.component}.vue`
 
       if (exists) {
@@ -141,9 +147,52 @@ export default {
       return false
     }
 
-    onMounted(() => {
+    /* === docsify === */
+    const containerId = 'docsify-root'
+
+    function ensureCss(href) {
+      if (!document.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = href
+        document.head.appendChild(link)
+      }
+    }
+    /* === docsify === */
+    function loadScriptOnce(src) {
+      return new Promise((resolve, reject) => {
+        if (window.__docsifyLoaded) return resolve()
+        const s = document.createElement('script')
+        s.src = src
+        s.onload = () => {
+          window.__docsifyLoaded = true
+          resolve()
+        }
+        s.onerror = reject
+        document.body.appendChild(s)
+      })
+    }
+
+    onMounted(async () => {
       fetchPost()
       // console.log('=>>', useRoute.params.slug)
+
+      /* === docsify === */
+      // 1) CSS do tema
+      // ensureCss('//cdn.jsdelivr.net/npm/docsify/themes/vue.css')
+
+      // 2) Config precisa existir ANTES do script carregar
+      window.$docsify = {
+        el: `#${containerId}`,
+        // name: 'Minha Docs',
+        homepage: '/docs/README.md', // coloque seus .md em public/docs
+      }
+
+      // 3) Carrega script do Docsify (apenas uma vez)
+      await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
+
+      // 4) Garante rota inicial do Docsify
+      if (!location.hash) location.hash = '#/'
     })
 
     return {
@@ -213,11 +262,18 @@ export default {
           <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
           <component :is="post.component"></component>
 
-          <!-- v2 Dynamic Imports -->
+          <!-- dynamic imports components -->
           <component :is="dynamicComponent"></component>
 
           <!-- markdown files -->
           <div v-html="content"></div>
+
+          <!-- docsify md files -->
+          <div
+            data-app
+            id="docsify-root">
+            Please wait...
+          </div>
         </article>
         <div v-else>
           <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
@@ -237,6 +293,9 @@ export default {
 </template>
 
 <style>
+#docsify-root {
+  width: 200px;
+}
 article h1 {
   text-align: left;
   font-size: 1.5rem;
