@@ -8,4 +8,15 @@
 # Features
 
 - auto load .vue components
-- auto load .md files
+
+# New
+
+- VueJS 3 Composition API
+- auto load .md files with html e css - 2025 NEW BETA powered by marked library
+  - baseado na slug será realizado uma tentativa automatica 
+
+
+# Discontinuted
+
+- VueJS 2 DataOptions
+- WebCompoennt.js file for multiple posts

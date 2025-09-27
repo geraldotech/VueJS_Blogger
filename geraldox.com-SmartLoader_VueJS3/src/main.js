@@ -25,9 +25,7 @@ window.onload = function () {
       App: Vue.defineAsyncComponent(() => loadModule('./src/App.vue', options)),
     },
     setup() {
-      onMounted(() => {
-        
-      })
+      onMounted(() => {})
     },
     template: `<App/>`,
   })
