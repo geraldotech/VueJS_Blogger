@@ -173,6 +173,21 @@ export default {
       })
     }
 
+    // pega SOMENTE o último segmento do slug
+    function getSlugLastSegment() {
+      const slug = route.params?.slug
+      if (!slug) return '' // cai no README.md
+      if (Array.isArray(slug)) return slug.filter(Boolean).at(-1) || ''
+      return String(slug).split('/').filter(Boolean).pop() || ''
+    }
+
+    // empurra o Docsify pra rota desejada
+    function setDocByPath(path) {
+      const target = '#/' + (path || '') // docsify adiciona ".md"
+      if (location.hash !== target) location.hash = target
+      else if (window.$docsify?.router) window.$docsify.router.go(target)
+    }
+
     onMounted(async () => {
       fetchPost()
       // console.log('=>>', useRoute.params.slug)
@@ -185,14 +200,14 @@ export default {
       window.$docsify = {
         el: `#${containerId}`,
         // name: 'Minha Docs',
+        basePath: '/components/blog/posts_md/',
         homepage: '/docs/README.md', // coloque seus .md em public/docs
       }
 
       // 3) Carrega script do Docsify (apenas uma vez)
-      await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
+     // await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
 
-      // 4) Garante rota inicial do Docsify
-      if (!location.hash) location.hash = '#/'
+    //  setDocByPath(getSlugLastSegment())
     })
 
     return {
