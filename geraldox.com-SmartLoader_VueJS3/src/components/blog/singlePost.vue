@@ -40,7 +40,7 @@ export default {
 
     /* FETCH POSTS MARKDOWN */
     if (useRoute.params.slug[0]) {
-      console.log(`useRoute.params.slug[0]`, useRoute.params.slug)
+      console.log(`useRoute.params.slug[0] ${useRoute.params.slug}.md`)
       fetch(`/src/components/posts_md/${useRoute.params.slug[0]}.md`)
         .then((res) => {
           //          console.log(`res`, res)
@@ -50,7 +50,7 @@ export default {
           return res.text()
         })
         .then((md) => {
-          console.log('================>', md)
+          //  console.log('================>', md)
           content.value = marked.parse(md)
         })
     }
@@ -173,21 +173,6 @@ export default {
       })
     }
 
-    // pega SOMENTE o último segmento do slug
-    function getSlugLastSegment() {
-      const slug = route.params?.slug
-      if (!slug) return '' // cai no README.md
-      if (Array.isArray(slug)) return slug.filter(Boolean).at(-1) || ''
-      return String(slug).split('/').filter(Boolean).pop() || ''
-    }
-
-    // empurra o Docsify pra rota desejada
-    function setDocByPath(path) {
-      const target = '#/' + (path || '') // docsify adiciona ".md"
-      if (location.hash !== target) location.hash = target
-      else if (window.$docsify?.router) window.$docsify.router.go(target)
-    }
-
     onMounted(async () => {
       fetchPost()
       // console.log('=>>', useRoute.params.slug)
@@ -199,15 +184,13 @@ export default {
       // 2) Config precisa existir ANTES do script carregar
       window.$docsify = {
         el: `#${containerId}`,
-        // name: 'Minha Docs',
-        basePath: '/components/blog/posts_md/',
-        homepage: '/docs/README.md', // coloque seus .md em public/docs
+        basePath: '/src/components/blog/posts_md/',
+        loadSidebar: false,
+        homepage: 'README.md',
       }
 
       // 3) Carrega script do Docsify (apenas uma vez)
-     // await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
-
-    //  setDocByPath(getSlugLastSegment())
+      await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
     })
 
     return {
@@ -280,7 +263,7 @@ export default {
           <!-- dynamic imports components -->
           <component :is="dynamicComponent"></component>
 
-          <!-- markdown files -->
+          <!-- markdown files (only txt support) -->
           <div v-html="content"></div>
 
           <!-- docsify md files -->
@@ -311,6 +294,10 @@ export default {
 #docsify-root {
   width: 200px;
 }
+.sidebar-toggle{
+  display: none;
+}
+
 article h1 {
   text-align: left;
   font-size: 1.5rem;
