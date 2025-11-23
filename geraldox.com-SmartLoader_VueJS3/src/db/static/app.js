@@ -119,9 +119,18 @@ function slugExists(slugValue) {
   })
 }
 
+function getTodayFormatted() {
+  const today = new Date()
+  const month = String(today.getMonth() + 1).padStart(2, '0')
+  const day = String(today.getDate()).padStart(2, '0')
+  return `${today.getFullYear()}/${month}/${day}`
+}
+
 document.getElementById('postForm').addEventListener('submit', async (e) => {
   e.preventDefault()
   const id = document.getElementById('postId').value
+
+  const createdAt = document.getElementById('createdat').value || getTodayFormatted()
 
   const post = {
     title: document.getElementById('title').value,
@@ -131,9 +140,11 @@ document.getElementById('postForm').addEventListener('submit', async (e) => {
     component: document.getElementById('component').value,
     category: document.getElementById('category').value,
     article: document.getElementById('article').value,
-    createdAt: document.getElementById('createdat').value,
+    createdAt: createdAt,
     //  createdAt: new Date().toLocaleDateString('pt-BR'),
   }
+
+  //console.log(post)
 
   if (id) {
     await fetch(`${API_URL}/${id}`, {

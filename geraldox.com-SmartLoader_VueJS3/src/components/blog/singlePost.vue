@@ -211,7 +211,7 @@ export default {
     <div class="single_post">
       <main>
         <!--  <div><Searchlegacy v1 /></div> -->
-        <!--   <div><Searchauto v2 /></div> -->
+        <!--   <div><Searchauto v2 /></div> -->        
         <article v-if="post">
           <!-- card starts -->
           <div class="breadcrumbs">

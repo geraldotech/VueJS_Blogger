@@ -19,7 +19,7 @@
         "author": "geraldox",
         "published": true,
         "createdAt": "2025-09-01",
-        "article": "2JavaScript VueJS Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, rerum <div><figure><img class='img-flex' src='https://upload.wikimedia.org/wikipedia/en/c/cb/Revenge_boxart.jpg' alt='game' /><figcaption>Burnout 2005</figcaption></figure></div> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta eligendi, facere voluptatum non id atque temporibus hic fuga? Voluptas laudantium quisquam adipisci iure sint quam reprehenderit fugit animi ipsam ipsa qui saepe, perspiciatis voluptatibus aliquam vel assumenda earum accusantium laboriosam. Labore, et ipsa! Ratione vero delectus voluptatem exercitationem voluptatibus repellat dicta eos magni dolore placeat quos accusamus odio veritatis sed dolores assumenda, aut, hic esse, facere eius. Ipsam recusandae at laboriosam in ea dolore cum consequuntur facere dolores voluptatem, quisquam laudantium! Dicta quas ea dolorem minima, labore, beatae, consequuntur porro sed quia sapiente debitis aperiam esse doloremque voluptate assumenda rem.</p>",
+        "article": "JavaScript VueJS Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, rerum <div><figure><img class='img-flex' src='https://upload.wikimedia.org/wikipedia/en/c/cb/Revenge_boxart.jpg' alt='game' /><figcaption>Burnout 2005</figcaption></figure></div> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta eligendi, facere voluptatum non id atque temporibus hic fuga? Voluptas laudantium quisquam adipisci iure sint quam reprehenderit fugit animi ipsam ipsa qui saepe, perspiciatis voluptatibus aliquam vel assumenda earum accusantium laboriosam. Labore, et ipsa! Ratione vero delectus voluptatem exercitationem voluptatibus repellat dicta eos magni dolore placeat quos accusamus odio veritatis sed dolores assumenda, aut, hic esse, facere eius. Ipsam recusandae at laboriosam in ea dolore cum consequuntur facere dolores voluptatem, quisquam laudantium! Dicta quas ea dolorem minima, labore, beatae, consequuntur porro sed quia sapiente debitis aperiam esse doloremque voluptate assumenda rem.</p>",
         "category": "games",
         "component": "",
         "pinned": ""
@@ -379,7 +379,7 @@
         "slug": "blogger-vuejs-export",
         "author": "geraldox",
         "published": true,
-        "createdAt": "2025-08-24",
+        "createdAt": "2025-08-23",
         "article": "",
         "component": "vuejs3_export",
         "category": "developer",
