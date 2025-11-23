@@ -1,3 +1,67 @@
+<script>
+import { ref, onMounted, computed } from 'vue'
+
+export default {
+  props: {
+    v1: {
+      type: Boolean,
+    },
+  },
+  setup(props, { emit }) {
+    const userInput = ref([])
+    const blog = ref([])
+    const results = ref('')
+    const res = ref('')
+
+    const posts = async () => {
+      const req = await fetch('/src/db/data.json')
+      const res = await req.json()
+      blog.value = res.blog.posts
+    }
+
+    function search() {
+      //faz a busca, compara os valores em maiusculas
+      const busca = blog.value.filter((val) => val.title.toUpperCase().includes(userInput.value.toUpperCase()))
+      //console.warn(busca.length ? busca : "404");
+
+      results.value = busca
+      //busca.length ? (this.results = busca) : this.not == true;
+      if (!results.value.length) {
+        res.value = 'We are sorry, 404'
+      } else {
+        res.value = `Showing ${results.value.length} results for "${userInput.value}"`
+      }
+    }
+
+    function onClickSearch() {
+      
+      this.$router.push({
+        name: 'threads',
+        params: { category: ca, slug: sl },
+      })
+      /*  this.$router.go({
+        name: "threads",
+        params: { category: "android", slug: "post-one" },
+      }); */
+      // this.$router.go({ path: "/blog/android/post-one" });
+      this.$router.go({
+        name: 'threads',
+        params: { category: ca, slug: sl },
+      })
+    }
+
+    const findedResults = computed(() => {
+      return results.value.length > 0
+    })
+
+    onMounted(() => {
+      posts()
+    })
+
+    return { userInput, search, findedResults, onClickSearch, results }
+  },
+}
+</script>
 <template>
   <div class="search">
     <form @submit.prevent="search">
@@ -7,16 +71,23 @@
         v-model="userInput"
         placeholder="search for posts"
         required />
-      <input type="submit" value="Search" />
+      <input
+        type="submit"
+        value="Search" />
     </form>
     <!--  usar v-if with computed -->
-    <p class="resultsok" v-if="findedResults">
+    <p
+      class="resultsok"
+      v-if="findedResults">
       Encontrei {{ results.length }} para: `{{ userInput }}`
     </p>
 
     <p>{{ res }}</p>
 
-    <ul v-for="items in results" :key="items.id" class="results_links">
+    <ul
+      v-for="items in results"
+      :key="items.id"
+      class="results_links">
       <li v-show="v1">
         <router-link
           :to="{
@@ -27,76 +98,16 @@
         >
       </li>
       <li v-show="v2">
-        <button class="btnv2" @click="ClickSearch(items.category, items.slug)">
+        <button
+          class="btnv2"
+          @click="onClickSearch(items.category, items.slug)">
           {{ items.title }} - {{ items.data }}
         </button>
       </li>
     </ul>
   </div>
 </template>
-<script>
-module.exports = {
-  created() {
-    this.posts()
-  },
-  data() {
-    return {
-      userInput: '',
-      blog: [],
-      results: '',
-      res: '',
-    }
-  },
-  props: {
-    v1: Boolean, //for blog-list_posts
-    v2: Boolean, //inside blog_post
-  },
-  methods: {
-    async posts() {
-      const req = await fetch('/src/db/data.json')
-      const res = await req.json()
-      this.blog = res.blog.posts
-    },
-    search: function () {
-      //faz a busca, compara os valores em maiusculas
-      const busca = this.blog.filter((val) =>
-        val.title.toUpperCase().includes(this.userInput.toUpperCase())
-      )
-      //console.warn(busca.length ? busca : "404");
 
-      this.results = busca
-      //busca.length ? (this.results = busca) : this.not == true;
-      if (!this.results.length) {
-        this.res = 'We are sorry, 404'
-      } else {
-        this.res = `Showing ${this.results.length} results for "${this.userInput}"`
-      }
-    },
-    ClickSearch(ca, sl) {
-      this.$router.push({
-        name: 'threads',
-        params: { category: ca, slug: sl },
-      })
-      /*  this.$router.go({
-        name: "threads",
-        params: { category: "android", slug: "post-one" },
-      }); */
-      // this.$router.go({ path: "/blog/android/post-one" });
-
-      this.$router.go({
-        name: 'threads',
-        params: { category: ca, slug: sl },
-      })
-    },
-  },
-  computed: {
-    findedResults() {
-      return this.results.length > 0
-    },
-  },
-}
-</script>
-/* Global styles for this component */
 <style scoped>
 .search {
   border-bottom-width: 10%;

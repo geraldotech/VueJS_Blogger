@@ -13,7 +13,7 @@
 
 - VueJS 3 Composition API
 - auto load .md files with html e css - 2025 NEW BETA powered by marked library
-  - baseado na slug será realizado uma tentativa automatica 
+  - baseado na slug será realizado uma tentativa automatica de fetch para `\components\blog\posts_md`
 
 
 # Discontinuted

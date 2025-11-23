@@ -126,12 +126,10 @@ watch(dynamicTitle, (newTitle) => {
           <label for="showautoseach">Search Auto</label>
         </nav>
         <div v-show="showlegacy">
-          <Searchlegacy v1 />
         </div>
-        <div v-show="showautoseach">
-          <Searchauto v2 />
-        </div>
-
+        <div v-show="showautoseach"></div>
+          <Searchlegacy v1></Searchlegacy>
+         <!--  <Searchauto v2></Searchauto> -->
         <div
           class="map"
           v-show="false">
@@ -344,11 +342,7 @@ watch(dynamicTitle, (newTitle) => {
 .threads .cat {
   font-size: 0.7rem;
 }
-
-/* 
-to remove grid just remove .grid class in multiple class on html
-
-*/
+/* to remove grid just remove .grid class in multiple class on html */
 .threads-container .thread-item {
   margin: 20px 0;
 }

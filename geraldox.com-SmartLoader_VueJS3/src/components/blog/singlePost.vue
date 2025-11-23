@@ -1,4 +1,6 @@
 <script>
+// fazer fetch para posts markdown?
+const useMarkdownPosts = true
 import { onMounted, ref, watch } from 'vue'
 import Sidebar from '/src/components/blog/Sidebar.vue'
 export default {
@@ -18,7 +20,7 @@ export default {
     const categorias = ref('')
     const dynamicComponent = ref(null)
     const dynamicImportStatus = ref(null)
-    const content = ref([])
+    const contentMD = ref([])
 
     // Router
     const useRouter = VueRouter.useRouter()
@@ -39,9 +41,10 @@ export default {
     }
 
     /* FETCH POSTS MARKDOWN */
-    if (useRoute.params.slug[0]) {
-      console.log(`useRoute.params.slug[0] ${useRoute.params.slug}.md`)
-      fetch(`/src/components/posts_md/${useRoute.params.slug[0]}.md`)
+    if (useMarkdownPosts && useRoute.params.slug[0]) {
+      const fetchURL = `/src/components/posts_md/${useRoute.params.slug[0]}.md`
+      console.log(`fetch final`, fetchURL)
+      fetch(fetchURL)
         .then((res) => {
           //          console.log(`res`, res)
           if (!res.ok) {
@@ -51,7 +54,7 @@ export default {
         })
         .then((md) => {
           //  console.log('================>', md)
-          content.value = marked.parse(md)
+          contentMD.value = marked.parse(md)
         })
     }
 
@@ -174,23 +177,30 @@ export default {
     }
 
     onMounted(async () => {
+      /* === FETCH POST === */
       fetchPost()
-      // console.log('=>>', useRoute.params.slug)
 
-      /* === docsify === */
+      /* === FETCH docsify === */
       // 1) CSS do tema
-      // ensureCss('//cdn.jsdelivr.net/npm/docsify/themes/vue.css')
+      //('//cdn.jsdelivr.net/npm/docsify/themes/vue.css')
 
       // 2) Config precisa existir ANTES do script carregar
-      window.$docsify = {
+      /*      window.$docsify = {
         el: `#${containerId}`,
         basePath: '/src/components/blog/posts_md/',
         loadSidebar: false,
         homepage: 'README.md',
-      }
+      } */
 
       // 3) Carrega script do Docsify (apenas uma vez)
       await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
+
+      /* remove esse html que esta sendo adicionando de forma automatica pelo markdown */
+      if (useMarkdownPosts) {
+        setTimeout(() => {
+          document.querySelector('.markdown-section')?.remove()
+        }, 2000)
+      }
     })
 
     return {
@@ -200,7 +210,7 @@ export default {
       post,
       categorias,
       dynamicComponent,
-      content,
+      contentMD,
     }
   },
 }
@@ -211,7 +221,7 @@ export default {
     <div class="single_post">
       <main>
         <!--  <div><Searchlegacy v1 /></div> -->
-        <!--   <div><Searchauto v2 /></div> -->        
+        <!--   <div><Searchauto v2 /></div> -->
         <article v-if="post">
           <!-- card starts -->
           <div class="breadcrumbs">
@@ -264,14 +274,12 @@ export default {
           <component :is="dynamicComponent"></component>
 
           <!-- markdown files (only txt support) -->
-          <div v-html="content"></div>
+          <div v-html="contentMD"></div>
 
           <!-- docsify md files -->
           <div
             data-app
-            id="docsify-root">
-            Please wait...
-          </div>
+            id="docsify-root"></div>
         </article>
         <div v-else>
           <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
@@ -294,7 +302,7 @@ export default {
 #docsify-root {
   width: 200px;
 }
-.sidebar-toggle{
+.sidebar-toggle {
   display: none;
 }
 
