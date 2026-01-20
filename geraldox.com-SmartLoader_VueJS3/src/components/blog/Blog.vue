@@ -2,11 +2,11 @@
 import { onMounted, ref, watch } from 'vue'
 
 import Sidebar from '/src/components/blog/Sidebar.vue'
-import Searchlegacy from '/src/components/blog/Search.vue'
+import Searchlegacy from '/src/components/blog/Searchlegacy.vue'
 import Mapas from '/src/components/blog/mapa.vue'
 import Adsense from '/src/components/blog/Adsense.vue'
 /* component is broken layout*/
-/* import Searchauto from '/src/components/blog/SearchAuto.vue' */
+import Searchauto from '/src/components/blog/SearchAuto.vue'
 
 const useRouter = VueRouter.useRouter()
 
@@ -113,23 +113,14 @@ watch(dynamicTitle, (newTitle) => {
       <section class="threads">
         <nav
           class="legacy_searchs"
-          v-show="false">
-          <input
-            type="checkbox"
-            id="showlegacy"
-            v-model="showlegacy" />
-          <label for="showlegacy">Search Legacy</label>
-          <input
-            type="checkbox"
-            id="showautoseach"
-            v-model="showautoseach" />
-          <label for="showautoseach">Search Auto</label>
-        </nav>
-        <div v-show="showlegacy">
-        </div>
-        <div v-show="showautoseach"></div>
-          <Searchlegacy v1></Searchlegacy>
-         <!--  <Searchauto v2></Searchauto> -->
+          v-show="false"></nav>
+
+      <!--   <Searchlegacy v1></Searchlegacy>       -->
+
+       <!--  <p>1</p>
+        <Searchauto v1></Searchauto> -->
+        <Searchauto v2></Searchauto> <!-- 2 works -->
+
         <div
           class="map"
           v-show="false">

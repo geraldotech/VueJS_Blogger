@@ -6,6 +6,9 @@ export default {
     v1: {
       type: Boolean,
     },
+    v2: {
+      type: Boolean,
+    },
   },
   setup(props, { emit }) {
     const userInput = ref([])
@@ -58,7 +61,7 @@ export default {
       posts()
     })
 
-    return { userInput, search, findedResults, onClickSearch, results }
+    return { userInput, search, findedResults, onClickSearch, results, res }
   },
 }
 </script>

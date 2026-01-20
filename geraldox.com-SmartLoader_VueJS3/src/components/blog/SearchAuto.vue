@@ -14,8 +14,8 @@ defineProps({
 const blog = ref([])
 const userInput = ref('')
 const results = ref('')
-const autoResults = ref('')
-const Message = ref('')
+const autoResults = ref([])
+const message = ref('')
 
 async function posts() {
   const req = await fetch('/src/db/data.json')
@@ -27,43 +27,57 @@ function cleanInput() {
   userInput.value = ''
   autoResults.value = [] //  clean
 }
-function AutoSeach() {
-  // check input has values >1
-  if (userInput.value.length > 1) {
-    const Search = blog.value.filter((val) => val.title.toUpperCase().includes(userInput.value.toUpperCase()))
-    autoResults.value = Search
+/**
+ * @see DO SEARCH
+ * @author GeraldoDev
+ * @since Jan, 20, 2026
+ * @return posts published == true e que include o criterio de busca
+ * Fast filter for published posts whose titles include the current query
+ */
+function autoSearch() {
+  const userQuery = (userInput.value || '').trim()
+  if (userQuery.length <= 1) {
+    message.value = '' // clean
+    autoResults.value = [] //  clean
+    return
+  }
 
-    if (!autoResults.value.length) {
-      Message.value = 'Not Found'
-      autoResults.value = []
-    } else {
-      Message.value = ''
-    }
+  //  autoResults.value = blog.value.filter((val) => val.title.toUpperCase().includes(userInput.value.toUpperCase()) && val.published)
+
+  /**
+   * Hoist the normalized query once (const query = ...) instead of recalculating it for every item, so there’s less string work and fewer temporary objects.
+  
+   * Using a simple for loop plus a preallocated matches array is cheaper than filter because filter creates a new array internally and still runs through every item with a callback invocation per element.
+   * In your case the loop lets you short-circuit cheap checks (if (!post.published) continue) without additional callback overhead.
+   */
+  const query = userQuery.toUpperCase()
+  const matches = []
+
+  for (const post of blog.value) {
+    if (!post.published) continue
+    const title = (post.title || '').toUpperCase()
+    if (title.includes(query)) matches.push(post)
   }
-  // !this.userInput.length
-  if (!this.userInput.length) {
-    this.Message = '' // clean
-    this.autoResults = [] //  clean
-  }
-  /*  console.warn('input vazia?', !this.userInput.length) //true
-      console.warn('input igual a 0?', this.userInput.length == 0) //true
-      console.warn('input has  length a 0?', this.userInput.length) //true */
+
+  autoResults.value = matches
+  message.value = matches.length ? '' : 'Not Found'
 }
 
-onMounted(() => {posts()})
+onMounted(() => {
+  posts()
+})
 </script>
 <template>
   <div class="search">
     <!-- v1 starts -->
-        <!-- autosearch v1 for blog.vue -->
+    <!-- autosearch v1 for blog.vue -->
     <div
       v-show="v1"
       class="formparent">
-    <!--   <form
+      <form
         @submit.prevent="search"
-        @input="AutoSeach">
+        @input="autoSearch">
         <input
-          name=""
           type="text"
           v-model="userInput"
           placeholder="What do you need?"
@@ -73,12 +87,13 @@ onMounted(() => {posts()})
           @click="$emit('cancloseafterclick')"
           >X</span
         >
-        <p v-if="autoResults">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
-      </form> -->
+        <!-- addto -->
+        <p v-if="autoResults.length > 1">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
+      </form>
     </div>
 
-   <!-- in routerLink emit a event function to parent -->
-<!--     <ul
+    <!-- in routerLink emit a event function to parent -->
+   <ul
       v-show="v1"
       class="containerResults">
       <li
@@ -94,12 +109,11 @@ onMounted(() => {posts()})
             $emit('cancloseafterclick')
             cleanInput()
           ">
-       
           {{ autosearch.title.substring(0, 30) }}... - {{ autosearch.data }}
         </router-link>
       </li>
-      <h1>{{ Message }}</h1>
-    </ul> -->
+      <h1>{{ message }}</h1>
+    </ul> 
     <!-- v1 ends -->
 
     <!-- v2 starts -->
@@ -108,7 +122,7 @@ onMounted(() => {posts()})
       class="v2">
       <form
         @submit.prevent="search"
-        @input="AutoSeach">
+        @input="autoSearch">
         <input
           name=""
           type="text"
@@ -117,7 +131,7 @@ onMounted(() => {posts()})
           required />
 
         <!-- autosearch v1 for blog.vue -->
-        <p v-if="autoResults">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
+        <p v-if="autoResults.length">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
       </form>
 
       <ul>
@@ -131,11 +145,7 @@ onMounted(() => {posts()})
               name: 'threads',
               params: { category: autosearch.category, slug: autosearch.slug },
             }"
-            @click.native="
-              $emit('cancloseafterclick'),
-              cleanInput()
-            ">
-
+            @click.native="$emit('cancloseafterclick'), cleanInput()">
             <!-- 
               @click.native="
               $emit('cancloseafterclick')
@@ -146,7 +156,7 @@ onMounted(() => {posts()})
             {{ autosearch.title.substring(0, 20) }}... - {{ autosearch.data }}
           </router-link>
         </li>
-        <h1>{{ Message }}</h1>
+        <h1>{{ message }}</h1>
       </ul>
     </div>
     <!-- v2 ends -->

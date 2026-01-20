@@ -4,6 +4,8 @@ import MyHeader from '../src/components/Header.vue' */
 import { ref, watch, onMounted, defineComponent } from 'vue'
 const content = ref('')
 
+const clickCloseMenu = () => {}
+
 onMounted(() => {})
 </script>
 
