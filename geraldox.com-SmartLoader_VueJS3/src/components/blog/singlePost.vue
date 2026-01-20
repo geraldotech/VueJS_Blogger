@@ -1,17 +1,17 @@
 <script>
+import { onMounted, ref, watch } from 'vue'
+import sidebar from '/src/components/blog/Sidebar.vue'
+
 // make fetch para posts markdown?
 const useMarkdownPosts = true
-import { onMounted, ref, watch } from 'vue'
-import Sidebar from '/src/components/blog/Sidebar.vue'
 export default {
   name: 'singlePost',
   components: {
     /* === BLOG PARTIALS ===  */
-    Sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
-    Searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
-    Searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
-    Adsense: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Adsense.vue', options)),
-    Sidebar: Sidebar,
+    sidebarbottom: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SidebarBottom.vue', options)),
+    searchlegacy: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/Search.vue', options)),
+    searchauto: Vue.defineAsyncComponent(() => loadModule('/src/components/blog/SearchAuto.vue', options)),
+    sidebar: sidebar,
   },
 
   setup(props, { emit }) {
@@ -19,13 +19,10 @@ export default {
     const post = ref({})
     const categorias = ref('')
     const dynamicComponent = ref(null)
-    const dynamicImportStatus = ref(null)
     const contentMD = ref([])
-
-    // Router
-    const useRouter = VueRouter.useRouter()
-    // Route
-    const useRoute = VueRouter.useRoute()
+    
+    const useRouter = VueRouter.useRouter() // Router    
+    const useRoute = VueRouter.useRoute() // Route
 
     /* FUNCTIONS */
     // Emitting an event to the parent component
@@ -75,7 +72,6 @@ export default {
       metaInfoInject(getBlogPost.title)
 
       /* Dynamic Import Components */
-
       if (post.value.component) {
         getDynamicComponent()
       }
@@ -132,7 +128,7 @@ export default {
     }
 
     /**
-     * @SEE docsify
+     * @SEE docsify fetch
      */
     function loadScriptOnce(src) {
       return new Promise((resolve, reject) => {
@@ -153,18 +149,7 @@ export default {
       fetchPost()
 
       /* === FETCH docsify === */
-      // 1) CSS do tema
-      //('//cdn.jsdelivr.net/npm/docsify/themes/vue.css')
-
-      // 2) Config precisa existir ANTES do script carregar
-      /*      window.$docsify = {
-        el: `#${containerId}`,
-        basePath: '/src/components/blog/posts_md/',
-        loadSidebar: false,
-        homepage: 'README.md',
-      } */
-
-      // 3) Carrega script do Docsify (apenas uma vez)
+      // carrega script do Docsify (apenas uma vez)
       await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
 
       /* remove esse html que esta sendo adicionando de forma automatica pelo markdown */
@@ -189,11 +174,9 @@ export default {
 </script>
 <template>
   <div>
-    <!--  <Adsense></Adsense> -->
     <div class="single_post">
       <main>
-        <!--  <div><Searchlegacy v1 /></div> -->
-        <!--   <div><Searchauto v2 /></div> -->
+    
         <article v-if="post">
           <!-- card starts -->
           <div class="breadcrumbs">
@@ -219,8 +202,7 @@ export default {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
-                  fill="#05bdba">
-                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  fill="#05bdba">             
                   <path
                     d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
                 </svg>
@@ -239,7 +221,6 @@ export default {
             Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
             - setado um state DYNAMIC IMPORT SUCCESS? so native post.component is not rendered 
            -->
-          <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
           <!--   <component :is="post.component"></component> -->
 
           <!-- dynamic imports components -->
@@ -261,9 +242,9 @@ export default {
         <div v-if="$route.params.slug == 'speed-test'">
           <p>Hello post about speedTest</p>
         </div>
-        <Sidebarbottom :allposts="allPosts" />
+        <sidebarbottom :allposts="allPosts" />
       </main>
-      <Sidebar
+      <sidebar
         :categorias="categorias"
         @selectcategory="selectCategoryHandler" />
     </div>

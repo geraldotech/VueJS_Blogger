@@ -1,12 +1,12 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 
-import Sidebar from '/src/components/blog/Sidebar.vue'
-import Searchlegacy from '/src/components/blog/Searchlegacy.vue'
-import Mapas from '/src/components/blog/mapa.vue'
-import Adsense from '/src/components/blog/Adsense.vue'
+import sidebar from '/src/components/blog/Sidebar.vue'
+import searchlegacy from '/src/components/blog/Searchlegacy.vue'
+import mapas from '/src/components/blog/mapa.vue'
+import adsense from '/src/components/blog/Adsense.vue'
 /* component is broken layout*/
-import Searchauto from '/src/components/blog/SearchAuto.vue'
+import searchauto from '/src/components/blog/SearchAuto.vue'
 
 const useRouter = VueRouter.useRouter()
 
@@ -106,20 +106,16 @@ watch(dynamicTitle, (newTitle) => {
 
 <template>
   <div>
-    <Adsense></Adsense>
+    <adsense></adsense>
+    <searchauto v2></searchauto>
+    <!-- 2 works -->
     <div
       v-if="$route.name == 'Blog Posts'"
       class="list-all">
       <section class="threads">
         <nav
           class="legacy_searchs"
-          v-show="false"></nav>
-
-      <!--   <Searchlegacy v1></Searchlegacy>       -->
-
-       <!--  <p>1</p>
-        <Searchauto v1></Searchauto> -->
-        <Searchauto v2></Searchauto> <!-- 2 works -->
+          v-show="false"></nav>     
 
         <div
           class="map"
@@ -264,9 +260,9 @@ watch(dynamicTitle, (newTitle) => {
             {{ AllPosts.length == opt.length ? '❌Nothing more' : 'Show more' }}
           </button>
         </nav>
-      </section>
+      </section> 
 
-      <Sidebar
+      <sidebar
         :categorias="categorias"
         @selectcategory="selectCategoryHandler" />
     </div>
@@ -282,10 +278,6 @@ watch(dynamicTitle, (newTitle) => {
   margin-top: 20px;
   font-size: 1.7rem;
 }
-.threads {
-  /*  padding: 10px; */
-}
-
 .thread-item {
   line-height: 1.5rem;
   /* background: #222; */
