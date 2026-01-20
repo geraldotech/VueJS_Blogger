@@ -1,5 +1,5 @@
 <script>
-// fazer fetch para posts markdown?
+// make fetch para posts markdown?
 const useMarkdownPosts = true
 import { onMounted, ref, watch } from 'vue'
 import Sidebar from '/src/components/blog/Sidebar.vue'
@@ -43,7 +43,7 @@ export default {
     /* FETCH POSTS MARKDOWN */
     if (useMarkdownPosts && useRoute.params.slug[0]) {
       const fetchURL = `/src/components/posts_md/${useRoute.params.slug[0]}.md`
-      console.log(`fetch final`, fetchURL)
+      console.log(`fetch final useMarkdownPosts`, fetchURL)
       fetch(fetchURL)
         .then((res) => {
           //          console.log(`res`, res)
@@ -75,7 +75,10 @@ export default {
       metaInfoInject(getBlogPost.title)
 
       /* Dynamic Import Components */
-      checkComponentData()
+
+      if (post.value.component) {
+        getDynamicComponent()
+      }
 
       /* Sidebar props... */
       const getCatego = allPosts?.value.map((val) => val.category)
@@ -109,59 +112,28 @@ export default {
       }
     }
 
-    function checkComponentData() {
-      // se n tem return false
-      if (!post.value.component) {
-        return {
-          status: false,
-        }
-      }
-      // call dynamic
-      getDynamicComponent()
-    }
-
     /**
-     * dynamic imports components
+     * @see dynamic imports components
      */
     function getDynamicComponent() {
-      const isComponentAvaivable = componentExists()
-
-      if (isComponentAvaivable) {
-        dynamicComponent.value = Vue.defineAsyncComponent(() => loadModule(isComponentAvaivable.component, options)) // Load the component using your custom loader
-        dynamicImportStatus.value = isComponentAvaivable.status // dynamicImportStatus get status if component exists
-      }
-      /*  return {
-        component: `/src/components/posts/${this.post.component}.vue`,
-      } */
+      dynamicComponent.value = Vue.defineAsyncComponent(() => loadModule(`/src/components/posts/${post.value.component}.vue`, options))
     }
 
     /**
-     * constructor component object for VueLoader
+     * @see CHECK COMPONENT EXISTS BEFORE FETCH
      */
-    function componentExists() {
-      const exists = `/src/components/posts/${post.value.component}.vue`
-
-      if (exists) {
-        return {
-          component: `/src/components/posts/${post.value.component}.vue`,
-          status: true, // extra status because component exists
-        }
-      }
-      return false
+    function componentExists(component) {
+      return fetch(`/src/components/posts/${component}.vue`, {
+        method: 'HEAD',
+        cache: 'no-store',
+      })
+        .then((res) => res.ok)
+        .catch(() => false)
     }
 
-    /* === docsify === */
-    const containerId = 'docsify-root'
-
-    function ensureCss(href) {
-      if (!document.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = href
-        document.head.appendChild(link)
-      }
-    }
-    /* === docsify === */
+    /**
+     * @SEE docsify
+     */
     function loadScriptOnce(src) {
       return new Promise((resolve, reject) => {
         if (window.__docsifyLoaded) return resolve()
@@ -268,7 +240,7 @@ export default {
             - setado um state DYNAMIC IMPORT SUCCESS? so native post.component is not rendered 
            -->
           <!--   <h2>Is a Dynamic Component Import or manual import?{{ dynamicImportStatus ? 'Dynamic' : 'Not Dynamic' }}</h2> -->
-          <component :is="post.component"></component>
+          <!--   <component :is="post.component"></component> -->
 
           <!-- dynamic imports components -->
           <component :is="dynamicComponent"></component>

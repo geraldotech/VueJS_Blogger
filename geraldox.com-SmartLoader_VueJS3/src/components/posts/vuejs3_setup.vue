@@ -6,9 +6,9 @@ import Sidebar from '/src/components/blog/Sidebar.vue'
  usando setup no script é mais pratico ainda */
 const foo = ref(0)
 
-
-// variaveis injetaaas globalmente
+// lentado variaveis glovais
 const globais = inject('globais')
+console.log('globais', globais)
 
 function makeFetchRequest() {
   fetch('https://api-restful-json.vercel.app/entregasuporte')
@@ -54,10 +54,6 @@ const hello = () => {
 
 onMounted(() => {
   makeFetchRequest()
-
-// globais
-  console.log('globais', globais)
-
 })
 </script>
 <template>
@@ -84,10 +80,10 @@ onMounted(() => {
 
     <h2 @click="hello">hello</h2>
 
-    <h1>component Local</h1>
+    <h1>Local component</h1>
     <MyComponentLocal />
 
-    <h1>component global</h1>
+    <h1>global component</h1>
     <MyComponentGlobal />
 
     <h1>sidebar</h1>

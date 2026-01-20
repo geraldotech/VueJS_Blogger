@@ -1,12 +1,15 @@
 <script setup>
 /* import Foo from '../src/components/footer.vue'
 import MyHeader from '../src/components/Header.vue' */
-import { ref, watch, onMounted, defineComponent } from 'vue'
-const content = ref('')
-
+import { ref, watch, onMounted, defineComponent, provide } from 'vue'
 const clickCloseMenu = () => {}
 
-onMounted(() => {})
+//  injectando var globais
+const globais = {
+  apiUrl: 'https://minha.api',
+  tema: ref('dark'),
+}
+provide('globais', globais)
 </script>
 
 <template>
@@ -79,7 +82,6 @@ p {
   padding: 10px;
 }
 
-
 html,
 body {
   margin: 0;
@@ -95,8 +97,8 @@ body {
     list-style: none;
     color: #000;
   }
-  & li:hover{
-  color: #120f19;    
+  & li:hover {
+    color: #120f19;
   }
 }
 

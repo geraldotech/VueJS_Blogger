@@ -12,9 +12,6 @@ const title = ref(`Velocidade da conexão em KB /8 para encontrar a taxa de tran
       <article>
         <p>{{ title }}</p>
         <figure>
-          <img src="https://tm.ibxk.com.br/2023/07/12/12184831616476.jpg" />
-        </figure>
-        <figure>
           <img
             class="img-flex"
             src="https://img.ibxk.com.br/2023/07/14/kaspersky-14151807453341.jpg" />

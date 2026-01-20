@@ -30,14 +30,6 @@ window.onload = function () {
     template: `<App/>`,
   })
   app.use(router)
-
-  // injectando var globais
-  const globais = {
-    apiUrl: 'https://minha.api',
-    tema: ref('dark'),
-  }
-  app.provide('globais from main.js', globais)
-
   // register component global
   app.component('MyComponentGlobal', MyComponentGlobal)
   app.mount('#vue')
