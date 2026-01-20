@@ -1,11 +1,16 @@
 <script>
 /* VUEJS 3 components - usando export default + return {}*/
 import { onMounted, ref, watch } from 'vue'
+import sidebar from '/src/components/blog/Sidebar.vue'
 export default {
   name: 'vuejs3',
+  components: {
+    sidebar: sidebar,
+  },
   setup() {
     const foo = ref(0)
-    const title = "export default"
+    const title = 'export default'
+
     function makeFetchRequest() {
       fetch('https://api-restful-json.vercel.app/entregasuporte')
         .then((req) => {
@@ -42,7 +47,7 @@ export default {
       <button @click="foo++">click +</button>
     </div>
 
-    <h1>{{title}}</h1>
+    <h1>{{ title }}</h1>
     <figure v-if="foo <= 2">
       <img
         src="https://images.pexels.com/photos/14364551/pexels-photo-14364551.jpeg"
@@ -57,7 +62,10 @@ export default {
     <h1>cliques: {{ foo }}</h1>
     <h2 v-show="foo > 10">10KG de ração</h2>
 
-    <h2 @click="hello">hello</h2>
+    <h2 @click="hello">hello click me</h2>
+
+    <h1>sidebar</h1>
+    <sidebar />
   </div>
 </template>
 <style scoped>

@@ -78,7 +78,7 @@ onMounted(() => {
     <h1>cliques: {{ foo }}</h1>
     <h2 v-show="foo > 10">10KG de ração</h2>
 
-    <h2 @click="hello">hello</h2>
+    <h2 @click="hello">hello click me</h2>
 
     <h1>Local component</h1>
     <MyComponentLocal />
