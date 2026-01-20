@@ -88,13 +88,13 @@ onMounted(() => {
           >X</span
         >
         <!-- addto -->
-        <p v-if="autoResults.length">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
+        <p v-if="autoResults.length > 1">About: {{ autoResults.length }} results for: `{{ userInput }}`</p>
       </form>
     </div>
 
     <!-- in routerLink emit a event function to parent -->
-   <ul
-      v-show="v1 && autoResults.length"
+<!--     <ul
+      v-show="v1"
       class="containerResults">
       <li
         v-for="autosearch in autoResults"
