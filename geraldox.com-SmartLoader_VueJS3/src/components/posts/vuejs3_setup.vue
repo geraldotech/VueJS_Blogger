@@ -1,12 +1,12 @@
 <script setup>
+/* VUEJS 3 components usando setup no script (mais pratico) */
 import { ref, watch, onMounted, defineComponent, inject } from 'vue'
+import sidebar from '/src/components/blog/Sidebar.vue'
 
-import Sidebar from '/src/components/blog/Sidebar.vue'
-/* WELCOME TO VUEJS 3 components
- usando setup no script é mais pratico ainda */
 const foo = ref(0)
+const title = "setup script"
 
-// lentado variaveis glovais
+// lendo variaveis glovais
 const globais = inject('globais')
 console.log('globais', globais)
 
@@ -63,7 +63,7 @@ onMounted(() => {
       <button @click="foo++">click +</button>
     </div>
 
-    <h1>timeline</h1>
+    <h1>{{title}}</h1>
     <figure v-if="foo <= 2">
       <img
         src="https://images.pexels.com/photos/14364551/pexels-photo-14364551.jpeg"
@@ -87,7 +87,7 @@ onMounted(() => {
     <MyComponentGlobal />
 
     <h1>sidebar</h1>
-    <Sidebar />
+    <sidebar />
   </div>
 </template>
 <style scoped>

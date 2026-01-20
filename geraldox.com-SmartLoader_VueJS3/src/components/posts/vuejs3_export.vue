@@ -1,10 +1,11 @@
 <script>
-/* WELCOME TO VUEJS 3 components - usando export default*/
+/* VUEJS 3 components - usando export default + return {}*/
 import { onMounted, ref, watch } from 'vue'
 export default {
   name: 'vuejs3',
   setup() {
     const foo = ref(0)
+    const title = "export default"
     function makeFetchRequest() {
       fetch('https://api-restful-json.vercel.app/entregasuporte')
         .then((req) => {
@@ -30,7 +31,7 @@ export default {
       makeFetchRequest()
     })
 
-    return { hello, foo }
+    return { hello, foo, title }
   },
 }
 </script>
@@ -41,7 +42,7 @@ export default {
       <button @click="foo++">click +</button>
     </div>
 
-    <h1>timeline</h1>
+    <h1>{{title}}</h1>
     <figure v-if="foo <= 2">
       <img
         src="https://images.pexels.com/photos/14364551/pexels-photo-14364551.jpeg"

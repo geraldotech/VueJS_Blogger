@@ -21,7 +21,6 @@
 
 const { loadModule } = window['vue3-sfc-loader'] */
 
- 
 const options = {
   moduleCache: {
     vue: Vue,
@@ -37,11 +36,10 @@ const options = {
       }
 
       return {
-        getContentData: (asBinary) =>
-          asBinary ? res.arrayBuffer() : res.text(),
+        getContentData: (asBinary) => (asBinary ? res.arrayBuffer() : res.text()),
       }
     } catch (e) {
-   //   return null
+      return null
     }
   },
 
@@ -55,4 +53,3 @@ const options = {
 }
 
 const { loadModule } = window['vue3-sfc-loader']
- 

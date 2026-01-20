@@ -375,7 +375,7 @@
       },
       {
         "id": 38,
-        "title": "VueJS3 Example Export",
+        "title": "VueJS3 Example export default",
         "slug": "blogger-vuejs-export",
         "author": "geraldox",
         "published": true,
@@ -387,7 +387,7 @@
       },
       {
         "id": 39,
-        "title": "VueJS3 Example setup",
+        "title": "VueJS3 Example script setup",
         "slug": "blogger-vuejs-setup",
         "author": "geraldox",
         "published": true,
