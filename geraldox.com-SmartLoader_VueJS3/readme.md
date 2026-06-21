@@ -8,6 +8,7 @@
 # Features
 
 - auto load .vue components
+- auto load .md compoennts based on slug
 
 # New
 
