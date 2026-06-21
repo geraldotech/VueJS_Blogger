@@ -1,11 +1,10 @@
 <script>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, shallowRef } from 'vue'
 import sidebar from '/src/components/blog/Sidebar.vue'
-
 
 /**
  * SE HABILITADO FAZ FETCH DE COMPONENTS markdown BASEADO NA SLUG
- * @since January 20th, 2026 
+ * @since January 20th, 2026
  * @author Geraldo Filho
  */
 const useMarkdownPosts = true
@@ -23,10 +22,10 @@ export default {
     const allPosts = ref([])
     const post = ref({})
     const categorias = ref('')
-    const dynamicComponent = ref(null)
+    const dynamicComponent = shallowRef(null) // keep async component definition non-reactive to avoid Vue warning
     const contentMD = ref([])
-    
-    const useRouter = VueRouter.useRouter() // Router    
+
+    const useRouter = VueRouter.useRouter() // Router
     const useRoute = VueRouter.useRoute() // Route
 
     /* FUNCTIONS */
@@ -48,14 +47,12 @@ export default {
       console.log(`fetch final useMarkdownPosts`, fetchURL)
       fetch(fetchURL)
         .then((res) => {
-          //          console.log(`res`, res)
           if (!res.ok) {
             throw new Error(`Erro na requisicao post md file: ${res.status}`)
           }
           return res.text()
         })
         .then((md) => {
-          //  console.log('================>', md)
           contentMD.value = marked.parse(md)
         })
     }
@@ -182,7 +179,6 @@ export default {
   <div>
     <div class="single_post">
       <main>
-    
         <article v-if="post">
           <!-- card starts -->
           <div class="breadcrumbs">
@@ -208,7 +204,7 @@ export default {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
-                  fill="#05bdba">             
+                  fill="#05bdba">
                   <path
                     d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
                 </svg>
@@ -221,24 +217,11 @@ export default {
           <!-- render html from json -->
           <p v-html="post.article"></p>
 
-          <!-- render components -->
-          <!-- v1 se comentar vai quebrar o WebComponents.js e importacao de nomes, but se nao comentar duplica o content
-         
-            Duas Alternativas para TENTATIVA DE TRATAR O COMPOMENT DUPLICADO WHEN DYNAMIC IS TRUE
-            - setado um state DYNAMIC IMPORT SUCCESS? so native post.component is not rendered 
-           -->
-          <!--   <component :is="post.component"></component> -->
-
-          <!-- dynamic imports components -->
+          <!-- vue  dynamic  components -->
           <component :is="dynamicComponent"></component>
 
-          <!-- markdown files (only txt support) -->
+          <!-- markdown dynamic components (only txt support) -->
           <div v-html="contentMD"></div>
-
-          <!-- docsify md files -->
-          <div
-            data-app
-            id="docsify-root"></div>
         </article>
         <div v-else>
           <h4 class="notFound">Sorry! 404 error Post Not Found, or was removed!</h4>
