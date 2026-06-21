@@ -8,7 +8,7 @@ import sidebar from '/src/components/blog/Sidebar.vue'
  * @since January 20th, 2026 
  * @author Geraldo Filho
  */
-const useMarkdownPosts = false
+const useMarkdownPosts = true
 export default {
   name: 'singlePost',
   components: {
@@ -137,7 +137,9 @@ export default {
      */
     function loadScriptOnce(src) {
       return new Promise((resolve, reject) => {
-        if (window.__docsifyLoaded) return resolve()
+        const docsifyRoot = document.getElementById('docsify-root')
+        if (!docsifyRoot) return resolve()
+        if (window.__docsifyLoaded || document.querySelector(`script[src="${src}"]`)) return resolve()
         const s = document.createElement('script')
         s.src = src
         s.onload = () => {
@@ -154,7 +156,6 @@ export default {
       fetchPost()
 
       /* === FETCH docsify === */
-      // carrega script do Docsify (apenas uma vez)
       await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
 
       /* remove esse html que esta sendo adicionando de forma automatica pelo markdown */

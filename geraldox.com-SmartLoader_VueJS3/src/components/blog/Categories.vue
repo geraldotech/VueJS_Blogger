@@ -45,7 +45,7 @@ onMounted(() => {
       <li
         v-for="(artigos, index) in opt"
         :key="artigos.id">
-        <router-link :to="{ name: 'threads', params: { slug: artigos.slug } }">{{ index + 1 }} - {{ artigos.title }}</router-link>
+        <router-link :to="{ name: 'threads', params: { category: artigos.category, slug: artigos.slug } }">{{ index + 1 }} - {{ artigos.title }}</router-link>
         <!--   <router-link :to="`/blog/${artigos.category}/${artigos.slug}`">{{
           artigos.slug
         }}</router-link> -->
