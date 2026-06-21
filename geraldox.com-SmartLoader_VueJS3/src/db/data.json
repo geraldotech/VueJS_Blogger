@@ -88,17 +88,6 @@
         "category": "network"
       },
       {
-        "id": 10,
-        "title": "SmartLoader JS Components",
-        "slug": "smartloader-js-components",
-        "author": "geraldox",
-        "published": true,
-        "createdAt": "2023-07-15",
-        "article": "SmartLoader JS Components...",
-        "component": "mydell",
-        "category": "network"
-      },
-      {
         "id": 11,
         "title": "Calcular tempo de download",
         "slug": "calcular-tempo-download",
@@ -391,7 +380,7 @@
         "slug": "blogger-vuejs-setup",
         "author": "geraldox",
         "published": true,
-        "createdAt": "24/08/2025",
+        "createdAt": "2026/06/20",
         "article": "",
         "component": "vuejs3_setup",
         "category": "developer",

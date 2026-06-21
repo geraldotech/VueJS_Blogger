@@ -1,5 +1,5 @@
 <script>
-import { onMounted, ref, shallowRef } from 'vue'
+import { onMounted, ref, shallowRef, watch } from 'vue'
 import sidebar from '/src/components/blog/Sidebar.vue'
 
 /**
@@ -41,20 +41,33 @@ export default {
       })
     }
 
-    /* FETCH POSTS MARKDOWN BASEADO NO SLUG  */
-    if (useMarkdownPosts && useRoute.params.slug[0]) {
-      const fetchURL = `/src/components/posts_md/${useRoute.params.slug[0]}.md`
-      console.log(`fetch final useMarkdownPosts`, fetchURL)
-      fetch(fetchURL)
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error(`Erro na requisicao post md file: ${res.status}`)
-          }
-          return res.text()
-        })
-        .then((md) => {
-          contentMD.value = marked.parse(md)
-        })
+    function getSlugValue() {
+      const { slug } = useRoute.params
+      return Array.isArray(slug) ? slug.join('/') : slug
+    }
+
+    async function fetchMarkdownPost() {
+      contentMD.value = []
+
+      if (!useMarkdownPosts) {
+        return
+      }
+
+      const slugValue = getSlugValue()
+      if (!slugValue) {
+        return
+      }
+
+      const fetchURL = `/src/components/posts_md/${slugValue}.md`
+    //  console.log(`fetch final useMarkdownPosts`, fetchURL)
+      const res = await fetch(fetchURL)
+      if (!res.ok) {
+        if (res.status === 404) return
+        throw new Error(`Erro na requisicao post md file: ${res.status}`)
+      }
+
+      const md = await res.text()
+      contentMD.value = marked.parse(md)
     }
 
     /** FETCH ALL POSTS
@@ -67,14 +80,16 @@ export default {
       const data = await req.json()
       allPosts.value = data.blog.posts
       // fnid a slug atual e verifica se esta plublicada
-      const getBlogPost = allPosts.value.find((post) => post.slug == useRoute.params.slug && post.published)
+      const currentSlug = getSlugValue()
+      const getBlogPost = allPosts.value.find((post) => post.slug == currentSlug && post.published)
       post.value = getBlogPost
 
       /* Dynamic apply metaInfo */
       metaInfoInject(getBlogPost.title)
 
       /* Dynamic Import Components */
-      if (post.value.component) {
+      dynamicComponent.value = null
+      if (post.value?.component) {
         getDynamicComponent()
       }
 
@@ -150,7 +165,8 @@ export default {
 
     onMounted(async () => {
       /* === FETCH POST === */
-      fetchPost()
+      await fetchPost()
+      await fetchMarkdownPost()
 
       /* === FETCH docsify === */
       await loadScriptOnce('//cdn.jsdelivr.net/npm/docsify@4')
@@ -162,6 +178,14 @@ export default {
         }, 2000)
       }
     })
+
+    watch(
+      () => useRoute.fullPath,
+      async () => {
+        await fetchPost()
+        await fetchMarkdownPost()
+      }
+    )
 
     return {
       emitEvent,

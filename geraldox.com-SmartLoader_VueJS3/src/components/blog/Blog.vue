@@ -355,6 +355,7 @@ remove:
 section.list__pinned {
   display: flex;
   gap: 1.2rem;
+  flex-wrap: wrap;
 }
 
 .limiter {
@@ -422,13 +423,16 @@ svg {
 @media screen and (min-width: 650px) {
   .list-all {
     display: flex;
-    width: 100%;
-    max-width: 1500px;
     gap: 20px;
-    margin: 0 20px;
+    align-items: flex-start;
   }
   .list-all .threads {
-    flex: 1 0 80%;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .list-all > .sidebar {
+    flex: 0 0 320px;
+    max-width: 320px;
   }
 
   .limiter {

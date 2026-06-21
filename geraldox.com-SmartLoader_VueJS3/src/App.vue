@@ -56,6 +56,12 @@ provide('globais', globais)
 </template>
 
 <style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   color-scheme: dark;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -103,9 +109,52 @@ body {
 }
 
 /* BLOGGER */
+.single_post,
+.list-all {
+  width: min(100%, 1500px);
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
 .single_post {
   display: flex;
   /* margin: 5px 15px; */ /* margin do body posts, now get margin from .main parent */
+}
+.single_post main,
+.list-all .threads {
+  min-width: 0;
+}
+
+.single_post article,
+.list-all .threads {
+  width: 100%;
+}
+
+.single_post article img,
+.single_post article video,
+.single_post article iframe,
+.single_post article table,
+.single_post article pre,
+.single_post article code {
+  max-width: 100%;
+}
+
+.single_post article pre {
+  overflow-x: auto;
+}
+
+.single_post article p,
+.single_post article li,
+.single_post article h1,
+.single_post article h2,
+.single_post article h3,
+.single_post article h4 {
+  overflow-wrap: anywhere;
+}
+
+.single_post > .sidebar,
+.list-all > .sidebar {
+  width: 100%;
 }
 .article:first-letter,
 .single_post article > p:first-letter {
@@ -127,16 +176,18 @@ body {
     display: flex;
     margin-top: 10px;
     gap: 20px;
+    align-items: flex-start;
   }
   /* controla largura */
   .single_post main {
-    flex: 1 0 80%;
+    flex: 1 1 auto;
+  }
+  .single_post > .sidebar {
+    flex: 0 0 320px;
+    max-width: 320px;
   }
   article h1 {
     font-size: 2em;
-  }
-  .single_post {
-    margin: 0; /* margin do body posts */
   }
 }
 </style>
