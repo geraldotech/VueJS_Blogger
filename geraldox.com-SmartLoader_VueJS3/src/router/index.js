@@ -8,11 +8,6 @@ const categories = () => loadModule('/src/components/blog/Categories.vue', optio
 const singlePost = () => loadModule('/src/components/blog/singlePost.vue', options)
 const notFound = { template: "<h1 style='color:red'>Not Found</h1>" }
 
-// from https://github.com/FranckFreiburger/vue3-sfc-loader/discussions/172
-function load(path) {
-  return window['vue3-sfc-loader'].loadModule(path, options)
-}
-
 const routes = [
   { path: '/', component: home },
 
@@ -58,7 +53,7 @@ const router = VueRouter.createRouter({
   //importe para criar o: #/
   history: VueRouter.createWebHashHistory(),
   //history: VueRouter.createWebHistory(), // remove !# porém bugou carregar componentes.vue
-  routes
+  routes,
 })
 
 export default router
