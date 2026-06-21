@@ -2,8 +2,13 @@
 import { onMounted, ref, watch } from 'vue'
 import sidebar from '/src/components/blog/Sidebar.vue'
 
-// make fetch para posts markdown?
-const useMarkdownPosts = true
+
+/**
+ * SE HABILITADO FAZ FETCH DE COMPONENTS markdown BASEADO NA SLUG
+ * @since January 20th, 2026 
+ * @author Geraldo Filho
+ */
+const useMarkdownPosts = false
 export default {
   name: 'singlePost',
   components: {
@@ -37,7 +42,7 @@ export default {
       })
     }
 
-    /* FETCH POSTS MARKDOWN */
+    /* FETCH POSTS MARKDOWN BASEADO NO SLUG  */
     if (useMarkdownPosts && useRoute.params.slug[0]) {
       const fetchURL = `/src/components/posts_md/${useRoute.params.slug[0]}.md`
       console.log(`fetch final useMarkdownPosts`, fetchURL)
