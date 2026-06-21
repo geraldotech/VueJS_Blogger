@@ -143,17 +143,6 @@
         "category": "linux"
       },
       {
-        "id": 16,
-        "title": "Desativar Modo Turbo Intel",
-        "slug": "disable-intel-turbo",
-        "author": "geraldox",
-        "published": true,
-        "createdAt": "2023-08-06",
-        "article": "",
-        "component": "intel-boost",
-        "category": "windows"
-      },
-      {
         "id": 17,
         "title": "Set Wallpaper per Monitor [Windows 11]",
         "slug": "set-wallpaper-per-monitor-windows-11",
